@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /deals/
+RewriteBase /turnt-octo-wallhack/
 
 # Protect application and system files from being viewed when the index.php is missing
 RewriteCond $1 ^(application|system|private|logs)
