@@ -40,6 +40,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 #custom constants
 define('DOC_ROOT',	$_SERVER["DOCUMENT_ROOT"]."/deals/");
 define('ADMIN',	'admin');
+define('DEAL_USER',	'deal_user');
 
 
 /* End of file constants.php */

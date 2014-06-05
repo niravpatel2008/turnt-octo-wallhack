@@ -14,11 +14,15 @@ class common_model extends CI_Model{
 	| general function to get result by passing nesessary parameters
 	|
 	*/
-	public function selectData($table, $fields='*', $where, $order_by="", $order_type="", $group_by="", $limit="")
+	public function selectData($table, $fields='*', $where, $order_by="", $order_type="", $group_by="", $limit="", $rows="", $type='')
 	{
 		$this->db->select($fields);
 		$this->db->from($table);
-		$this->db->where($where);
+		if ($where != "") {
+			$this->db->where($where);
+		}	
+
+		
 	
 		if ($order_by != '') {
 			$this->db->order_by($order_by,$order_type);
@@ -28,12 +32,26 @@ class common_model extends CI_Model{
 			$this->db->group_by($group_by);
 		}
 
-		if ($limit > 0) {
+		if ($limit > 0 && $rows == "") {
 			$this->db->limit($limit);
+		}	
+		if ($rows > 0) {
+			$this->db->limit($rows, $limit);
 		}
+	
 		
 		$query = $this->db->get();
-		return $data=$query->result();
+		
+		if ($type == "rowcount") {
+			$data = $query->num_rows();
+		}else{
+			$data = $query->result();
+		}
+
+		#echo "<pre>"; print_r($this->db->queries); exit;
+		$query->free_result();
+
+		return $data;
 	}
 
 
