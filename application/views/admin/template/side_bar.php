@@ -10,7 +10,7 @@
             <div class="pull-left info">
                 <p>Hello, <?php echo $this->user_session['uname'];?></p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
             </div>
         </div>
         <!-- search form -->
@@ -26,8 +26,11 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index.html">
+                <a href="<?=admin_path()."dashboard"?>">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+                <a href="<?=admin_path()."users"?>">
+                    <i class="fa fa-dashboard"></i> <span>Users</span>
                 </a>
             </li>
             

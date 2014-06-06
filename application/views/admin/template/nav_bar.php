@@ -17,29 +17,29 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
+                        <!-- <li class="dropdown messages-menu">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-envelope"></i>
                                 <span class="label label-success">4</span>
                             </a>
                             
-                        </li>
+                        </li> -->
                         <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
+                        <!-- <li class="dropdown notifications-menu">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-warning"></i>
                                 <span class="label label-warning">10</span>
                             </a>
                            
-                        </li>
+                        </li> -->
                         <!-- Tasks: style can be found in dropdown.less -->
-                        <li class="dropdown tasks-menu">
+                        <!-- <li class="dropdown tasks-menu">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-tasks"></i>
                                 <span class="label label-danger">9</span>
                             </a>
                             
-                        </li>
+                        </li> -->
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -49,7 +49,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img alt="User Image" class="img-circle" src="img/avatar3.png">
+                                    <!-- <img alt="User Image" class="img-circle" src="img/avatar3.png"> -->
                                     <p>
                                         <?=$this->user_session['uname']?> - Admin
                                         <small>Member since <?=date("M. Y", strtotime($this->user_session['create_date']))?></small>

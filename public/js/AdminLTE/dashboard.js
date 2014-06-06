@@ -209,7 +209,7 @@ $(function() {
 
     /* Morris.js Charts */
     // Sales chart
-    var area = new Morris.Area({
+  /*  var area = new Morris.Area({
         element: 'revenue-chart',
         resize: true,
         data: [
@@ -229,9 +229,9 @@ $(function() {
         labels: ['Item 1', 'Item 2'],
         lineColors: ['#a0d0e0', '#3c8dbc'],
         hideHover: 'auto'
-    });
+    });*/
     //Donut Chart
-    var donut = new Morris.Donut({
+   /* var donut = new Morris.Donut({
         element: 'sales-chart',
         resize: true,
         colors: ["#3c8dbc", "#f56954", "#00a65a"],
@@ -266,10 +266,10 @@ $(function() {
         area.redraw();
         donut.redraw();
     });
-
+*/
 
     /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
-    $("#loading-example").boxRefresh({
+ /*   $("#loading-example").boxRefresh({
         source: "ajax/dashboard-boxrefresh-demo.php",
         onLoadDone: function(box) {
             bar = new Morris.Bar({
@@ -291,7 +291,7 @@ $(function() {
                 hideHover: 'auto'
             });
         }
-    });
+    });*/
 
     /* The todo list plugin */
     $(".todo-list").todolist({

@@ -1,5 +1,5 @@
 	<!-- jQuery 2.0.2 -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="<?=public_path()?>js/jquery.2.0.2.min.js"></script>
     <!-- jQuery UI 1.10.3 -->
     <script src="<?=public_path()?>js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
     <!-- Bootstrap -->
@@ -23,6 +23,21 @@
     <!-- iCheck -->
     <script src="<?=public_path()?>js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
+    
+    <script type="text/javascript">
+        function admin_path () {
+            return '<?=admin_path()?>';
+        }
+    </script>
+
+    <?php
+        if ($this->router->fetch_class() == "users") {
+    ?>
+    <script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
+    <?php
+        }
+    ?>
+
     <!-- AdminLTE App -->
     <script src="<?=public_path()?>js/AdminLTE/app.js" type="text/javascript"></script>
     
@@ -31,5 +46,7 @@
     
     <!-- AdminLTE for demo purposes -->
     <script src="<?=public_path()?>js/AdminLTE/demo.js" type="text/javascript"></script>
+
+
     </body>
 </html>
