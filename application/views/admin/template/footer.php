@@ -18,6 +18,8 @@
     <script src="<?=public_path()?>js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
     <!-- daterangepicker -->
     <script src="<?=public_path()?>js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="<?=public_path()?>js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="<?=public_path()?>js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
     <!-- Bootstrap WYSIHTML5 -->
     <script src="<?=public_path()?>js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
     <!-- iCheck -->
@@ -30,13 +32,12 @@
         }
     </script>
 
-    <?php
-        if ($this->router->fetch_class() == "users") {
-    ?>
-    <script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
-    <?php
-        }
-    ?>
+    <?php if ($this->router->fetch_class() == "users") { ?>
+		<script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
+    <?php } ?>
+	<?php if ($this->router->fetch_class() == "category") { ?>
+		<script src="<?=public_path()?>js/admin/category/index.js" type="text/javascript"></script>
+    <?php } ?>
 
     <!-- AdminLTE App -->
     <script src="<?=public_path()?>js/AdminLTE/app.js" type="text/javascript"></script>

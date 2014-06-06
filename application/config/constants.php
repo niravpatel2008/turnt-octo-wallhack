@@ -41,6 +41,14 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('DOC_ROOT',	$_SERVER["DOCUMENT_ROOT"]."/deals/");
 define('ADMIN',	'admin');
 define('DEAL_USER',	'deal_user');
+define('DEAL_CATEGORY',	'deal_category');
+define('DEAL_DEALER',	'deal_dealer');
+define('DEAL_BUYOUT',	'deal_buyout');
+define('DEAL_DETAIL',	'deal_detail');
+define('DEAL_FAV',	'deal_fav');
+define('DEAL_LINKS',	'deal_links');
+define('DEAL_MAP_TAGS',	'deal_map_tags');
+define('DEAL_TAGS',	'deal_tags');
 
 
 /* End of file constants.php */
