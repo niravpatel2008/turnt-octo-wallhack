@@ -11,5 +11,5 @@ function load_result(url) {
 
 $(document).ready(function() {
 	//calling the function 
-	load_result(admin_path ()+'users/ajax_list/');
+	load_result(admin_path ()+'category/ajax_list/');
 });

@@ -32,6 +32,9 @@
                 <a href="<?=admin_path()."users"?>">
                     <i class="fa fa-dashboard"></i> <span>Users</span>
                 </a>
+				<a href="<?=admin_path()."category"?>">
+                    <i class="fa fa-dashboard"></i> <span>Category</span>
+                </a>
             </li>
             
         </ul>
