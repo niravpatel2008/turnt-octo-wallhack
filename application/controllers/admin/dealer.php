@@ -70,7 +70,7 @@ class Dealer extends CI_Controller {
 				$ret_user = $this->common_model->insertData(DEAL_DEALER, $data);
 				
 				if ($ret_user > 0) {
-					$data['flash_msg'] = success_msg_box('Category added successfully.');
+					$data['flash_msg'] = success_msg_box('Dealer added successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
 				}
@@ -78,7 +78,7 @@ class Dealer extends CI_Controller {
 			$data['error_msg'] = $error;
 		}
 		$data['view'] = "add_edit";
-		$data['users'] = $this->common_model->selectData('deal_user', 'du_autoid,du_uname,du_email', array('du_role' => 'd'));
+		$data['users'] = $this->common_model->selectData(DEAL_USER, 'du_autoid,du_uname,du_email', array('du_role' => 'd'));
 		$this->load->view('admin/content', $data);
 	}
 }

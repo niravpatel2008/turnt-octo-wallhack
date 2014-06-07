@@ -27,16 +27,21 @@ class Deal extends CI_Controller {
 			array( 'db' => 'dd_originalprice',  'dt' => 2 ),
 			array( 'db' => 'dd_discount',  'dt' => 3 ),
 			array( 'db' => 'dd_listprice',  'dt' => 4 ),
-			array( 'db' => 'dd_expiredate',  'dt' => 5 ),
-			array( 'db' => 'dd_status',  'dt' => 6 ),
-
 			array(
 				'db'        => 'dd_createdate',
-				'dt'        => 7,
+				'dt'        => 5,
 				'formatter' => function( $d, $row ) {
 					return date( 'jS M y', strtotime($d));
 				}
-			)
+			),
+			array(
+				'db'        => 'dd_expiredate',
+				'dt'        => 6,
+				'formatter' => function( $d, $row ) {
+					return date( 'jS M y', strtotime($d));
+				}
+			),
+			array( 'db' => 'dd_status',  'dt' => 7 ),
 		);
 		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ) );exit;
 	}
@@ -59,21 +64,35 @@ class Deal extends CI_Controller {
 			}
 
 			if ($e_flag == 0) {
-				$data = array('dc_catname' => $post['dc_catname'],
-								'dc_catdetails' => $post['dc_catdetails'],
-								'dc_createdate' => date('Y-m-d H:i:s'),
-							);
-				$ret_user = $this->common_model->insertData(DEAL_CATEGORY, $data);
+				$data = array(
+					'dd_dealerid'=> $post['dd_dealerid'],
+					'dd_catid'=> $post['dd_catid'],
+					'dd_name'=> $post['dd_name'],
+					'dd_createdby'=> $post['dd_createdby'], // logged in user's id
+					'dd_createdate'=> $post['dd_createdate'], // need to add in add form
+					'dd_description'=> $post['dd_description'],
+					'dd_discount'=> $post['dd_discount'],
+					'dd_expiredate'=> $post['dd_expiredate'],
+					'dd_listprice'=> $post['dd_listprice'],
+					'dd_originalprice'=> $post['dd_originalprice'],
+					'dd_mainphoto'=> $post['dd_mainphoto'],
+					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
+					'dd_status'=> $post['dd_status']
+					);
+				
+				$ret_user = $this->common_model->insertData(DEAL_DEAL, $data);
 				
 				if ($ret_user > 0) {
-					$data['flash_msg'] = success_msg_box('Category added successfully.');
+					$data['flash_msg'] = success_msg_box('Deal added successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
 				}
-			}	
+			}
 			$data['error_msg'] = $error;
 		}
 		$data['view'] = "add_edit";
+		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email',"");
+		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname',"");
 		$this->load->view('admin/content', $data);
 	}
 }
