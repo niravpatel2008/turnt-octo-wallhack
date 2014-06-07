@@ -19,20 +19,23 @@ class Users extends CI_Controller {
 
 	public function ajax_list($limit=0)
 	{
-		$config = array();
-		$config["base_url"] = admin_path() . "users/ajax_list/";
-		$config["total_rows"] = $this->common_model->selectData(DEAL_USER, '*', '', "", "", "", "", "", 'rowcount');
-		$config['per_page'] = 1;
-		$this->pagination->initialize($config);
-		$data['cur_page'] = $limit;
-		$data['pagination_link'] = $this->pagination->create_links($limit);
-		$data['pfooterTxt'] = $this->pagination->get_number_part();
-
-		$data["result"] = $this->common_model->selectData(DEAL_USER, '*', '', "", "", "", $limit, $config["per_page"]);
-
-
-		$data['view'] = "list";
-		$this->load->view('admin/ajax_content', $data);
+		$this->load->helper('datatable_helper');
+		$post = $this->input->post();
+		$columns = array();
+		$columns = array(
+			array( 'db' => 'du_uname', 'dt' => 0 ),
+			array( 'db' => 'du_role',  'dt' => 1 ),
+			array( 'db' => 'du_contact',  'dt' => 2 ),
+			array( 'db' => 'du_email',  'dt' => 3 ),
+			array(
+				'db'        => 'du_createdate',
+				'dt'        => 4,
+				'formatter' => function( $d, $row ) {
+					return date( 'jS M y', strtotime($d));
+				}
+			)
+		);
+		echo json_encode( SSP::simple( $post, DEAL_USER, "du_autoid", $columns ) );exit;
 	}
 
 	public function add()

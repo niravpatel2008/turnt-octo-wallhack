@@ -1755,6 +1755,8 @@ Component: timeline
   color: #666;
   border-color: #ddd;
   border-bottom-color: #ddd;
+  position:relative;
+  z-index:1;
 }
 .btn.btn-default:hover,
 .btn.btn-default:active,
