@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Category extends CI_Controller {
 
 	function __construct(){
@@ -19,20 +18,21 @@ class Category extends CI_Controller {
 
 	public function ajax_list($limit=0)
 	{
-		$config = array();
-		$config["base_url"] = admin_path() . "category/ajax_list/";
-		$config["total_rows"] = $this->common_model->selectData(DEAL_CATEGORY, '*', '', "", "", "", "", "", 'rowcount');
-		$config['per_page'] = 1;
-		$this->pagination->initialize($config);
-		$data['cur_page'] = $limit;
-		$data['pagination_link'] = $this->pagination->create_links($limit);
-		$data['pfooterTxt'] = $this->pagination->get_number_part();
-
-		$data["result"] = $this->common_model->selectData(DEAL_CATEGORY, '*', '', "", "", "", $limit, $config["per_page"]);
-
-
-		$data['view'] = "list";
-		$this->load->view('admin/ajax_content', $data);
+		$this->load->helper('datatable_helper');
+		$post = $this->input->post();
+		$columns = array();
+		$columns = array(
+			array( 'db' => 'dc_catname', 'dt' => 0 ),
+			array( 'db' => 'dc_catdetails',  'dt' => 1 ),
+			array(
+				'db'        => 'dc_createdate',
+				'dt'        => 2,
+				'formatter' => function( $d, $row ) {
+					return date( 'jS M y', strtotime($d));
+				}
+			)
+		);
+		echo json_encode( SSP::simple( $post, DEAL_CATEGORY, "dc_catid", $columns ) );exit;
 	}
 
 	public function add()

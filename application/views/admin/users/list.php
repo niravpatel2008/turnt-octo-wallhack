@@ -6,7 +6,7 @@
 		<h3 class="box-title">User list</h3>                                    
 	</div><!-- /.box-header -->
 	<div class="box-body table-responsive">
-		<table id="categoryTable" class="table table-bordered table-striped">
+		<table id="userTable" class="table table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Name</th>
