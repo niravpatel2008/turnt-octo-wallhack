@@ -32,8 +32,14 @@
                 <a href="<?=admin_path()."users"?>">
                     <i class="fa fa-dashboard"></i> <span>Users</span>
                 </a>
+				<a href="<?=admin_path()."dealer"?>">
+                    <i class="fa fa-dashboard"></i> <span>Dealer</span>
+                </a>
 				<a href="<?=admin_path()."category"?>">
                     <i class="fa fa-dashboard"></i> <span>Category</span>
+                </a>
+				<a href="<?=admin_path()."deal"?>">
+                    <i class="fa fa-dashboard"></i> <span>Deal</span>
                 </a>
             </li>
             
