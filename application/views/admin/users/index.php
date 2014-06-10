@@ -26,6 +26,7 @@
 									<th>Contact</th>
 									<th>Email</th>
 									<th>Created At</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -35,6 +36,7 @@
 									<th>Contact</th>
 									<th>Email</th>
 									<th>Created At</th>
+									<th>Action</th>
 								</tr>
 							</tfoot>
 						</table>

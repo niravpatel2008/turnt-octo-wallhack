@@ -1,7 +1,9 @@
 <section class="content-header">
     <h1>
         Users
-         <small>Add User</small>
+        <small>
+            <?=($this->router->fetch_method() == 'add')?'Add User':'Edit User'?>            
+        </small>
     </h1>
     <?php
 		$this->load->view(ADMIN."/template/bread_crumb");
@@ -28,7 +30,7 @@
                             } 
                         ?>
                         <label>User Name:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="user_name" id="user_name">
+                        <input type="text" placeholder="Enter ..." class="form-control" name="user_name" id="user_name" value="<?=$user[0]->du_uname?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['email'] != '')?'has-error':'' ?>">
                         <?php
@@ -39,11 +41,11 @@
                             } 
                         ?>
                         <label for="email">Email address:</label>
-                        <input type="email" placeholder="Enter email" id="email" class="form-control" name="email">
+                        <input type="email" placeholder="Enter email" id="email" class="form-control" name="email" value="<?=$user[0]->du_email?>" >
                     </div>
                     <div class="form-group">
                         <label>Contact:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="contact" id="contact">
+                        <input type="text" placeholder="Enter ..." class="form-control" name="contact" id="contact" value="<?=$user[0]->du_contact?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['role'] != '')?'has-error':'' ?>">
                         <?php
@@ -56,8 +58,9 @@
                         <label>Role</label>
                         <select class="form-control" name="role" id="role">
                             <option value="">Select</option>
-                            <option value="m">Moderator</option>
-                            <option value="u">User</option>
+                            <option value="a" <?=($user[0]->du_role == 'a')?'selected':''?> >Admin</option>
+                            <option value="m" <?=($user[0]->du_role == 'm')?'selected':''?> >Moderator</option>
+                            <option value="u" <?=($user[0]->du_role == 'u')?'selected':''?> >User</option>
                         </select>
                     </div>
                     <div class="form-group">
