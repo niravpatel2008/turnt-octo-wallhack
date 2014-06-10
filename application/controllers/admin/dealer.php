@@ -38,7 +38,13 @@ class Dealer extends CI_Controller {
 				'formatter' => function( $d, $row ) {
 					return date( 'jS M y', strtotime($d));
 				}
-			)
+			),
+			array( 'db' => 'de_autoid',  
+					'dt' => 11,
+					'formatter' => function( $d, $row ) {
+						return '<a href="'.site_url('/admin/category/dealer/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/dealer/delete/'.$d).'" class="fa fa-trash-o"></a>';
+					}
+			),
 		);
 		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "de_autoid", $columns ) );exit;
 	}
