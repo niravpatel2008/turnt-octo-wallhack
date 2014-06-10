@@ -30,7 +30,13 @@ class Category extends CI_Controller {
 				'formatter' => function( $d, $row ) {
 					return date( 'jS M y', strtotime($d));
 				}
-			)
+			),
+			array( 'db' => 'dc_catid',  
+					'dt' => 3,
+					'formatter' => function( $d, $row ) {
+						return '<a href="'.site_url('/admin/category/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/category/delete/'.$d).'" class="fa fa-trash-o"></a>';
+					}
+			),
 		);
 		echo json_encode( SSP::simple( $post, DEAL_CATEGORY, "dc_catid", $columns ) );exit;
 	}

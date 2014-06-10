@@ -42,6 +42,12 @@ class Deal extends CI_Controller {
 				}
 			),
 			array( 'db' => 'dd_status',  'dt' => 7 ),
+			array( 'db' => 'dc_autoid',  
+					'dt' => 7,
+					'formatter' => function( $d, $row ) {
+						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/category/deal/'.$d).'" class="fa fa-trash-o"></a>';
+					}
+			),
 		);
 		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ) );exit;
 	}

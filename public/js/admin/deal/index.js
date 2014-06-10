@@ -6,5 +6,11 @@ $(document).ready(function() {
 			"url": admin_path ()+'deal/ajax_list/',
 			"type": "POST"
 		},
+		aoColumnDefs: [
+		  {
+			 bSortable: false,
+			 aTargets: [ -1 ]
+		  }
+		]
 	} );
 } );

@@ -29,6 +29,7 @@
 									<th>Date</th>
 									<th>Exp. Date</th>
 									<th>Status</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -41,6 +42,7 @@
 									<th>Date</th>
 									<th>Exp. Date</th>
 									<th>Status</th>
+									<th>Action</th>
 								</tr>
 							</tfoot>
 						</table>

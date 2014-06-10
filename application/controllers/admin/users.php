@@ -33,7 +33,12 @@ class Users extends CI_Controller {
 						return date( 'jS M y', strtotime($d));
 					}
 			),
-			array( 'db' => 'du_autoid',  'dt' => 5 ),
+			array( 'db' => 'du_autoid',  
+					'dt' => 5,
+					'formatter' => function( $d, $row ) {
+						return '<a href="'.site_url('/admin/users/edit/'.$d).'" class="fa fa-edit"></a> <a href="'.site_url('/admin/users/delete/'.$d).'" class="fa fa-trash-o"></a>';
+					}
+			),
 		);
 		echo json_encode( SSP::simple( $post, DEAL_USER, "du_autoid", $columns ) );exit;
 	}

@@ -33,6 +33,7 @@
 									<th>Long</th>
 									<th>Url</th>
 									<th>Date</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -49,6 +50,7 @@
 									<th>Long</th>
 									<th>Url</th>
 									<th>Date</th>
+									<th>Action</th>
 								</tr>
 							</tfoot>
 						</table>
