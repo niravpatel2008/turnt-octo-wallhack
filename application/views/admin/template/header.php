@@ -11,7 +11,7 @@
         <!-- Ionicons -->
         <link href="<?=public_path()?>css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Morris chart -->
-        <link href="<?=public_path()?>css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!--  link href="<?=public_path()?>css/morris/morris.css" rel="stylesheet" type="text/css" /-->
         <!-- jvectormap -->
         <link href="<?=public_path()?>css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <!-- fullCalendar -->
@@ -22,9 +22,13 @@
         <link href="<?=public_path()?>css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- bootstrap wysihtml5 - text editor -->
         <link href="<?=public_path()?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+		<?php if ($this->router->fetch_class() == "deal") { ?>
+			<link href="<?=public_path()?>css/tagedit/jquery.tagedit.css" rel="stylesheet" type="text/css" />
+		<?php } ?>
+
         <!-- Theme style -->
         <link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

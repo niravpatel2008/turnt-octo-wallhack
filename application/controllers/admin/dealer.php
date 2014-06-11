@@ -22,31 +22,33 @@ class Dealer extends CI_Controller {
 		$post = $this->input->post();
 		$columns = array();
 		$columns = array(
-			array( 'db' => 'de_name', 'dt' => 0 ),
-			array( 'db' => 'de_contact', 'dt' => 1 ),
-			array( 'db' => 'de_email', 'dt' => 2 ),
-			array( 'db' => 'de_address',  'dt' => 3 ),
-			array( 'db' => 'de_city',  'dt' => 4 ),
-			array( 'db' => 'de_state',  'dt' => 5 ),
-			array( 'db' => 'de_zip',  'dt' => 6 ),
-			array( 'db' => 'de_lat',  'dt' => 7 ),
-			array( 'db' => 'de_long',  'dt' => 8 ),
-			array( 'db' => 'de_url',  'dt' => 9 ),
+			array( 'db' => 'du_uname', 'dt' => 0 ),
+			array( 'db' => 'de_name', 'dt' => 1 ),
+			array( 'db' => 'de_contact', 'dt' => 2 ),
+			array( 'db' => 'de_email', 'dt' => 3 ),
+			array( 'db' => 'de_address',  'dt' => 4 ),
+			array( 'db' => 'de_city',  'dt' => 5 ),
+			array( 'db' => 'de_state',  'dt' => 6 ),
+			array( 'db' => 'de_zip',  'dt' => 7 ),
+			array( 'db' => 'de_lat',  'dt' => 8 ),
+			array( 'db' => 'de_long',  'dt' => 9 ),
+			array( 'db' => 'de_url',  'dt' => 10 ),
 			array(
 				'db'        => 'de_createdate',
-				'dt'        => 10,
+				'dt'        => 11,
 				'formatter' => function( $d, $row ) {
 					return date( 'jS M y', strtotime($d));
 				}
 			),
 			array( 'db' => 'de_autoid',  
-					'dt' => 11,
+					'dt' => 12,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/category/dealer/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/dealer/delete/'.$d).'" class="fa fa-trash-o"></a>';
+						return '<a href="'.site_url('/admin/dealer/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/dealer/delete/'.$d).'" class="fa fa-trash-o"></a>';
 					}
 			),
 		);
-		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "de_autoid", $columns ) );exit;
+		$join1 = array(DEAL_USER,'du_autoid = de_userid');
+		echo json_encode( SSP::simple( $post, DEAL_DEALER, "de_autoid", $columns ,array($join1) ) );exit;
 	}
 
 	public function add()
