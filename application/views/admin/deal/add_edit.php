@@ -115,6 +115,31 @@
                         <label for="dd_mainphoto">Main Photo:</label>
                         <input placeholder="Enter Address" id="dd_mainphoto" class="form-control" name="dd_mainphoto">
                     </div>
+					<div class="form-group <?=(@$error_msg['dd_timeperiod'] != '')?'has-error':'' ?>">
+                        <?php
+                            if(@$error_msg['dd_timeperiod'] != ''){
+                        ?>
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_timeperiod']?></label><br/>    
+                        <?php        
+                            } 
+                        ?>
+                        <label for="dd_timeperiod">Start & End Time:</label>
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+	                        <input placeholder="Enter Address" id="dd_timeperiod" class="form-control" name="dd_timeperiod">
+						</div>
+                    </div>
+					<div class="form-group <?=(@$error_msg['dd_tags'] != '')?'has-error':'' ?>">
+                        <?php
+                            if(@$error_msg['dd_tags'] != ''){
+                        ?>
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_tags']?></label><br/>    
+                        <?php        
+                            } 
+                        ?>
+                        <label for="dd_tags">Tags:</label>
+                        <input placeholder="Enter Tags" class="form-control dd_tags" value="" name="dd_tags[]">
+                    </div>
                     <div class="form-group <?=(@$error_msg['dd_status'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_status'] != ''){
