@@ -19,7 +19,6 @@ class Users extends CI_Controller {
 
 	public function ajax_list($limit=0)
 	{
-		$this->load->helper('datatable_helper');
 		$post = $this->input->post();
 		
 		$columns = array(
@@ -75,9 +74,9 @@ class Users extends CI_Controller {
 								'du_email' => $post['email'],
 								'du_createdate' => date('Y-m-d H:i:s')
 							);
-				$ret_user = $this->common_model->insertData(DEAL_USER, $data);
+				$ret = $this->common_model->insertData(DEAL_USER, $data);
 				
-				if ($ret_user > 0) {
+				if ($ret > 0) {
 					$data['flash_msg'] = success_msg_box('User added successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
@@ -128,9 +127,9 @@ class Users extends CI_Controller {
 								'du_contact' => $post['contact'],
 								'du_email' => $post['email']
 							);
-				$ret_user = $this->common_model->updateData(DEAL_USER, $data, $where);
+				$ret = $this->common_model->updateData(DEAL_USER, $data, $where);
 				
-				if ($ret_user > 0) {
+				if ($ret > 0) {
 					$data['flash_msg'] = success_msg_box('User updated successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
@@ -138,10 +137,27 @@ class Users extends CI_Controller {
 			}	
 			$data['error_msg'] = $error;
 		}
-		$data['user'] = $this->common_model->selectData(DEAL_USER, '*', $where);
+		$data['user'] = $user = $this->common_model->selectData(DEAL_USER, '*', $where);
+		
+		if (empty($user)) {
+			redirect('admin/users');
+		}
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
 	}
 
 
+	public function delete()
+	{
+		$post = $this->input->post();
+		
+		if ($post) {
+			$ret = $this->common_model->deleteData(DEAL_USER, array('du_autoid' => $post['id'] ));
+			if ($ret > 0) {
+				echo success_msg_box('User deleted successfully.');;
+			}else{
+				echo error_msg_box('An error occurred while processing.');
+			}
+		}
+	}
 }

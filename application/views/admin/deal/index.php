@@ -18,7 +18,7 @@
 						<h3 class="box-title">Deal list</h3>                                    
 					</div><!-- /.box-header -->
 					<div class="box-body table-responsive">
-						<table id="dealerTable" class="table table-bordered table-striped">
+						<table id="dealTable" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>Name</th>

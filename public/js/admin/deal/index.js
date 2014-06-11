@@ -13,4 +13,12 @@ $(document).ready(function() {
 		  }
 		]
 	} );
+
+	/*$( "#dd_expiredate" ).datepicker({
+      showOn: "button",
+      //buttonImage: "images/calendar.gif",
+      buttonImageOnly: true
+    });*/
+
+
 } );
