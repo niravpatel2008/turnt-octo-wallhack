@@ -30,7 +30,7 @@
                             } 
                         ?>
                         <label>User Name:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="user_name" id="user_name" value="<?=$user[0]->du_uname?>" >
+                        <input type="text" placeholder="Enter ..." class="form-control" name="user_name" id="user_name" value="<?=@$user[0]->du_uname?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['email'] != '')?'has-error':'' ?>">
                         <?php
@@ -41,11 +41,11 @@
                             } 
                         ?>
                         <label for="email">Email address:</label>
-                        <input type="email" placeholder="Enter email" id="email" class="form-control" name="email" value="<?=$user[0]->du_email?>" >
+                        <input type="email" placeholder="Enter email" id="email" class="form-control" name="email" value="<?=@$user[0]->du_email?>" >
                     </div>
                     <div class="form-group">
                         <label>Contact:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="contact" id="contact" value="<?=$user[0]->du_contact?>" >
+                        <input type="text" placeholder="Enter ..." class="form-control" name="contact" id="contact" value="<?=@$user[0]->du_contact?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['role'] != '')?'has-error':'' ?>">
                         <?php
@@ -58,10 +58,10 @@
                         <label>Role</label>
                         <select class="form-control" name="role" id="role">
                             <option value="">Select</option>
-                            <option value="a" <?=($user[0]->du_role == 'a')?'selected':''?> >Admin</option>
-                            <option value="m" <?=($user[0]->du_role == 'm')?'selected':''?> >Moderator</option>
-                            <option value="d" <?=($user[0]->du_role == 'd')?'selected':''?> >Dealer</option>
-                            <option value="u" <?=($user[0]->du_role == 'u')?'selected':''?> >User</option>
+                            <option value="a" <?=(@$user[0]->du_role == 'a')?'selected':''?> >Admin</option>
+                            <option value="m" <?=(@$user[0]->du_role == 'm')?'selected':''?> >Moderator</option>
+                            <option value="d" <?=(@$user[0]->du_role == 'd')?'selected':''?> >Dealer</option>
+                            <option value="u" <?=(@$user[0]->du_role == 'u')?'selected':''?> >User</option>
                         </select>
                     </div>
                     <div class="form-group">

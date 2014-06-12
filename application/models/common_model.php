@@ -14,7 +14,7 @@ class common_model extends CI_Model{
 	| general function to get result by passing nesessary parameters
 	|
 	*/
-	public function selectData($table, $fields='*', $where, $order_by="", $order_type="", $group_by="", $limit="", $rows="", $type='')
+	public function selectData($table, $fields='*', $where='', $order_by="", $order_type="", $group_by="", $limit="", $rows="", $type='')
 	{
 		$this->db->select($fields);
 		$this->db->from($table);

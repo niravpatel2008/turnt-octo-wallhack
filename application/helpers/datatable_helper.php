@@ -18,7 +18,7 @@ class SSP {
 					$row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
 				}
 			}
-
+	
 			$out[] = $row;
 		}
 
@@ -204,6 +204,7 @@ class SSP {
 		}
 
 		$query = $model->db->get();
+
 		$recordsFiltered = $query->num_rows();
 		$data = $query->result_array();
 		$query->free_result();
@@ -214,6 +215,7 @@ class SSP {
 		$recordsTotal = $query->num_rows();
 		$query->free_result();
 		
+
 		return array(
 			"draw"            => intval( $request['draw'] ),
 			"recordsTotal"    => intval( $recordsTotal ),

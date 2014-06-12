@@ -18,7 +18,6 @@ class Category extends CI_Controller {
 
 	public function ajax_list($limit=0)
 	{
-		$this->load->helper('datatable_helper');
 		$post = $this->input->post();
 		$columns = array();
 		$columns = array(
@@ -60,12 +59,11 @@ class Category extends CI_Controller {
 
 			if ($e_flag == 0) {
 				$data = array('dc_catname' => $post['dc_catname'],
-								'dc_catdetails' => $post['dc_catdetails'],
-								'dc_createdate' => date('Y-m-d H:i:s'),
+								'dc_catdetails' => $post['dc_catdetails']
 							);
-				$ret_user = $this->common_model->insertData(DEAL_CATEGORY, $data);
+				$ret = $this->common_model->insertData(DEAL_CATEGORY, $data);
 				
-				if ($ret_user > 0) {
+				if ($ret > 0) {
 					$data['flash_msg'] = success_msg_box('Category added successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
@@ -75,6 +73,70 @@ class Category extends CI_Controller {
 		}
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
+	}
+
+
+	public function edit($id)
+	{
+		if ($id == "" || $id <= 0) {
+			redirect('admin/category');
+		}
+
+		$where = 'dc_catid = '.$id;
+		
+		$post = $this->input->post();
+		if ($post) {
+
+			$error = array();
+			$e_flag=0;
+
+			if(trim($post['dc_catname']) == ''){
+				$error['dc_catname'] = 'Please enter category name.';
+				$e_flag=1;
+			}
+			if(trim($post['dc_catdetails']) == ''){
+				$error['dc_catdetails'] = 'Please enter category detail.';
+				$e_flag=1;
+			}
+
+			if ($e_flag == 0) {
+				$data = array('dc_catname' => $post['dc_catname'],
+								'dc_catdetails' => $post['dc_catdetails']
+							);
+				$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
+				
+				if ($ret > 0) {
+					$data['flash_msg'] = success_msg_box('Category updated successfully.');
+				}else{
+					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+				}
+			}	
+			$data['error_msg'] = $error;
+
+		}
+
+		$data['category'] = $category = $this->common_model->selectData(DEAL_CATEGORY, '*', $where);
+		
+		if (empty($category)) {
+			redirect('admin/category');
+		}
+		$data['view'] = "add_edit";
+		$this->load->view('admin/content', $data);
+	}
+
+
+	public function delete()
+	{
+		$post = $this->input->post();
+		
+		if ($post) {
+			$ret = $this->common_model->deleteData(DEAL_CATEGORY, array('dc_catid' => $post['id'] ));
+			if ($ret > 0) {
+				echo success_msg_box('Category deleted successfully.');;
+			}else{
+				echo error_msg_box('An error occurred while processing.');
+			}
+		}
 	}
 
 

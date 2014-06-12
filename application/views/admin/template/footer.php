@@ -35,7 +35,8 @@
     <?php if ($this->router->fetch_class() == "users") { ?>
 		<script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
     <?php } ?>
-	<?php if ($this->router->fetch_class() == "category") { ?>
+	
+    <?php if ($this->router->fetch_class() == "category") { ?>
 		<script src="<?=public_path()?>js/admin/category/index.js" type="text/javascript"></script>
     <?php } ?>
 	<?php if ($this->router->fetch_class() == "dealer") { ?>
@@ -47,6 +48,14 @@
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.tagedit.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/admin/deal/index.js" type="text/javascript"></script>
+    <?php } ?>
+
+    <?php if ($this->router->fetch_class() == "dealer") { ?>
+        <script src="<?=public_path()?>js/admin/dealer/index.js" type="text/javascript"></script>
+    <?php } ?>
+
+    <?php if ($this->router->fetch_class() == "deal") { ?>
+        <script src="<?=public_path()?>js/admin/deal/index.js" type="text/javascript"></script>
     <?php } ?>
 
     <!-- AdminLTE App -->

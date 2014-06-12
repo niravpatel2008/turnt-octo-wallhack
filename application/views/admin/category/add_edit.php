@@ -1,7 +1,7 @@
 <section class="content-header">
     <h1>
         Category
-         <small>Add Category</small>
+        <small> <?=($this->router->fetch_method() == 'add')?'Add Category':'Edit Category'?></small>
     </h1>
     <?php
 		$this->load->view(ADMIN."/template/bread_crumb");
@@ -28,7 +28,7 @@
                             } 
                         ?>
                         <label>Category Name:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="dc_catname" id="dc_catname">
+                        <input type="text" placeholder="Enter ..." class="form-control" name="dc_catname" id="dc_catname" value="<?=@$category[0]->dc_catname?>" >
                     </div>
 					<div class="form-group <?=(@$error_msg['dc_catdetails'] != '')?'has-error':'' ?>">
                         <?php
@@ -39,7 +39,7 @@
                             } 
                         ?>
                         <label>Category Detail:</label>
-                        <textarea type="text" placeholder="Category detail here" class="form-control" name="dc_catdetails" id="dc_catdetails"></textarea>
+                        <textarea type="text" placeholder="Category detail here" class="form-control" name="dc_catdetails" id="dc_catdetails"><?=@$category[0]->dc_catdetails?></textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit">Submit</button>

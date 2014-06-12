@@ -18,7 +18,7 @@
                 <?php        
                     }
                 ?>
-                <form role="form" action="" method="post">
+                <form role="form" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group <?=(@$error_msg['dd_dealerid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_dealerid'] != ''){
@@ -29,12 +29,14 @@
                         ?>
 						<label>Select Dealer</label>
 						<select class="form-control" id="dd_dealerid" name="dd_dealerid">
+                            <option value="">Select</option>
 							<?php foreach ($dealers as $dealer) { ?>
-								<option value='<?php echo $dealer->de_autoid; ?>'><?php echo $dealer->de_name." (".$dealer->de_email.")"; ?></option>
+								<option value='<?=$dealer->de_autoid; ?>' <?=(@$deal[0]->dd_dealerid == $dealer->de_autoid)?'selected':''?>  ><?=$dealer->de_name." (".$dealer->de_email.")"; ?></option>
 							<?php } ?>
 						</select>
                     </div>
-					<div class="form-group <?=(@$error_msg['dd_catid'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_catid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_catid'] != ''){
                         ?>
@@ -44,11 +46,13 @@
                         ?>
 						<label>Select Category</label>
 						<select class="form-control" id="dd_catid" name="dd_catid">
+                            <option value="">Select</option>
 							<?php foreach ($categories as $category) { ?>
-								<option value='<?php echo $category->dc_catid; ?>'><?php echo $category->dc_catname; ?></option>
+								<option value='<?=$category->dc_catid; ?>'  <?=(@$deal[0]->dd_catid == $category->dc_catid)?'selected':''?>  ><?=$category->dc_catname; ?></option>
 							<?php } ?>
 						</select>
                     </div>
+                    
                     <div class="form-group <?=(@$error_msg['dd_name'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_name'] != ''){
@@ -58,9 +62,10 @@
                             } 
                         ?>
                         <label for="dd_name">Deal Name:</label>
-                        <input placeholder="Enter Dealer Name" id="dd_name" class="form-control" name="dd_name">
+                        <input placeholder="Enter Dealer Name" id="dd_name" class="form-control" name="dd_name" value="<?=@$deal[0]->dd_name?>" >
                     </div>
-					<div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_description'] != ''){
                         ?>
@@ -69,9 +74,10 @@
                             } 
                         ?>
                         <label for="dd_description">Description:</label>
-                        <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"></textarea>
+                        <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
                     </div>
-					<div class="form-group" <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
 						<?php
                             if(@$error_msg['dd_originalprice'] != ''){
                         ?>
@@ -80,9 +86,10 @@
                             } 
                         ?>
                         <label>Original Price:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_originalprice" id="dd_originalprice">
+                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_originalprice" id="dd_originalprice"  value="<?=@$deal[0]->dd_originalprice?>" >
                     </div>
-					<div class="form-group" <?=(@$error_msg['dd_discount'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_discount'] != '')?'has-error':'' ?>">
 						<?php
                             if(@$error_msg['dd_discount'] != ''){
                         ?>
@@ -91,9 +98,10 @@
                             } 
                         ?>
                         <label>Discount:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_discount" id="dd_discount">
+                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_discount" id="dd_discount" value="<?=@$deal[0]->dd_discount?>" >
                     </div>
-					<div class="form-group" <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
 						<?php
                             if(@$error_msg['dd_listprice'] != ''){
                         ?>
@@ -102,9 +110,10 @@
                             } 
                         ?>
                         <label>List Price:</label>
-                        <input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice">
+                        <input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
                     </div>
-					<div class="form-group <?=(@$error_msg['dd_mainphoto'] != '')?'has-error':'' ?>">
+					
+                    <div class="form-group <?=(@$error_msg['dd_mainphoto'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_mainphoto'] != ''){
                         ?>
@@ -113,7 +122,16 @@
                             } 
                         ?>
                         <label for="dd_mainphoto">Main Photo:</label>
-                        <input placeholder="Enter Address" id="dd_mainphoto" class="form-control" name="dd_mainphoto">
+                        <input type="file" id="dd_mainphoto" name="dd_mainphoto">
+                        <?php
+                            if (file_exists(DOC_ROOT."uploads/".@$deal[0]->dd_mainphoto) && @$deal[0]->dd_mainphoto != "") {
+                        ?>
+                            <br/>
+                            <input type="hidden" name="old_filename" value="<?=$deal[0]->dd_mainphoto?>">
+                            <img src="<?=base_url()."uploads/".$deal[0]->dd_mainphoto?>" style="height:200px; width:200px;">
+                        <?php
+                            }
+                        ?>
                     </div>
 					<div class="form-group <?=(@$error_msg['dd_timeperiod'] != '')?'has-error':'' ?>">
                         <?php
@@ -150,8 +168,9 @@
                         ?>
                         <label for="dd_status">Status:</label>
                         <select class="form-control" id="dd_status" name="dd_status">
-							<option value='published'>Published</option>
-							<option value='draft'>Draft</option>
+                            <option value="">Select</option>
+							<option value='published' <?=(@$deal[0]->dd_status == 'published')?'selected':''?> >Published</option>
+							<option value='draft' <?=(@$deal[0]->dd_status == 'draft')?'selected':''?> >Draft</option>
 						</select>
                     </div>
 					
