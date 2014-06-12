@@ -30,3 +30,19 @@ $(document).ready(function() {
 
 	//$('form input')
 } );
+
+
+function delete_dealer (del_id) {
+	$.ajax({
+		type: 'post',
+		url: admin_path()+'dealer/delete',
+		data: 'id='+del_id,
+		success: function (data) {
+			if (data == "success") {
+				$("#flash_msg").html(success_msg_box ('Dealer deleted successfully.'));
+			}else{
+				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
+			}
+		}
+	});
+}

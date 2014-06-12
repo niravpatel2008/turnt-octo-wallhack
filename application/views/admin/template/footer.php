@@ -30,6 +30,25 @@
         function admin_path () {
             return '<?=admin_path()?>';
         }
+
+        function success_msg_box (msg) {
+            var html = '<div class="alert alert-success alert-dismissable"> \n\
+                            <i class="fa fa-check"></i> \n\
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> \n\
+                            '+msg+' \n\
+                        </div>';
+            return html;
+        }
+
+        function error_msg_box(msg)
+        {
+            var html = '<div class="alert alert-danger alert-dismissable"> \n\
+                            <i class="fa fa-ban"></i> \n\
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> \n\
+                            '+msg+' \n\
+                        </div>';
+            return html;        
+        }
     </script>
 
     <?php if ($this->router->fetch_class() == "users") { ?>

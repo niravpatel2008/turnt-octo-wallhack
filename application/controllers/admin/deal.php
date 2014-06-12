@@ -45,7 +45,7 @@ class Deal extends CI_Controller {
 			array( 'db' => 'dd_autoid',  
 					'dt' => 8,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/category/deal/'.$d).'" class="fa fa-trash-o"></a>';
+						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_deal('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			),
 		);
@@ -152,9 +152,17 @@ class Deal extends CI_Controller {
 						}
 					}
 					
-					$data['flash_msg'] = success_msg_box('Deal added successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Deal added successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/deal");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/deal");
 				}
 			}
 			$data['error_msg'] = $error;
@@ -303,9 +311,17 @@ class Deal extends CI_Controller {
 						$this->common_model->deleteTags($del_ids,$id);
 					}
 
-					$data['flash_msg'] = success_msg_box('Deal updated successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Deal updated successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/deal");					
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/deal");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -333,9 +349,11 @@ class Deal extends CI_Controller {
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_DETAIL, array('dd_autoid' => $post['id'] ));
 			if ($ret > 0) {
-				echo success_msg_box('Deal deleted successfully.');;
+				echo "success";
+				#echo success_msg_box('Deal deleted successfully.');;
 			}else{
-				echo error_msg_box('An error occurred while processing.');
+				echo "error";
+				#echo error_msg_box('An error occurred while processing.');
 			}
 		}
 	}

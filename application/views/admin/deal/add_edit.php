@@ -156,7 +156,7 @@
                             } 
                         ?>
                         <label for="dd_tags">Tags:</label>
-						<?php if(count($dd_tags) > 0) {
+						<?php if(count(@$dd_tags) > 0) {
 								foreach ($dd_tags as $tag){
 									echo "<input placeholder=\"Enter Tags\" class=\"form-control dd_tags\" value=\"".$tag['dt_tag']."\" name=\"dd_tags[".$tag['dt_autoid']."-a]\">";
 								}
