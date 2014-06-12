@@ -23,7 +23,7 @@
                         <?php
                             if(@$error_msg['dd_dealerid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_dealerid']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_dealerid']?></label><br/>    
                         <?php        
                             } 
                         ?>
@@ -40,7 +40,7 @@
                         <?php
                             if(@$error_msg['dd_catid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_catid']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_catid']?></label><br/>    
                         <?php        
                             } 
                         ?>
@@ -57,7 +57,7 @@
                         <?php
                             if(@$error_msg['dd_name'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_name']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_name']?></label><br/>    
                         <?php        
                             } 
                         ?>
@@ -69,55 +69,55 @@
                         <?php
                             if(@$error_msg['dd_description'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_description']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_description']?></label><br/>    
                         <?php        
                             } 
                         ?>
                         <label for="dd_description">Description:</label>
                         <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
                     </div>
-					
-                    <div class="form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
-						<?php
-                            if(@$error_msg['dd_originalprice'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_originalprice']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label>Original Price:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_originalprice" id="dd_originalprice"  value="<?=@$deal[0]->dd_originalprice?>" >
-                    </div>
-					
-                    <div class="form-group <?=(@$error_msg['dd_discount'] != '')?'has-error':'' ?>">
-						<?php
-                            if(@$error_msg['dd_discount'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_discount']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label>Discount:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="dd_discount" id="dd_discount" value="<?=@$deal[0]->dd_discount?>" >
-                    </div>
-					
-                    <div class="form-group <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
-						<?php
-                            if(@$error_msg['dd_listprice'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_listprice']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label>List Price:</label>
-                        <input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
-                    </div>
-					
+					<div class="row">
+						<div class="col-xs-4 form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['dd_originalprice'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_originalprice']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label>Original Price:</label>
+							<input type="text" placeholder="Enter ..." class="form-control" name="dd_originalprice" id="dd_originalprice"  value="<?=@$deal[0]->dd_originalprice?>" >
+						</div>
+						
+						<div class="col-xs-4 form-group <?=(@$error_msg['dd_discount'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['dd_discount'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_discount']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label>Discount:</label>
+							<input type="text" placeholder="Enter ..." class="form-control" name="dd_discount" id="dd_discount" value="<?=@$deal[0]->dd_discount?>" >
+						</div>
+						
+						<div class="col-xs-4 form-group <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['dd_listprice'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_listprice']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label>List Price:</label>
+							<input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
+						</div>
+					</div>
                     <div class="form-group <?=(@$error_msg['dd_mainphoto'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_mainphoto'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_mainphoto']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_mainphoto']?></label><br/>    
                         <?php        
                             } 
                         ?>
@@ -137,32 +137,38 @@
                         <?php
                             if(@$error_msg['dd_timeperiod'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_timeperiod']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_timeperiod']?></label><br/>    
                         <?php        
                             } 
                         ?>
                         <label for="dd_timeperiod">Start & End Time:</label>
 						<div class="input-group">
 							<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-	                        <input placeholder="Enter Address" id="dd_timeperiod" class="form-control" name="dd_timeperiod">
+	                        <input placeholder="Enter Address" id="dd_timeperiod" class="form-control" name="dd_timeperiod" value="<?=date('m/d/Y g:i A',strtotime(@$deal[0]->dd_startdate)). " - " .date('m/d/Y g:i A',strtotime(@$deal[0]->dd_expiredate))?>">
 						</div>
                     </div>
 					<div class="form-group <?=(@$error_msg['dd_tags'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_tags'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_tags']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_tags']?></label><br/>    
                         <?php        
                             } 
                         ?>
                         <label for="dd_tags">Tags:</label>
-                        <input placeholder="Enter Tags" class="form-control dd_tags" value="" name="dd_tags[]">
+						<?php if(count($dd_tags) > 0) {
+								foreach ($dd_tags as $tag){
+									echo "<input placeholder=\"Enter Tags\" class=\"form-control dd_tags\" value=\"".$tag['dt_tag']."\" name=\"dd_tags[".$tag['dt_autoid']."-a]\">";
+								}
+						}else{?>
+									<input placeholder="Enter Tags" class="form-control dd_tags" value="" name="dd_tags[]">
+						<?php }?>
                     </div>
                     <div class="form-group <?=(@$error_msg['dd_status'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_status'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dd_status']?></label><br/>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_status']?></label><br/>    
                         <?php        
                             } 
                         ?>
