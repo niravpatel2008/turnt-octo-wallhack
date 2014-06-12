@@ -79,60 +79,67 @@
                         <label for="de_address">Address:</label>
                         <input placeholder="Enter Address" id="de_address" class="form-control" name="de_address" value="<?=@$dealer[0]->de_address?>" >
                     </div>
-                    <div class="form-group <?=(@$error_msg['de_city'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['de_city'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_city']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="de_city">City:</label>
-                        <input placeholder="Enter City" id="de_city" class="form-control" name="de_city" value="<?=@$dealer[0]->de_city?>" >
-                    </div>
-					<div class="form-group <?=(@$error_msg['de_state'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['de_state'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_state']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="de_state">State:</label>
-                        <input placeholder="Enter State" id="de_state" class="form-control" name="de_state" value="<?=@$dealer[0]->de_state?>" >
-                    </div>
-					<div class="form-group <?=(@$error_msg['de_zip'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['de_zip'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_zip']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="de_zip">Zip:</label>
-                        <input placeholder="Enter Zip" id="de_zip" class="form-control" name="de_zip" value="<?=@$dealer[0]->de_zip?>" >
-                    </div>
-					<div class="form-group <?=(@$error_msg['de_lat'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['de_lat'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_lat']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="de_lat">Latitude:</label>
-                        <input placeholder="Enter Latitude" id="de_lat" class="form-control" name="de_lat" value="<?=@$dealer[0]->de_lat?>" >
-                    </div>
-					<div class="form-group <?=(@$error_msg['de_long'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['de_long'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_long']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="de_long">Longitude:</label>
-                        <input placeholder="Enter Longitude" id="de_long" class="form-control" name="de_long" value="<?=@$dealer[0]->de_long?>" >
+					<div class="row">
+						<div class="col-xs-4 form-group <?=(@$error_msg['de_city'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['de_city'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_city']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label for="de_city">City:</label>
+							<input placeholder="Enter City" id="de_city" class="form-control" name="de_city" value='<?=@$dealer[0]->de_city?>'>
+						</div>
+						<div class="col-xs-4 form-group <?=(@$error_msg['de_state'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['de_state'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_state']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label for="de_state">State:</label>
+							<input placeholder="Enter State" id="de_state" class="form-control" name="de_state" value='<?=@$dealer[0]->de_state?>'>
+						</div>
+						<div class="col-xs-4 form-group <?=(@$error_msg['de_zip'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['de_zip'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_zip']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label for="de_zip">Zip:</label>
+							<input placeholder="Enter Zip" id="de_zip" class="form-control" name="de_zip" value="<?=@$dealer[0]->de_zip?>">
+						</div>
+					</div >
+					<div class="form-group">
+						<div id="locationHolder" style="width: 100%; height: 400px;"></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-5 form-group <?=(@$error_msg['de_lat'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['de_lat'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_lat']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label for="de_lat">Latitude:</label>
+							<input placeholder="Enter Latitude" id="de_lat" class="form-control" name="de_lat" readonly value="<?=@$dealer[0]->de_lat?>">
+						</div>
+						<div class="col-xs-5 form-group <?=(@$error_msg['de_long'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['de_long'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_long']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label for="de_long">Longitude:</label>
+							<input placeholder="Enter Longitude" id="de_long" class="form-control" name="de_long" readonly value="<?=@$dealer[0]->de_long?>">
+						</div>
                     </div>
                     <div class="form-group <?=(@$error_msg['de_url'] != '')?'has-error':'' ?>">
                         <?php

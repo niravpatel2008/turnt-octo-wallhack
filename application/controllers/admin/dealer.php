@@ -21,7 +21,7 @@ class Dealer extends CI_Controller {
 		$post = $this->input->post();
 		$columns = array();
 		$columns = array(
-			array( 'db' => 'de_userid', 'dt' => 0 ),
+			array( 'db' => 'du_uname', 'dt' => 0 ),
 			array( 'db' => 'de_name', 'dt' => 1 ),
 			array( 'db' => 'de_contact', 'dt' => 2 ),
 			array( 'db' => 'de_email', 'dt' => 3 ),
@@ -46,8 +46,8 @@ class Dealer extends CI_Controller {
 					}
 			)
 		);
-
-		echo json_encode( SSP::simple( $post, DEAL_DEALER, "de_autoid", $columns ) );exit;
+		$join1 = array(DEAL_USER,'du_autoid = de_userid');
+		echo json_encode( SSP::simple( $post, DEAL_DEALER, "de_autoid", $columns ,array($join1) ) );exit;
 	}
 
 	public function add()

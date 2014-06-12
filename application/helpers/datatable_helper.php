@@ -168,7 +168,7 @@ class SSP {
 	 *  @param  array $columns Column information array
 	 *  @return array          Server-side processing response array
 	 */
-	static function simple ( $request, $table, $primaryKey, $columns )
+	static function simple ( $request, $table, $primaryKey, $columns,$join = array())
 	{
 		$bindings = array();
 		$model = SSP::get_model();
@@ -177,6 +177,11 @@ class SSP {
 
 		$model->db->select($fields);
 		$model->db->from($table);
+
+		foreach($join as $j)
+		{
+			$model->db->join($j[0], $j[1]);
+		}
 		
 		$where = SSP::filter( $request, $columns, $bindings );
 		if ($where != "") {

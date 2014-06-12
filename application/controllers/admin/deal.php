@@ -12,7 +12,7 @@ class Deal extends CI_Controller {
 
 	public function index()
 	{
-		#pr($this->user_session);
+		//pr($this->user_session);
 		$data['view'] = "index";
 		$this->load->view('admin/content', $data);
 	}
@@ -28,7 +28,7 @@ class Deal extends CI_Controller {
 			array( 'db' => 'dd_discount',  'dt' => 3 ),
 			array( 'db' => 'dd_listprice',  'dt' => 4 ),
 			array(
-				'db'        => 'dd_createdate',
+				'db'        => 'dd_startdate',
 				'dt'        => 5,
 				'formatter' => function( $d, $row ) {
 					return date( 'jS M y', strtotime($d));
@@ -43,7 +43,7 @@ class Deal extends CI_Controller {
 			),
 			array( 'db' => 'dd_status',  'dt' => 7 ),
 			array( 'db' => 'dd_autoid',  
-					'dt' => 7,
+					'dt' => 8,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/category/deal/'.$d).'" class="fa fa-trash-o"></a>';
 					}
@@ -101,27 +101,57 @@ class Deal extends CI_Controller {
 				}
 
 			}
-		
+
 			if ($e_flag == 0) {
+				$timeperiod = explode("-",$post['dd_timeperiod']);
+				$dd_startdate = date('Y-m-d H:i:s',strtotime($timeperiod[0]));
+				$dd_expiredate = date('Y-m-d H:i:s',strtotime($timeperiod[1]));
+
 				$data = array(
-							'dd_dealerid'=> $post['dd_dealerid'],
-							'dd_catid'=> $post['dd_catid'],
-							'dd_name'=> $post['dd_name'],
-							'dd_createdby'=> $this->user_session['id'], // logged in user's id
-							#'dd_createdate'=> $post['dd_createdate'], // need to add in add form
-							'dd_description'=> $post['dd_description'],
-							'dd_discount'=> $post['dd_discount'],
-							'dd_expiredate'=> $post['dd_expiredate'],
-							'dd_listprice'=> $post['dd_listprice'],
-							'dd_originalprice'=> $post['dd_originalprice'],
-							'dd_mainphoto'=> $file_name,
-							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
-							'dd_status'=> $post['dd_status']
-						);
+					'dd_dealerid'=> $post['dd_dealerid'],
+					'dd_catid'=> $post['dd_catid'],
+					'dd_name'=> $post['dd_name'],
+					'dd_createdby'=> $this->user_session['id'], // logged in user's id
+					#'dd_createdate'=> date('Y-m-d H:i:s'), // need to add in add form
+					'dd_description'=> $post['dd_description'],
+					'dd_discount'=> $post['dd_discount'],
+					'dd_startdate'=> $dd_startdate,
+					'dd_expiredate'=> $dd_expiredate,
+					'dd_listprice'=> $post['dd_listprice'],
+					'dd_originalprice'=> $post['dd_originalprice'],
+					'dd_mainphoto'=> $file_name,
+					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
+					'dd_status'=> $post['dd_status']
+					);
 				
-				$ret_user = $this->common_model->insertData(DEAL_DETAIL, $data);
+				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
 				
-				if ($ret_user > 0) {
+				if ($ret_deal > 0) {
+					$post_tags = $post['dd_tags'];
+			
+					foreach ($post_tags as $tag)
+					{ 
+						$tag = trim($tag);
+						$tagid = $this->common_model->selectData(DEAL_TAGS,"dt_autoid",array("dt_tag"=>$tag));
+						if(!$tagid)
+						{
+							$tagdata =  array("dt_tag"=>$tag);
+							$tagid = $this->common_model->insertData(DEAL_TAGS, $tagdata);
+						}
+						else
+						{
+							$tagid = ($tagid[0]->dt_autoid);
+						}
+							
+
+						$tagmap = $this->common_model->selectData(DEAL_MAP_TAGS,"*",array("dm_ddid"=>$ret_deal,"dm_dtid"=>$tagid));
+						if (!$tagmap)
+						{
+							$tagmapdata =  array("dm_ddid"=>$ret_deal,"dm_dtid"=>$tagid);
+							$this->common_model->insertData(DEAL_MAP_TAGS, $tagmapdata);
+						}
+					}
+					
 					$data['flash_msg'] = success_msg_box('Deal added successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');

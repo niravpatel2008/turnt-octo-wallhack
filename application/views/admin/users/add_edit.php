@@ -61,6 +61,7 @@
                             <option value="a" <?=(@$user[0]->du_role == 'a')?'selected':''?> >Admin</option>
                             <option value="m" <?=(@$user[0]->du_role == 'm')?'selected':''?> >Moderator</option>
                             <option value="d" <?=(@$user[0]->du_role == 'd')?'selected':''?> >Dealer</option>
+                            <option value="u" <?=(@$user[0]->du_role == 'u')?'selected':''?> >User</option>
                         </select>
                     </div>
                     <div class="form-group">

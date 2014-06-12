@@ -5,15 +5,15 @@
     <!-- Bootstrap -->
     <script src="<?=public_path()?>js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Morris.js charts -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="<?=public_path()?>js/plugins/morris/morris.min.js" type="text/javascript"></script>
+    <!-- script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="<?=public_path()?>js/plugins/morris/morris.min.js" type="text/javascript"></script -->
     <!-- Sparkline -->
-    <script src="<?=public_path()?>js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- script src="<?=public_path()?>js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script !-->
     <!-- jvectormap -->
-    <script src="<?=public_path()?>js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="<?=public_path()?>js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <!-- script src="<?=public_path()?>js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="<?=public_path()?>js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script-->
     <!-- fullCalendar -->
-    <script src="<?=public_path()?>js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <!-- script src="<?=public_path()?>js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script-->
     <!-- jQuery Knob Chart -->
     <script src="<?=public_path()?>js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
     <!-- daterangepicker -->
@@ -38,6 +38,16 @@
 	
     <?php if ($this->router->fetch_class() == "category") { ?>
 		<script src="<?=public_path()?>js/admin/category/index.js" type="text/javascript"></script>
+    <?php } ?>
+	<?php if ($this->router->fetch_class() == "dealer") { ?>
+		<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+		<script src="<?=public_path()?>js/plugins/location/locationpicker.jquery.js" type="text/javascript"></script>
+		<script src="<?=public_path()?>js/admin/dealer/index.js" type="text/javascript"></script>
+    <?php } ?>
+	<?php if ($this->router->fetch_class() == "deal") { ?>
+		<script src="<?=public_path()?>js/plugins/tagedit/jquery.tagedit.js" type="text/javascript"></script>
+		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
+		<script src="<?=public_path()?>js/admin/deal/index.js" type="text/javascript"></script>
     <?php } ?>
 
     <?php if ($this->router->fetch_class() == "dealer") { ?>

@@ -13,12 +13,10 @@ $(document).ready(function() {
 		  }
 		]
 	} );
+	
+	$('#dd_timeperiod').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
 
-	/*$( "#dd_expiredate" ).datepicker({
-      showOn: "button",
-      //buttonImage: "images/calendar.gif",
-      buttonImageOnly: true
-    });*/
-
-
+	$( ".dd_tags").tagedit({
+		//autocompleteURL: 'server/autocomplete.php',
+	});
 } );

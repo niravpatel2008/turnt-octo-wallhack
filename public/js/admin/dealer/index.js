@@ -13,4 +13,20 @@ $(document).ready(function() {
 		  }
 		]
 	} );
+
+	$('#locationHolder').locationpicker({
+		radius: 300,
+		inputBinding: {
+			locationNameInput: $('#de_address'),
+			latitudeInput: $('#de_lat'),
+			longitudeInput: $('#de_long'),
+		},
+		enableAutocomplete: true,
+		onchanged: function(currentLocation, radius, isMarkerDropped) {
+				console.log(currentLocation);
+			//alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+		}
+	});
+
+	$('form input')
 } );
