@@ -231,6 +231,10 @@ class Deal extends CI_Controller {
 			}
 
 			if ($e_flag == 0) {
+				$timeperiod = explode("-",$post['dd_timeperiod']);
+				$dd_startdate = date('Y-m-d H:i:s',strtotime($timeperiod[0]));
+				$dd_expiredate = date('Y-m-d H:i:s',strtotime($timeperiod[1]));
+
 				$data = array(
 							'dd_dealerid'=> $post['dd_dealerid'],
 							'dd_catid'=> $post['dd_catid'],
@@ -239,7 +243,8 @@ class Deal extends CI_Controller {
 							#'dd_createdate'=> $post['dd_createdate'], // need to add in add form
 							'dd_description'=> $post['dd_description'],
 							'dd_discount'=> $post['dd_discount'],
-							'dd_expiredate'=> $post['dd_expiredate'],
+							'dd_startdate'=> $dd_startdate,
+							'dd_expiredate'=> $dd_expiredate,
 							'dd_listprice'=> $post['dd_listprice'],
 							'dd_originalprice'=> $post['dd_originalprice'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
@@ -252,6 +257,52 @@ class Deal extends CI_Controller {
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
 				
 				if ($ret > 0) {
+					
+					$post_tags = $post['dd_tags'];
+					$old_tags = $this->common_model->getDealTags($id);
+					
+					foreach ($post_tags as $tag)
+					{ 
+						$tag = trim($tag);
+
+						$found = false; 
+						foreach ($old_tags as $k=>$v)
+						{
+							if ($tag == $v['dt_tag'])
+							{
+								$found = true;
+								unset($old_tags[$k]);
+							}
+						}
+
+						if ($found) continue;
+
+						$tagid = $this->common_model->selectData(DEAL_TAGS,"dt_autoid",array("dt_tag"=>$tag));
+						if(!$tagid)
+						{
+							$tagdata =  array("dt_tag"=>$tag);
+							$tagid = $this->common_model->insertData(DEAL_TAGS, $tagdata);
+						}
+						else
+						{
+							$tagid = ($tagid[0]->dt_autoid);
+						}
+							
+
+						$tagmap = $this->common_model->selectData(DEAL_MAP_TAGS,"*",array("dm_ddid"=>$id,"dm_dtid"=>$tagid));
+						if (!$tagmap)
+						{
+							$tagmapdata =  array("dm_ddid"=>$id,"dm_dtid"=>$tagid);
+							$this->common_model->insertData(DEAL_MAP_TAGS, $tagmapdata);
+						}
+					}
+					
+					if (count($old_tags)>0)
+					{
+						$del_ids = array_reduce($old_tags,function($arr,$k){ $arr[] = $k['dt_autoid']; return $arr;});
+						$this->common_model->deleteTags($del_ids,$id);
+					}
+
 					$data['flash_msg'] = success_msg_box('Deal updated successfully.');
 				}else{
 					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
@@ -269,6 +320,7 @@ class Deal extends CI_Controller {
 
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
+		$data['dd_tags'] = $this->common_model->getDealTags($id);
 		
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);	

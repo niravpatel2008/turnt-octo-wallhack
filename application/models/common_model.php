@@ -108,6 +108,33 @@ class common_model extends CI_Model{
 			return 0;
 		}	
 	}
+	
+	public function deleteTags($de_autoid,$tag_ids)
+	{
+		$this->db->where_in('dm_dtid', $de_autoid);
+		$this->db->where(array('dm_ddid'=>$tag_ids));
+		$del = $this->db->delete(DEAL_MAP_TAGS);
+		if($del){
+			$delqry = "DELETE FROM deal_tags WHERE dt_autoid IN (".implode(",",$de_autoid).") AND (SELECT IF (COUNT(*)=0,1,0) FROM deal_map_tags WHERE dm_dtid = dt_autoid)";
+			$this->db->query($delqry);
+			return 1;
+		}else{
+			return 0;
+		}	
+	}
+
+	public function getDealTags($dd_autoid)
+	{
+		$this->db->select("dt_autoid,dt_tag");
+		$this->db->from(DEAL_TAGS);
+		$this->db->join(DEAL_MAP_TAGS, "dm_dtid = dt_autoid");
+		$this->db->where(array("dm_ddid"=>$dd_autoid));
+
+		$query = $this->db->get();
+		$tags = $query->result_array();
+		$query->free_result();
+		return ($tags);
+	}
 
 
 }
