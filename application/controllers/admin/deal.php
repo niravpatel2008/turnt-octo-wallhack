@@ -342,6 +342,45 @@ class Deal extends CI_Controller {
 		$this->load->view('admin/content', $data);	
 	}
 
+	public function fileupload()
+	{
+		$file_name = "";
+		$error = "";
+		$post = $this->input->post();
+		if($_FILES['file']['name'] != '' && $_FILES['file']['error'] == 0){
+			$config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
+			
+			$file_name_arr = explode('.',$_FILES['file']['name']);
+			$file_name_arr = array_reverse($file_name_arr);
+			$file_extension = $file_name_arr[0];
+			$file_name = $config['file_name'] = "deal_".time().".".$file_extension;
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('file'))
+			{
+				$e_flag = 1;
+				$error = $this->upload->display_errors();
+			}
+
+			if ($error != "")
+				echo "Error:".$error;
+			else
+			{
+				$dd_ddid = isset($post['id'])?$post['id']:"";
+				$linkdata =  array("dl_ddid"=>$dd_ddid,"dl_type"=>"img","dl_url"=>$file_name);
+				$link_id = $this->common_model->insertData(DEAL_LINKS, $linkdata);
+				echo '{"id":"'.$link_id.'","path":"'.base_url()."uploads/".$file_name.'"}';
+				$('#newimages').val($('#newimages').val() +"," +$link_id);
+			}
+			exit;
+		}else
+		{
+			echo "Error: File not uploaded to server.";
+		}
+	}
+
 	public function delete()
 	{
 		$post = $this->input->post();

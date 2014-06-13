@@ -1,5 +1,6 @@
+var oTable;
 $(document).ready(function() {
-	$('#dealerTable').dataTable( {
+	oTable = $('#dealerTable').dataTable( {
 		"processing": true,
 		"serverSide": true,
 		"ajax": {
@@ -39,6 +40,8 @@ function delete_dealer (del_id) {
 		data: 'id='+del_id,
 		success: function (data) {
 			if (data == "success") {
+				oTable.fnClearTable(0);
+				oTable.fnDraw();
 				$("#flash_msg").html(success_msg_box ('Dealer deleted successfully.'));
 			}else{
 				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));

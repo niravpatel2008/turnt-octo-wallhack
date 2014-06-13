@@ -1,5 +1,6 @@
+var oTable;
 $(document).ready(function() {
-	$('#categoryTable').dataTable( {
+	oTable = $('#categoryTable').dataTable( {
 		"processing": true,
 		"serverSide": true,
 		"ajax": {
@@ -23,6 +24,8 @@ function delete_category (del_id) {
 		data: 'id='+del_id,
 		success: function (data) {
 			if (data == "success") {
+				oTable.fnClearTable(0);
+				oTable.fnDraw();
 				$("#flash_msg").html(success_msg_box ('Category deleted successfully.'));
 			}else{
 				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
