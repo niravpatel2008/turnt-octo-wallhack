@@ -12,7 +12,7 @@ class Users extends CI_Controller {
 
 	public function index()
 	{
-		#pr($this->user_session);
+		#pr($this->session->flashdata('flash_msg'));
 		$data['view'] = "index";
 		$this->load->view('admin/content', $data);
 	}
@@ -35,7 +35,7 @@ class Users extends CI_Controller {
 			array( 'db' => 'du_autoid',  
 					'dt' => 5,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/users/edit/'.$d).'" class="fa fa-edit"></a> <a href="'.site_url('/admin/users/delete/'.$d).'" class="fa fa-trash-o"></a>';
+						return '<a href="'.site_url('/admin/users/edit/'.$d).'" class="fa fa-edit"></a> <a href="javascript:void(0);" onclick="delete_user('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			),
 		);
@@ -77,9 +77,17 @@ class Users extends CI_Controller {
 				$ret = $this->common_model->insertData(DEAL_USER, $data);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('User added successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'User added successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/users");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/users");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -130,9 +138,17 @@ class Users extends CI_Controller {
 				$ret = $this->common_model->updateData(DEAL_USER, $data, $where);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('User updated successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'User updated successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/users");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/users");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -154,9 +170,11 @@ class Users extends CI_Controller {
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_USER, array('du_autoid' => $post['id'] ));
 			if ($ret > 0) {
-				echo success_msg_box('User deleted successfully.');;
+				echo "success";
+				#echo success_msg_box('User deleted successfully.');;
 			}else{
-				echo error_msg_box('An error occurred while processing.');
+				echo "error";
+				#echo error_msg_box('An error occurred while processing.');
 			}
 		}
 	}

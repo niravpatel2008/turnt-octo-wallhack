@@ -8,6 +8,12 @@ class Index extends CI_Controller {
 
 	public function index()
 	{
+		$session = $this->session->userdata('user_session');
+		#pr($session,1);
+		if (isset($session['id'])) {
+			redirect(admin_path()."dashboard");
+		}
+
 		$data = array();
 		$post = $this->input->post();
 		if ($post) {

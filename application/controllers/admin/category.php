@@ -33,7 +33,7 @@ class Category extends CI_Controller {
 			array( 'db' => 'dc_catid',  
 					'dt' => 3,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/category/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/category/delete/'.$d).'" class="fa fa-trash-o"></a>';
+						return '<a href="'.site_url('/admin/category/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_category('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			),
 		);
@@ -64,9 +64,17 @@ class Category extends CI_Controller {
 				$ret = $this->common_model->insertData(DEAL_CATEGORY, $data);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('Category added successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Category added successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/category");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/category");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -106,9 +114,17 @@ class Category extends CI_Controller {
 				$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('Category updated successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Category updated successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/category");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/category");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -132,9 +148,12 @@ class Category extends CI_Controller {
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_CATEGORY, array('dc_catid' => $post['id'] ));
 			if ($ret > 0) {
-				echo success_msg_box('Category deleted successfully.');;
+				echo "success";
+				#echo success_msg_box('Category deleted successfully.');
+
 			}else{
-				echo error_msg_box('An error occurred while processing.');
+				echo "error";
+				#echo error_msg_box('An error occurred while processing.');
 			}
 		}
 	}

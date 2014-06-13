@@ -42,7 +42,7 @@ class Dealer extends CI_Controller {
 			array( 'db' => 'de_autoid',  
 					'dt' => 12,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/dealer/edit/'.$d).'" class="fa fa-edit"></a> / <a href="'.site_url('/admin/dealer/delete/'.$d).'" class="fa fa-trash-o"></a>';
+						return '<a href="'.site_url('/admin/dealer/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_dealer('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			)
 		);
@@ -95,9 +95,17 @@ class Dealer extends CI_Controller {
 				$ret = $this->common_model->insertData(DEAL_DEALER, $data);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('Dealer added successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Dealer added successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/dealer");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/dealer");
 				}
 			}
 			$data['error_msg'] = $error;
@@ -155,9 +163,17 @@ class Dealer extends CI_Controller {
 				$ret = $this->common_model->updateData(DEAL_DEALER, $data, $where);
 				
 				if ($ret > 0) {
-					$data['flash_msg'] = success_msg_box('Dealer updated successfully.');
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Dealer updated successfully.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/dealer");
 				}else{
-					$data['flash_msg'] = error_msg_box('An error occurred while processing.');
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					$this->session->set_flashdata($flash_arr);
+					redirect("admin/dealer");
 				}
 			}	
 			$data['error_msg'] = $error;
@@ -182,9 +198,11 @@ class Dealer extends CI_Controller {
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_DEALER, array('de_autoid' => $post['id'] ));
 			if ($ret > 0) {
-				echo success_msg_box('Dealer deleted successfully.');;
+				echo "success";
+				#echo success_msg_box('Dealer deleted successfully.');;
 			}else{
-				echo error_msg_box('An error occurred while processing.');
+				echo "error";
+				#echo error_msg_box('An error occurred while processing.');
 			}
 		}
 	}
