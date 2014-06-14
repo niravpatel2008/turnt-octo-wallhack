@@ -113,26 +113,6 @@
 							<input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
 						</div>
 					</div>
-                    <div class="form-group <?=(@$error_msg['dd_mainphoto'] != '')?'has-error':'' ?>">
-                        <?php
-                            if(@$error_msg['dd_mainphoto'] != ''){
-                        ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_mainphoto']?></label><br/>    
-                        <?php        
-                            } 
-                        ?>
-                        <label for="dd_mainphoto">Main Photo:</label>
-                        <input type="file" id="dd_mainphoto" name="dd_mainphoto">
-                        <?php
-                            if (file_exists(DOC_ROOT."uploads/".@$deal[0]->dd_mainphoto) && @$deal[0]->dd_mainphoto != "") {
-                        ?>
-                            <br/>
-                            <input type="hidden" name="old_filename" value="<?=$deal[0]->dd_mainphoto?>">
-                            <img src="<?=base_url()."uploads/".$deal[0]->dd_mainphoto?>" style="height:200px; width:200px;">
-                        <?php
-                            }
-                        ?>
-                    </div>
 					<div class="form-group <?=(@$error_msg['dd_timeperiod'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_timeperiod'] != ''){
@@ -179,12 +159,37 @@
 							<option value='draft' <?=(@$deal[0]->dd_status == 'draft')?'selected':''?> >Draft</option>
 						</select>
                     </div>
-					
+
+					<div class="form-group"> <!-- Uploaded images will be shown here -->
+						<input type='hidden' name='newimages' id='newimages'>
+						<input type='hidden' name='dd_mainphoto' id='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>
+						<label for="dd_status">Select Main Image:</label>
+						<?php if(count(@$dd_images) == 0) {
+							echo "<div class='form-group'>Please upload images for deal than you can select main image for deal.</div>";
+						}?>
+                        <div id='img-container'>
+							<?php foreach(@$dd_images as $img) {?>
+								<img src='<?=(base_url()."uploads/".$img->dl_url)?>' class='newimg' imgid = '<?=($img->dl_autoid)?>'>
+							<?php }?>
+						</div>
+                    </div>				
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit">Submit</button>
                     </div>    
                 </form>
             </div>
     	</div>
+		<div class='col-md-6'>
+			<div class='box box-info'>
+				<div class="box-header">
+					<h3 class="box-title">Upload Deal Images</h3>
+				</div>
+				<div class="box-body">
+					<form id="my-awesome-dropzone" action="<?=base_url()."admin/deal/fileupload"?>" class="dropzone">
+						<input type='hidden' name='dd_id' value='<?=(@$deal[0]->dd_autoid)?>'>
+					</form>
+				</div>
+			</div>
+		</div>
     </div>
 </section>    	

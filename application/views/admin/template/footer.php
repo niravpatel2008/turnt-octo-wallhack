@@ -66,6 +66,7 @@
 	<?php if ($this->router->fetch_class() == "deal") { ?>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.tagedit.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
+		<script src="<?=public_path()?>js/plugins/dropzone/dropzone.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/admin/deal/index.js" type="text/javascript"></script>
     <?php } ?>
 

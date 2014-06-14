@@ -136,6 +136,17 @@ class common_model extends CI_Model{
 		return ($tags);
 	}
 
+	public function assingImagesToDeal($deal_id,$image_ids)
+	{
+		$this->db->where_in('dl_autoid',$image_ids);
+		$data = array("dl_ddid"=>$deal_id);
+		if($this->db->update(DEAL_LINKS, $data)){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+
 
 }
 ?>

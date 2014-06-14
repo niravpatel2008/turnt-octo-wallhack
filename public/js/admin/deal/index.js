@@ -1,5 +1,6 @@
+var oTable;
 $(document).ready(function() {
-	$('#dealTable').dataTable( {
+	oTable = $('#dealTable').dataTable( {
 		"processing": true,
 		"serverSide": true,
 		"ajax": {
@@ -19,6 +20,28 @@ $(document).ready(function() {
 	$( ".dd_tags").tagedit({
 		//autocompleteURL: 'server/autocomplete.php',
 	});
+
+	setTimeout(function(){
+		var myDropzone = Dropzone.forElement("#my-awesome-dropzone");
+		myDropzone.on("success", function(file, res) { 
+			if (res.indexOf("Error:") === -1)
+			{
+				var file = JSON.parse(res);
+				var html = "<img src='"+file.path+"' class='newimg' imgid = '"+file.id+"'>";
+				$("#img-container").append(html);
+				$('#newimages').val($('#newimages').val() +"," +file.id);
+			}
+		});
+	},1000)
+
+	$('#img-container').delegate("img",'click',function(){
+		$('#img-container img').removeClass('selected');
+		$(this).addClass('selected');
+		$('#dd_mainphoto').val($(this).attr('imgid'));
+	});
+
+	var mainimgid = $('#dd_mainphoto').val();
+	$('#img-container img[imgid="'+mainimgid+'"]').addClass('selected');
 } );
 
 
@@ -29,6 +52,8 @@ function delete_deal (del_id) {
 		data: 'id='+del_id,
 		success: function (data) {
 			if (data == "success") {
+				oTable.fnClearTable(0);
+				oTable.fnDraw();
 				$("#flash_msg").html(success_msg_box ('Deal deleted successfully.'));
 			}else{
 				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
