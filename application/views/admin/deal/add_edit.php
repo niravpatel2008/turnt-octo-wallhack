@@ -161,9 +161,16 @@
                     </div>
 
 					<div class="form-group"> <!-- Uploaded images will be shown here -->
-						<input type='hidden' name='newimages'>
-						<input type='hidden' name='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>
+						<input type='hidden' name='newimages' id='newimages'>
+						<input type='hidden' name='dd_mainphoto' id='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>
+						<label for="dd_status">Select Main Image:</label>
+						<?php if(count(@$dd_images) == 0) {
+							echo "<div class='form-group'>Please upload images for deal than you can select main image for deal.</div>";
+						}?>
                         <div id='img-container'>
+							<?php foreach(@$dd_images as $img) {?>
+								<img src='<?=(base_url()."uploads/".$img->dl_url)?>' class='newimg' imgid = '<?=($img->dl_autoid)?>'>
+							<?php }?>
 						</div>
                     </div>				
                     <div class="form-group">
@@ -179,6 +186,7 @@
 				</div>
 				<div class="box-body">
 					<form id="my-awesome-dropzone" action="<?=base_url()."admin/deal/fileupload"?>" class="dropzone">
+						<input type='hidden' name='dd_id' value='<?=(@$deal[0]->dd_autoid)?>'>
 					</form>
 				</div>
 			</div>

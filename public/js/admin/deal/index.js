@@ -29,15 +29,19 @@ $(document).ready(function() {
 				var file = JSON.parse(res);
 				var html = "<img src='"+file.path+"' class='newimg' imgid = '"+file.id+"'>";
 				$("#img-container").append(html);
+				$('#newimages').val($('#newimages').val() +"," +file.id);
 			}
 		});
 	},1000)
 
-
-	$('#img-container img').on('click',function(){
+	$('#img-container').delegate("img",'click',function(){
 		$('#img-container img').removeClass('selected');
 		$(this).addClass('selected');
-	})
+		$('#dd_mainphoto').val($(this).attr('imgid'));
+	});
+
+	var mainimgid = $('#dd_mainphoto').val();
+	$('#img-container img[imgid="'+mainimgid+'"]').addClass('selected');
 } );
 
 

@@ -81,27 +81,6 @@ class Deal extends CI_Controller {
 				$e_flag=1;
 			}
 
-
-			$file_name = "";
-			if($_FILES['dd_mainphoto']['name'] != '' && $_FILES['dd_mainphoto']['error'] == 0){
-				$config['upload_path'] = './uploads/';
-				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
-				
-				$file_name_arr = explode('.',$_FILES['dd_mainphoto']['name']);
-				$file_name_arr = array_reverse($file_name_arr);
-				$file_extension = $file_name_arr[0];
-				$file_name = $config['file_name'] = "deal_".time().".".$file_extension;
-
-				$this->load->library('upload', $config);
-
-				if ( ! $this->upload->do_upload('dd_mainphoto'))
-				{
-					$e_flag = 1;
-					$error['dd_mainphoto'] = $this->upload->display_errors();
-				}
-
-			}
-
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
 				$dd_startdate = date('Y-m-d H:i:s',strtotime($timeperiod[0]));
@@ -119,7 +98,7 @@ class Deal extends CI_Controller {
 					'dd_expiredate'=> $dd_expiredate,
 					'dd_listprice'=> $post['dd_listprice'],
 					'dd_originalprice'=> $post['dd_originalprice'],
-					'dd_mainphoto'=> $file_name,
+					'dd_mainphoto'=> $post['dd_mainphoto'],
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 					'dd_status'=> $post['dd_status']
 					);
@@ -151,6 +130,12 @@ class Deal extends CI_Controller {
 							$this->common_model->insertData(DEAL_MAP_TAGS, $tagmapdata);
 						}
 					}
+
+					/*update deal id to uploaded image link*/
+					$newimages = array_filter(explode(",",$post['newimages']));
+					if (count($newimages) > 0)
+						$this->common_model->assingImagesToDeal($ret_deal,$newimages);
+
 					
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal added successfully.'
@@ -170,7 +155,8 @@ class Deal extends CI_Controller {
 		
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
-		
+		$data['dd_images'] = array();
+
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
 	}
@@ -210,34 +196,6 @@ class Deal extends CI_Controller {
 				$e_flag=1;
 			}
 
-			$file_name = "";
-			
-			if($_FILES['dd_mainphoto']['name'] != '' && $_FILES['dd_mainphoto']['error'] == 0){
-				
-				#delete old file
-				if ($post['old_filename'] != "") {
-					unlink(DOC_ROOT."uploads/".$post['old_filename']);
-				}
-				
-
-				$config['upload_path'] = './uploads/';
-				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
-				
-				$file_name_arr = explode('.',$_FILES['dd_mainphoto']['name']);
-				$file_name_arr = array_reverse($file_name_arr);
-				$file_extension = $file_name_arr[0];
-				$file_name = $config['file_name'] = "deal_".time().".".$file_extension;
-
-				$this->load->library('upload', $config);
-
-				if ( ! $this->upload->do_upload('dd_mainphoto'))
-				{
-					$e_flag = 1;
-					$error['dd_mainphoto'] = $this->upload->display_errors();
-				}
-
-			}
-
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
 				$dd_startdate = date('Y-m-d H:i:s',strtotime($timeperiod[0]));
@@ -253,14 +211,12 @@ class Deal extends CI_Controller {
 							'dd_discount'=> $post['dd_discount'],
 							'dd_startdate'=> $dd_startdate,
 							'dd_expiredate'=> $dd_expiredate,
+							'dd_mainphoto' => $post['dd_mainphoto'],
 							'dd_listprice'=> $post['dd_listprice'],
 							'dd_originalprice'=> $post['dd_originalprice'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 							'dd_status'=> $post['dd_status']
 							);
-				if($_FILES['dd_mainphoto']['name'] != '' && $_FILES['dd_mainphoto']['error'] == 0){
-					$data['dd_mainphoto'] = $file_name;
-				}
 
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
 				
@@ -337,7 +293,8 @@ class Deal extends CI_Controller {
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_tags'] = $this->common_model->getDealTags($id);
-		
+		$data['dd_images'] = $this->common_model->selectData(DEAL_LINKS, 'dl_autoid,dl_url',array("dl_ddid"=>$id));
+				
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);	
 	}
@@ -368,11 +325,10 @@ class Deal extends CI_Controller {
 				echo "Error:".$error;
 			else
 			{
-				$dd_ddid = isset($post['id'])?$post['id']:"";
+				$dd_ddid = isset($post['dd_id'])?$post['dd_id']:"";
 				$linkdata =  array("dl_ddid"=>$dd_ddid,"dl_type"=>"img","dl_url"=>$file_name);
 				$link_id = $this->common_model->insertData(DEAL_LINKS, $linkdata);
 				echo '{"id":"'.$link_id.'","path":"'.base_url()."uploads/".$file_name.'"}';
-				$('#newimages').val($('#newimages').val() +"," +$link_id);
 			}
 			exit;
 		}else
