@@ -117,6 +117,12 @@
 					<div class="form-group">
 						<div id="locationHolder" style="width: 100%; height: 400px;"></div>
 					</div>
+					<div class="form-group">
+						<div class="form-group">
+							<label for="de_address">Find LatLong by Address:</label>
+							<input placeholder="Enter Address" id="de_address_tmp" class="form-control" value="<?=@$dealer[0]->de_address_tmp?>" >
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-xs-5 form-group <?=(@$error_msg['de_lat'] != '')?'has-error':'' ?>">
 							<?php
