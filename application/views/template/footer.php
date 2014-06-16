@@ -1,178 +1,218 @@
-<!--Footer Div Start-->
-<!--Footer Div End--> 
-<!-- Inline Js --> 
+<footer role="contentinfo">
+    <div class="newsletter-wrap stripe-white">
+      <div class="row">
+        <form action="#">
+          <div class="large-3 columns">
+            <h3>Newsletter Signup</h3>
+          </div>
+          <div class="small-4 large-3 columns">
+            <input type="text" placeholder="Enter Your Name" class="input field primary">
+          </div>
+          <div class="small-5 large-4 columns">
+            <input type="text" placeholder="Enter Your E-mail" class="input field primary">
+          </div>
+          <div class="small-3 large-2 columns">
+            <input type="submit" value="Subscribe" class="input button primary red">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="stripe-regular">
+      <div class="row">
+        <div class="column">                  
+          <h2>Popular Companies</h2>
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="column">
+          <div class="popular-companies flexslider">
+            
+          <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="rr slides" style="width: 3200%; transition-duration: 0.6s; transform: translate3d(0px, 0px, 0px);">
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/1_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/2_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/3_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/4_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/1_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/2_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/3_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/4_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/1_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/2_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/3_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/4_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/1_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/2_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/3_002.jpg">
+                </a>
+              </li>
+              <li style="width: 137.143px; float: left; display: block;">
+                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
+                  <img alt="" src="Couponizer_files/4_002.jpg">
+                </a>
+              </li>
+            </ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stripe-dark pre-footer-wrap">
+      <div class="row">
+        <div class="large-4 columns">
+          <h3 class="alt">About</h3>
+          <p>
+            Ut sodales ultrices metus, at molestie tellus cursus
+quis. Cras placerat bibendum quam sed facilisis. Suspendisse dapibus 
+eros eget tellus tempor lacinia. Cras ornare lorem sit amet arcu 
+accumsan ut tristique est fringilla.
+          </p>
+        </div>
+        <div class="small-6 large-4 large-offset-1 columns">
+          <h3 class="alt">Recent Tweets</h3>
+          <div class="tweet">
+            <p>
+              Couponizer is a multi-purpose PSD template. 
+Created by #bestwebsoft - hand-made websites from great guys 
+http://t.co/HXvWw
+            </p>
+            <a class="posted" href="#">posted 5 minutes ago</a>
+          </div>
+        </div>
+        <nav class="small-6 large-2 large-offset-1 columns">
+          <h3 class="alt">Menu</h3>
+          <ul class="rr footer-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Jobs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <div class="stripe-darker footer-wrap">
+      <div class="row">
+        <div class="large-3 columns">
+          <div class="logo">
+            <a href="#">Couponizer</a>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="copyright">Copyright &copy; 2013, developed by <a href="http://teothemes.com/">TeoThemes</a>. All rights reserved.</div>
+        </div>
+        <div class="large-3 columns">
+          <ul class="rr social">
+            <li><a class="ir tw" href="#">Twitter</a></li>
+            <li><a class="ir in" href="#">LinkedIn</a></li>
+            <li><a class="ir fb" href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+<script src="<?=public_path()?>js/front/jquery-1.js"></script>
+<script src="<?=public_path()?>js/front/plugins.js"></script>
+<script src="<?=public_path()?>js/front/main.js"></script>
+
 <script type="text/javascript">
-var uid = "{$uid}";
-var noFixedHeader = false;
-var fromLogin = false;
-if(uid == "" || uid == null)
-	$.cookie("loginUserTags",null);
+  
+  $("#login").click( function(){
+    if($("#loginbox").css('display')=='block'){
+      $("#loginbox").slideUp();
+      $("#homelogin").removeClass('topmenuactive');
+      //$("#homelogin a").css('color','#ffffff');
+      //$("#homelogin").removeClass('homeloginactive');   
+    }else{
+      $("#loginbox").slideDown();
+      $('#username').focus(); // code for autofocus @@@@@  
+      //$("#homelogin").addClass('topmenuactive');
+      //$("#homelogin a").css('color','#000000');
+      $("#homelogin").addClass('topmenuactive');
+      
+    }
+  });
+  
+  $("#loginbox").mouseup(function() { 
+        return false;
+    });
 
-	if ($(window).height() < $('.searchOption').height())
-	{
-		noFixedHeader = true;
-		$('.searchOption').removeClass('fixed');
-	}
+   $(this).mouseup(function(e) {
+        if(!($(e.target).parent('#homelogin').length > 0)) {
+            $("#loginbox").slideUp();
+            $("#homelogin").removeClass('topmenuactive');
+        }
+    });
 
-	$(document).ready(function() {
-		$('#frmSearch select,#requestShowingFrm select').each(function(){
-				html = '<span class="selectLabel">'+$(this).find('option:selected').text()+'</span>';
-			$(this).after(html);
-		});
-
-		$('.selectDisplay').on('click',function(){
-			$("#"+$('.selectDisplay').attr('selid')).trigger('click');
-		})
-
-		$('select').on('change',function(){
-			$(this).parent('div').find('.selectLabel').text($(this).find('option:selected').text());
-		});
-	});
-	
-	// Code for infine Scroll Start here.
-	$(window).scroll(function () { 
-		if( $(window).scrollTop() != 0 && ($(window).scrollTop() >= $(document).height() - $(window).height() - 350) && $('#gettingMoreResultsFlag').val()=='false') {
-			var page=$('#page').val();
-			var records=parseInt(page)*15;
-			if(parseInt(records)<=parseInt($('#totalRecordsCount').val())){
-				$('#gettingMoreResultsFlag').val('true');
-				if ($('#gettingMoreResultsFlag').val()=='true')
-				{
-					//$('#gettingMoreResultsFlag').val('false');
-					var page=parseInt($('#page').val())+1;
-					$('#page').val(page);
-					$("#loaderLogin_Bottom").show();
-					getPropList();				
-				}
-			}
-		}
-	});
-	
-	var extparam = {};
-	// CODE FOR MULTIPLE TAG SEARCH START HERE
-	var options =
-	{
-		bitsOptions:
-		{
-			editable:
-			{
-				stopEnter: true,
-				addOnBlur: true,
-			}
-		},
-		plugins: 
-		{
-			autocomplete: 
-			{
-				minLength: 1,
-				onlyFromValues:false,
-				queryRemote: true,
-				placeholder: false,
-				maxResults:1000,
-				remote:
-				{
-					url: '/getAutoTags.php',
-					param: 'keyword',
-					extraParams: {searchFor: function() { if($('#searchFor').length > 0) return $("#searchFor").val(); else return "";} },
-					/*extraParams: extparam,*/
-					loadPlaceholder: 'Please wait...'
-				}
-			}
-		},
-		unique:true
-	};
-	
-	searchBox = new $.TextboxList('#topick_tags', options);
-	
-	// Add/Remove Bits
-	var addBoxEvt = function(addedBox) {
-			searchBox.fromClear = false;
-			getPropList('fromSearchBtn');
-
-			// For placeholder
-			if($('.textboxlist-bit-editable-input').length > 0)
-			{
-				$('.textboxlist-bit-editable-input').attr("placeholder","");
-
-				if ($('#topick_tags').val() != "")
-					$('.textboxlist-bit-editable-input').css("width","30px");
-				else
-					$('.textboxlist-bit-editable-input').css("width","385px");
-			}
-			setTextContainerMoreIcn();
-	};
-	
-	var removeBoxEvt = function(removedBox) {	
-		if(!searchBox.fromClear) {
-			//console.log(removedBox.value[1]);
-			
-			// RESTORE THE TAGS WHICH SEARCH BEFORE
-			var flag = true;
-			if(removedBox.value[1] == "Your Recommendations" || removedBox.value[1] == "Your Thumbs Up")
-			{
-				$.cookie("loginUserTags","");
-				searchBox.clearValues();
-				setAllTagsfromCookies();
-				flag= false;
-			}
-
-			$.cookie("tags","");
-			// For placeholder
-			if($("#topick_tags").val() == "")
-				setAutoPlaceholder();
-			if (flag)
-				getPropList('fromSearchBtn');
-		}
-
-		setTextContainerMoreIcn();
-	};	
-
-	var bitBoxFocusEvt = function(removedBox) {
-		removedBox.remove();
-	};
-	searchBox.addEvent("bitAdd", addBoxEvt);
-	searchBox.addEvent("bitRemove", removeBoxEvt);
-	searchBox.addEvent("bitBoxFocus", bitBoxFocusEvt);
-	searchBox.addEvent("focus", function(){
-			$('.textboxlist-autocomplete-results').show().scrollTop(0).hide();
-	});
-
-	$( window ).resize(function() {
-		$('.textboxlist-autocomplete').width($('.textboxlist-bits').width());
-	});
-
-	window.addEventListener("orientationchange", function() {
-		$('.textboxlist-autocomplete').width($('.textboxlist-bits').width());
-	}, false);
-
-	$(document).mousedown(function(e) {
-		if (e.which == 1){			
-			var clicked=$(e.target);
-			if(clicked.is('#overlay2')) {
-				closeAllDialog();
-			}
-		}
-	});
-
-	$(document).bind( "touchstart", function(e){
-        var clicked=$(e.target);
-		if(clicked.is('#overlay2') || clicked.is('#mainOverlay2')) {				
-			closeAllDialog();
-		}
-	});
-	
-	var mobilDevice = window.matchMedia("screen and (max-width: 480px)")
-	if (!mobilDevice.matches){
-		$('.searchOption').addClass('fixed');
-		$('.srchMid').css('margin-top',$('.searchOption').height()+5);
-	}
-	else
-	{
-		noFixedHeader = true;
-	}
-
-	getPropList('fromSearchBtn');
-</script> 
-<script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
+   $("#signin").on('click',function(){ 
+    $(".Authorizing").show();
+    $(".sign_in").hide();
+    setTimeout( function() {
+      //$(".Authorizing").hide();
+    }, 2000);
+  });
+</script>
 </body>
-</html>
+</html>  
