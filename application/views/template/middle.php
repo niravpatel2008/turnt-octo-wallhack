@@ -18,6 +18,9 @@
 	?>
 
 	<section style="width: 100%; margin-top: 140px;" class="srchMid clearfix"> 
+		<section id="propertyDataDiv" class="" style="padding:0 10px;">
+			<div id="v_results" data-columns="5"></div>
+		</section>
 		<?php
 			$this->load->view($this->router->fetch_class()."/".$view);
 		?>
