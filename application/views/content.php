@@ -1,5 +1,11 @@
 <?php
-$this->load->view('template/header');
+
+if (in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
+	$this->load->view('template/header');
+}else{
+	$this->load->view('template/header_inner');
+}
+
 $this->load->view('template/middle');
 $this->load->view('template/footer');
 ?>
