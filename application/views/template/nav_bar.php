@@ -53,7 +53,7 @@
 							<div style="width:80%" class="formwrap_cell">
 								<div class="formwrap-adjust">
 									<div class="w2 l">
-										<input type="text" id="topick_tags" class="jqTextboxList" style="display: none;" autocomplete="off"><div class="textboxlist"><ul class="textboxlist-bits"><li class="textboxlist-bit textboxlist-bit-editable"><input type="text" autocomplete="off" class="textboxlist-bit-editable-input" style="width: 30px;"><span style="float: left; display: inline-block; position: absolute; left: -1000px; font-size: 11px; font-family: &quot;Lucida Grande&quot;,Verdana; padding: 2px 0px; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-transform: none;"></span></li></ul><div class="textboxlist-autocomplete" style="width: 870px;"><ul class="textboxlist-autocomplete-results"></ul></div></div>
+										<input type="text" id="topick_tags" class="jqTextboxList" style="display: none;" autocomplete="off">
 									</div>
 									<div class="w6 l">
 										<div id="searchFordiv">
