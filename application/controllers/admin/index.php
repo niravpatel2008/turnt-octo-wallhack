@@ -31,7 +31,7 @@ class Index extends CI_Controller {
 			if ($e_flag == 0) {
 				$where = array('du_uname' => $post['userid'],
 								'du_password' => $post['password'],
-								'du_role' => 'a'
+								//'du_role' => 'a'
 							 );
 				$user = $this->common_model->selectData('deal_user', '*', $where);
 				if (count($user) > 0) {

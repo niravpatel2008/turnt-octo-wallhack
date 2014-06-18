@@ -79,16 +79,14 @@ class Users extends CI_Controller {
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'User added successfully.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/users");
+									);					
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/users");
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/users");
 			}	
 			$data['error_msg'] = $error;
 		}
@@ -140,16 +138,14 @@ class Users extends CI_Controller {
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'User updated successfully.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/users");
+									);					
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/users");
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/users");
 			}	
 			$data['error_msg'] = $error;
 		}

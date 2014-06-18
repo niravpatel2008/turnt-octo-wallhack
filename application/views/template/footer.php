@@ -176,9 +176,15 @@ http://t.co/HXvWw
 <script src="<?=public_path()?>js/front/jquery-1.js"></script>
 <script src="<?=public_path()?>js/front/plugins.js"></script>
 <script src="<?=public_path()?>js/front/main.js"></script>
+<script src="<?=public_path()?>js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-  
+  function getLoginForm()
+  {
+    $('#divConsLogin').modal();
+  }
+
+
   $("#login").click( function(){
     if($("#loginbox").css('display')=='block'){
       $("#loginbox").slideUp();
