@@ -16,19 +16,22 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">   
     <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">        
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
+    <link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css">
     
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css"/>
-    <![endif]-->        
-    
+    <![endif]--> 
+	
     <script src="<?=public_path()?>js/front/modernizr-2.js"></script>
 </head>
 <body>
@@ -230,7 +233,7 @@ all the orders placed in April and May.
                         </div>
                       </div>
                     </div>
-                  </li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a>3</a></li><li><a>4</a></li><li><a>5</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
+                  </li></ul></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
             </div>
           </div>
         </div>
@@ -239,10 +242,7 @@ all the orders placed in April and May.
           <div class="row">
             <form action="search-results.html">
               <div class="small-6 large-8 columns">
-                <label class="search-box">
-                  <input type="text" placeholder="Search listing" class="input field primary">
-                  <a id="clear-sb" class="icon clear ir" href="#">Clear</a>
-                </label>
+                  <input type="text" id='search_tags' placeholder="Search listing" class="input field primary">
               </div>
               <div class="small-3 large-2 columns">
                 <input type="submit" value="Search" class="input button primary red">
