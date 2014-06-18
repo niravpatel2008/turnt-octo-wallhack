@@ -15,13 +15,7 @@ $(function() {
     className: 'select-popular-companies-list'
   });
 
-  // clear searchbox button functionality
-  $('#clear-sb').on('click', function() {
-    var field = $(this).parent().children('input');
-    field.val('');
-    field.focus();
-  });
-
+ 
 
   // main menu indicator
   // var temp;
@@ -57,79 +51,94 @@ $(function() {
     }
   });
 
+	var extparam = {};
+	// CODE FOR MULTIPLE TAG SEARCH START HERE
+	var options =
+	{
+		bitsOptions:
+		{
+			editable:
+			{
+				stopEnter: true,
+				addOnBlur: true,
+			}
+		},
+		plugins: 
+		{
+			autocomplete: 
+			{
+				minLength: 1,
+				onlyFromValues:false,
+				queryRemote: true,
+				placeholder: false,
+				maxResults:1000,
+				remote:
+				{
+					url: '/getAutoTags.php',
+					param: 'keyword',
+					extraParams: {searchFor: function() { if($('#searchFor').length > 0) return $("#searchFor").val(); else return "";} },
+					/*extraParams: extparam,*/
+					loadPlaceholder: 'Please wait...'
+				}
+			}
+		},
+		unique:true
+	};
 
-  // main-slider
-  $('.main-slider').flexslider({
-    animation: "slide"
-  });
+	searchBox = new $.TextboxList('#search_tags', options);
 
-  // popular companies
-  $('.popular-companies').flexslider({
-    animation: "slide",
-    itemWidth: 134,
-    itemMargin: 0,
-    minItems: 2,
-    maxItems: 7
-  });
+	// Add/Remove Bits
+	var addBoxEvt = function(addedBox) {
+			searchBox.fromClear = false;
+			//getPropList('fromSearchBtn');
 
-   // popular companies
-  $('.items-carousel').flexslider({
-    animation: "slide",
-    itemWidth: 240,
-    itemMargin: 0,
-    minItems: 1,
-    maxItems: 4
-  });
+			// For placeholder
+			if($('.textboxlist-bit-editable-input').length > 0)
+			{
+				$('.textboxlist-bit-editable-input').attr("placeholder","");
 
-   // testimonials
-  $('.testimonials-box').flexslider({
-    animation: "slide"
-  });
+				if ($('#topick_tags').val() != "")
+					$('.textboxlist-bit-editable-input').css("width","30px");
+				else
+					$('.textboxlist-bit-editable-input').css("width","385px");
+			}
+			setTextContainerMoreIcn();
+	};
 
-  // checklist
+	var removeBoxEvt = function(removedBox) {	
+		if(!searchBox.fromClear) {
+			//console.log(removedBox.value[1]);
 
-  $('.checklist input').parent().removeClass('checked');
-  $('.checklist input:checked').parent().addClass('checked');
-  
-  $('.checklist input').on('change', function() {
-    if ($(this).is(':checked') && !$(this).parent().hasClass('checked')) {
-      $(this).parent().addClass('checked');
-    } else if (!$(this).is(':checked') && $(this).parent().hasClass('checked')) {
-      $(this).parent().removeClass('checked');
-    }
-  });
+			// RESTORE THE TAGS WHICH SEARCH BEFORE
+			var flag = true;
+			if(removedBox.value[1] == "Your Recommendations" || removedBox.value[1] == "Your Thumbs Up")
+			{
+				$.cookie("loginUserTags","");
+				searchBox.clearValues();
+				setAllTagsfromCookies();
+				flag= false;
+			}
 
+			$.cookie("tags","");
+			// For placeholder
+			if($("#topick_tags").val() == "")
+				setAutoPlaceholder();
+			//if (flag)
+			//	getPropList('fromSearchBtn');
+		}
 
-  // days filter slider
+		setTextContainerMoreIcn();
+	};	
 
-  $( '.filter-days .slider' ).slider({
-    range: true,
-    min: 1,
-    max: 30,
-    values: [ 1, 14 ],
-    slide: function( event, ui ) {
-      $('.filter-days .info .begin').text( ui.values[0] + ( ui.values[0] > 1 ? ' days' : ' day' ) );
-      $('.filter-days .info .end').text( ui.values[1] + ( ui.values[1] > 1 ? ' days' : ' day' ) );
-    }
-  });
+	var bitBoxFocusEvt = function(removedBox) {
+		removedBox.remove();
+	};
+	searchBox.addEvent("bitAdd", addBoxEvt);
+	searchBox.addEvent("bitRemove", removeBoxEvt);
+	searchBox.addEvent("bitBoxFocus", bitBoxFocusEvt);
+	searchBox.addEvent("focus", function(){
+			$('.textboxlist-autocomplete-results').show().scrollTop(0).hide();
+	});
 
-  var begin = $('.filter-days .slider').slider('values', 0);
-  var end = $('.filter-days .slider').slider('values', 1);
-  $('.filter-days .info .begin').text( begin + ( begin > 1 ? ' days' : ' day' ) );
-  $('.filter-days .info .end').text( end + ( end > 1 ? ' days' : ' day' ) );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	//salvattore.init();
 });

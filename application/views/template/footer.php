@@ -17,103 +17,7 @@
         </form>
       </div>
     </div>
-    
-    <div class="stripe-regular">
-      <div class="row">
-        <div class="column">                  
-          <h2>Popular Companies</h2>
-        </div>
-      </div>
-      <div class="row collapse">
-        <div class="column">
-          <div class="popular-companies flexslider">
-            
-          <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="rr slides" style="width: 3200%; transition-duration: 0.6s; transform: translate3d(0px, 0px, 0px);">
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/1_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/2_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/3_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/4_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/1_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/2_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/3_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/4_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/1_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/2_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/3_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/4_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/1_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/2_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/3_002.jpg">
-                </a>
-              </li>
-              <li style="width: 137.143px; float: left; display: block;">
-                <a class="wrapper-5 small" href="http://teothemes.com/html/Couponizer/company.html">
-                  <img alt="" src="Couponizer_files/4_002.jpg">
-                </a>
-              </li>
-            </ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
-        </div>
-      </div>
-    </div>
-    
+   
     <div class="stripe-dark pre-footer-wrap">
       <div class="row">
         <div class="large-4 columns">
@@ -173,9 +77,15 @@ http://t.co/HXvWw
 </div>
 
 
-<script src="<?=public_path()?>js/front/jquery-1.js"></script>
+<script src="<?=public_path()?>js/front/jquery.min.js"></script>
 <script src="<?=public_path()?>js/front/plugins.js"></script>
+<!-- Auto Complete tag js -->
+<script type="text/javascript" src="<?=public_path()?>js/front/GrowingInput.js" charset="utf-8"></script>	
+<script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.js" charset="utf-8"></script>	
+<script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.Autocomplete.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
 <script src="<?=public_path()?>js/front/main.js"></script>
+
 
 <script type="text/javascript">
   

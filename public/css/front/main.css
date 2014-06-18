@@ -1588,3 +1588,13 @@ footer .social .fb {
         page-break-after: avoid;
     }
 }
+
+
+/* home page search bar */
+
+.textboxlist-bits{
+ height: 3.429em;
+ background: none repeat scroll 0 0 #F0F0F0;
+ border: 3px solid #E5E5E5;
+ color: #9D9D9D;
+}
