@@ -645,9 +645,9 @@ a.flex-next {
 
 .item-thumb {
   width: 220px;
-  height: 350px;
   text-align: center;
   position: relative;
+  margin-bottom:10%;
 }
 .item-thumb:hover h2 {
   color: #a9a9a9;
@@ -666,17 +666,11 @@ a.flex-next {
 }
 
 .item-thumb .top {
-  height: 60%;
+  height: 120px;
+  border-bottom: 1px dashed #e3e3e3;
 }
 .item-thumb .top:after {
-  content: "";
-  display: block;
-  width: 100%;
-  position: absolute;
-  top: 60%;
-  left: 0;
-  height: 0;
-  border-bottom: 1px dashed #e3e3e3;
+ 
 }
 .item-thumb h2 {
   position: relative;
@@ -756,7 +750,7 @@ header[role="banner"] {
   padding: 23px 0;
   max-height: 450px;
   position: relative;
-  z-index: 1000;
+  z-index: 500;
 }
 .logo {
   font-size: 1.313em;
@@ -1597,4 +1591,15 @@ footer .social .fb {
  background: none repeat scroll 0 0 #F0F0F0;
  border: 3px solid #E5E5E5;
  color: #9D9D9D;
+}
+
+.modal-dialog {max-width:350px;}
+.modal-backdrop {z-index:600;}
+
+.menu-browse a:hover,.menu-browse a:focus{
+	text-decoration: none;
+}
+
+.agtcontact {
+	text-align:center;
 }

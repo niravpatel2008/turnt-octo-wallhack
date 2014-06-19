@@ -74,7 +74,7 @@ $(function() {
 				maxResults:1000,
 				remote:
 				{
-					url: '/getAutoTags.php',
+					url: './welcome/autosuggest',
 					param: 'keyword',
 					extraParams: {searchFor: function() { if($('#searchFor').length > 0) return $("#searchFor").val(); else return "";} },
 					/*extraParams: extparam,*/
@@ -97,7 +97,7 @@ $(function() {
 			{
 				$('.textboxlist-bit-editable-input').attr("placeholder","");
 
-				if ($('#topick_tags').val() != "")
+				if ($('#search_tags').val() != "")
 					$('.textboxlist-bit-editable-input').css("width","30px");
 				else
 					$('.textboxlist-bit-editable-input').css("width","385px");
@@ -121,7 +121,7 @@ $(function() {
 
 			$.cookie("tags","");
 			// For placeholder
-			if($("#topick_tags").val() == "")
+			if($("#search_tags").val() == "")
 				setAutoPlaceholder();
 			//if (flag)
 			//	getPropList('fromSearchBtn');

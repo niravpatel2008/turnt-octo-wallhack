@@ -114,6 +114,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('content', $data);
 	}
 
+	public function autosuggest()
+	{
+		$get = $this->input->get();
+		if (!isset($get["keyword"])) exit;
+		$tag = $get["keyword"];
+		$tags = $this->common_model->getTagAutoSuggest($tag);
+		echo json_encode($tags);exit;
+	}
+
 }
 
 /* End of file welcome.php */

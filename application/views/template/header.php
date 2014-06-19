@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+	
+    <link rel="stylesheet" href="<?=public_path()?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
@@ -35,6 +36,7 @@
     <script src="<?=public_path()?>js/front/modernizr-2.js"></script>
 </head>
 <body>
+	<?=$this->load->view('welcome/login');?>
     <div class="page home">
     <header class="cf" role="banner">          
         <div class="top-wrap">
@@ -66,8 +68,6 @@
                         <a class="input button blue tertiary icon plus" href="<?=base_url()?>signup">Join us</a>
                         <a class="input button transparent tertiary" href="javascript:void(0)" onclick="getLoginForm();" >Log in</a>
                         <!-- <a class="input button transparent tertiary" href="javascript:void(0)" id="login" >Log in</a> -->
-                        <?=$this->load->view('welcome/login');?>
-
                     </div>
                 </div>
             </div>

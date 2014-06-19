@@ -12,29 +12,26 @@
       <div id="divConsumerError" class="errorMsg"></div>
         <form name="loginform" id="loginform" action="" method="post">
           <?=@$error_msg['invalid_login']?>
-          <div class="agtcontact agent_margin">         
-            <div class="agtfield alignleft">
-              <input type="text" class="validate[required]" name='username' id='username' placeholder="Username">
+          <div class="row">         
+            <div class="" style='padding:15px;'>
+              <input type="text" class="input field primary" name='username' id='username' placeholder="Username">
               <?=@$error_msg['username']?>
             </div>
-            <div class="clearboth"></div>
           </div>
-          <div class="agtcontact">
-            <div class="agtfield alignleft">
-              <input type="password" class="validate[required]" name='password' id='password' placeholder="Password">
+
+          <div class="row">
+            <div class="" style='padding:15px;'>
+              <input type="password" class="input field primary" name='password' id='password' placeholder="Password">
               <?=@$error_msg['password']?>
             </div>
-            <div class="clearboth"></div>
           </div>    
-          <div class="agtcontact">
-            <div style="padding-top:10px;text-align:center;">     
-              <input type="submit" name="signin" id="signin" value="Sign in" class="input button primary" />
-              <a href="javascript:void(0);" id="csbtnClear" onclick="javascript:closeAllDialog();" class="button-style1"><span> Cancel </span></a>
+
+            <div style="padding-top:10px;text-align:center;" class='row'> 
+			  <input type="submit" name="signin" id="signin" value="Sign in" class="input button primary" style='width: 33.3333%;display:inline-block;' />
+			  <input type="submit" name="csbtnClear" id="csbtnClear" onclick="javascript:closeAllDialog();" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
             </div>
-            <div class="clearboth"></div>
-          </div>          
-          <div class="clearboth"></div>
-          <div class="agtcontact alignright">
+            
+          <div class="row">
             <a id="userregister" href="javascript:closeAllDialog();getCreateAccountForm();"> Create Account </a> | <a id="achConsForgot" href="javascript:void(0);"> Forgot your password? </a>
           </div>
           <div class="clearboth" style="height:10px"></div>

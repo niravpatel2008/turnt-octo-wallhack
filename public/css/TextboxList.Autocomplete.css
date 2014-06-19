@@ -4,7 +4,7 @@
 		Purchase to remove copyright
 */
 
-.textboxlist-autocomplete { position: fixed; z-index: 100;}
+.textboxlist-autocomplete { position: absolute; z-index: 100;}
 .textboxlist-autocomplete-placeholder, .textboxlist-autocomplete-results { background: #eee;
 /*-webkit-box-shadow: 0 3px 3px #ccc; -moz-box-shadow: 0 3px 3px #ccc; box-shadow: 0 3px 3px #ccc; */
 border: 1px solid #999; border-top: none; display: none; max-height:243px;overflow-y:scroll;}
