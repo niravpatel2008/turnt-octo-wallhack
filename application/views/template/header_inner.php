@@ -60,6 +60,7 @@
                 </nav>
                 <div class="large-3 columns">
                     <div class="account cf">
+                        <a class="input button tertiary" href="<?=base_url()?>profile/logout">Log out</a>
                         <!-- <a class="input button blue tertiary icon plus" href="#">Join us</a>
                         <a class="input button transparent tertiary" href="#">Log in</a> -->
                     </div>

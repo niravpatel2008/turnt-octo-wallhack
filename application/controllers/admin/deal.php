@@ -140,15 +140,13 @@ class Deal extends CI_Controller {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal added successfully.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/deal");
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/deal");
+									);	
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/deal");
 			}
 			$data['error_msg'] = $error;
 		}
@@ -269,16 +267,14 @@ class Deal extends CI_Controller {
 
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal updated successfully.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/deal");					
+									);				
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/deal");
+									);					
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/deal");
 			}	
 			$data['error_msg'] = $error;
 

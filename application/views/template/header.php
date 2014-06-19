@@ -64,44 +64,9 @@
                 <div class="large-3 columns">
                     <div class="account cf">
                         <a class="input button blue tertiary icon plus" href="<?=base_url()?>signup">Join us</a>
-                        <a class="input button transparent tertiary" href="javascript:void(0)" id="login" >Log in</a>
-                        <div id="loginbox" class="loginbox" style="display:none; border-radius:10px 0px 10px 10px; width:320px;">
-                          <form name="loginform" id="loginform" action="" method="post">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="10">
-                              <tr>
-                                <td align="left" valign="top" colspan="2"   >
-                                <?php if(trim(@$msg)!=''){?>
-                                <div style="background:#fff; border-radius:5px; padding:5px; margin-bottom:4px;">
-                                <span class="redfont" style="font-size:12px;">
-                                 <strong> <?=@$msg;?></strong>
-                                  </span>
-                                  </div>
-                                  <?php }?>
-                                  </td>
-                              </tr>
-                              <tr>
-                                <td align="left" valign="middle" >Username </td>
-                                <td align="left" valign="top" width="60%"><input type="text"  style=" width:150px;" name='username' id='username' class="input"  autofocus="autofocus"/></td>
-                              </tr>
-                              <tr>
-                                <td align="left" valign="top">Password</td>
-                                <td align="left" valign="top"><input type="password"  style="margin-top:-10px; width:150px;"  name='password' id='password'  class="input" />
-                                  <br />
-                                  <a href="<?=base_url()."forgotpassword"?>"  >
-                                  Forgot Password?</a></td>
-                              </tr>
-                              <tr class="sign_in">
-                                <td align="left" valign="top" colspan="2"><input type="submit" name="signin" id="signin" value="Sign in" class="input button primary" /></td>
-                              </tr>
-                              <tr class="Authorizing" style="display:none;">
-                                <td colspan="2" align="center" style="text-align:center; background:#FFFFFF"><div style="margin:0px auto; width:50%;" align="center">
-                                    <div style="float:left; width:auto;"> <img src="<?=public_path()?>images/loading.gif" height="27"/> </div>
-                                    <div style=" float:left; width:auto; margin:4px 0px 0px 4px; font-size:13px; font-weight:bold; color:#000;"> Authorizing... </div>
-                                  </div></td>
-                              </tr>                             
-                            </table>
-                          </form>
-                        </div>
+                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="getLoginForm();" >Log in</a>
+                        <!-- <a class="input button transparent tertiary" href="javascript:void(0)" id="login" >Log in</a> -->
+                        <?=$this->load->view('welcome/login');?>
 
                     </div>
                 </div>

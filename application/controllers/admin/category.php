@@ -67,15 +67,14 @@ class Category extends CI_Controller {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Category added successfully.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/category");
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/category");
+					
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/category");
 			}	
 			$data['error_msg'] = $error;
 		}
@@ -117,15 +116,14 @@ class Category extends CI_Controller {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Category updated successfully.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/category");
+					
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/category");
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/category");
 			}	
 			$data['error_msg'] = $error;
 

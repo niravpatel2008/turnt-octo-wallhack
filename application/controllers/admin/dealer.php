@@ -98,15 +98,13 @@ class Dealer extends CI_Controller {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Dealer added successfully.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/dealer");
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/dealer");
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/dealer");
 			}
 			$data['error_msg'] = $error;
 		}
@@ -165,16 +163,14 @@ class Dealer extends CI_Controller {
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Dealer updated successfully.'
-									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/dealer");
+									);					
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					$this->session->set_flashdata($flash_arr);
-					redirect("admin/dealer");
 				}
+				$this->session->set_flashdata($flash_arr);
+				redirect("admin/dealer");
 			}	
 			$data['error_msg'] = $error;
 

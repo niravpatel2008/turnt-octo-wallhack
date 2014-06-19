@@ -85,10 +85,16 @@ http://t.co/HXvWw
 <script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.Autocomplete.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
 <script src="<?=public_path()?>js/front/main.js"></script>
+<script src="<?=public_path()?>js/bootstrap.min.js"></script>
 
 
 <script type="text/javascript">
-  
+  function getLoginForm()
+  {
+    $('#divConsLogin').modal();
+  }
+
+
   $("#login").click( function(){
     if($("#loginbox").css('display')=='block'){
       $("#loginbox").slideUp();
