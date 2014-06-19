@@ -146,7 +146,19 @@ class common_model extends CI_Model{
 			return 0;
 		}
 	}
-
+	
+	public function getTagAutoSuggest($tag)
+	{
+		$this->db->select('dt_tag');
+		$this->db->from(DEAL_TAGS);
+		$this->db->like('dt_tag', $tag, 'after');
+		$query = $this->db->get();
+		$tags = $query->result_array();
+		$resTags = array();
+		foreach($tags as $tag)
+			$resTags[] = array($tag['dt_tag'],$tag['dt_tag']);
+		return ($resTags);
+	}
 
 }
 ?>
