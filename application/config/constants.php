@@ -51,5 +51,6 @@ define('DEAL_MAP_TAGS',	'deal_map_tags');
 define('DEAL_TAGS',	'deal_tags');
 
 
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
