@@ -76,8 +76,6 @@ $(function() {
 				{
 					url: './welcome/autosuggest',
 					param: 'keyword',
-					extraParams: {searchFor: function() { if($('#searchFor').length > 0) return $("#searchFor").val(); else return "";} },
-					/*extraParams: extparam,*/
 					loadPlaceholder: 'Please wait...'
 				}
 			}
@@ -89,11 +87,11 @@ $(function() {
 
 	// Add/Remove Bits
 	var addBoxEvt = function(addedBox) {
-			searchBox.fromClear = false;
+			//searchBox.fromClear = false;
 			//getPropList('fromSearchBtn');
 
 			// For placeholder
-			if($('.textboxlist-bit-editable-input').length > 0)
+			/*if($('.textboxlist-bit-editable-input').length > 0)
 			{
 				$('.textboxlist-bit-editable-input').attr("placeholder","");
 
@@ -101,32 +99,16 @@ $(function() {
 					$('.textboxlist-bit-editable-input').css("width","30px");
 				else
 					$('.textboxlist-bit-editable-input').css("width","385px");
-			}
-			setTextContainerMoreIcn();
+			}*/
+			//setTextContainerMoreIcn();
 	};
 
 	var removeBoxEvt = function(removedBox) {	
-		if(!searchBox.fromClear) {
-			//console.log(removedBox.value[1]);
-
-			// RESTORE THE TAGS WHICH SEARCH BEFORE
-			var flag = true;
-			if(removedBox.value[1] == "Your Recommendations" || removedBox.value[1] == "Your Thumbs Up")
-			{
-				$.cookie("loginUserTags","");
-				searchBox.clearValues();
-				setAllTagsfromCookies();
-				flag= false;
-			}
-
 			$.cookie("tags","");
-			// For placeholder
 			if($("#search_tags").val() == "")
 				setAutoPlaceholder();
 			//if (flag)
 			//	getPropList('fromSearchBtn');
-		}
-
 		setTextContainerMoreIcn();
 	};	
 
