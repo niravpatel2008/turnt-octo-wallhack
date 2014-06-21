@@ -217,16 +217,9 @@ all the orders placed in April and May.
                   <li class="input button primary">
                     <p class="label">Browse</p>
                     <ul class="rr sub" style="display: none;">
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Nike</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Ray Ban</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Amazon</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">InterSport</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Big Time</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">WristWatch</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">GoDaddy</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">SanDisk</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Nikon</a></li>
-                      <li><a href="http://teothemes.com/html/Couponizer/company.html">Canon</a></li>
+					<?php foreach($categories as $category){
+							echo "<li><a href='#'>$category->dc_catname</a></li>";
+					}?>
                     </ul>
                   </li>
                 </ul>
