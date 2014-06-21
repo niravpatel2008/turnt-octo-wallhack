@@ -160,5 +160,31 @@ class common_model extends CI_Model{
 		return ($resTags);
 	}
 
+	public function searchDeals($tags)
+	{
+		//SELECT * FROM deal_detail LEFT JOIN deal_map_tags ON dd_autoid = dm_ddid LEFT JOIN deal_tags ON dm_dtid = dt_autoid WHERE dt_tag IN ("superb deal","deal tag5","Test New tag") GROUP BY dd_autoid HAVING COUNT(DISTINCT dm_dtid) = 3
+		$tags = array_filter(explode(",",$tags));
+
+		$this->db->select('*');
+		$this->db->from(DEAL_DETAIL);
+
+		if (count ($tags) > 0)
+		{
+			$this->db->join(DEAL_MAP_TAGS, 'dd_autoid = dm_ddid', 'left');
+			$this->db->join(DEAL_TAGS, 'dm_dtid = dt_autoid', 'left');
+			$this->db->where_in('dt_tag',$tags);
+			$this->db->group_by('dd_autoid');
+			$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
+		}
+
+		$this->db->where('dd_status',"published");
+		$this->db->where('dd_startdate',">= now()");
+		$this->db->where('dd_expiredate',"<= now()");
+
+		$query = $this->db->get();
+		$resDeals = $query->result_array();
+		return ($resDeals);
+	}
+
 }
 ?>
