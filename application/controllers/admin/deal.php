@@ -7,7 +7,10 @@ class Deal extends CI_Controller {
 		is_login();
 
 		$this->user_session = $this->session->userdata('user_session');
-
+		
+		if (!in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+			redirect("admin/dashboard");
+		}
 	}	 
 
 	public function index()
@@ -161,6 +164,10 @@ class Deal extends CI_Controller {
 
 	public function edit($id)
 	{
+		if (!in_array("edit", config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
+			redirect("admin/deal");
+		}
+
 		if ($id == "" || $id <= 0) {
 			redirect('admin/deal');
 		}
@@ -335,6 +342,11 @@ class Deal extends CI_Controller {
 
 	public function delete()
 	{
+		if (!in_array("delete", config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
+			echo "redirect";
+			exit;
+		}
+
 		$post = $this->input->post();
 		
 		if ($post) {

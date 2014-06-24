@@ -7,6 +7,10 @@ class Dealer extends CI_Controller {
 		is_login();
 
 		$this->user_session = $this->session->userdata('user_session');
+
+		if (!in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+			redirect("admin/dashboard");
+		}
 	}	 
 
 	public function index()

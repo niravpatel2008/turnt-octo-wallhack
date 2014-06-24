@@ -155,7 +155,13 @@
                         <label for="dd_status">Status:</label>
                         <select class="form-control" id="dd_status" name="dd_status">
                             <option value="">Select</option>
-							<option value='published' <?=(@$deal[0]->dd_status == 'published')?'selected':''?> >Published</option>
+                            <?php
+                                if ($this->user_session['role'] == 'a') {
+                            ?>
+                                <option value='published' <?=(@$deal[0]->dd_status == 'published')?'selected':''?> >Published</option>
+                            <?php
+                                }
+                            ?>						
 							<option value='draft' <?=(@$deal[0]->dd_status == 'draft')?'selected':''?> >Draft</option>
 						</select>
                     </div>
