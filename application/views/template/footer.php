@@ -79,6 +79,7 @@ http://t.co/HXvWw
 
 <script src="<?=public_path()?>js/front/jquery.min.js"></script>
 <script src="<?=public_path()?>js/front/plugins.js"></script>
+<script src="<?=public_path()?>js/front/jquery.cookie.js"></script>
 <!-- Auto Complete tag js -->
 <script type="text/javascript" src="<?=public_path()?>js/front/GrowingInput.js" charset="utf-8"></script>	
 <script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.js" charset="utf-8"></script>	
