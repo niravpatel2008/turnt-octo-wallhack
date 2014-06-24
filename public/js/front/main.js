@@ -1,3 +1,164 @@
+var qryString;
+var resultSet = {};
+var dealCnt;
+var qryStrHash = {};
+var dealCnt = 1;
+
+function setCookies()
+{
+	$.cookie("tags",qryStrHash["tags"]);
+
+	if(qryStrHash["sortType"] != "")
+		$.cookie("sortType",qryStrHash["sortType"]);
+
+	//$.cookie("searchFor",qryStrHash["searchFor"]);
+}
+
+function getCookies()
+{
+	if($.cookie("tags") != "" && $.cookie("tags") != null && $.cookie("tags") != "null") {
+		qryStrHash["tags"] = $.cookie("tags");
+	}
+}
+
+function clearCookies()
+{
+	$.cookie("tags","");
+	$.cookie("searchFor","");
+}
+
+
+function getParamValue()
+{
+	qryString	= "";	
+	var selectedTags = $("#search_tags").val();
+
+	//For Tags Type
+	if(typeof(selectedTags) != "undefined")
+	{
+		qryStrHash["tags"] = $.trim(selectedTags);
+		qryString += "tags_"+selectedTags+"/";
+	}
+
+	//For Price Range
+	/*if($(".fiterByTypeBx:visible").val() != "")
+	{
+		qryStrHash["sortType"] = $(".fiterByTypeBx:visible").val();
+	}
+	
+	if($('#searchFor').length > 0)
+		qryStrHash["searchFor"] = $('#searchFor').val();
+	else
+		qryStrHash["searchFor"] = "";*/
+}
+
+
+function getDealList(action)
+{
+	$("#loaderLogin").show();
+	//setTopOfPage("hide"); // default Hide
+	$("#noResultDiv").hide();
+
+	if(action=='new'){
+		$('#page').val('1');
+		$('#search_results').html('');
+		salvattore.init();
+	}
+
+	dealData = {};	
+	getParamValue();
+
+	setCookies();
+	
+	/*********** Get Data Of Property *********/
+	//var url = '/getSearchResult.php';
+	var url = '/deals/search/';
+	var data = {};
+
+	//Set property hash into query srting
+	$.each(qryStrHash, function(key, value) { 
+		data[key] = value;
+	});
+	console.log(qryStrHash);
+	console.log(data);
+	data['page']=$('#page').val();
+
+	$.ajax({
+		url: url,
+		type: 'POST',
+		data: data,
+		dataType: 'json',
+		async: false,
+		success: function(result)
+		{
+			$("#loaderLogin").hide();
+			var page = $('#page').val();
+
+			resultSet[page] = result;
+			if($.trim(result) != "") {	
+				hideHeader = true;
+				$("#noResultDiv").hide();
+		
+				displayDealsData(result);
+			}
+			else if($.trim(result) == "") {
+				$("#noResultDiv").show();
+				$('#totalRecordsCount').val("");
+			}
+			$("#noRecTbl").hide();	
+		},
+		error: function(xhr, textStatus, errorThrown){
+			//console.log("Server error");
+		}
+	});	
+}
+
+function displayDealsData(result)
+{
+	var article = "";
+	var htmlStr = "";
+	if(result.length>0 && result != ""){
+		$("#noRecTbl").hide();	
+	}
+	$('#totalRecordsCount').val(result.totalRecordsCount);
+	var flag = false;
+	$.each(result, function(index,element)
+	{
+		if(index!='totalRecordsCount'){
+			article = "<div class='wrapper-3 item-thumb'>";
+			  article += "<div class='top'>";
+				article += "<figure>";
+				  article += "<img alt='' src='"+element.photo+"'>";
+				article += "</figure>";
+				article += "<h2 class='alt'><a href='#'>"+element.name+"</a></h2>";
+			  article += "</div>";
+			  article += "<div class='bottom'>";
+				article += "<p class='value secondary'>$30 OFF</p>";
+				article += "<h6>31 days left</h6>";
+				article += "<a class='input button red secondary' href='#'>Learn more</a>";
+			  article += "</div>";
+			article += "</div>";
+			
+			
+			var grid = $('#search_results');
+			salvattore['append_elements'](grid[0], [$(article)[0]]);	
+		
+			dealCnt++;
+		}		
+	});
+	
+	if($('#totalRecordsCount').val() == (dealCnt-1))
+	{
+			//setTopOfPage("show");		
+	}
+}
+
+function setStartUp(){
+	var tags = $.cookie("tags");
+	if (typeof(tags) != 'undefined')
+		$('#search_tags').val(tags);
+}
+
 $(function() {
 
   // main menu responsive
@@ -18,15 +179,15 @@ $(function() {
  
 
   // main menu indicator
-  // var temp;
-  // $('.main-menu li').hover(function() {
-  //   temp = $(this).parent().children('.current')
-  //   temp.removeClass('current');
-  //   $(this).addClass('current');
-  // }, function() {
-  //   $(this).removeClass('current');
-  //   temp.addClass('current');
-  // });
+  var temp;
+   $('.main-menu li').hover(function() {
+     temp = $(this).parent().children('.current')
+     temp.removeClass('current');
+     $(this).addClass('current');
+   }, function() {
+     $(this).removeClass('current');
+     temp.addClass('current');
+   });
 
 
   // menu-browse open/close
@@ -50,6 +211,9 @@ $(function() {
       temp3.removeClass('opaque');
     }
   });
+	
+	setStartUp();
+
 
 	var extparam = {};
 	// CODE FOR MULTIPLE TAG SEARCH START HERE
@@ -88,7 +252,7 @@ $(function() {
 	// Add/Remove Bits
 	var addBoxEvt = function(addedBox) {
 			//searchBox.fromClear = false;
-			//getPropList('fromSearchBtn');
+			//getPropList('new');
 
 			// For placeholder
 			/*if($('.textboxlist-bit-editable-input').length > 0)
@@ -108,7 +272,7 @@ $(function() {
 			if($("#search_tags").val() == "")
 				setAutoPlaceholder();
 			//if (flag)
-			//	getPropList('fromSearchBtn');
+			//	getPropList('new');
 		setTextContainerMoreIcn();
 	};	
 
@@ -121,6 +285,6 @@ $(function() {
 	searchBox.addEvent("focus", function(){
 			$('.textboxlist-autocomplete-results').show().scrollTop(0).hide();
 	});
-
-	//salvattore.init();
+	
+	getDealList('new');
 });

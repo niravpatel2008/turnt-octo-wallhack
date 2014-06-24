@@ -210,7 +210,7 @@ all the orders placed in April and May.
                   <input type="text" id='search_tags' placeholder="Search listing" class="input field primary">
               </div>
               <div class="small-3 large-2 columns">
-                <input type="submit" value="Search" class="input button primary red">
+                <input type="button" onclick="getDealList('new');" value="Search" class="input button primary red">
               </div>
               <nav class="small-3 large-2 columns">
                 <ul class="rr menu-browse">

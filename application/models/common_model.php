@@ -160,12 +160,12 @@ class common_model extends CI_Model{
 		return ($resTags);
 	}
 
-	public function searchDeals($tags)
+	public function searchDeals($tags,$catid="",$page = 1,$limit = 15)
 	{
-		//SELECT * FROM deal_detail LEFT JOIN deal_map_tags ON dd_autoid = dm_ddid LEFT JOIN deal_tags ON dm_dtid = dt_autoid WHERE dt_tag IN ("superb deal","deal tag5","Test New tag") GROUP BY dd_autoid HAVING COUNT(DISTINCT dm_dtid) = 3
 		$tags = array_filter(explode(",",$tags));
-
-		$this->db->select('*');
+		
+		$this->db->select("SQL_CALC_FOUND_ROWS dd_autoid", FALSE);
+		$this->db->select('deal_detail.*,(select dl_url from deal_links where dl_autoid = dd_mainphoto and dl_type="img") as `dd_photourl`');
 		$this->db->from(DEAL_DETAIL);
 
 		if (count ($tags) > 0)
@@ -178,12 +178,36 @@ class common_model extends CI_Model{
 		}
 
 		$this->db->where('dd_status',"published");
-		$this->db->where('dd_startdate',">= now()");
-		$this->db->where('dd_expiredate',"<= now()");
+		$this->db->where("dd_startdate <= now()");
+		$this->db->where("dd_expiredate >= now()");
+
+		if ($catid != "")
+			$this->db->where('dd_catid',$catid);
+
+		$start = ($page == 1)?0:$page*$limit;
+		$this->db->limit($limit, $start);
 
 		$query = $this->db->get();
 		$resDeals = $query->result_array();
-		return ($resDeals);
+				
+		$query = $this->db->query('SELECT FOUND_ROWS() AS `Count`');
+		$totalRecordsCount = $query->row()->Count;
+		
+		$deals = array();
+		$deals['totalRecordsCount'] = $totalRecordsCount;
+		foreach ($resDeals as $deal)
+		{
+			$rec = array();
+			$rec['id'] = $deal['dd_autoid'];
+			$rec['name'] = $deal['dd_name'];
+			$rec['description'] = $deal['dd_description'];
+			$rec['discount'] = $deal['dd_discount'];
+			$rec['originalprice'] = $deal['dd_originalprice'];
+			$rec['listprice'] = $deal['dd_listprice'];
+			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
+			$deals[] = $rec;
+		}
+		return (json_encode($deals));
 	}
 
 }

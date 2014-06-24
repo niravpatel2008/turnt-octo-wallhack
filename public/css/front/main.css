@@ -666,7 +666,6 @@ a.flex-next {
 }
 
 .item-thumb .top {
-  height: 120px;
   border-bottom: 1px dashed #e3e3e3;
 }
 .item-thumb .top:after {
