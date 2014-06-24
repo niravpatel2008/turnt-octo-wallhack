@@ -51,4 +51,12 @@
         return $html;        
 	}
 
+	function get_active_tab($tab)
+    {
+    	$CI =& get_instance();
+        if ($CI->router->fetch_class() == $tab) {
+            return 'active';
+        }        
+    }
+
 ?>

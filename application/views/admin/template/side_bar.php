@@ -1,4 +1,4 @@
- <!-- Left side column. contains the logo and sidebar -->
+<!-- Left side column. contains the logo and sidebar -->
 <aside class="left-side sidebar-offcanvas" style="min-height: 2038px;">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -25,23 +25,65 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="active">
+            <li class="<?=get_active_tab("dashboard")?>">
                 <a href="<?=admin_path()."dashboard"?>">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
-                <a href="<?=admin_path()."users"?>">
-                    <i class="fa fa-dashboard"></i> <span>Users</span>
-                </a>
-				<a href="<?=admin_path()."dealer"?>">
-                    <i class="fa fa-dashboard"></i> <span>Dealer</span>
-                </a>
-				<a href="<?=admin_path()."category"?>">
-                    <i class="fa fa-dashboard"></i> <span>Category</span>
-                </a>
-				<a href="<?=admin_path()."deal"?>">
-                    <i class="fa fa-dashboard"></i> <span>Deal</span>
-                </a>
-            </li>
+            </li>     
+
+            
+            <?php
+
+                if (in_array("users",array_keys(config_item('user_role')[$this->user_session['role']] ) ) || $this->user_session['role'] == 'a') {
+            ?>
+                <li class="<?=get_active_tab("users")?>">
+                    <a href="<?=admin_path()."users"?>">
+                        <i class="fa fa-dashboard"></i> <span>Users</span>
+                    </a>
+                </li>    
+            <?php
+                }
+            ?>
+                 
+               
+            <?php
+                if (in_array("dealer", array_keys(config_item('user_role')[$this->user_session['role']])) || $this->user_session['role'] == 'a') {
+            ?>
+                <li class="<?=get_active_tab("dealer")?>">
+    				<a href="<?=admin_path()."dealer"?>">
+                        <i class="fa fa-dashboard"></i> <span>Dealer</span>
+                    </a>
+                </li>     
+			<?php
+                }
+            ?>
+                
+            
+            <?php
+                if (in_array("category", array_keys(config_item('user_role')[$this->user_session['role']])) || $this->user_session['role'] == 'a') {
+            ?>
+                <li class="<?=get_active_tab("category")?>">    
+                    <a href="<?=admin_path()."category"?>">
+                        <i class="fa fa-dashboard"></i> <span>Category</span>
+                    </a>
+                </li>    
+            <?php
+                }
+            ?>
+                 
+            
+            <?php
+                if (in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) || $this->user_session['role'] == 'a') {
+            ?>
+                <li class="<?=get_active_tab("deal")?>">                    
+    				<a href="<?=admin_path()."deal"?>">
+                        <i class="fa fa-th"></i> <span>Deal</span>
+                    </a>
+                </li>    
+            <?php
+                }
+            ?>    
+            
             
         </ul>
     </section>

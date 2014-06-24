@@ -8,6 +8,7 @@ class Index extends CI_Controller {
 
 	public function index()
 	{
+
 		$session = $this->session->userdata('user_session');
 		#pr($session,1);
 		if (isset($session['id'])) {
@@ -40,9 +41,11 @@ class Index extends CI_Controller {
 									'uname' => $user[0]->du_uname,
 									'contact' => $user[0]->du_contact,
 									'email' => $user[0]->du_email,
+									'role' => $user[0]->du_role,
 									'create_date' => $user[0]->du_createdate
 								);
 					$this->session->set_userdata('user_session',$data);
+
 					redirect('admin/dashboard');
 				}else{
 					$error['invalid_login'] = "Invalid userid or password";
