@@ -215,10 +215,11 @@ all the orders placed in April and May.
               <nav class="small-3 large-2 columns">
                 <ul class="rr menu-browse">
                   <li class="input button primary">
-                    <p class="label">Browse</p>
+                    <p class="label" catid='' id='category'>All</p>
                     <ul class="rr sub" style="display: none;">
+							<li><a href='#'>All</a></li>
 					<?php foreach($categories as $category){
-							echo "<li><a href='#'>$category->dc_catname</a></li>";
+							echo "<li><a href='#' catid='$category->dc_autoid'>$category->dc_catname</a></li>";
 					}?>
                     </ul>
                   </li>
