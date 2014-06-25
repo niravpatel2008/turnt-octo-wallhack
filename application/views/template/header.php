@@ -217,9 +217,9 @@ all the orders placed in April and May.
                   <li class="input button primary">
                     <p class="label" catid='' id='category'>All</p>
                     <ul class="rr sub" style="display: none;">
-							<li><a href='#'>All</a></li>
+							<li><a href='#' catid=''>All</a></li>
 					<?php foreach($categories as $category){
-							echo "<li><a href='#' catid='$category->dc_autoid'>$category->dc_catname</a></li>";
+							echo "<li><a href='#' catid='$category->dc_catid'>$category->dc_catname</a></li>";
 					}?>
                     </ul>
                   </li>

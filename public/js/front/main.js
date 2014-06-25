@@ -7,9 +7,7 @@ var dealCnt = 1;
 function setCookies()
 {
 	$.cookie("tags",qryStrHash["tags"]);
-
-	if(qryStrHash["category"] != "")
-		$.cookie("category",qryStrHash["category"]);
+	$.cookie("category",qryStrHash["category"]);
 
 	//$.cookie("searchFor",qryStrHash["searchFor"]);
 }
@@ -163,7 +161,9 @@ function setStartUp(){
 	var category = $.cookie("category");
 	if (typeof(category) != 'undefined')
 	{
-		$('#category').html($('#category a[catid="'+category+'"]').html());
+		
+		category = (category == null)?"":category;
+		$('#category').html($('.menu-browse a[catid="'+category+'"]').html());
 		$('#category').attr('catid',category);
 	}
 }
