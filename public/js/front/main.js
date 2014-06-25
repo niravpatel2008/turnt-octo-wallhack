@@ -8,23 +8,16 @@ function setCookies()
 {
 	$.cookie("tags",qryStrHash["tags"]);
 
-	if(qryStrHash["sortType"] != "")
-		$.cookie("sortType",qryStrHash["sortType"]);
+	if(qryStrHash["category"] != "")
+		$.cookie("category",qryStrHash["category"]);
 
 	//$.cookie("searchFor",qryStrHash["searchFor"]);
-}
-
-function getCookies()
-{
-	if($.cookie("tags") != "" && $.cookie("tags") != null && $.cookie("tags") != "null") {
-		qryStrHash["tags"] = $.cookie("tags");
-	}
 }
 
 function clearCookies()
 {
 	$.cookie("tags","");
-	$.cookie("searchFor","");
+	$.cookie("category","");
 }
 
 
@@ -38,6 +31,15 @@ function getParamValue()
 	{
 		qryStrHash["tags"] = $.trim(selectedTags);
 		qryString += "tags_"+selectedTags+"/";
+	}
+
+	var selectedCategory = $("#category").attr('catid');
+
+	//For Tags Type
+	if(typeof(selectedCategory) != "undefined")
+	{
+		qryStrHash["category"] = $.trim(selectedCategory);
+		qryString += "category_"+selectedCategory+"/";
 	}
 
 	//For Price Range
@@ -157,6 +159,13 @@ function setStartUp(){
 	var tags = $.cookie("tags");
 	if (typeof(tags) != 'undefined')
 		$('#search_tags').val(tags);
+
+	var category = $.cookie("category");
+	if (typeof(category) != 'undefined')
+	{
+		$('#category').html($('#category a[catid="'+category+'"]').html());
+		$('#category').attr('catid',category);
+	}
 }
 
 $(function() {
@@ -201,6 +210,13 @@ $(function() {
   temp2.on('click', function(event) {   
     event.stopPropagation(); 
     $(this).children('.sub').toggle();
+  });
+  $('.menu-browse a').on('click',function(event){
+	event.preventDefault();
+	var selected = $(this).html().trim();
+	$('#category').html(selected);
+	var catid = $(this).attr('catid');
+	$('#category').attr('catid',catid);
   });
   temp3.on('click', function(event) {   
     event.stopPropagation(); 
