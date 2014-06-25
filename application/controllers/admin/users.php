@@ -9,10 +9,10 @@ class Users extends CI_Controller {
 
 		$this->user_session = $this->session->userdata('user_session');
 
-		if (!in_array("users", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+		if (!@in_array("users", @array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
 			redirect("admin/dashboard");
 		}
-	}	 
+	}
 
 	public function index()
 	{
@@ -24,7 +24,7 @@ class Users extends CI_Controller {
 	public function ajax_list($limit=0)
 	{
 		$post = $this->input->post();
-		
+
 		$columns = array(
 			array( 'db' => 'du_uname', 'dt' => 0 ),
 			array( 'db' => 'du_role',  'dt' => 1 ),
@@ -36,7 +36,7 @@ class Users extends CI_Controller {
 						return date( 'jS M y', strtotime($d));
 					}
 			),
-			array( 'db' => 'du_autoid',  
+			array( 'db' => 'du_autoid',
 					'dt' => 5,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/users/edit/'.$d).'" class="fa fa-edit"></a> <a href="javascript:void(0);" onclick="delete_user('.$d.')" class="fa fa-trash-o"></a>';
@@ -52,8 +52,8 @@ class Users extends CI_Controller {
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
-			
+			$e_flag=0;
+
 			if(trim($post['user_name']) == ''){
 				$error['user_name'] = 'Please enter user name.';
 				$e_flag=1;
@@ -79,11 +79,11 @@ class Users extends CI_Controller {
 								'du_createdate' => date('Y-m-d H:i:s')
 							);
 				$ret = $this->common_model->insertData(DEAL_USER, $data);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'User added successfully.'
-									);					
+									);
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
@@ -91,7 +91,7 @@ class Users extends CI_Controller {
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/users");
-			}	
+			}
 			$data['error_msg'] = $error;
 		}
 		$data['view'] = "add_edit";
@@ -105,15 +105,15 @@ class Users extends CI_Controller {
 		if ($id == "" || $id <= 0) {
 			redirect('admin/users');
 		}
-		
+
 		$where = 'du_autoid = '.$id;
-		
+
 		$post = $this->input->post();
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
-			
+			$e_flag=0;
+
 			if(trim($post['user_name']) == ''){
 				$error['user_name'] = 'Please enter user name.';
 				$e_flag=1;
@@ -138,11 +138,11 @@ class Users extends CI_Controller {
 								'du_email' => $post['email']
 							);
 				$ret = $this->common_model->updateData(DEAL_USER, $data, $where);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'User updated successfully.'
-									);					
+									);
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
@@ -150,11 +150,11 @@ class Users extends CI_Controller {
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/users");
-			}	
+			}
 			$data['error_msg'] = $error;
 		}
 		$data['user'] = $user = $this->common_model->selectData(DEAL_USER, '*', $where);
-		
+
 		if (empty($user)) {
 			redirect('admin/users');
 		}
@@ -166,7 +166,7 @@ class Users extends CI_Controller {
 	public function delete()
 	{
 		$post = $this->input->post();
-		
+
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_USER, array('du_autoid' => $post['id'] ));
 			if ($ret > 0) {

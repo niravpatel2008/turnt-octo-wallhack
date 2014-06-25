@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 	}
 
-	
+
 	public function index()
 	{
 		$session = $this->session->userdata('user_session');
@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
+			$e_flag=0;
 			if(trim($post['username']) == ''){
 				$error['username'] = 'Please enter username.';
 				$e_flag=1;
@@ -51,9 +51,9 @@ class Welcome extends CI_Controller {
 			}
 
 			$data['error_msg'] = $error;
+			#pr($data,1);
 
-
-		}	
+		}
 		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
@@ -65,8 +65,8 @@ class Welcome extends CI_Controller {
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
-			
+			$e_flag=0;
+
 			if(trim($post['username']) == ''){
 				$error['username'] = 'Please enter user name.';
 				$e_flag=1;
@@ -82,7 +82,7 @@ class Welcome extends CI_Controller {
 			if(trim($post['confirm_password']) != trim($post['password'])){
 				$error['confirm_password'] = 'Please confirm password same as password.';
 				$e_flag=1;
-			}			
+			}
 			if(trim($post['contact']) == ''){
 				$error['contact'] = 'Please enter contact number.';
 				$e_flag=1;
@@ -101,7 +101,7 @@ class Welcome extends CI_Controller {
 								'du_createdate' => date('Y-m-d H:i:s')
 							);
 				$ret = $this->common_model->insertData(DEAL_USER, $data);
-				
+
 				if ($ret > 0) {
 					#start session & login
 				}else{
