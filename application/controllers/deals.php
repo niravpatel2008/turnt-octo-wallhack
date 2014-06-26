@@ -12,16 +12,20 @@ class Deals extends CI_Controller {
 
 	}
 
-	public function detail($name,$id)
+	public function detail($id,$name)
 	{
 		$data = array();
 		$name = isset($name)?$name:"";
-		$id = (isset($id) && is_numeric($id))?$id:"";
-		if ($id == "");
+		
+		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
+		if ($id == "")
 			redirect("welcome");
+
 		$dealsDetail = $this->common_model->getDealDetail($id);
 		$data['dealsDetail'] = $dealsDetail;
-		$this->load->view('detail', $data);
+
+		$data['view'] = "detail";
+		$this->load->view('content', $data);
 	}
 
 	public function search()

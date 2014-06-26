@@ -205,6 +205,7 @@ class common_model extends CI_Model{
 			$rec['originalprice'] = $deal['dd_originalprice'];
 			$rec['listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
+			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
 			$deals[] = $rec;
 		}
 		return (json_encode($deals));
@@ -235,13 +236,13 @@ class common_model extends CI_Model{
 			$data['links'] = $query->result_array();
 
 			$this->db->select("*");
-			$this->db->from(DT_TAG);
+			$this->db->from(DEAL_TAGS);
 			$this->db->join(DEAL_MAP_TAGS, 'dm_dtid = dt_autoid', 'left');
 			$this->db->where('dm_ddid',$id);
 			$query = $this->db->get();
 			$data['tags'] = $query->result_array();
-
-			print_r($data);
+			
+			return $data;
 	}
 }
 ?>
