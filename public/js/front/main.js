@@ -7,9 +7,7 @@ var dealCnt = 1;
 function setCookies()
 {
 	$.cookie("tags",qryStrHash["tags"]);
-
-	if(qryStrHash["category"] != "")
-		$.cookie("category",qryStrHash["category"]);
+	$.cookie("category",qryStrHash["category"]);
 
 	//$.cookie("searchFor",qryStrHash["searchFor"]);
 }
@@ -126,6 +124,7 @@ function displayDealsData(result)
 	var flag = false;
 	$.each(result, function(index,element)
 	{
+		commanAttr = " st_url='"+element.url+"' st_title='"+element.name+"' st_image='"+element.photo+"' st_summary='"+element.name+"' ";
 		if(index!='totalRecordsCount'){
 			article = "<div class='wrapper-3 item-thumb'>";
 			  article += "<div class='top'>";
@@ -137,7 +136,15 @@ function displayDealsData(result)
 			  article += "<div class='bottom'>";
 				article += "<p class='value secondary'>$30 OFF</p>";
 				article += "<h6>31 days left</h6>";
-				article += "<a class='input button red secondary' href='#'>Learn more</a>";
+				article += "<a class='input button red secondary' href='"+element.url+"'>View Deal</a>";
+			  article += "</div>";
+			  article += "<div class='v_itemtitle' class='sharethis clearboth'>";
+					article += "<span class='st_facebook' "+commanAttr+"></span>";
+					article += "<span class='st_twitter' "+commanAttr+"></span>";
+					article += "<span class='st_linkedin' "+commanAttr+"></span>";
+					article += "<span class='st_pinterest' "+commanAttr+"></span>";
+					article += "<span class='st_email' "+commanAttr+"></span>";
+					article += "<span class='st_sharethis' "+commanAttr+"></span>";
 			  article += "</div>";
 			article += "</div>";
 			
@@ -148,7 +155,9 @@ function displayDealsData(result)
 			dealCnt++;
 		}		
 	});
-	
+		
+	if (stButtons){stButtons.locateElements();}
+
 	if($('#totalRecordsCount').val() == (dealCnt-1))
 	{
 			//setTopOfPage("show");		
@@ -163,7 +172,9 @@ function setStartUp(){
 	var category = $.cookie("category");
 	if (typeof(category) != 'undefined')
 	{
-		$('#category').html($('#category a[catid="'+category+'"]').html());
+		
+		category = (category == null)?"":category;
+		$('#category').html($('.menu-browse a[catid="'+category+'"]').html());
 		$('#category').attr('catid',category);
 	}
 }

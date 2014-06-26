@@ -54,7 +54,7 @@ class Welcome extends CI_Controller {
 
 
 		}	
-		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname');
+		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
 	}

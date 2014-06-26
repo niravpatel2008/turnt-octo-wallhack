@@ -88,6 +88,8 @@ http://t.co/HXvWw
 <script src="<?=public_path()?>js/front/main.js"></script>
 <script src="<?=public_path()?>js/bootstrap.min.js"></script>
 
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
 
 <script type="text/javascript">
   function getLoginForm()
