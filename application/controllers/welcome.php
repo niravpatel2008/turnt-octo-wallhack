@@ -44,7 +44,7 @@ class Welcome extends CI_Controller {
 									'create_date' => $user[0]->du_createdate
 								);
 					$this->session->set_userdata('user_session',$data);
-					redirect('dashboard');
+					redirect('search');
 				}else{
 					$error['invalid_login'] = "Invalid username or password";
 				}
