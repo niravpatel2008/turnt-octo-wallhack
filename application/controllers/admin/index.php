@@ -4,7 +4,7 @@ class Index extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-	}	 
+	}
 
 	public function index()
 	{
@@ -19,7 +19,7 @@ class Index extends CI_Controller {
 		$post = $this->input->post();
 		if ($post) {
 			$error = array();
-			$e_flag=0; 
+			$e_flag=0;
 			if(trim($post['userid']) == ''){
 				$error['userid'] = 'Please enter userid.';
 				$e_flag=1;
@@ -53,10 +53,10 @@ class Index extends CI_Controller {
 			}
 
 			$data['error_msg'] = $error;
-			
-			
+
+
 		}
-		
+
 		$this->load->view('admin/index/index', $data);
 	}
 
@@ -67,4 +67,61 @@ class Index extends CI_Controller {
 		redirect(admin_path());
 	}
 
+
+
+	public function forgotpassword()
+	{
+		$data = '';
+		$post = $this->input->post();
+		if ($post) {
+			$error = array();
+			$e_flag=0;
+			if(!valid_email(trim($post['email'])) && trim($post['email']) == ''){
+				$error['email'] = 'Please enter email.';
+				$e_flag=1;
+			}
+
+			if ($e_flag == 0) {
+				$where = array('du_email' => trim($post['email']));
+				$user = $this->common_model->selectData('deal_user', '*', $where);
+				if (count($user) > 0) {
+					$login_details = array('username' => $user[0]->du_uname,
+											'password' => $user[0]->du_password
+										);
+					$emailTpl = $this->get_forgotpassword_tpl($login_details);
+					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
+					if ($ret) {
+						$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Login details sent successfully.'
+									);
+					}else{
+						$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					}
+					$data['flash_msg'] = $flash_arr;
+				}else{
+					$error['email'] = "Invalid email address.";
+				}
+			}
+			$data['error_msg'] = $error;
+		}
+		$this->load->view('admin/index/forgotpassword', $data);
+	}
+
+
+	public function get_forgotpassword_tpl($details)
+	{
+		$html = '<p>Your login details are: </p>
+				<p>
+					Username: '.$details['username'].'<br/>
+					Password: '.$details['password'].'
+				</p>
+				<p>
+					Thank you
+				</p>
+				';
+
+		return $html;
+	}
 }
