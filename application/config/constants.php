@@ -39,6 +39,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 #custom constants
 define('DOC_ROOT',	$_SERVER["DOCUMENT_ROOT"]."/turnt-octo-wallhack/");
+define('DOC_ROOT_PROFILE_IMG',  "./uploads/profile_images/");
+
 define('ADMIN',	'admin');
 define('DEAL_USER',	'deal_user');
 define('DEAL_CATEGORY',	'deal_category');

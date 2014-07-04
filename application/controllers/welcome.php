@@ -41,6 +41,7 @@ class Welcome extends CI_Controller {
 									'uname' => $user[0]->du_uname,
 									'contact' => $user[0]->du_contact,
 									'email' => $user[0]->du_email,
+									'profile_picture' => $user[0]->du_profile_picture,
 									'create_date' => $user[0]->du_createdate
 								);
 					$this->session->set_userdata('user_session',$data);

@@ -20,6 +20,11 @@
 		return base_url()."admin/";
 	}
 
+    function profile_img_path($type="www")
+    {
+        return base_url()."uploads/profile_images/";
+    }
+
 	function is_login()
 	{
 
