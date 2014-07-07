@@ -76,6 +76,17 @@
                         <label for="dd_description">Description:</label>
                         <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
                     </div>
+                    <div class="form-group <?=(@$error_msg['dd_features'] != '')?'has-error':'' ?>">
+                        <?php
+                            if(@$error_msg['dd_features'] != ''){
+                        ?>
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_features']?></label><br/>    
+                        <?php        
+                            } 
+                        ?>
+                        <label for="dd_features">Features:</label>
+                        <textarea type="email" placeholder="Features here (,) separated" id="dd_features" class="form-control" name="dd_features"><?=@$deal[0]->dd_features?></textarea>
+                    </div>
 					<div class="row">
 						<div class="col-xs-4 form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
 							<?php
