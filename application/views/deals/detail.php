@@ -50,38 +50,32 @@ $commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".
 						<div class='row'>
 							<div class='col-lg-4'>
 								<div class="small-box bg-aqua">
-										<div class="inner">
-											<p>
-												Now
-											</p>
-										</div>
 									<a class="small-box-footer" href="#">
-										<?=$detail['dd_listprice'];?>
+										Now
 									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_listprice'];?></h3></center>
+									</div>
 								</div>
 							</div>
 							<div class='col-lg-4'>
 								<div class="small-box bg-red">
-										<div class="inner">
-											<p>
-												Was
-											</p>
-										</div>
 									<a class="small-box-footer" href="#">
-										<?=$detail['dd_originalprice'];?>
+										Was
 									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_originalprice'];?></h3></center>
+									</div>
 								</div>
 							</div>
 							<div class='col-lg-4'>
 								<div class="small-box bg-green">
-										<div class="inner">
-											<p>
-												Save
-											</p>
-										</div>
 									<a class="small-box-footer" href="#">
-										<?=$detail['dd_discount'];?>
+										Save
 									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_discount'];?></h3></center>
+									</div>
 								</div>
 							</div>
 						</div>
