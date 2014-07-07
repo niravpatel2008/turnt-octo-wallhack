@@ -226,10 +226,44 @@ class common_model extends CI_Model{
 			$rec['originalprice'] = $deal['dd_originalprice'];
 			$rec['listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
+			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
 			$deals[] = $rec;
 		}
 		return (json_encode($deals));
 	}
 
+	public function getDealDetail($id)
+	{
+		/*	deal_detail
+			deal_dealer
+			deal_links
+			deal_map_tags
+			deal_tags		*/
+			$data = array();
+			$this->db->select("*");
+			$this->db->from(DEAL_DETAIL);
+			$this->db->join(DEAL_DEALER, 'de_autoid = dd_dealerid', 'left');
+			$this->db->where('dd_status',"published");
+			$this->db->where("dd_startdate <= now()");
+			$this->db->where("dd_expiredate >= now()");
+			$this->db->where('dd_autoid',$id);
+			$query = $this->db->get();
+			$data['detail'] = $query->result_array();
+
+			$this->db->select("*");
+			$this->db->from(DEAL_LINKS);
+			$this->db->where('dl_ddid',$id);
+			$query = $this->db->get();
+			$data['links'] = $query->result_array();
+
+			$this->db->select("*");
+			$this->db->from(DEAL_TAGS);
+			$this->db->join(DEAL_MAP_TAGS, 'dm_dtid = dt_autoid', 'left');
+			$this->db->where('dm_ddid',$id);
+			$query = $this->db->get();
+			$data['tags'] = $query->result_array();
+			
+			return $data;
+	}
 }
 ?>

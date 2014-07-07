@@ -72,7 +72,7 @@ function getDealList(action)
 
 	/*********** Get Data Of Property *********/
 	//var url = '/getSearchResult.php';
-	var url = base_url()+'/search/';
+	var url = base_url()+'deals/search/';
 	var data = {};
 
 	//Set property hash into query srting

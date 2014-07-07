@@ -84,12 +84,13 @@ http://t.co/HXvWw
 <script type="text/javascript" src="<?=public_path()?>js/front/GrowingInput.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.Autocomplete.js" charset="utf-8"></script>
+<?php if($this->router->fetch_class() == 'welcome'){?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
-<script src="<?=public_path()?>js/front/main.js"></script>
+<?php }?>
 <script src="<?=public_path()?>js/bootstrap.min.js"></script>
-
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
+<script src="<?=public_path()?>js/front/<?=$this->router->fetch_class()?>.js"></script>
 
 <?php
   if (count($error_msg) > 0 && in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
