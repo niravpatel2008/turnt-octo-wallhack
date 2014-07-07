@@ -17,15 +17,15 @@
         </form>
       </div>
     </div>
-   
+
     <div class="stripe-dark pre-footer-wrap">
       <div class="row">
         <div class="large-4 columns">
           <h3 class="alt">About</h3>
           <p>
             Ut sodales ultrices metus, at molestie tellus cursus
-quis. Cras placerat bibendum quam sed facilisis. Suspendisse dapibus 
-eros eget tellus tempor lacinia. Cras ornare lorem sit amet arcu 
+quis. Cras placerat bibendum quam sed facilisis. Suspendisse dapibus
+eros eget tellus tempor lacinia. Cras ornare lorem sit amet arcu
 accumsan ut tristique est fringilla.
           </p>
         </div>
@@ -33,8 +33,8 @@ accumsan ut tristique est fringilla.
           <h3 class="alt">Recent Tweets</h3>
           <div class="tweet">
             <p>
-              Couponizer is a multi-purpose PSD template. 
-Created by #bestwebsoft - hand-made websites from great guys 
+              Couponizer is a multi-purpose PSD template.
+Created by #bestwebsoft - hand-made websites from great guys
 http://t.co/HXvWw
             </p>
             <a class="posted" href="#">posted 5 minutes ago</a>
@@ -52,7 +52,7 @@ http://t.co/HXvWw
         </nav>
       </div>
     </div>
-    
+
     <div class="stripe-darker footer-wrap">
       <div class="row">
         <div class="large-3 columns">
@@ -72,7 +72,7 @@ http://t.co/HXvWw
         </div>
       </div>
     </div>
-    
+
   </footer>
 </div>
 
@@ -81,8 +81,8 @@ http://t.co/HXvWw
 <script src="<?=public_path()?>js/front/plugins.js"></script>
 <script src="<?=public_path()?>js/front/jquery.cookie.js"></script>
 <!-- Auto Complete tag js -->
-<script type="text/javascript" src="<?=public_path()?>js/front/GrowingInput.js" charset="utf-8"></script>	
-<script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.js" charset="utf-8"></script>	
+<script type="text/javascript" src="<?=public_path()?>js/front/GrowingInput.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=public_path()?>js/front/TextboxList.Autocomplete.js" charset="utf-8"></script>
 <?php if($this->router->fetch_class() == 'welcome'){?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
@@ -91,6 +91,18 @@ http://t.co/HXvWw
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
 <script src="<?=public_path()?>js/front/<?=$this->router->fetch_class()?>.js"></script>
+
+<?php
+  if (count($error_msg) > 0 && in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
+?>
+  <script type="text/javascript">
+    $(function() {
+      getLoginForm();
+    });
+  </script>
+<?php
+  }
+?>
 
 <script type="text/javascript">
   function getLoginForm()
@@ -104,18 +116,18 @@ http://t.co/HXvWw
       $("#loginbox").slideUp();
       $("#homelogin").removeClass('topmenuactive');
       //$("#homelogin a").css('color','#ffffff');
-      //$("#homelogin").removeClass('homeloginactive');   
+      //$("#homelogin").removeClass('homeloginactive');
     }else{
       $("#loginbox").slideDown();
-      $('#username').focus(); // code for autofocus @@@@@  
+      $('#username').focus(); // code for autofocus @@@@@
       //$("#homelogin").addClass('topmenuactive');
       //$("#homelogin a").css('color','#000000');
       $("#homelogin").addClass('topmenuactive');
-      
+
     }
   });
-  
-  $("#loginbox").mouseup(function() { 
+
+  $("#loginbox").mouseup(function() {
         return false;
     });
 
@@ -126,13 +138,16 @@ http://t.co/HXvWw
         }
     });
 
-   $("#signin").on('click',function(){ 
-    $(".Authorizing").show();
-    $(".sign_in").hide();
-    setTimeout( function() {
-      //$(".Authorizing").hide();
-    }, 2000);
+  $("#signin").live('click',function(){
+    if ($.trim($("#username").val()) == "") {
+      alert('Please enter username');
+      return false;
+    }
+    if ($.trim($("#password").val()) == "") {
+      alert('Please enter password');
+      return false;
+    }
   });
 </script>
 </body>
-</html>  
+</html>

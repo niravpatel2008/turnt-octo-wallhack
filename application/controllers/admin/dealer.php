@@ -8,10 +8,10 @@ class Dealer extends CI_Controller {
 
 		$this->user_session = $this->session->userdata('user_session');
 
-		if (!in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+		if (!@in_array("dealer", @array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
 			redirect("admin/dashboard");
 		}
-	}	 
+	}
 
 	public function index()
 	{
@@ -43,7 +43,7 @@ class Dealer extends CI_Controller {
 					return date( 'jS M y', strtotime($d));
 				}
 			),
-			array( 'db' => 'de_autoid',  
+			array( 'db' => 'de_autoid',
 					'dt' => 12,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/dealer/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_dealer('.$d.')" class="fa fa-trash-o"></a>';
@@ -60,7 +60,7 @@ class Dealer extends CI_Controller {
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
+			$e_flag=0;
 
 
 			if ($post['de_userid'] == "") {
@@ -97,7 +97,7 @@ class Dealer extends CI_Controller {
 				);
 
 				$ret = $this->common_model->insertData(DEAL_DEALER, $data);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Dealer added successfully.'
@@ -124,7 +124,7 @@ class Dealer extends CI_Controller {
 		}
 
 		$where = 'de_autoid = '.$id;
-		
+
 		$post = $this->input->post();
 		if ($post) {
 
@@ -163,11 +163,11 @@ class Dealer extends CI_Controller {
 								'de_url'=> $post['de_url']
 							);
 				$ret = $this->common_model->updateData(DEAL_DEALER, $data, $where);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Dealer updated successfully.'
-									);					
+									);
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
@@ -175,26 +175,26 @@ class Dealer extends CI_Controller {
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/dealer");
-			}	
+			}
 			$data['error_msg'] = $error;
 
 		}
-		
+
 		$data['dealer'] = $dealer = $this->common_model->selectData(DEAL_DEALER, '*', $where);
-		
+
 		if (empty($dealer)) {
 			redirect('admin/dealer');
 		}
 
 		$data['users'] = $this->common_model->selectData(DEAL_USER, 'du_autoid,du_uname,du_email', array('du_role' => 'd'));
 		$data['view'] = "add_edit";
-		$this->load->view('admin/content', $data);	
+		$this->load->view('admin/content', $data);
 	}
 
 	public function delete()
 	{
 		$post = $this->input->post();
-		
+
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_DEALER, array('de_autoid' => $post['id'] ));
 			if ($ret > 0) {

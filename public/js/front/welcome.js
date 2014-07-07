@@ -21,7 +21,7 @@ function clearCookies()
 
 function getParamValue()
 {
-	qryString	= "";	
+	qryString	= "";
 	var selectedTags = $("#search_tags").val();
 
 	//For Tags Type
@@ -45,7 +45,7 @@ function getParamValue()
 	{
 		qryStrHash["sortType"] = $(".fiterByTypeBx:visible").val();
 	}
-	
+
 	if($('#searchFor').length > 0)
 		qryStrHash["searchFor"] = $('#searchFor').val();
 	else
@@ -65,18 +65,18 @@ function getDealList(action)
 		salvattore.init();
 	}
 
-	dealData = {};	
+	dealData = {};
 	getParamValue();
 
 	setCookies();
-	
+
 	/*********** Get Data Of Property *********/
 	//var url = '/getSearchResult.php';
-	var url = '/deals/deals/search/';
+	var url = base_url()+'deals/search/';
 	var data = {};
 
 	//Set property hash into query srting
-	$.each(qryStrHash, function(key, value) { 
+	$.each(qryStrHash, function(key, value) {
 		data[key] = value;
 	});
 	console.log(qryStrHash);
@@ -95,22 +95,22 @@ function getDealList(action)
 			var page = $('#page').val();
 
 			resultSet[page] = result;
-			if($.trim(result) != "") {	
+			if($.trim(result) != "") {
 				hideHeader = true;
 				$("#noResultDiv").hide();
-		
+
 				displayDealsData(result);
 			}
 			else if($.trim(result) == "") {
 				$("#noResultDiv").show();
 				$('#totalRecordsCount').val("");
 			}
-			$("#noRecTbl").hide();	
+			$("#noRecTbl").hide();
 		},
 		error: function(xhr, textStatus, errorThrown){
 			//console.log("Server error");
 		}
-	});	
+	});
 }
 
 function displayDealsData(result)
@@ -118,7 +118,7 @@ function displayDealsData(result)
 	var article = "";
 	var htmlStr = "";
 	if(result.length>0 && result != ""){
-		$("#noRecTbl").hide();	
+		$("#noRecTbl").hide();
 	}
 	$('#totalRecordsCount').val(result.totalRecordsCount);
 	var flag = false;
@@ -147,20 +147,20 @@ function displayDealsData(result)
 					article += "<span class='st_sharethis' "+commanAttr+"></span>";
 			  article += "</div>";
 			article += "</div>";
-			
-			
+
+
 			var grid = $('#search_results');
-			salvattore['append_elements'](grid[0], [$(article)[0]]);	
-		
+			salvattore['append_elements'](grid[0], [$(article)[0]]);
+
 			dealCnt++;
-		}		
+		}
 	});
-		
+
 	if (stButtons){stButtons.locateElements();}
 
 	if($('#totalRecordsCount').val() == (dealCnt-1))
 	{
-			//setTopOfPage("show");		
+			//setTopOfPage("show");
 	}
 }
 
@@ -172,7 +172,7 @@ function setStartUp(){
 	var category = $.cookie("category");
 	if (typeof(category) != 'undefined')
 	{
-		
+
 		category = (category == null)?"":category;
 		$('#category').html($('.menu-browse a[catid="'+category+'"]').html());
 		$('#category').attr('catid',category);
@@ -196,7 +196,7 @@ $(function() {
     className: 'select-popular-companies-list'
   });
 
- 
+
 
   // main menu indicator
   var temp;
@@ -217,9 +217,9 @@ $(function() {
     temp2.children('.sub').hide();
     temp3.children('.submenu').hide();
     temp3.removeClass('opaque');
-  });  
-  temp2.on('click', function(event) {   
-    event.stopPropagation(); 
+  });
+  temp2.on('click', function(event) {
+    event.stopPropagation();
     $(this).children('.sub').toggle();
   });
   $('.menu-browse a').on('click',function(event){
@@ -229,8 +229,8 @@ $(function() {
 	var catid = $(this).attr('catid');
 	$('#category').attr('catid',catid);
   });
-  temp3.on('click', function(event) {   
-    event.stopPropagation(); 
+  temp3.on('click', function(event) {
+    event.stopPropagation();
     $(this).children('.submenu').toggle();
     if (temp3.children('.submenu').is(':visible')) {
       temp3.addClass('opaque');
@@ -238,7 +238,7 @@ $(function() {
       temp3.removeClass('opaque');
     }
   });
-	
+
 	setStartUp();
 
 
@@ -254,9 +254,9 @@ $(function() {
 				addOnBlur: true,
 			}
 		},
-		plugins: 
+		plugins:
 		{
-			autocomplete: 
+			autocomplete:
 			{
 				minLength: 1,
 				onlyFromValues:false,
@@ -294,14 +294,14 @@ $(function() {
 			//setTextContainerMoreIcn();
 	};
 
-	var removeBoxEvt = function(removedBox) {	
+	var removeBoxEvt = function(removedBox) {
 			$.cookie("tags","");
 			if($("#search_tags").val() == "")
 				setAutoPlaceholder();
 			//if (flag)
 			//	getPropList('new');
 		setTextContainerMoreIcn();
-	};	
+	};
 
 	var bitBoxFocusEvt = function(removedBox) {
 		removedBox.remove();
@@ -312,6 +312,6 @@ $(function() {
 	searchBox.addEvent("focus", function(){
 			$('.textboxlist-autocomplete-results').show().scrollTop(0).hide();
 	});
-	
+
 	getDealList('new');
 });

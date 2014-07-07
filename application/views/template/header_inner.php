@@ -17,24 +17,29 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">   
-    <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">        
+    <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">
+    <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
-	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />    
+	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css"/>
-    <![endif]-->        
-    
+    <![endif]-->
+
     <script src="<?=public_path()?>js/front/modernizr-2.js"></script>
+    <script type="text/javascript">
+      function base_url () {
+          return '<?=base_url()?>';
+      }
+    </script>
 </head>
 <body>
     <div class="page home">
-    <header class="cf" role="banner">          
+    <header class="cf" role="banner">
         <div class="top-wrap">
             <div class="row">
                 <div class="large-3 columns">
@@ -68,6 +73,6 @@
                 </div>
             </div>
         </div>
-  
-        
+
+
       </header>

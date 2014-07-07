@@ -20,12 +20,17 @@
 		return base_url()."admin/";
 	}
 
+    function profile_img_path($type="www")
+    {
+        return base_url()."uploads/profile_images/";
+    }
+
 	function is_login()
 	{
-		
+
 		$CI =& get_instance();
 		$session = $CI->session->userdata('user_session');
-		
+
 		if (!isset($session['id'])) {
 			redirect(base_url());
 		}
@@ -38,7 +43,7 @@
                     <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
                     '.$msg.'
                 </div>';
-        return $html;         
+        return $html;
 	}
 
 	function error_msg_box($msg)
@@ -48,7 +53,7 @@
                     <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
                     '.$msg.'
                 </div>';
-        return $html;        
+        return $html;
 	}
 
 	function get_active_tab($tab)
@@ -56,7 +61,37 @@
     	$CI =& get_instance();
         if ($CI->router->fetch_class() == $tab) {
             return 'active';
-        }        
+        }
+    }
+
+
+    function sendEmail($to, $subject, $emailTpl, $from, $from_name, $cc='', $bcc=''){
+        $CI =& get_instance();
+
+        $CI->load->library('email');
+
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+        $config['mailtype'] = 'html';
+
+        $CI->email->initialize($config);
+
+        $CI->email->from($from, $from_name);
+        $CI->email->to($to);
+
+        if($cc != ''){
+            $CI->email->cc($cc);
+        }
+
+        if($bcc != ''){
+            $CI->email->bcc($bcc);
+        }
+
+        $CI->email->subject($subject);
+        $CI->email->message($emailTpl);
+
+        $email_Sent = $CI->email->send();
+        return $email_Sent;
     }
 
 ?>
