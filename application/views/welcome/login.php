@@ -10,7 +10,7 @@
       </div>
 
       <div id="divConsumerError" class="errorMsg"></div>
-        <form name="loginform" id="loginform" action="" method="post">
+        <form name="loginform" id="loginform" action="<?=base_url()."welcome/index"?>" method="post">
           <?=@$error_msg['invalid_login']?>
           <div class="row">
             <div class="" style='padding:15px;'>
