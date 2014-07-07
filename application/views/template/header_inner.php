@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
-    
+	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />    
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
