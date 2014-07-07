@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content property_details">
        <div class="modal-header"> Welcome </div>
-      
+
       <div class="agtcontact" style='text-align:center;margin-top: 10px;'>
         <a class="fb-button fb-button-large fb-loaded" href="#"> <i class="fb-button-icon"></i> <span class="fb-button-text"> Connect with Facebook </span> </a>
         <h2 class="side-lined"> <span> or </span> </h2>
@@ -12,7 +12,7 @@
       <div id="divConsumerError" class="errorMsg"></div>
         <form name="loginform" id="loginform" action="" method="post">
           <?=@$error_msg['invalid_login']?>
-          <div class="row">         
+          <div class="row">
             <div class="" style='padding:15px;'>
               <input type="text" class="input field primary" name='username' id='username' placeholder="Username">
               <?=@$error_msg['username']?>
@@ -24,15 +24,15 @@
               <input type="password" class="input field primary" name='password' id='password' placeholder="Password">
               <?=@$error_msg['password']?>
             </div>
-          </div>    
+          </div>
 
-            <div style="padding-top:10px;text-align:center;" class='row'> 
+            <div style="padding-top:10px;text-align:center;" class='row'>
 			  <input type="submit" name="signin" id="signin" value="Sign in" class="input button primary" style='width: 33.3333%;display:inline-block;' />
 			  <input type="submit" name="csbtnClear" id="csbtnClear" onclick="javascript:closeAllDialog();" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
             </div>
-            
+
           <div class="row">
-            <a id="userregister" href="javascript:closeAllDialog();getCreateAccountForm();"> Create Account </a> | <a id="achConsForgot" href="javascript:void(0);"> Forgot your password? </a>
+            <a id="userregister" href="javascript:closeAllDialog();getCreateAccountForm();"> Create Account </a> | <a id="achConsForgot" href="<?=base_url()?>forgotpassword"> Forgot your password? </a>
           </div>
           <div class="clearboth" style="height:10px"></div>
         </form>
@@ -75,7 +75,7 @@
             <div style="float:left; width:auto;"> <img src="<?=public_path()?>images/loading.gif" height="27"/> </div>
             <div style=" float:left; width:auto; margin:4px 0px 0px 4px; font-size:13px; font-weight:bold; color:#000;"> Authorizing... </div>
           </div></td>
-      </tr>                             
+      </tr>
     </table>
   </form>
 </div> -->

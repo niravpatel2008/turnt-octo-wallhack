@@ -38,7 +38,9 @@
 |
 */
 
+$route['forgotpassword'] = "welcome/forgotpassword";
 $route['signup'] = "welcome/signup";
+$route['admin/forgotpassword'] = "admin/index/forgotpassword";
 $route['admin'] = "admin/index";
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';

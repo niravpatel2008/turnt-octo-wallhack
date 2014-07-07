@@ -8,10 +8,10 @@ class Category extends CI_Controller {
 
 		$this->user_session = $this->session->userdata('user_session');
 
-		if (!in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+		if (!@in_array("deal", @array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
 			redirect("admin/dashboard");
 		}
-	}	 
+	}
 
 	public function index()
 	{
@@ -34,7 +34,7 @@ class Category extends CI_Controller {
 					return date( 'jS M y', strtotime($d));
 				}
 			),
-			array( 'db' => 'dc_catid',  
+			array( 'db' => 'dc_catid',
 					'dt' => 3,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/category/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_category('.$d.')" class="fa fa-trash-o"></a>';
@@ -50,8 +50,8 @@ class Category extends CI_Controller {
 		if ($post) {
 			#pr($post);
 			$error = array();
-			$e_flag=0; 
-			
+			$e_flag=0;
+
 			if(trim($post['dc_catname']) == ''){
 				$error['dc_catname'] = 'Please enter category name.';
 				$e_flag=1;
@@ -66,7 +66,7 @@ class Category extends CI_Controller {
 								'dc_catdetails' => $post['dc_catdetails']
 							);
 				$ret = $this->common_model->insertData(DEAL_CATEGORY, $data);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Category added successfully.'
@@ -75,11 +75,11 @@ class Category extends CI_Controller {
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
 									);
-					
+
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/category");
-			}	
+			}
 			$data['error_msg'] = $error;
 		}
 		$data['view'] = "add_edit";
@@ -94,7 +94,7 @@ class Category extends CI_Controller {
 		}
 
 		$where = 'dc_catid = '.$id;
-		
+
 		$post = $this->input->post();
 		if ($post) {
 
@@ -115,12 +115,12 @@ class Category extends CI_Controller {
 								'dc_catdetails' => $post['dc_catdetails']
 							);
 				$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
-				
+
 				if ($ret > 0) {
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Category updated successfully.'
 									);
-					
+
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
@@ -128,13 +128,13 @@ class Category extends CI_Controller {
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/category");
-			}	
+			}
 			$data['error_msg'] = $error;
 
 		}
 
 		$data['category'] = $category = $this->common_model->selectData(DEAL_CATEGORY, '*', $where);
-		
+
 		if (empty($category)) {
 			redirect('admin/category');
 		}
@@ -146,7 +146,7 @@ class Category extends CI_Controller {
 	public function delete()
 	{
 		$post = $this->input->post();
-		
+
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_CATEGORY, array('dc_catid' => $post['id'] ));
 			if ($ret > 0) {

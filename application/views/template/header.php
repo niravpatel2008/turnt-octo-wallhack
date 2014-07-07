@@ -12,33 +12,38 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	
+
     <link rel="stylesheet" href="<?=public_path()?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">   
-    <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">        
+    <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">
+    <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css">
-    
+
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css"/>
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css"/>
-    <![endif]--> 
-	
+    <![endif]-->
+
     <script src="<?=public_path()?>js/front/modernizr-2.js"></script>
+    <script type="text/javascript">
+      function base_url () {
+          return '<?=base_url()?>';
+      }
+    </script>
 </head>
 <body>
 	<?=$this->load->view('welcome/login');?>
     <div class="page home">
-    <header class="cf" role="banner">          
+    <header class="cf" role="banner">
         <div class="top-wrap">
             <div class="row">
                 <div class="large-3 columns">
@@ -72,20 +77,20 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="main-slider-wrap">
           <div class="row">
             <div class="column">
               <div class="main-slider flexslider white">
-                
+
               <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; transition-duration: 0s; transform: translate3d(-900px, 0px, 0px);"><li style="width: 900px; float: left; display: block;" class="clone">
                     <p class="h1">Hot Offers From BestWebSoft</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Incredible Offer From The Biggest Online Store. 
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks! 
+                            Incredible Offer From The Biggest Online Store.
+                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
                           </p>
                           <figure>
@@ -100,9 +105,9 @@
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Unique offers from GoDaddy, register 
+                            Unique offers from GoDaddy, register
 $0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May. 
+all the orders placed in April and May.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
                           <figure>
@@ -118,8 +123,8 @@ all the orders placed in April and May.
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Incredible Offer From The Biggest Online Store. 
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks! 
+                            Incredible Offer From The Biggest Online Store.
+                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
                           </p>
                           <figure>
@@ -136,8 +141,8 @@ all the orders placed in April and May.
                         <div class="content">
                           <p class="caption">
                             Ray Ban offers free shipping for all the
-orders placed in May! Don't miss this unique opportunity to get your 
-dream sunglasses. 
+orders placed in May! Don't miss this unique opportunity to get your
+dream sunglasses.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See more offers</a>
                           </p>
                           <figure>
@@ -153,9 +158,9 @@ dream sunglasses.
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Unique offers from GoDaddy, register 
+                            Unique offers from GoDaddy, register
 $0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May. 
+all the orders placed in April and May.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
                           <figure>
@@ -171,8 +176,8 @@ all the orders placed in April and May.
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Incredible Offer From The Biggest Online Store. 
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks! 
+                            Incredible Offer From The Biggest Online Store.
+                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
                           </p>
                           <figure>
@@ -187,9 +192,9 @@ all the orders placed in April and May.
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Unique offers from GoDaddy, register 
+                            Unique offers from GoDaddy, register
 $0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May. 
+all the orders placed in April and May.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
                           <figure>
@@ -202,7 +207,7 @@ all the orders placed in April and May.
             </div>
           </div>
         </div>
-        
+
         <div class="search-wrap stripe-white">
           <div class="row">
             <form action="search-results.html">
@@ -225,8 +230,8 @@ all the orders placed in April and May.
                   </li>
                 </ul>
               </nav>
-            </form>              
+            </form>
           </div>
         </div>
-        
+
       </header>

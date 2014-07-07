@@ -7,11 +7,15 @@ class Deal extends CI_Controller {
 		is_login();
 
 		$this->user_session = $this->session->userdata('user_session');
-		
-		if (!in_array("deal", array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+
+		if (!@in_array("deal", @array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
 			redirect("admin/dashboard");
 		}
-	}	 
+
+		/*if (!@in_array($this->router->fetch_method(), @config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
+			redirect("admin/deal");
+		}*/
+	}
 
 	public function index()
 	{
@@ -45,7 +49,7 @@ class Deal extends CI_Controller {
 				}
 			),
 			array( 'db' => 'dd_status',  'dt' => 7 ),
-			array( 'db' => 'dd_autoid',  
+			array( 'db' => 'dd_autoid',
 					'dt' => 8,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_deal('.$d.')" class="fa fa-trash-o"></a>';
@@ -61,8 +65,8 @@ class Deal extends CI_Controller {
 		if ($post) {
 			#pr($post,1);
 			$error = array();
-			$e_flag=0; 
-						
+			$e_flag=0;
+
 			if ($post['dd_dealerid'] == "") {
 				$error['dd_dealerid'] = 'Please select dealer.';
 				$e_flag=1;
@@ -105,14 +109,14 @@ class Deal extends CI_Controller {
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 					'dd_status'=> $post['dd_status']
 					);
-				
+
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
-				
+
 				if ($ret_deal > 0) {
 					$post_tags = $post['dd_tags'];
-			
+
 					foreach ($post_tags as $tag)
-					{ 
+					{
 						$tag = trim($tag);
 						$tagid = $this->common_model->selectData(DEAL_TAGS,"dt_autoid",array("dt_tag"=>$tag));
 						if(!$tagid)
@@ -124,7 +128,7 @@ class Deal extends CI_Controller {
 						{
 							$tagid = ($tagid[0]->dt_autoid);
 						}
-							
+
 
 						$tagmap = $this->common_model->selectData(DEAL_MAP_TAGS,"*",array("dm_ddid"=>$ret_deal,"dm_dtid"=>$tagid));
 						if (!$tagmap)
@@ -139,21 +143,21 @@ class Deal extends CI_Controller {
 					if (count($newimages) > 0)
 						$this->common_model->assingImagesToDeal($ret_deal,$newimages);
 
-					
+
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal added successfully.'
 									);
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
-									);	
+									);
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/deal");
 			}
 			$data['error_msg'] = $error;
 		}
-		
+
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_images'] = array();
@@ -164,7 +168,7 @@ class Deal extends CI_Controller {
 
 	public function edit($id)
 	{
-		if (!in_array("edit", config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
+		if (!@in_array("edit", @config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
 			redirect("admin/deal");
 		}
 
@@ -173,7 +177,7 @@ class Deal extends CI_Controller {
 		}
 
 		$where = 'dd_autoid = '.$id;
-		
+
 		$post = $this->input->post();
 		if ($post) {
 
@@ -224,17 +228,17 @@ class Deal extends CI_Controller {
 							);
 
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
-				
+
 				if ($ret > 0) {
-					
+
 					$post_tags = $post['dd_tags'];
 					$old_tags = $this->common_model->getDealTags($id);
-					
+
 					foreach ($post_tags as $tag)
-					{ 
+					{
 						$tag = trim($tag);
 
-						$found = false; 
+						$found = false;
 						foreach ($old_tags as $k=>$v)
 						{
 							if ($tag == $v['dt_tag'])
@@ -256,7 +260,7 @@ class Deal extends CI_Controller {
 						{
 							$tagid = ($tagid[0]->dt_autoid);
 						}
-							
+
 
 						$tagmap = $this->common_model->selectData(DEAL_MAP_TAGS,"*",array("dm_ddid"=>$id,"dm_dtid"=>$tagid));
 						if (!$tagmap)
@@ -265,7 +269,7 @@ class Deal extends CI_Controller {
 							$this->common_model->insertData(DEAL_MAP_TAGS, $tagmapdata);
 						}
 					}
-					
+
 					if (count($old_tags)>0)
 					{
 						$del_ids = array_reduce($old_tags,function($arr,$k){ $arr[] = $k['dt_autoid']; return $arr;});
@@ -274,21 +278,21 @@ class Deal extends CI_Controller {
 
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal updated successfully.'
-									);				
+									);
 				}else{
 					$flash_arr = array('flash_type' => 'error',
 										'flash_msg' => 'An error occurred while processing.'
-									);					
+									);
 				}
 				$this->session->set_flashdata($flash_arr);
 				redirect("admin/deal");
-			}	
+			}
 			$data['error_msg'] = $error;
 
 		}
-		
+
 		$data['deal'] = $deal = $this->common_model->selectData(DEAL_DETAIL, '*', $where);
-		
+
 		if (empty($deal)) {
 			redirect('admin/deal');
 		}
@@ -297,9 +301,9 @@ class Deal extends CI_Controller {
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_tags'] = $this->common_model->getDealTags($id);
 		$data['dd_images'] = $this->common_model->selectData(DEAL_LINKS, 'dl_autoid,dl_url',array("dl_ddid"=>$id));
-				
+
 		$data['view'] = "add_edit";
-		$this->load->view('admin/content', $data);	
+		$this->load->view('admin/content', $data);
 	}
 
 	public function fileupload()
@@ -310,7 +314,7 @@ class Deal extends CI_Controller {
 		if($_FILES['file']['name'] != '' && $_FILES['file']['error'] == 0){
 			$config['upload_path'] = './uploads/';
 			$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
-			
+
 			$file_name_arr = explode('.',$_FILES['file']['name']);
 			$file_name_arr = array_reverse($file_name_arr);
 			$file_extension = $file_name_arr[0];
@@ -342,13 +346,13 @@ class Deal extends CI_Controller {
 
 	public function delete()
 	{
-		if (!in_array("delete", config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
+		if (!@in_array("delete", @config_item('user_role')[$this->user_session['role']]['deal']) && $this->user_session['role'] != 'a') {
 			echo "redirect";
 			exit;
 		}
 
 		$post = $this->input->post();
-		
+
 		if ($post) {
 			$ret = $this->common_model->deleteData(DEAL_DETAIL, array('dd_autoid' => $post['id'] ));
 			if ($ret > 0) {

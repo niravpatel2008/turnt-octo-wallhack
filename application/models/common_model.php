@@ -10,7 +10,7 @@ class common_model extends CI_Model{
 	| -------------------------------------------------------------------
 	| Select data
 	| -------------------------------------------------------------------
-	| 
+	|
 	| general function to get result by passing nesessary parameters
 	|
 	*/
@@ -20,28 +20,26 @@ class common_model extends CI_Model{
 		$this->db->from($table);
 		if ($where != "") {
 			$this->db->where($where);
-		}	
+		}
 
-		
-	
 		if ($order_by != '') {
 			$this->db->order_by($order_by,$order_type);
 		}
-		
+
 		if ($group_by != '') {
 			$this->db->group_by($group_by);
 		}
 
 		if ($limit > 0 && $rows == "") {
 			$this->db->limit($limit);
-		}	
+		}
 		if ($rows > 0) {
 			$this->db->limit($rows, $limit);
 		}
-	
-		
+
+
 		$query = $this->db->get();
-		
+
 		if ($type == "rowcount") {
 			$data = $query->num_rows();
 		}else{
@@ -59,7 +57,7 @@ class common_model extends CI_Model{
 	| -------------------------------------------------------------------
 	| Insert data
 	| -------------------------------------------------------------------
-	| 
+	|
 	| general function to insert data in table
 	|
 	*/
@@ -70,15 +68,15 @@ class common_model extends CI_Model{
 			return $this->db->insert_id();
 		}else{
 			return false;
-		}	
-	}		
+		}
+	}
 
 
 	/*
 	| -------------------------------------------------------------------
 	| Update data
 	| -------------------------------------------------------------------
-	| 
+	|
 	| general function to update data
 	|
 	*/
@@ -96,7 +94,7 @@ class common_model extends CI_Model{
 	| -------------------------------------------------------------------
 	| Delere data
 	| -------------------------------------------------------------------
-	| 
+	|
 	| general function to delete the records
 	|
 	*/
@@ -106,9 +104,32 @@ class common_model extends CI_Model{
 			return 1;
 		}else{
 			return 0;
-		}	
+		}
 	}
-	
+
+
+
+	/*
+	| -------------------------------------------------------------------
+	| check unique fields
+	| -------------------------------------------------------------------
+	|
+	*/
+	public function isUnique($table, $field, $value)
+	{
+		$this->db->select('*');
+		$this->db->from($table);
+		$this->db->where($field,$value);
+		$query = $this->db->get();
+		$data = $query->num_rows();
+		$query->free_result();
+
+		return ($data > 0)?FALSE:TRUE;
+	}
+
+
+
+
 	public function deleteTags($de_autoid,$tag_ids)
 	{
 		$this->db->where_in('dm_dtid', $de_autoid);
@@ -120,7 +141,7 @@ class common_model extends CI_Model{
 			return 1;
 		}else{
 			return 0;
-		}	
+		}
 	}
 
 	public function getDealTags($dd_autoid)
@@ -146,7 +167,7 @@ class common_model extends CI_Model{
 			return 0;
 		}
 	}
-	
+
 	public function getTagAutoSuggest($tag)
 	{
 		$this->db->select('dt_tag');
@@ -163,7 +184,7 @@ class common_model extends CI_Model{
 	public function searchDeals($tags,$catid="",$page = 1,$limit = 15)
 	{
 		$tags = array_filter(explode(",",$tags));
-		
+
 		$this->db->select("SQL_CALC_FOUND_ROWS dd_autoid", FALSE);
 		$this->db->select('deal_detail.*,(select dl_url from deal_links where dl_autoid = dd_mainphoto and dl_type="img") as `dd_photourl`');
 		$this->db->from(DEAL_DETAIL);
@@ -189,10 +210,10 @@ class common_model extends CI_Model{
 
 		$query = $this->db->get();
 		$resDeals = $query->result_array();
-				
+
 		$query = $this->db->query('SELECT FOUND_ROWS() AS `Count`');
 		$totalRecordsCount = $query->row()->Count;
-		
+
 		$deals = array();
 		$deals['totalRecordsCount'] = $totalRecordsCount;
 		foreach ($resDeals as $deal)

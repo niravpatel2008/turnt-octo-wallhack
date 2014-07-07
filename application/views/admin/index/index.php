@@ -35,38 +35,38 @@
                                 </div>
                             </div>
                         </div>
-                    <?php        
-                        } 
-                    ?> 
+                    <?php
+                        }
+                    ?>
                     <div class="form-group <?=(@$error_msg['userid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['userid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['userid']?></label>    
-                        <?php        
-                            } 
-                        ?>                        
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['userid']?></label>
+                        <?php
+                            }
+                        ?>
                         <input type="text" name="userid" class="form-control" placeholder="User ID"/>
                     </div>
                     <div class="form-group <?=(@$error_msg['password'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['password'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['password']?></label>    
-                        <?php        
-                            } 
-                        ?>    
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['password']?></label>
+                        <?php
+                            }
+                        ?>
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
-                    </div>          
+                    </div>
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me
                     </div>
                 </div>
-                <div class="footer">                                                               
-                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
-                    
-                    <p><a href="#">I forgot my password</a></p>
-                    
+                <div class="footer">
+                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>
+
+                    <p><a href="<?=admin_path()?>forgotpassword">I forgot my password</a></p>
+
                     <!-- <a href="register.html" class="text-center">Register a new membership</a> -->
                 </div>
             </form>
@@ -85,7 +85,7 @@
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <!-- Bootstrap -->
-        <script src="<?=public_path()?>js/bootstrap.min.js" type="text/javascript"></script>        
+        <script src="<?=public_path()?>js/bootstrap.min.js" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="<?=public_path()?>js/AdminLTE/app.js" type="text/javascript"></script>
     </body>
