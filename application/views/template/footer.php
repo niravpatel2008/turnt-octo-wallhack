@@ -93,7 +93,7 @@ http://t.co/HXvWw
 <script src="<?=public_path()?>js/front/<?=$this->router->fetch_class()?>.js"></script>
 
 <?php
-  if (count($error_msg) > 0 && in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
+  if (count(@$error_msg) > 0 && in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
 ?>
   <script type="text/javascript">
     $(function() {
