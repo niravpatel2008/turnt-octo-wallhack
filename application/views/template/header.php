@@ -41,7 +41,7 @@
     </script>
 </head>
 <body>
-	<?=$this->load->view('welcome/login');?>
+	<?=$this->load->view('welcome/initial');?>
     <div class="page home">
     <header class="cf" role="banner">
         <div class="top-wrap">
@@ -70,8 +70,8 @@
                 </nav>
                 <div class="large-3 columns">
                     <div class="account cf">
-                        <a class="input button blue tertiary icon plus" href="<?=base_url()?>signup">Join us</a>
-                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="getLoginForm();" >Log in</a>
+                        <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Join us</a>
+                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Log in</a>
                         <!-- <a class="input button transparent tertiary" href="javascript:void(0)" id="login" >Log in</a> -->
                     </div>
                 </div>

@@ -9,123 +9,113 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$session = $this->session->userdata('user_session');
+		$session = $this->session->userdata('front_session');
 		#pr($session,1);
 		if (isset($session['id'])) {
-			redirect("dashboard");
+			#redirect("dashboard");
 		}
 
-		$post = $this->input->post();
-		if ($post) {
-			#pr($post);
-			$error = array();
-			$e_flag=0;
-			if(trim($post['username']) == ''){
-				$error['username'] = 'Please enter username.';
-				$e_flag=1;
-			}
-			if(trim($post['password']) == ''){
-				$error['password'] = 'Please enter password.';
-				$e_flag=1;
-			}
-
-			if ($e_flag == 0) {
-				$where = array('du_uname' => $post['username'],
-								'du_password' => $post['password'],
-								'du_role' => 'u'
-							 );
-				$user = $this->common_model->selectData('deal_user', '*', $where);
-				if (count($user) > 0) {
-					# create session
-					$data = array('id' => $user[0]->du_autoid,
-									'uname' => $user[0]->du_uname,
-									'contact' => $user[0]->du_contact,
-									'email' => $user[0]->du_email,
-									'profile_picture' => $user[0]->du_profile_picture,
-									'create_date' => $user[0]->du_createdate
-								);
-					$this->session->set_userdata('user_session',$data);
-					redirect('search');
-				}else{
-					$error['invalid_login'] = "Invalid username or password";
-				}
-			}
-
-			$data['error_msg'] = $error;
-			#pr($data,1);
-
-		}
 		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
+	}
+
+	public function login()
+	{
+		$post = $this->input->post();
+		if ($post) {
+			if(trim($post['txtusername']) == ''){
+				echo 'Please enter user name.';
+				exit;
+			}
+			if(trim($post['txtpassword']) == ''){
+				echo 'Please enter password.';
+				exit;
+			}
+
+			$where = array('du_uname' => $post['txtusername'],
+							'du_password' => $post['txtpassword'],
+							'du_role' => 'u'
+						 );
+			$user = $this->common_model->selectData('deal_user', '*', $where);
+			if (count($user) > 0) {
+				# create session
+				$data = array('id' => $user[0]->du_autoid,
+								'uname' => $user[0]->du_uname,
+								'contact' => $user[0]->du_contact,
+								'email' => $user[0]->du_email,
+								'profile_picture' => $user[0]->du_profile_picture,
+								'create_date' => $user[0]->du_createdate
+							);
+				$this->session->set_userdata('front_session',$data);
+				echo "success";
+			}else{
+				echo "Invalid username or password";
+			}
+
+		}
+
 	}
 
 	public function signup()
 	{
 		$post = $this->input->post();
 		if ($post) {
-			#pr($post);
-			$error = array();
-			$e_flag=0;
 
-			$is_unique_username = $this->common_model->isUnique(DEAL_USER, 'du_uname', trim($post['user_name']));
+			$is_unique_username = $this->common_model->isUnique(DEAL_USER, 'du_uname', trim($post['username']));
 			$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
 
-
 			if(trim($post['username']) == ''){
-				$error['username'] = 'Please enter user name.';
-				$e_flag=1;
+				echo 'Please enter user name.';
+				exit;
 			}
 			if (!$is_unique_username) {
-				$error['username'] = 'User name already exists.';
-				$e_flag=1;
+				echo 'User name already exists.';
+				exit;
 			}
 			if(trim($post['password']) == ''){
-				$error['password'] = 'Please enter password.';
-				$e_flag=1;
+				echo 'Please enter password.';
+				exit;
 			}
-			if(trim($post['confirm_password']) == ''){
-				$error['confirm_password'] = 'Please enter confirm password.';
-				$e_flag=1;
+			if(trim($post['password2']) == ''){
+				echo 'Please enter confirm password.';
+				exit;
 			}
-			if(trim($post['confirm_password']) != trim($post['password'])){
-				$error['confirm_password'] = 'Please confirm password same as password.';
-				$e_flag=1;
+			if(trim($post['password2']) != trim($post['password'])){
+				echo 'Please confirm password same as password.';
+				exit;
 			}
 			if(trim($post['contact']) == ''){
-				$error['contact'] = 'Please enter contact number.';
-				$e_flag=1;
+				echo 'Please enter contact number.';
+				exit;
 			}
 			if(!valid_email(trim($post['email'])) && trim($post['email']) == ""){
-				$error['email'] = 'Please enter valid email.';
-				$e_flag=1;
+				echo 'Please enter valid email.';
+				exit;
 			}
 			if (!$is_unique_email) {
-				$error['email'] = 'Email already exists.';
-				$e_flag=1;
+				echo 'Email already exists.';
+				exit;
 			}
 
-			if ($e_flag == 0) {
-				$data = array('du_uname' => $post['username'],
-								'du_password' => $post['password'],
-								'du_role' => 'u',
-								'du_contact' => $post['contact'],
-								'du_email' => $post['email'],
-								'du_createdate' => date('Y-m-d H:i:s')
-							);
-				$ret = $this->common_model->insertData(DEAL_USER, $data);
+			$data = array('du_uname' => $post['username'],
+							'du_password' => $post['password'],
+							'du_role' => 'u',
+							'du_contact' => $post['contact'],
+							'du_email' => $post['email'],
+							'du_createdate' => date('Y-m-d H:i:s')
+						);
+			$ret = $this->common_model->insertData(DEAL_USER, $data);
 
-				if ($ret > 0) {
-					#start session & login
-				}else{
-					#show error
-				}
+			if ($ret > 0) {
+				#start session & login
+				echo "success";
+			}else{
+				#show error
+				echo "An error occurred while processing.";
 			}
-			$data['error_msg'] = $error;
+
 		}
-
-		$data['view'] = "signup";
-		$this->load->view('content', $data);
 	}
 
 	public function autosuggest()
@@ -142,41 +132,35 @@ class Welcome extends CI_Controller {
 	{
 		$post = $this->input->post();
 		if ($post) {
-			$error = array();
-			$e_flag=0;
-			if(!valid_email(trim($post['email'])) && trim($post['email']) == ''){
-				$error['email'] = 'Please enter email.';
-				$e_flag=1;
+
+			if(!valid_email(trim($post['txtemail'])) && trim($post['txtemail']) == ''){
+				echo 'Please enter email.';
+				exit;
 			}
 
-			if ($e_flag == 0) {
-				$where = array('du_email' => trim($post['email']));
-				$user = $this->common_model->selectData('deal_user', '*', $where);
-				if (count($user) > 0) {
-					$login_details = array('username' => $user[0]->du_uname,
-											'password' => $user[0]->du_password
-										);
-					$emailTpl = $this->get_forgotpassword_tpl($login_details);
-					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
-					if ($ret) {
-						$flash_arr = array('flash_type' => 'success',
-										'flash_msg' => 'Login details sent successfully.'
+			$where = array('du_email' => trim($post['txtemail']),
+							'du_role' => 'u'
+						);
+			$user = $this->common_model->selectData('deal_user', '*', $where);
+			if (count($user) > 0) {
+				$login_details = array('username' => $user[0]->du_uname,
+										'password' => $user[0]->du_password
 									);
-					}else{
-						$flash_arr = array('flash_type' => 'error',
-										'flash_msg' => 'An error occurred while processing.'
-									);
-					}
-
-					$data['flash_msg'] = $flash_arr;
+				$emailTpl = $this->get_forgotpassword_tpl($login_details);
+				$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
+				if ($ret) {
+					echo "success";
 				}else{
-					$error['email'] = "Invalid email address.";
+					echo 'An error occurred while processing.';
+					exit;
 				}
+
+			}else{
+				echo "Invalid email address.";
+				exit;
 			}
-			$data['error_msg'] = $error;
+
 		}
-		$data['view'] = "forgotpassword";
-		$this->load->view('content', $data);
 	}
 
 
