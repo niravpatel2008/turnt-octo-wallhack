@@ -101,6 +101,7 @@ class Deal extends CI_Controller {
 					#'dd_createdate'=> date('Y-m-d H:i:s'), // need to add in add form
 					'dd_description'=> $post['dd_description'],
 					'dd_features'=> $post['dd_features'],
+					'dd_conditions'=> $post['dd_conditions'],
 					'dd_discount'=> $post['dd_discount'],
 					'dd_startdate'=> $dd_startdate,
 					'dd_expiredate'=> $dd_expiredate,
@@ -219,6 +220,7 @@ class Deal extends CI_Controller {
 							#'dd_createdate'=> $post['dd_createdate'], // need to add in add form
 							'dd_description'=> $post['dd_description'],
 							'dd_features'=> $post['dd_features'],
+							'dd_conditions'=> $post['dd_conditions'],
 							'dd_discount'=> $post['dd_discount'],
 							'dd_startdate'=> $dd_startdate,
 							'dd_expiredate'=> $dd_expiredate,
