@@ -2,6 +2,15 @@
 //echo "<pre>";
 //print_r($dealsDetail);
 $detail = $dealsDetail['detail'][0];
+$features = array_map('trim',array_filter(explode(",",$detail['dd_features'])));
+$url = base_url()."deals/detail/".$detail['dd_autoid']."/".$detail['dd_name'];
+$photo = "";
+foreach ($dealsDetail['links'] as $key=>$val)
+{
+	if($val['dl_autoid'] == $detail['dd_mainphoto'])
+		$photo = base_url()."uploads/".$val['dl_url'];
+}
+$commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";;
 ?>
 <div class='stripe-regular items-carousel-wrap row'>
 
@@ -18,9 +27,58 @@ $detail = $dealsDetail['detail'][0];
 			<div class="box box-success">
 				<div class="box-header">
 					<h3 class="box-title"><i class="fa fa-comments-o"></i>Buy this deal</h3>
+					<div class='pull-right box-tools'>
+						<span class='st_facebook' <?=$commanAttr?>></span>
+						<span class='st_twitter' <?=$commanAttr?>></span>  
+						<span class='st_linkedin' <?=$commanAttr?>></span> 
+						<span class='st_pinterest' <?=$commanAttr?>></span>
+						<span class='st_email' <?=$commanAttr?>></span>  
+						<span class='st_sharethis' <?=$commanAttr?>></span>
+					</div>
 				</div>
 				<div class="box-body">
 					<div id='buy'>
+						<ul class='list-unstyled'>
+							<li><b>Features :</b>
+								<ul>
+									<?php foreach ($features as $feature){
+										echo "<li>$feature</li>";
+									}?>
+								</ul>
+							</li>
+						</ul>
+						<div class='row'>
+							<div class='col-lg-4'>
+								<div class="small-box bg-aqua">
+									<a class="small-box-footer" href="#">
+										Now
+									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_listprice'];?></h3></center>
+									</div>
+								</div>
+							</div>
+							<div class='col-lg-4'>
+								<div class="small-box bg-red">
+									<a class="small-box-footer" href="#">
+										Was
+									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_originalprice'];?></h3></center>
+									</div>
+								</div>
+							</div>
+							<div class='col-lg-4'>
+								<div class="small-box bg-green">
+									<a class="small-box-footer" href="#">
+										Save
+									</a>
+									<div class="inner">
+										<center><h3 class='box-title'><?=$detail['dd_discount'];?></h3></center>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>		
 				<div class="box-footer">

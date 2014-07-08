@@ -1622,4 +1622,13 @@ footer .social .fb {
         left: 0;
         width: 100%;
         height: 100%;
-} 
+}
+
+.small-box h3{
+	font-size: 20px !important;
+	color:#FFFFFF;
+}
+
+.small-box-footer{
+	font-weight:bold;
+}
