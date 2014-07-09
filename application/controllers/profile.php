@@ -7,7 +7,7 @@ class Profile extends CI_Controller {
 
 		is_login();
 
-		$this->user_session = $this->session->userdata('user_session');
+		$this->user_session = $this->session->userdata('front_session');
 	}
 
 
@@ -82,8 +82,8 @@ class Profile extends CI_Controller {
 									'profile_picture' => $config['file_name'],
 									'create_date' => $this->user_session['create_date']
 								);
-					$this->session->set_userdata('user_session',$session_data);
-					$this->user_session = $this->session->userdata('user_session');
+					$this->session->set_userdata('front_session',$session_data);
+					$this->user_session = $this->session->userdata('front_session');
 
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Profile updated successfully.'

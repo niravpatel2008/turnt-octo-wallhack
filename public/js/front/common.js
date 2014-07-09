@@ -29,7 +29,7 @@ $(document).ready(function(){
 	$('body').delegate('.favme','click',function(){
 		var url = base_url()+'deals/like/';
 		var param = {id:$(this).attr("did")};
-		$.get(url,param,function(e){
+		$.post(url,param,function(e){
 			if (e == 1)
 				$(this).addClass("unfavme").removeClass("favme");
 		})
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	$('body').delegate('.unfavme','click',function(){
 		var url = base_url()+'deals/dislike/';
 		var param = {id:$(this).attr("did")};
-		$.get(url,param,function(e){
+		$.post(url,param,function(e){
 			if (e == 1)
 				$(this).addClass("favme").removeClass("unfavme");
 		})		

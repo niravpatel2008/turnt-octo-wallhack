@@ -217,7 +217,7 @@ class common_model extends CI_Model{
 		$deals = array();
 		$deals['totalRecordsCount'] = $totalRecordsCount;
 		
-		$session = $this->session->userdata('user_session');
+		$session = $this->session->userdata('front_session');
 		$favdata = array();
 		$favdata['df_userid'] = $session['id'];
 		$favArray = array();
@@ -276,7 +276,7 @@ class common_model extends CI_Model{
 			$query = $this->db->get();
 			$data['tags'] = $query->result_array();
 			
-			$session = $this->session->userdata('user_session');
+			$session = $this->session->userdata('front_session');
 			$data['is_fav'] = 0;
 			if (isset($session['id']) && $session['id'] !="")
 			{

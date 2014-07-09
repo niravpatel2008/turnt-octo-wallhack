@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
 
 		is_login();
 
-		$this->user_session = $this->session->userdata('user_session');
+		$this->user_session = $this->session->userdata('front_session');
 	}	 
 
 	
