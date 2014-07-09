@@ -76,6 +76,17 @@
                         <label for="dd_description">Description:</label>
                         <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
                     </div>
+                    <div class="form-group <?=(@$error_msg['dd_offer'] != '')?'has-error':'' ?>">
+                        <?php
+                            if(@$error_msg['dd_offer'] != ''){
+                        ?>
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_offer']?></label><br/>    
+                        <?php        
+                            } 
+                        ?>
+                        <label for="dd_offer">Offer Detail:</label>
+                        <textarea type="email" placeholder="Description here" id="dd_offer" class="form-control" name="dd_offer"><?=@$deal[0]->dd_offer?></textarea>
+                    </div>
                     <div class="form-group <?=(@$error_msg['dd_features'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_features'] != ''){
@@ -95,8 +106,8 @@
                         <?php        
                             } 
                         ?>
-                        <label for="dd_conditions">Terms & Conditions:</label>
-                        <textarea type="email" placeholder="Conditions here (,) separated" id="dd_conditions" class="form-control" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
+                        <label for="dd_conditions">Validity:</label>
+                        <textarea type="email" placeholder="Validity (,) separated" id="dd_conditions" class="form-control" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
                     </div>
 					<div class="row">
 						<div class="col-xs-4 form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
