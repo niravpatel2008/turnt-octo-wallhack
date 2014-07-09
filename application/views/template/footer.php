@@ -105,13 +105,15 @@ http://t.co/HXvWw
   }
 ?>
 
-<script type="text/javascript">
-  function getLoginForm()
-  {
-    $('#divConsLogin').modal();
+<?php
+  if (in_array($this->router->fetch_class(), array('welcome')) &&  in_array($this->router->fetch_method(), array('index'))) {
+?>
+  <script src="<?=public_path()?>js/front/welcome/initial.js"></script>
+<?php
   }
-
-
+?>
+<script type="text/javascript">
+/*
   $("#login").click( function(){
     if($("#loginbox").css('display')=='block'){
       $("#loginbox").slideUp();
@@ -137,18 +139,9 @@ http://t.co/HXvWw
             $("#loginbox").slideUp();
             $("#homelogin").removeClass('topmenuactive');
         }
-    });
+    });*/
 
-  $("#signin").live('click',function(){
-    if ($.trim($("#username").val()) == "") {
-      alert('Please enter username');
-      return false;
-    }
-    if ($.trim($("#password").val()) == "") {
-      alert('Please enter password');
-      return false;
-    }
-  });
+
 </script>
 </body>
 </html>
