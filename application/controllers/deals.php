@@ -37,13 +37,15 @@ class Deals extends CI_Controller {
 		echo($deals);exit;
 	}
 
-	public function like($id)
+	public function like()
 	{
-		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
-		if ($id == "")
-			exit;
+		$post = $this->input->post();
+		$id = (isset($post) && isset($post['id']))?$post['id']:"";
+		if ($id == "")	{	
+			echo "0";exit;
+		}
 
-		$session = $this->session->userdata('user_session');
+		$session = $this->session->userdata('front_session');
 		if (!isset($session['id'])) {
 			echo "0";exit;
 		}
@@ -67,11 +69,13 @@ class Deals extends CI_Controller {
 
 	public function dislike($id)
 	{
-		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
-		if ($id == "")
-			exit;
+		$post = $this->input->post();
+		$id = (isset($post) && isset($post['id']))?$post['id']:"";
+		if ($id == "")	{	
+			echo "0";exit;
+		}
 
-		$session = $this->session->userdata('user_session');
+		$session = $this->session->userdata('front_session');
 		if (!isset($session['id'])) {
 			echo "0";exit;
 		}
