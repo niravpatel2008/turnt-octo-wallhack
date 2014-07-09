@@ -6,16 +6,21 @@ function IsEmail(email) {
 
 function openLoginForm()
 {
+	$("#divCreateAccountForm").modal('hide');
+	$("#divForgotPasswordForm").modal('hide');
     $('#divConsLogin').modal();
 }
 
 function openSignupForm()
 {
-    //$('#divConsLogin').modal('toggle');
+	$('#divConsLogin').modal('hide');
+	$("#divForgotPasswordForm").modal('hide');
     $("#divCreateAccountForm").modal();
 }
 
 function openForgotPasswordForm () {
+	$('#divConsLogin').modal('hide');
+	$("#divCreateAccountForm").modal('hide');
     $("#divForgotPasswordForm").modal();
 }
 
