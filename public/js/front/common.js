@@ -41,7 +41,7 @@ $(document).ready(function(){
 		$.post(url,param,function(e){
 			if (e == 1)
 				$(this).addClass("favme").removeClass("unfavme");
-		})		
+		})
 	});
 
 	$("#signin").live('click', function () {
@@ -62,7 +62,7 @@ $(document).ready(function(){
 			success: function  (data) {
 				if(data == 'success'){
 					//location.href = base_url()+'deals';
-					//location.reload();
+					location.reload();
 				}else{
 					alert(data);
 					return false;

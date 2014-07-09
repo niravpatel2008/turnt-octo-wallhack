@@ -4,16 +4,13 @@ class Welcome extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+
+		$this->front_session = $this->session->userdata('front_session');
 	}
 
 
 	public function index()
 	{
-		$session = $this->session->userdata('front_session');
-		#pr($session,1);
-		if (isset($session['id'])) {
-			#redirect("dashboard");
-		}
 
 		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname,dc_catid');
 		$data['view'] = "index";
