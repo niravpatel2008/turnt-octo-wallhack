@@ -112,36 +112,5 @@ http://t.co/HXvWw
 <?php
   }
 ?>
-<script type="text/javascript">
-/*
-  $("#login").click( function(){
-    if($("#loginbox").css('display')=='block'){
-      $("#loginbox").slideUp();
-      $("#homelogin").removeClass('topmenuactive');
-      //$("#homelogin a").css('color','#ffffff');
-      //$("#homelogin").removeClass('homeloginactive');
-    }else{
-      $("#loginbox").slideDown();
-      $('#username').focus(); // code for autofocus @@@@@
-      //$("#homelogin").addClass('topmenuactive');
-      //$("#homelogin a").css('color','#000000');
-      $("#homelogin").addClass('topmenuactive');
-
-    }
-  });
-
-  $("#loginbox").mouseup(function() {
-        return false;
-    });
-
-   $(this).mouseup(function(e) {
-        if(!($(e.target).parent('#homelogin').length > 0)) {
-            $("#loginbox").slideUp();
-            $("#homelogin").removeClass('topmenuactive');
-        }
-    });*/
-
-
-</script>
 </body>
 </html>
