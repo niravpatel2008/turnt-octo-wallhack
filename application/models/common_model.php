@@ -216,6 +216,18 @@ class common_model extends CI_Model{
 
 		$deals = array();
 		$deals['totalRecordsCount'] = $totalRecordsCount;
+		
+		$session = $this->session->userdata('user_session');
+		$favdata = array();
+		$favdata['df_userid'] = $session['id'];
+		$favArray = array();
+		if (isset($session['id']) && $session['id'] !="")
+		{
+			$favData = $this->selectData(DEAL_FAV,"db_dealid", $favdata);
+			foreach ($favData as $fav)
+				$favArray[] = $fav['db_dealid'];
+		}
+
 		foreach ($resDeals as $deal)
 		{
 			$rec = array();
@@ -227,6 +239,7 @@ class common_model extends CI_Model{
 			$rec['listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
 			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
+			$data['is_fav'] = in_array($deal['dd_autoid'],$favArray);
 			$deals[] = $rec;
 		}
 		return (json_encode($deals));
@@ -262,6 +275,16 @@ class common_model extends CI_Model{
 			$this->db->where('dm_ddid',$id);
 			$query = $this->db->get();
 			$data['tags'] = $query->result_array();
+			
+			$session = $this->session->userdata('user_session');
+			$data['is_fav'] = 0;
+			if (isset($session['id']) && $session['id'] !="")
+			{
+				$favdata = array();
+				$favdata['df_userid'] = $session['id'];
+				$favdata['db_dealid'] = $id;
+				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
+			}
 			
 			return $data;
 	}

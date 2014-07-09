@@ -345,7 +345,7 @@ h1.alt {
   display: block;
   width: 84px;
   height: 84px;
-  background: url("../img/sprite.png") no-repeat -250px -50px;
+  background: url("../../img/sprite.png") no-repeat -250px -50px;
   top: -105px;
   left: 50%;
   margin-left: -42px;
@@ -549,7 +549,7 @@ p.text.small {
 .testimonial .bubble:after {
   content: "";
   position: absolute;
-  background: url("../img/sprite.png") no-repeat -150px -50px;
+  background: url("../../img/sprite.png") no-repeat -150px -50px;
   width: 11px;
   height: 10px;
   bottom: -10px;
@@ -600,7 +600,7 @@ aside .video-box {
   width: 14px;
   height: 23px;
   display: block;
-  background: url("../img/sprite.png") no-repeat;
+  background: url("../../img/sprite.png") no-repeat;
   text-indent: -9999px;
   opacity: 0.4;
   filter: alpha(opacity=40);
@@ -726,7 +726,7 @@ a.flex-next {
 /* ICONS */
 
 .icon {
-  background: url("../img/sprite.png") no-repeat;
+  background: url("../../img/sprite.png") no-repeat;
   display: inline-block;
 }
 .icon.tag {
@@ -739,7 +739,7 @@ a.flex-next {
 /* HEADER */
 
 header[role="banner"] {
-  background: url("../img/bg.jpg") repeat-x center 0 #525252;
+  background: url("../../img/bg.jpg") repeat-x center 0 #525252;
 }
 .top-wrap {
   background: #464646;
@@ -776,7 +776,7 @@ header[role="banner"] {
 .select-main-menu.customSelect:after {
   content: "";
   position: absolute;
-  background: url("../img/sprite.png") no-repeat -100px -50px;
+  background: url("../../img/sprite.png") no-repeat -100px -50px;
   width: 6px;
   height: 11px;
   z-index: 100;
@@ -833,7 +833,7 @@ header[role="banner"] {
   position: absolute;
   content: "";
   display: block;
-  background: url("../img/sprite.png") no-repeat 0 -50px;
+  background: url("../../img/sprite.png") no-repeat 0 -50px;
   width: 17px;
   height: 16px;
   top: 50%;
@@ -842,7 +842,7 @@ header[role="banner"] {
 }
 .search-box .icon.clear {
   position: absolute;
-  background: url("../img/sprite.png") no-repeat -50px -50px;
+  background: url("../../img/sprite.png") no-repeat -50px -50px;
   width: 16px;
   height: 16px;
   right: 16px;
@@ -858,7 +858,7 @@ header[role="banner"] {
 .menu-browse .input:after {
   content: "";
   position: absolute;
-  background: url("../img/sprite.png") no-repeat -100px -50px;
+  background: url("../../img/sprite.png") no-repeat -100px -50px;
   width: 6px;
   height: 11px;
   z-index: 100;
@@ -1027,7 +1027,7 @@ header[role="banner"] {
   top: 0;
   width: 13px;
   height: 11px;
-  background: url("../img/sprite.png") no-repeat 0 -100px;
+  background: url("../../img/sprite.png") no-repeat 0 -100px;
 }
 .checklist input {
   opacity: 0;
@@ -1183,7 +1183,7 @@ section.comments {
   display: inline-block;
   width: 15px;
   height: 14px;
-  background: url("../img/sprite.png") no-repeat -50px -100px;
+  background: url("../../img/sprite.png") no-repeat -50px -100px;
   opacity: 0.4;
   filter: alpha(opacity=40);
   position: relative;
@@ -1199,7 +1199,7 @@ section.comments .avatar {
   height: 58px;
 }
 section.comments .avatar.default {
-  background: url("../img/sprite.png") no-repeat -350px -50px;
+  background: url("../../img/sprite.png") no-repeat -350px -50px;
 }
 section.comments .author {
   font-size: 0.938em;
@@ -1227,7 +1227,7 @@ section.comments .reply-button:before {
   display: inline-block;
   width: 10px;
   height: 14px;
-  background: url("../img/sprite.png") no-repeat -100px -100px;
+  background: url("../../img/sprite.png") no-repeat -100px -100px;
   position: relative;
   top: 2px;
   margin-right: 4px;
@@ -1337,7 +1337,7 @@ footer .tweet {
 footer .tweet:before {
   content: "";
   position: absolute;
-  background: url("../img/sprite.png") no-repeat -200px -50px;
+  background: url("../../img/sprite.png") no-repeat -200px -50px;
   width: 16px;
   height: 11px;
   display: block;
@@ -1367,7 +1367,7 @@ footer .social a {
   display: block;
   width: 32px;
   height: 32px;
-  background: url("../img/sprite.png") no-repeat -250px 0;
+  background: url("../../img/sprite.png") no-repeat -250px 0;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -1631,4 +1631,24 @@ footer .social .fb {
 
 .small-box-footer{
 	font-weight:bold;
+}
+
+.favme{
+	display:block;
+	width:20px;
+	height:20px;
+	background: url("../../images/u_heart.png");
+	background-size: 20px 20px;
+	cursor:pointer;
+	float:left;
+}
+
+.unfavme{
+	display:block;
+	width:20px;
+	height:20px;
+	background: url("../../images/f_heart.png");
+	background-size: 20px 20px;
+	cursor:pointer;
+	float:left;
 }

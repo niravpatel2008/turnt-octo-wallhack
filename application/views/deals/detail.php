@@ -10,13 +10,14 @@ foreach ($dealsDetail['links'] as $key=>$val)
 	if($val['dl_autoid'] == $detail['dd_mainphoto'])
 		$photo = base_url()."uploads/".$val['dl_url'];
 }
-$commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";;
+$commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";
+$fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfavme":"favme";
 ?>
 <div class='stripe-regular items-carousel-wrap row'>
 
 		<div class="box box-success">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-comments-o"></i> <?=$detail['dd_name']?></h3>
+				<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span> <?=$detail['dd_name']?></h3>
 			</div>
 		</div>
 

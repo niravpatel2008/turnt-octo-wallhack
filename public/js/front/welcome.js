@@ -131,7 +131,7 @@ function displayDealsData(result)
 				article += "<figure>";
 				  article += "<img alt='' src='"+element.photo+"'>";
 				article += "</figure>";
-				article += "<h2 class='alt'><a href='#'>"+element.name+"</a></h2>";
+				article += "<h2 class='alt'><span class='favme' did='"+element.id+"'></span><a href='#'>"+element.name+"</a></h2>";
 			  article += "</div>";
 			  article += "<div class='bottom'>";
 				article += "<p class='value secondary'>$30 OFF</p>";
