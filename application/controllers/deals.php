@@ -65,7 +65,7 @@ class Deals extends CI_Controller {
 		else
 			$ret_deal = 1;
 
-		if ($ret_deal > 1)
+		if ($ret_deal > 0)
 			echo 1;
 		else
 			echo 0;

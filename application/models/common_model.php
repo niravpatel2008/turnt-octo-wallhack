@@ -227,7 +227,7 @@ class common_model extends CI_Model{
 		{
 			$favData = $this->selectData(DEAL_FAV,"db_dealid", $favdata);
 			foreach ($favData as $fav)
-				$favArray[] = $fav['db_dealid'];
+				$favArray[] = $fav->db_dealid;
 		}
 
 		foreach ($resDeals as $deal)
@@ -241,7 +241,7 @@ class common_model extends CI_Model{
 			$rec['listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
 			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
-			$data['is_fav'] = in_array($deal['dd_autoid'],$favArray);
+			$rec['is_fav'] = in_array($deal['dd_autoid'],$favArray);
 			$deals[] = $rec;
 		}
 		return (json_encode($deals));
