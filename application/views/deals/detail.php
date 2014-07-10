@@ -12,6 +12,13 @@ foreach ($dealsDetail['links'] as $key=>$val)
 }
 $commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";
 $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfavme":"favme";
+$category = $dealsDetail['category'][0]['dc_catname'];
+$tags = array();
+foreach ($dealsDetail['tags'] as $key=>$val)
+{
+	$tags[]=$val['dt_tag'];
+}
+$tags = implode(",",$tags);
 ?>
 <div class='stripe-regular items-carousel-wrap row'>
 
@@ -164,7 +171,11 @@ $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfav
 			</div>		
 		</div>
 	</div>
-
+	
+  <div id='search_results' data-columns>
+		<input type='hidden' id='tags' value="<?=$tags?>">
+		<input type='hidden' id='category' value="<?=$category?>">
+  </div>
 </div>
 
 
