@@ -4,9 +4,11 @@ class Deals extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-	}	 
 
-	
+		$this->front_session = $this->session->userdata('front_session');
+	}
+
+
 	public function index()
 	{
 
@@ -16,7 +18,7 @@ class Deals extends CI_Controller {
 	{
 		$data = array();
 		$name = isset($name)?$name:"";
-		
+
 		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
 		if ($id == "")
 			redirect("welcome");
@@ -41,7 +43,7 @@ class Deals extends CI_Controller {
 	{
 		$post = $this->input->post();
 		$id = (isset($post) && isset($post['id']))?$post['id']:"";
-		if ($id == "")	{	
+		if ($id == "")	{
 			echo "0";exit;
 		}
 
@@ -71,7 +73,7 @@ class Deals extends CI_Controller {
 	{
 		$post = $this->input->post();
 		$id = (isset($post) && isset($post['id']))?$post['id']:"";
-		if ($id == "")	{	
+		if ($id == "")	{
 			echo "0";exit;
 		}
 

@@ -36,6 +36,17 @@
 		}
 	}
 
+    function is_front_login()
+    {
+
+        $CI =& get_instance();
+        $session = $CI->session->userdata('front_session');
+
+        if (!isset($session['id'])) {
+            redirect(base_url());
+        }
+    }
+
 	function success_msg_box($msg)
 	{
 		$html = '<div class="alert alert-success alert-dismissable">

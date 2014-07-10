@@ -70,9 +70,19 @@
                 </nav>
                 <div class="large-3 columns">
                     <div class="account cf">
+                      <?php
+                        if ($this->front_session['id'] > 0) {
+                      ?>
+                        <a class="" href="<?=base_url()?>profile"><?=$this->front_session['uname']?></a>&nbsp;&nbsp;
+                        <a class="input button tertiary" href="<?=base_url()?>profile/logout">Log out</a>
+                      <?php
+                        }else{
+                      ?>
                         <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Join us</a>
                         <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Log in</a>
-                        <!-- <a class="input button transparent tertiary" href="javascript:void(0)" id="login" >Log in</a> -->
+                      <?php
+                        }
+                      ?>
                     </div>
                 </div>
             </div>

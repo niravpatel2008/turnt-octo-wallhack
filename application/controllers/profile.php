@@ -5,9 +5,8 @@ class Profile extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		is_login();
-
-		$this->user_session = $this->session->userdata('front_session');
+		$this->front_session = $this->session->userdata('front_session');
+		is_front_login();
 	}
 
 
@@ -43,7 +42,7 @@ class Profile extends CI_Controller {
 				$e_flag=1;
 			}
 
-			$config['file_name'] = $this->user_session['profile_picture'];
+			$config['file_name'] = $this->front_session['profile_picture'];
 			if ($_FILES['profile_image']['error'] == 0) {
 				$config['overwrite'] = TRUE;
 				$config['upload_path'] = DOC_ROOT_PROFILE_IMG;
@@ -52,7 +51,7 @@ class Profile extends CI_Controller {
 				$img_arr = explode('.',$_FILES['profile_image']['name']);
 				$img_arr = array_reverse($img_arr);
 
-				$config['file_name'] = $this->user_session['id']."_img.".$img_arr[0];
+				$config['file_name'] = $this->front_session['id']."_img.".$img_arr[0];
 
 				$this->load->library('upload', $config);
 
@@ -61,7 +60,7 @@ class Profile extends CI_Controller {
 					$error['profile_image'] = $this->upload->display_errors();
 					$e_flag=1;
 				}else{
-					unlink(DOC_ROOT_PROFILE_IMG.$this->user_session['profile_picture']);
+					unlink(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']);
 				}
 			}
 
@@ -72,18 +71,18 @@ class Profile extends CI_Controller {
 								'du_email' => $post['email'],
 								'du_profile_picture' => $config['file_name']
 							);
-				$ret = $this->common_model->updateData(DEAL_USER, $data, 'du_autoid = '.$this->user_session['id']);
+				$ret = $this->common_model->updateData(DEAL_USER, $data, 'du_autoid = '.$this->front_session['id']);
 				if ($ret > 0) {
 					# update session
-					$session_data = array('id' => $this->user_session['id'],
+					$session_data = array('id' => $this->front_session['id'],
 									'uname' => $post['username'],
 									'contact' => $post['contact'],
 									'email' => $post['email'],
 									'profile_picture' => $config['file_name'],
-									'create_date' => $this->user_session['create_date']
+									'create_date' => $this->front_session['create_date']
 								);
 					$this->session->set_userdata('front_session',$session_data);
-					$this->user_session = $this->session->userdata('front_session');
+					$this->front_session = $this->session->userdata('front_session');
 
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Profile updated successfully.'
