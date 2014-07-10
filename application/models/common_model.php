@@ -181,7 +181,7 @@ class common_model extends CI_Model{
 		return ($resTags);
 	}
 
-	public function searchDeals($tags,$catid="",$page = 1,$limit = 15)
+	public function searchDeals($tags,$catid="",$page = 1,$limit = 15,$or=false)
 	{
 		$tags = array_filter(explode(",",$tags));
 
@@ -195,7 +195,9 @@ class common_model extends CI_Model{
 			$this->db->join(DEAL_TAGS, 'dm_dtid = dt_autoid', 'left');
 			$this->db->where_in('dt_tag',$tags);
 			$this->db->group_by('dd_autoid');
-			$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
+			
+			if(!$or)
+				$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
 		}
 
 		$this->db->where('dd_status',"published");
@@ -286,6 +288,10 @@ class common_model extends CI_Model{
 				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
 			}
 			
+			$catdata =array();
+			$catdata["dc_catid"] = $data['detail'][0]['dd_catid'];
+			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
+			$data['category'] = $category[0];
 			return $data;
 	}
 }
