@@ -36,6 +36,7 @@ function displayDealsData(result)
 	var flag = false;
 	$.each(result, function(index,element)
 	{
+		favClass = (element.is_fav)?'unfavme':'favme';
 		commanAttr = " st_url='"+element.url+"' st_title='"+element.name+"' st_image='"+element.photo+"' st_summary='"+element.name+"' ";
 		if(index!='totalRecordsCount'){
 			article = "<div class='wrapper-3 item-thumb'>";
@@ -43,7 +44,7 @@ function displayDealsData(result)
 				article += "<figure>";
 				  article += "<img alt='' src='"+element.photo+"'>";
 				article += "</figure>";
-				article += "<h2 class='alt'><span class='favme' did='"+element.id+"'></span><a href='#'>"+element.name+"</a></h2>";
+				article += "<h2 class='alt'><span class='"+favClass+"' did='"+element.id+"'></span><a href='#'>"+element.name+"</a></h2>";
 			  article += "</div>";
 			  article += "<div class='bottom'>";
 				article += "<p class='value secondary'>$30 OFF</p>";
@@ -80,18 +81,21 @@ $(document).ready(function(){
 	$('body').delegate('.favme','click',function(){
 		var url = base_url()+'deals/like/';
 		var param = {id:$(this).attr("did")};
+		var span =$(this);
 		$.post(url,param,function(e){
-			if (e == 1)
-				$(this).addClass("unfavme").removeClass("favme");
+			if (e == "1")
+				$(span).addClass("unfavme").removeClass("favme");
 		})
 	});
 
 	$('body').delegate('.unfavme','click',function(){
 		var url = base_url()+'deals/dislike/';
 		var param = {id:$(this).attr("did")};
+		var span =$(this);
 		$.post(url,param,function(e){
-			if (e == 1)
-				$(this).addClass("favme").removeClass("unfavme");
+			alert(e);
+			if (e == "1")
+				$(span).addClass("favme").removeClass("unfavme");
 		})
 	});
 
