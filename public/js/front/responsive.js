@@ -325,7 +325,8 @@ self.get_stylesheets = function get_stylesheets() {
 self.media_rule_has_columns_selector = function media_rule_has_columns_selector(rules) {
   // checks if a media query css rule has in its contents a selector that
   // styles the grid.
-
+  if (typeof(rules) == 'undefined') return false;
+	
   var i = rules.length
     , rule
   ;

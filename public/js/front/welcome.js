@@ -1,8 +1,7 @@
 var qryString;
 var resultSet = {};
-var dealCnt;
 var qryStrHash = {};
-var dealCnt = 1;
+
 
 function setCookies()
 {

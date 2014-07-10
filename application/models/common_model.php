@@ -290,7 +290,8 @@ class common_model extends CI_Model{
 			
 			$catdata =array();
 			$catdata["dc_catid"] = $data['detail'][0]['dd_catid'];
-			$data['category'] = $this->selectData(DEAL_CATEGORY, 'dc_catname',$catdata);
+			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
+			$data['category'] = $category[0];
 			return $data;
 	}
 }
