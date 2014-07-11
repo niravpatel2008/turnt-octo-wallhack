@@ -84,7 +84,11 @@ $(document).ready(function(){
 		var span =$(this);
 		$.post(url,param,function(e){
 			if (e == "1")
-				$(span).addClass("unfavme").removeClass("favme");
+			{
+				$(span).effect("bounce",{ times: 3 }, "fast",function(){
+					$(span).addClass("unfavme").removeClass("favme");
+				})
+			}	
 		})
 	});
 
@@ -93,9 +97,12 @@ $(document).ready(function(){
 		var param = {id:$(this).attr("did")};
 		var span =$(this);
 		$.post(url,param,function(e){
-			alert(e);
 			if (e == "1")
-				$(span).addClass("favme").removeClass("unfavme");
+			{
+				$(span).effect("bounce",{ times: 3 }, "fast",function(){
+					$(span).addClass("favme").removeClass("unfavme");
+				})
+			}
 		})
 	});
 
