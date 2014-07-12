@@ -38,6 +38,7 @@
     </script>
 </head>
 <body>
+    <?=$this->load->view('welcome/initial');?>
     <div class="page home">
     <header class="cf" role="banner">
         <div class="top-wrap">
