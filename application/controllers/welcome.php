@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 
-		$data['categories'] = $this->common_model->selectData('deal_category', 'dc_catname,dc_catid');
+		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
 	}

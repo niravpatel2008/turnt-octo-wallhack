@@ -181,7 +181,7 @@ class common_model extends CI_Model{
 		return ($resTags);
 	}
 
-	public function searchDeals($tags,$catid="",$page = 1,$limit = 15)
+	public function searchDeals($tags,$catid="",$page = 1,$limit = 15,$or=false)
 	{
 		$tags = array_filter(explode(",",$tags));
 
@@ -195,7 +195,9 @@ class common_model extends CI_Model{
 			$this->db->join(DEAL_TAGS, 'dm_dtid = dt_autoid', 'left');
 			$this->db->where_in('dt_tag',$tags);
 			$this->db->group_by('dd_autoid');
-			$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
+			
+			if(!$or)
+				$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
 		}
 
 		$this->db->where('dd_status',"published");
@@ -225,7 +227,7 @@ class common_model extends CI_Model{
 		{
 			$favData = $this->selectData(DEAL_FAV,"db_dealid", $favdata);
 			foreach ($favData as $fav)
-				$favArray[] = $fav['db_dealid'];
+				$favArray[] = $fav->db_dealid;
 		}
 
 		foreach ($resDeals as $deal)
@@ -239,7 +241,7 @@ class common_model extends CI_Model{
 			$rec['listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
 			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
-			$data['is_fav'] = in_array($deal['dd_autoid'],$favArray);
+			$rec['is_fav'] = in_array($deal['dd_autoid'],$favArray);
 			$deals[] = $rec;
 		}
 		return (json_encode($deals));
@@ -286,6 +288,10 @@ class common_model extends CI_Model{
 				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
 			}
 			
+			$catdata =array();
+			$catdata["dc_catid"] = $data['detail'][0]['dd_catid'];
+			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
+			$data['category'] = $category[0];
 			return $data;
 	}
 }

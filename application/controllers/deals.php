@@ -35,7 +35,10 @@ class Deals extends CI_Controller {
 		$post = $this->input->post();
 		$tags = (isset($post) && isset($post['tags']))?$post['tags']:"";
 		$catid = (isset($post) && isset($post['category']))?$post['category']:"";
-		$deals = $this->common_model->searchDeals($tags,$catid);
+		$page = (isset($post) && isset($post['page']))?$post['page']:1;
+		$limit = (isset($post) && isset($post['limit']))?$post['limit']:15;
+		$or = (isset($post) && isset($post['or']))?$post['or']:false;
+		$deals = $this->common_model->searchDeals($tags,$catid,$page,$limit,$or);
 		echo($deals);exit;
 	}
 
@@ -62,7 +65,7 @@ class Deals extends CI_Controller {
 		else
 			$ret_deal = 1;
 
-		if ($ret_deal > 1)
+		if ($ret_deal > 0)
 			echo 1;
 		else
 			echo 0;

@@ -3,6 +3,7 @@
 //print_r($dealsDetail);
 $detail = $dealsDetail['detail'][0];
 $features = array_map('trim',array_filter(explode(",",$detail['dd_features'])));
+$validities = array_map('trim',array_filter(explode(",",$detail['dd_conditions'])));
 $url = base_url()."deals/detail/".$detail['dd_autoid']."/".$detail['dd_name'];
 $photo = "";
 foreach ($dealsDetail['links'] as $key=>$val)
@@ -12,14 +13,22 @@ foreach ($dealsDetail['links'] as $key=>$val)
 }
 $commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";
 $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfavme":"favme";
+$category = $dealsDetail['category'];
+
+$tags = array();
+foreach ($dealsDetail['tags'] as $key=>$val)
+{
+	$tags[]=$val['dt_tag'];
+}
+$tags = implode(",",$tags);
 ?>
 <div class='stripe-regular items-carousel-wrap row'>
 
-		<div class="box box-success">
-			<div class="box-header">
-				<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span> <?=$detail['dd_name']?></h3>
-			</div>
+	<div class="box box-success">
+		<div class="box-header">
+			<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span> <?=$detail['dd_name']?></h3>
 		</div>
+	</div>
 
 
 
@@ -125,13 +134,47 @@ $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfav
 	</div>
 
 	
-	<div class="box box-success">
-		<div class="box-header">
-			<h3 class="box-title"><i class="fa fa-comments-o"></i> Description</h3>
-		</div>
-		<div class="box-body">
-			<div id='description'><?=$detail['dd_description'];?></div>
-		</div>
+	<div class='row'>
+		<section class='col-lg-4'>
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title"><i class="fa fa-comments-o"></i> Offer Validity</h3>
+				</div>
+				<div class="box-body">
+					<ul class='list-unstyled'>
+						<li>
+							<ul>
+								<?php foreach ($validities as $validity){
+									echo "<li>$validity</li>";
+								}?>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class='col-lg-4'>
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title"><i class="fa fa-comments-o"></i> Offer Detail</h3>
+				</div>
+				<div class="box-body">
+					<div id='description'><?=$detail['dd_offer'];?></div>
+				</div>
+			</div>
+		</section>
+
+		<section class='col-lg-4'>
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title"><i class="fa fa-comments-o"></i> Description</h3>
+				</div>
+				<div class="box-body">
+					<div id='description'><?=$detail['dd_description'];?></div>
+				</div>
+			</div>
+		</section>
 	</div>
 
 
@@ -165,9 +208,16 @@ $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfav
 		</div>
 	</div>
 
+	<div class="box box-success">
+		<div class="box-header">
+			<h3 class="box-title">You also may like this</h3>
+		</div>
+	</div>
+
+	<div id='search_results' data-columns></div>
 </div>
-
-
+<input type='hidden' id='tags' value="<?=$tags?>">
+<input type='hidden' id='category' value="<?=$category->dc_catid?>">
 <!--
  [de_name] => Dx Hotel 
  [de_address] => viashvambhar appartment 
