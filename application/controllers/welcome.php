@@ -105,7 +105,15 @@ class Welcome extends CI_Controller {
 			$ret = $this->common_model->insertData(DEAL_USER, $data);
 
 			if ($ret > 0) {
-				#start session & login
+				# create session
+				$data = array('id' => $ret,
+								'uname' => $post['username'],
+								'contact' => $post['contact'],
+								'email' => $post['email'],
+								'profile_picture' => "",
+								'create_date' => date('Y-m-d H:i:s')
+							);
+				$this->session->set_userdata('front_session',$data);
 				echo "success";
 			}else{
 				#show error

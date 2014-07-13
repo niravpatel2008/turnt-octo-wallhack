@@ -171,7 +171,13 @@ $(document).ready(function(){
 			type: 'post',
 			data: $("#signupform").serialize(),
 			success: function  (data) {
-				alert(data);
+				if(data == 'success'){
+					//location.href = base_url()+'deals';
+					location.reload();
+				}else{
+					alert(data);
+					return false;
+				}
 			}
 		});
 
