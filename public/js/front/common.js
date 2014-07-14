@@ -39,6 +39,13 @@ function displayDealsData(result)
 		favClass = (element.is_fav)?'unfavme':'favme';
 		commanAttr = " st_url='"+element.url+"' st_title='"+element.name+"' st_image='"+element.photo+"' st_summary='"+element.name+"' ";
 		if(index!='totalRecordsCount'){
+			pricehtml="<div class='row'>";
+				pricehtml+="<div class='col-lg-4'><div class='small-box bg-aqua'><a class='small-box-footer' href='#'>Now</a><div class='inner'><center><h3 class='box-title'>"+element.dd_listprice+"</h3></center></div></div></div>";
+				pricehtml+="<div class='col-lg-4'><div class='small-box bg-red'><a class='small-box-footer' href='#'>Was</a><div class='inner'><center><h3 class='box-title'>"+element.dd_originalprice+"</h3></center></div></div></div>";
+				pricehtml+="<div class='col-lg-4'><div class='small-box bg-green'><a class='small-box-footer' href='#'>Save</a><div class='inner'><center><h3 class='box-title'>"+element.dd_discount+"</h3></center></div></div></div>";
+			pricehtml+="</div>";
+
+
 			article = "<div class='wrapper-3 item-thumb'>";
 			  article += "<div class='top'>";
 				article += "<figure>";
@@ -47,8 +54,9 @@ function displayDealsData(result)
 				article += "<h2 class='alt'><span class='"+favClass+"' did='"+element.id+"'></span><a href='#'>"+element.name+"</a></h2>";
 			  article += "</div>";
 			  article += "<div class='bottom'>";
-				article += "<p class='value secondary'>$30 OFF</p>";
-				article += "<h6>31 days left</h6>";
+				article += pricehtml;
+				//article += "<p class='value secondary'>$30 OFF</p>";
+				//article += "<h6>31 days left</h6>";
 				article += "<a class='input button red secondary' href='"+element.url+"'>View Deal</a>";
 			  article += "</div>";
 			  article += "<div class='v_itemtitle' class='sharethis clearboth'>";

@@ -184,6 +184,12 @@ class Welcome extends CI_Controller {
 		return $html;
 	}
 
+	public function about()
+	{
+		$data['view'] = "about";
+		$this->load->view('content', $data);
+	}
+
 
 }
 
