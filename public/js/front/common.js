@@ -48,10 +48,10 @@ function displayDealsData(result)
 
 			article = "<div class='wrapper-3 item-thumb'>";
 			  article += "<div class='top'>";
-				article += "<figure>";
+				article += "<figure><div class='cornerlike'><span class='"+favClass+"' did='"+element.id+"'></span></div>";
 				  article += "<img alt='' src='"+element.photo+"'>";
 				article += "</figure>";
-				article += "<h2 class='alt'><span class='"+favClass+"' did='"+element.id+"'></span><a href='#'>"+element.name+"</a></h2>";
+				article += "<h2 class='alt'><a href='#'>"+element.name+"</a></h2>";
 			  article += "</div>";
 			  article += "<div class='bottom'>";
 				article += pricehtml;

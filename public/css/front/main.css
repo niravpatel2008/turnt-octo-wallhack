@@ -204,7 +204,7 @@ li.input {
   color: #4da1e9;
 }
 .input.red {
-  background: #f45435;
+  background: red;
 }
 .input.red:hover {
   background: #d84225;
@@ -493,7 +493,7 @@ p.text.small {
 
 .wrapper-3 {
   background: #fff;
-  padding: 24px 20px 20px;
+  padding: 1px 1px 20px;
   border: 1px solid #d1d1d1;
   -webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.1);
           box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.1);
@@ -742,8 +742,7 @@ header[role="banner"] {
   background: url("../../img/bg.jpg") repeat-x center 0 #525252;
 }
 .top-wrap {
-  background: #464646;
-  background: rgba(0,0,0,0.15);
+  background: rgb(255,255,255);
   color: #fff;
   text-transform: uppercase;
   padding: 23px 0;
@@ -1655,4 +1654,24 @@ footer .social .fb {
 
 .item-thumb .col-lg-4{
 	padding:0 2px 0 2px;
+	width: 33.33333333333333% !important;
+	float:left !important;
+}
+
+.item-thumb .bottom .row{
+	margin: 0 !important;
+}
+
+.cornerlike {
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:40px;
+	height:40px;
+	text-align:center;
+}
+
+.content
+{
+	background:none;
 }
