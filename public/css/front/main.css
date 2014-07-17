@@ -749,6 +749,7 @@ header[role="banner"] {
   max-height: 450px;
   position: relative;
   z-index: 500;
+  border-bottom:2px solid #832311;
 }
 .logo {
   font-size: 1.313em;

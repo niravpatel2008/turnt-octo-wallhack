@@ -37,7 +37,7 @@
 
 .main-menu > li > a {
   padding-bottom: 12px;
-  color:red;
+  color:#832311;
   font-weight:bold;
 }
 
@@ -73,8 +73,12 @@
 .main-menu ul li a {
     line-height: 23px;
     padding: 10px;
-	color:red;
+	color:#832311;
 	font-weight:bold;
+}
+
+.main-menu ul li a:hover{
+	color:red;
 }
 
 .main-menu ul ul {
