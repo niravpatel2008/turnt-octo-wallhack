@@ -39,10 +39,10 @@ $tags = implode(",",$tags);
 					<h3 class="box-title"><i class="fa fa-comments-o"></i>Buy this deal</h3>
 					<div class='pull-right box-tools'>
 						<span class='st_facebook' <?=$commanAttr?>></span>
-						<span class='st_twitter' <?=$commanAttr?>></span>  
-						<span class='st_linkedin' <?=$commanAttr?>></span> 
+						<span class='st_twitter' <?=$commanAttr?>></span>
+						<span class='st_linkedin' <?=$commanAttr?>></span>
 						<span class='st_pinterest' <?=$commanAttr?>></span>
-						<span class='st_email' <?=$commanAttr?>></span>  
+						<span class='st_email' <?=$commanAttr?>></span>
 						<span class='st_sharethis' <?=$commanAttr?>></span>
 					</div>
 				</div>
@@ -90,11 +90,11 @@ $tags = implode(",",$tags);
 							</div>
 						</div>
 					</div>
-				</div>		
-				<div class="box-footer">
-					<center><button class='btn bg-orange margin'>GET THIS DEAL</button></center>
 				</div>
-			</div>	
+				<div class="box-footer">
+					<center><button class='btn bg-orange margin' onclick="buy_deal(<?=$detail['dd_autoid']?>)">GET THIS DEAL</button></center>
+				</div>
+			</div>
 		</section>
 
 
@@ -121,7 +121,7 @@ $tags = implode(",",$tags);
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</a>
 					</div>
-				</div>		
+				</div>
 				<div class="box-footer clearfix">
 				<?php foreach($dealsDetail['links'] as $key=>$val){?>
 					<a href='javascript:void(0);' class='left margin' onclick="$('#slider-wrapper').carousel(<?=$key?>);">
@@ -129,11 +129,11 @@ $tags = implode(",",$tags);
 					</a>
 				<?php }?>
 				</div>
-			</div>	
+			</div>
 		</section>
 	</div>
 
-	
+
 	<div class='row'>
 		<section class='col-lg-4'>
 			<div class="box box-success">
@@ -198,13 +198,13 @@ $tags = implode(",",$tags);
 					<dt>Site:</dt>
 					<dd><?=$detail['de_url'];?></dd>
 				</dl>
-			</div>	
+			</div>
 			<div id='map' class='col-lg-8'>
 				<iframe
 				  frameborder="0" style="border:0"
 				  src="https://www.google.com/maps/embed?center=<?=$detail['de_lat'];?>,<?=$detail['de_lat'];?>&zoom=18&maptype=satellite">
 				</iframe>
-			</div>		
+			</div>
 		</div>
 	</div>
 
@@ -219,13 +219,13 @@ $tags = implode(",",$tags);
 <input type='hidden' id='tags' value="<?=$tags?>">
 <input type='hidden' id='category' value="<?=$category->dc_catid?>">
 <!--
- [de_name] => Dx Hotel 
- [de_address] => viashvambhar appartment 
- [de_city] => Ahmedabad 
- [de_state] => Gujarat 
- [de_zip] => 380024 
- [de_contact] => 1231231230 
- [de_email] => dxhotel@gmail.com 
- [de_url] => http://dxhotel.com/ - 
+ [de_name] => Dx Hotel
+ [de_address] => viashvambhar appartment
+ [de_city] => Ahmedabad
+ [de_state] => Gujarat
+ [de_zip] => 380024
+ [de_contact] => 1231231230
+ [de_email] => dxhotel@gmail.com
+ [de_url] => http://dxhotel.com/ -
 
 -->
