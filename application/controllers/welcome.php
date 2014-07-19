@@ -11,7 +11,6 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
@@ -31,10 +30,10 @@ class Welcome extends CI_Controller {
 			}
 
 			$where = array('du_uname' => $post['txtusername'],
-							'du_password' => $post['txtpassword'],
+							'du_password' => sha1(trim($post['txtpassword'])),
 							'du_role' => 'u'
 						 );
-			$user = $this->common_model->selectData('deal_user', '*', $where);
+			$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 			if (count($user) > 0) {
 				# create session
 				$data = array('id' => $user[0]->du_autoid,
@@ -96,7 +95,7 @@ class Welcome extends CI_Controller {
 			}
 
 			$data = array('du_uname' => $post['username'],
-							'du_password' => $post['password'],
+							'du_password' => sha1(trim($post['password'])),
 							'du_role' => 'u',
 							'du_contact' => $post['contact'],
 							'du_email' => $post['email'],
@@ -146,11 +145,14 @@ class Welcome extends CI_Controller {
 			$where = array('du_email' => trim($post['txtemail']),
 							'du_role' => 'u'
 						);
-			$user = $this->common_model->selectData('deal_user', '*', $where);
+			$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 			if (count($user) > 0) {
-				$login_details = array('username' => $user[0]->du_uname,
-										'password' => $user[0]->du_password
-									);
+
+				$newpassword = random_string('alnum', 8);
+				$data = array('username' => $user[0]->du_uname,'password' => sha1($newpassword));
+				$user = $this->common_model->updateData(DEAL_USER,$data,$where);
+
+				$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
 				$emailTpl = $this->get_forgotpassword_tpl($login_details);
 				$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 				if ($ret) {
