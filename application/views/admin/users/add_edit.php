@@ -20,7 +20,7 @@
                 <?php        
                     }
                 ?>
-                <form role="form" action="" method="post">
+                <form id='user_form' name='user_form' role="form" action="" method="post">
                     <div class="form-group <?=(@$error_msg['user_name'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['user_name'] != ''){
@@ -63,6 +63,14 @@
                             <option value="d" <?=(@$user[0]->du_role == 'd')?'selected':''?> >Dealer</option>
                             <option value="u" <?=(@$user[0]->du_role == 'u')?'selected':''?> >User</option>
                         </select>
+                    </div>
+					<div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" placeholder="Password" class="form-control" name="password" id="password">
+                    </div>
+					<div class="form-group">
+                        <label>Repeat Password:</label>
+                        <input type="password" placeholder="Repeat Password" class="form-control" name="re_password" id="re_password">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit">Submit</button>

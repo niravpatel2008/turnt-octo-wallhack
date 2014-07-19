@@ -236,9 +236,9 @@ class common_model extends CI_Model{
 			$rec['id'] = $deal['dd_autoid'];
 			$rec['name'] = $deal['dd_name'];
 			$rec['description'] = $deal['dd_description'];
-			$rec['discount'] = $deal['dd_discount'];
-			$rec['originalprice'] = $deal['dd_originalprice'];
-			$rec['listprice'] = $deal['dd_listprice'];
+			$rec['dd_discount'] = $deal['dd_discount'];
+			$rec['dd_originalprice'] = $deal['dd_originalprice'];
+			$rec['dd_listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
 			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
 			$rec['is_fav'] = in_array($deal['dd_autoid'],$favArray);

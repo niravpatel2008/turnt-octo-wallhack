@@ -14,6 +14,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="<?=public_path()?>css/bootstrap.min.css">
+	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
@@ -48,7 +49,7 @@
             <div class="row">
                 <div class="large-3 columns">
                 <div class="logo">
-                    <a href="http://teothemes.com/html/Couponizer/index.html">Couponizer</a>
+                    <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
                 </div>
                 </div>
                 <nav class="large-6 columns">

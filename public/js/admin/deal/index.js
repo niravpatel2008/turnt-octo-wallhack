@@ -42,6 +42,14 @@ $(document).ready(function() {
 
 	var mainimgid = $('#dd_mainphoto').val();
 	$('#img-container img[imgid="'+mainimgid+'"]').addClass('selected');
+
+	$("#dd_listprice","#dd_originalprice").blur(function(){
+		if ($("#dd_originalprice").val() != "" && $("#dd_listprice").val())
+		{
+			discount = $("#dd_originalprice").val() - $("#dd_listprice").val();
+			$('#dd_discount').val(discount);
+		}
+	});
 } );
 
 

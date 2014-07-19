@@ -110,6 +110,18 @@
                         <textarea type="email" placeholder="Validity (,) separated" id="dd_conditions" class="form-control" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
                     </div>
 					<div class="row">
+						<div class="col-xs-4 form-group <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
+							<?php
+								if(@$error_msg['dd_listprice'] != ''){
+							?>
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_listprice']?></label><br/>    
+							<?php        
+								} 
+							?>
+							<label>List Price:</label>
+							<input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
+						</div>
+
 						<div class="col-xs-4 form-group <?=(@$error_msg['dd_originalprice'] != '')?'has-error':'' ?>">
 							<?php
 								if(@$error_msg['dd_originalprice'] != ''){
@@ -134,17 +146,6 @@
 							<input type="text" placeholder="Enter ..." class="form-control" name="dd_discount" id="dd_discount" value="<?=@$deal[0]->dd_discount?>" >
 						</div>
 						
-						<div class="col-xs-4 form-group <?=(@$error_msg['dd_listprice'] != '')?'has-error':'' ?>">
-							<?php
-								if(@$error_msg['dd_listprice'] != ''){
-							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_listprice']?></label><br/>    
-							<?php        
-								} 
-							?>
-							<label>List Price:</label>
-							<input type="text" placeholder="Enter List Price" class="form-control" name="dd_listprice" id="dd_listprice" value="<?=@$deal[0]->dd_listprice?>" >
-						</div>
 					</div>
 					<div class="form-group <?=(@$error_msg['dd_timeperiod'] != '')?'has-error':'' ?>">
                         <?php

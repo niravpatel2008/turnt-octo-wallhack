@@ -40,6 +40,7 @@
 
 $route['forgotpassword'] = "welcome/forgotpassword";
 $route['signup'] = "welcome/signup";
+$route['aboutus'] = "welcome/about";
 $route['admin/forgotpassword'] = "admin/index/forgotpassword";
 $route['admin'] = "admin/index";
 $route['default_controller'] = "welcome";

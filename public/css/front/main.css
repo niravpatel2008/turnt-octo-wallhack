@@ -109,7 +109,7 @@ body {
   font-weight: 300;
   color: #525252;
   font-size: 1em;
-  background: #f2f2f2;
+  background: #FFFFFF;
   text-align: left;
   overflow-x: hidden;
 }
@@ -204,7 +204,7 @@ li.input {
   color: #4da1e9;
 }
 .input.red {
-  background: #f45435;
+  background: red;
 }
 .input.red:hover {
   background: #d84225;
@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
 .stripe-darker h4, 
 .stripe-darker h5, 
 .stripe-darker h6 {
-  color: #fff;
+  color: #832311;
 }
 h1:first-child,
 h2:first-child,
@@ -477,12 +477,13 @@ p.text.small {
   padding: 38px 0;
 }
 .stripe-darker {
-  background: #2a2a2a;
+  background: #FFF;
+  border-top:2px solid #832311;
   padding: 18px 0;
 }
 .stripe-dark,
 .stripe-darker {
-  color: #fff;
+  color: #832311;
 }
 .stripe-regular {
   padding: 40px 0 60px;
@@ -493,7 +494,7 @@ p.text.small {
 
 .wrapper-3 {
   background: #fff;
-  padding: 24px 20px 20px;
+  padding: 1px 1px 20px;
   border: 1px solid #d1d1d1;
   -webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.1);
           box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.1);
@@ -739,17 +740,18 @@ a.flex-next {
 /* HEADER */
 
 header[role="banner"] {
-  background: url("../../img/bg.jpg") repeat-x center 0 #525252;
+/*  background: url("../../img/bg.jpg") repeat-x center 0 #525252;*/
+  background: rgb(127,127,127);
 }
 .top-wrap {
-  background: #464646;
-  background: rgba(0,0,0,0.15);
+  background: rgb(255,255,255);
   color: #fff;
   text-transform: uppercase;
   padding: 23px 0;
   max-height: 450px;
   position: relative;
   z-index: 500;
+  border-bottom:2px solid #832311;
 }
 .logo {
   font-size: 1.313em;
@@ -1367,7 +1369,8 @@ footer .social a {
   display: block;
   width: 32px;
   height: 32px;
-  background: url("../../img/sprite.png") no-repeat -250px 0;
+  background: url("../../img/sprite.png") no-repeat -250px 0 rgba(131, 44, 19, 1);
+  border-radius:100%;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -1651,4 +1654,28 @@ footer .social .fb {
 	background-size: 20px 20px;
 	cursor:pointer;
 	float:left;
+}
+
+.item-thumb .col-lg-4{
+	padding:0 2px 0 2px;
+	width: 33.33333333333333% !important;
+	float:left !important;
+}
+
+.item-thumb .bottom .row{
+	margin: 0 !important;
+}
+
+.cornerlike {
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:40px;
+	height:40px;
+	text-align:center;
+}
+
+.content
+{
+	background:none;
 }

@@ -81,14 +81,33 @@ class Users extends CI_Controller {
 				$error['email'] = 'Email already exists.';
 				$e_flag=1;
 			}
+			
+			if (trim($post['password']) != "") {
+				if($post['password'] == $post['re_password'])
+				{
+					$psFlas = true;
+				}
+				else
+				{
+					$error['password'] = 'Password field does not match.';
+					$e_flag=1;
+				}
+			}
+			else
+			{
+				$error['password'] = 'Please enter password.';
+				$e_flag=1;
+			}
 
 			if ($e_flag == 0) {
 				$data = array('du_uname' => $post['user_name'],
 								'du_role' => $post['role'],
 								'du_contact' => $post['contact'],
 								'du_email' => $post['email'],
+								'du_password' => trim($post['password']),
 								'du_createdate' => date('Y-m-d H:i:s')
 							);
+				
 				$ret = $this->common_model->insertData(DEAL_USER, $data);
 
 				if ($ret > 0) {
@@ -141,6 +160,18 @@ class Users extends CI_Controller {
 				$error['email'] = 'Please enter valid email.';
 				$e_flag=1;
 			}
+			$psFlas = false;
+			if (trim($post['password']) != "") {
+				if($post['password'] == $post['re_password'])
+				{
+					$psFlas = true;
+				}
+				else
+				{
+					$error['password'] = 'Password field does not match.';
+					$e_flag=1;
+				}
+			}
 
 			if ($e_flag == 0) {
 				$data = array('du_uname' => $post['user_name'],
@@ -148,6 +179,8 @@ class Users extends CI_Controller {
 								'du_contact' => $post['contact'],
 								'du_email' => $post['email']
 							);
+				if($psFlas)
+					$data['du_password'] = trim($post['password']);
 				$ret = $this->common_model->updateData(DEAL_USER, $data, $where);
 
 				if ($ret > 0) {
