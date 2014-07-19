@@ -104,7 +104,7 @@ class Users extends CI_Controller {
 								'du_role' => $post['role'],
 								'du_contact' => $post['contact'],
 								'du_email' => $post['email'],
-								'du_password' => trim($post['password']),
+								'du_password' => sha1(trim($post['password'])),
 								'du_createdate' => date('Y-m-d H:i:s')
 							);
 				
@@ -180,7 +180,7 @@ class Users extends CI_Controller {
 								'du_email' => $post['email']
 							);
 				if($psFlas)
-					$data['du_password'] = trim($post['password']);
+					$data['du_password'] = sha1(trim($post['password']));
 				$ret = $this->common_model->updateData(DEAL_USER, $data, $where);
 
 				if ($ret > 0) {

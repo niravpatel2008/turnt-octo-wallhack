@@ -31,10 +31,10 @@ class Index extends CI_Controller {
 
 			if ($e_flag == 0) {
 				$where = array('du_uname' => $post['userid'],
-								'du_password' => $post['password'],
+								'du_password' => sha1($post['password']),
 								//'du_role' => 'a'
 							 );
-				$user = $this->common_model->selectData('deal_user', '*', $where);
+				$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 				if (count($user) > 0) {
 					# create session
 					$data = array('id' => $user[0]->du_autoid,
@@ -83,11 +83,13 @@ class Index extends CI_Controller {
 
 			if ($e_flag == 0) {
 				$where = array('du_email' => trim($post['email']));
-				$user = $this->common_model->selectData('deal_user', '*', $where);
+				$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 				if (count($user) > 0) {
-					$login_details = array('username' => $user[0]->du_uname,
-											'password' => $user[0]->du_password
-										);
+					$newpassword = random_string('alnum', 8);
+					$data = array('username' => $user[0]->du_uname,'password' => sha1($newpassword));
+					$user = $this->common_model->updateData(DEAL_USER,$data,$where)
+
+					$login_details = array('username' => $user[0]->du_uname,'password' => $user[0]->du_password);
 					$emailTpl = $this->get_forgotpassword_tpl($login_details);
 					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 					if ($ret) {
