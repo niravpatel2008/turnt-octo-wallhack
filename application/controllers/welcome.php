@@ -150,7 +150,7 @@ class Welcome extends CI_Controller {
 
 				$newpassword = random_string('alnum', 8);
 				$data = array('username' => $user[0]->du_uname,'password' => sha1($newpassword));
-				$user = $this->common_model->updateData(DEAL_USER,$data,$where)
+				$user = $this->common_model->updateData(DEAL_USER,$data,$where);
 
 				$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
 				$emailTpl = $this->get_forgotpassword_tpl($login_details);
