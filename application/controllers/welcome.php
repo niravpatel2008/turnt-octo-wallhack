@@ -192,7 +192,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('content', $data);
 	}
 
-
+	public function howitworks()
+	{
+		$data['view'] = "howitworks";
+		$this->load->view('content', $data);
+	}
 }
 
 /* End of file welcome.php */

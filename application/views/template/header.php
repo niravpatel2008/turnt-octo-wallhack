@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css">
-
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
@@ -54,20 +53,14 @@
                 </div>
                 <nav class="large-6 columns">
                     <ul class="rr main-menu">
-                        <li class="current"><a href="http://teothemes.com/html/Couponizer/index.html">Home</a></li>
-                        <li><a href="http://teothemes.com/html/Couponizer/blog.html">Blog</a></li>
-                        <li>
-                          <a href="http://teothemes.com/html/Couponizer/search-results.html">Extra</a>
-                          <ul class="sub-menu">
-                            <li><a href="http://teothemes.com/html/Couponizer/company.html">Company</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/404.html">404 page</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/no-results.html">No results</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/search-results.html">Search results</a></li>
-                          </ul>
+                        <li class="current"><a href="<?=base_url()?>">Home</a></li>
+                        <li><a href="<?=base_url()?>about_us">About us</a></li>
+                        <li><a href="<?=base_url()?>how_it_works">How it works</a>
                         </li>
-                        <li><a href="http://teothemes.com/html/Couponizer/coupons.html">Coupons</a></li>
-                        <li><a href="http://teothemes.com/html/Couponizer/post.html">Post</a></li>
-                    </ul><select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></select><span class="customSelect input button dark secondary select-main-menu" style="display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span></span><select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><option value="#" selected="selected">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></select><span class="customSelect input button dark secondary select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px; display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span></span><span class="customSelect input button dark secondary select-main-menu hasCustomSelect" style="display: inline-block; width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></span><span class="customSelect input button dark secondary select-main-menu" style="display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">&nbsp;</span></span>
+                    </ul>
+					<select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;">
+					<option value="#">Navigate to...</option><option value="<?=base_url()?>">&nbsp;Home</option><option value="<?=base_url()?>about_us">&nbsp;About us</option><option value="<?=base_url()?>how_it_works">&nbsp;How it works</option>
+					</select>
                 </nav>
                 <div class="large-3 columns">
                     <div class="account cf">
@@ -79,8 +72,8 @@
                       <?php
                         }else{
                       ?>
-                        <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Join us</a>
-                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Log in</a>
+                        <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Sign up</a>
+                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Sign in</a>
                       <?php
                         }
                       ?>
@@ -95,126 +88,93 @@
               <div class="main-slider flexslider white">
 
               <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; transition-duration: 0s; transform: translate3d(-900px, 0px, 0px);"><li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">Hot Offers From BestWebSoft</p>
+                    <p class="h1">We constantly hunt for upcoming hot deals in the city</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
-                          <p class="caption">
-                            Incredible Offer From The Biggest Online Store.
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
+                          <!--figure>
+                            <img alt="" src="http://www.clipartlord.com/wp-content/uploads/2013/10/target.png">
+                          </figure-->
+						  <p class="caption">
+                            Our team of serial hunters look at every nook and corner of the city for best of best deals.
+							<a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
-                          <figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
                         </div>
                       </div>
                     </div>
                   </li><li class="clone flex-active-slide" style="width: 900px; float: left; display: block;">
-                    <p class="h1">Cheap domains and hosting from GoDaddy</p>
+                    <p class="h1">Our representative negotiate and finalise the best deal for U with the dealer</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Unique offers from GoDaddy, register
-$0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May.
+                            Our representative converse with the dealers for the best deals at the best price and come out with a fab offer.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
-                          <figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
                         </div>
                       </div>
                     </div>
                   </li>
                   <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Hot Offers From BestWebSoft</p>
+                    <p class="h1">Deals are listed on the site</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Incredible Offer From The Biggest Online Store.
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
+                            Only the Verified and finalised deals by Administrator are available on the site.
+							<a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
-                          <figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
+                          <!--figure>
+                            <img alt="" src="http://blog.quicklinkt.com/wp-content/uploads/2014/05/verified-referrals-quicklinkt-app.png">
+                          </figure-->
                         </div>
                       </div>
                     </div>
                   </li>
                   <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Free shipping from Ray Ban</p>
+                    <p class="h1">Create your login , Like the deals, grab a deal</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Ray Ban offers free shipping for all the
-orders placed in May! Don't miss this unique opportunity to get your
-dream sunglasses.
+                            - Just fill the details and make yourself registered.</br>
+                            - Once registered you can mark deals as a Favourite and will recieve latest deals as per the flavour of deals which you have marked.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See more offers</a>
                           </p>
-                          <figure>
+                          <!--figure>
                             <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
+                          </figure-->
                         </div>
                       </div>
                     </div>
                   </li>
                   <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Cheap domains and hosting from GoDaddy</p>
+                    <p class="h1">Check your mailbox or check under My Deals tab</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
                           <p class="caption">
-                            Unique offers from GoDaddy, register
-$0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May.
+                            We we will be sending you daily email alerts with the newly added deals as per your flavour.
                             <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
                           </p>
-                          <figure>
+                          <!--figure>
                             <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
+                          </figure-->
                         </div>
                       </div>
                     </div>
                   </li>
                 <li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">Hot Offers From BestWebSoft</p>
+                    <p class="h1">Take a print out and enjoy your deal.</p>
                     <div class="row">
                       <div class="large-8 columns large-centered">
                         <div class="content">
-                          <p class="caption">
-                            Incredible Offer From The Biggest Online Store.
-                            We Give You A 5% Discount On All Laptops! More discounts to come in the next weeks!
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">Learn more</a>
-                          </p>
-                          <figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
+                          <p class="caption"></p>
+                          <!--figure></figure-->
                         </div>
                       </div>
                     </div>
-                  </li><li class="clone" style="width: 900px; float: left; display: block;">
-                    <p class="h1">Cheap domains and hosting from GoDaddy</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            Unique offers from GoDaddy, register
-$0.99 domains and get extremely cheap hosting using our coupon codes for
-all the orders placed in April and May.
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
-                          </p>
-                          <figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure>
-                        </div>
-                      </div>
-                    </div>
-                  </li></ul></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
+                  </ul></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
             </div>
           </div>
         </div>
