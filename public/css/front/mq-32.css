@@ -38,7 +38,8 @@
 .main-menu > li > a {
   padding-bottom: 12px;
   color:#832311;
-  font-weight:bold;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
 /* submenu */

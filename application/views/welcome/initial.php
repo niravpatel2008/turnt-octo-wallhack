@@ -30,7 +30,7 @@
       			  <input type="button" name="csbtnClear" id="csbtnClear" onclick="javascript:$('#divConsLogin').modal('toggle');" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
             </div>
 
-          <div class="row">
+          <div class="row" style='text-align:center;'>
             <a id="userregister" href="javascript:openSignupForm();"> Create Account </a> | <a id="achConsForgot" href="javascript:openForgotPasswordForm();"> Forgot your password? </a>
           </div>
           <div class="clearboth" style="height:10px"></div>
