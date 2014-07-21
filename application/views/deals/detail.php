@@ -26,7 +26,7 @@ $tags = implode(",",$tags);
 
 	<div class="box box-success">
 		<div class="box-header">
-			<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span> <?=$detail['dd_name']?></h3>
+			<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span>  &nbsp;<?=$detail['dd_name']?></h3>
 		</div>
 	</div>
 
@@ -36,7 +36,7 @@ $tags = implode(",",$tags);
 		<section class='col-lg-6'>
 			<div class="box box-success">
 				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-comments-o"></i>Buy this deal</h3>
+					<h3 class="box-title"><i class="fa fa-ticket"></i> Buy this deal</h3>
 					<div class='pull-right box-tools'>
 						<span class='st_facebook' <?=$commanAttr?>></span>
 						<span class='st_twitter' <?=$commanAttr?>></span>
@@ -50,9 +50,9 @@ $tags = implode(",",$tags);
 					<div id='buy'>
 						<ul class='list-unstyled'>
 							<li><b>Features :</b>
-								<ul>
+								<ul style="list-style: none outside none;">
 									<?php foreach ($features as $feature){
-										echo "<li>$feature</li>";
+										echo "<i class='fa fa-fw fa-check green' style='float:left;'></i><li>$feature</li>";
 									}?>
 								</ul>
 							</li>
@@ -138,7 +138,7 @@ $tags = implode(",",$tags);
 		<section class='col-lg-4'>
 			<div class="box box-success">
 				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-comments-o"></i> Offer Validity</h3>
+					<h3 class="box-title"><i class="fa fa-paperclip"></i> Offer Validity</h3>
 				</div>
 				<div class="box-body">
 					<ul class='list-unstyled'>
@@ -157,7 +157,7 @@ $tags = implode(",",$tags);
 		<section class='col-lg-4'>
 			<div class="box box-success">
 				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-comments-o"></i> Offer Detail</h3>
+					<h3 class="box-title"><i class="fa fa-clipboard"></i> Offer Detail</h3>
 				</div>
 				<div class="box-body">
 					<div id='description'><?=$detail['dd_offer'];?></div>
@@ -168,7 +168,7 @@ $tags = implode(",",$tags);
 		<section class='col-lg-4'>
 			<div class="box box-success">
 				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-comments-o"></i> Description</h3>
+					<h3 class="box-title"><i class="fa fa-pencil"></i> Description</h3>
 				</div>
 				<div class="box-body">
 					<div id='description'><?=$detail['dd_description'];?></div>
@@ -181,7 +181,7 @@ $tags = implode(",",$tags);
 
 	<div class="box box-success">
 		<div class="box-header">
-			<h3 class="box-title"><i class="fa fa-comments-o"></i> Location</h3>
+			<h3 class="box-title"><i class="fa fa-location-arrow"></i> Location</h3>
 		</div>
 		<div class="box-body clearfix">
 			<div class='col-lg-4'>

@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <link rel="stylesheet" href="<?=public_path()?>css/bootstrap.min.css">
+	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
-	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css" type="text/css">
 	<link href="<?=public_path()?>css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!--[if (lt IE 9)&(!IEMobile)]>
@@ -66,8 +65,16 @@
                         <?php
                         if ($this->front_session['id'] > 0) {
                       ?>
-                        <a class="" href="<?=base_url()?>profile"><?=$this->front_session['uname']?></a>&nbsp;&nbsp;
-                        <a class="input button tertiary" href="<?=base_url()?>profile/logout">Log out</a>
+					  <div class='btn-group'>
+						<button data-toggle="dropdown" class="input button tertiary"><?=$this->front_session['uname']?></button>
+						<ul class="dropdown-menu pull-right" style='text-align:left;' role="menu">
+							<li><a href="<?=base_url()?>profile/edit">Edit Profile</a></li>
+							<li><a href="<?=base_url()?>profile/change_password">Change password</a></li>
+							<li><a href="<?=base_url()?>profile/myfavorites">My Favorites</a></li>
+							<li><a href="<?=base_url()?>profile/mydeals">My Deals</a></li>
+							<li><a href="<?=base_url()?>profile/logout">Log out</a></li>
+						</ul>
+					  </div>
                       <?php
                         }else{
                       ?>

@@ -1655,8 +1655,40 @@ footer .social .fb {
 	cursor:pointer;
 	float:left;
 }
+/*
+.favme{
+	display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+	text-align: center;
+    width: 1.28571em;
+	cursor:pointer;
+	color:white;
+}
+.favme:before{content: "\f004";}
+
+.unfavme{
+	display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+	text-align: center;
+    width: 1.28571em;
+	cursor:pointer;
+	color:red;
+}
+.unfavme:before{content: "\f004";}
+*/
 
 .item-thumb .col-lg-4{
+	padding:0 2px 0 2px;
+	width: 33.33333333333333% !important;
+	float:left !important;
+}
+#buy .col-lg-4{
 	padding:0 2px 0 2px;
 	width: 33.33333333333333% !important;
 	float:left !important;
@@ -1685,4 +1717,13 @@ footer .social .fb {
 .page-title{
 	color:#832311;
 	margin:0.2em !important;
+}
+
+.green{
+	color:rgb(0,166,90);
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: rgb(127,127,127);
+  color: #f9f9f9;
 }

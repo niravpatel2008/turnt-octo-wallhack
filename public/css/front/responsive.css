@@ -2,16 +2,20 @@
     #search_results[data-columns]::before {
         content: '1 .search_column';
     }
+	#search_results{width:220px;margin:0 auto;}
 }
 @media screen and (min-width: 481px) and (max-width: 767px) {
     #search_results[data-columns]::before {
 	   content: '2 .search_column';
     }
+	#search_results{width:500px;margin:0 auto;}
 }
 @media screen and (min-width: 768px) and (max-width: 1024px){
     #search_results[data-columns]::before {
         content: '3 .search_column';
     }
+	.search_column{padding: 1.35% !important;}
+	.account .input{font-size: 0.87em;}
 }
 @media screen and (min-width: 1025px) and (max-width: 1280px){
     #search_results[data-columns]::before {

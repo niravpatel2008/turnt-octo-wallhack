@@ -52,7 +52,7 @@
 <script src="<?=public_path()?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
-<?php if(in_array($this->router->fetch_class(),array('welcome','deals'))){?>
+<?php if(in_array($this->router->fetch_class(),array('welcome','deals')) || isset($responsivejs)) {?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
 <?php }?>
 <script src="<?=public_path()?>js/front/common.js"></script>
