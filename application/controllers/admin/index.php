@@ -44,6 +44,12 @@ class Index extends CI_Controller {
 									'role' => $user[0]->du_role,
 									'create_date' => $user[0]->du_createdate
 								);
+					if($data['role'] == 'd')
+					{
+						$where = array('dd_dealerid'=>$data['id']);
+						$dealer_info = $this->common_model->selectData(DEAL_DEALER, '*', $where);
+						$data['dealer_info'] = $dealer_info[0];
+					}
 					$this->session->set_userdata('user_session',$data);
 
 					redirect('admin/dashboard');
@@ -85,10 +91,12 @@ class Index extends CI_Controller {
 				$where = array('du_email' => trim($post['email']));
 				$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 				if (count($user) > 0) {
+
+					$newpassword = random_string('alnum', 8);
 					$data = array('du_password' => sha1($newpassword));
 					$user = $this->common_model->updateData(DEAL_USER,$data,$where);
 
-					$login_details = array('username' => $user[0]->du_uname,'password' => $user[0]->du_password);
+					$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
 					$emailTpl = $this->get_forgotpassword_tpl($login_details);
 					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 					if ($ret) {

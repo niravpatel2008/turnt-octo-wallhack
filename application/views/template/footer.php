@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="large-6 columns">
-          <div class="copyright">Copyright &copy; 2013, developed by <a href="http://teothemes.com/">TeoThemes</a>. All rights reserved.</div>
+          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved.</div>
         </div>
         <div class="large-3 columns">
           <ul class="rr social">
