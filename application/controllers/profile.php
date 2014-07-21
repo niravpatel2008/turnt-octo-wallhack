@@ -44,6 +44,9 @@ class Profile extends CI_Controller {
 
 			$config['file_name'] = $this->front_session['profile_picture'];
 			if ($_FILES['profile_image']['error'] == 0) {
+				if ($this->front_session['profile_picture'] != "") {
+					unlink(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']);
+				}
 				$config['overwrite'] = TRUE;
 				$config['upload_path'] = DOC_ROOT_PROFILE_IMG;
 				$config['allowed_types'] = '*';
@@ -59,8 +62,6 @@ class Profile extends CI_Controller {
 				{
 					$error['profile_image'] = $this->upload->display_errors();
 					$e_flag=1;
-				}else{
-					unlink(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']);
 				}
 			}
 
@@ -105,6 +106,47 @@ class Profile extends CI_Controller {
 
 	public function change_password()
 	{
+		$post = $this->input->post();
+		if ($post) {
+
+			$error = array();
+			$e_flag=0;
+			if(trim($post['password']) == ''){
+				$error['password'] = 'Please enter new password.';
+				$e_flag=1;
+			}
+			if(trim($post['re_password']) == ''){
+				$error['re_password'] = 'Please enter repeat password.';
+				$e_flag=1;
+			}
+			if(trim($post['password']) != trim($post['re_password'])){
+				$flash_arr = array('flash_type' => 'error',
+									'flash_msg' => 'Both paswords should be same.'
+								);
+				$e_flag=1;
+			}
+
+			if ($e_flag == 0) {
+				# update password
+				$data = array('du_password' => sha1(trim($post['password'])) );
+				$ret = $this->common_model->updateData(DEAL_USER, $data, 'du_autoid = '.$this->front_session['id']);
+
+				if ($ret > 0) {
+					$flash_arr = array('flash_type' => 'success',
+										'flash_msg' => 'Password updated successfully.'
+									);
+					#$this->session->set_flashdata($flash_arr);
+				}else{
+					$flash_arr = array('flash_type' => 'error',
+										'flash_msg' => 'An error occurred while processing.'
+									);
+					#$this->session->set_flashdata($flash_arr);
+				}
+			}
+
+			$data['error_msg'] = $error;
+			$data['flash_msg'] = @$flash_arr;
+		}
 		$data['view'] = "password";
 		$this->load->view('content', $data);
 	}

@@ -56,6 +56,7 @@ define('DEAL_TAGS',	'deal_tags');
 define('FROM_EMAIL', 'noreply@deals.com');
 define('FROM_NAME', 'deals.com');
 define('SUBJECT_LOGIN_INFO', 'Login info');
+define('SUBJECT_DEAL_INFO', 'Deal info');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
