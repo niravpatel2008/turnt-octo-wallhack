@@ -168,7 +168,7 @@ class SSP {
 	 *  @param  array $columns Column information array
 	 *  @return array          Server-side processing response array
 	 */
-	static function simple ( $request, $table, $primaryKey, $columns,$join = array())
+	static function simple ( $request, $table, $primaryKey, $columns,$join = array(),$custom_where = array())
 	{
 		$bindings = array();
 		$model = SSP::get_model();
@@ -186,6 +186,9 @@ class SSP {
 		$where = SSP::filter( $request, $columns, $bindings );
 		if ($where != "") {
 			$model->db->where($where);
+		}	
+		if ($custom_where != "") {
+			$model->db->where($custom_where);
 		}	
 	
 		foreach (SSP::order( $request, $columns ) as $order)

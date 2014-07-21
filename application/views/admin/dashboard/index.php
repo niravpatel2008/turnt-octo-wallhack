@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        Deals
+        Dashboard
         <!-- <small>Control panel</small> -->
     </h1>
     <?php
@@ -24,7 +24,7 @@
             <div id="list">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Deals list</h3>
+                        <h3 class="box-title">Purchased Deals</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body table-responsive">
                         <table id="dealsTable" class="table table-bordered table-striped">

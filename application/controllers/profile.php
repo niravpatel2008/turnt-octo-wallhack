@@ -105,7 +105,26 @@ class Profile extends CI_Controller {
 
 	public function change_password()
 	{
-		$data['view'] = "change_password";
+		$data['view'] = "password";
+		$this->load->view('content', $data);
+	}
+
+	public function myfavorites()
+	{
+		$data['view'] = "myfavorites";
+		$data['responsivejs'] = "1";
+		$this->load->view('content', $data);
+	}
+
+	public function getmyfav()
+	{
+		$deals = $this->common_model->getmyfav();
+		echo($deals);exit;
+	}
+
+	public function mydeals()
+	{
+		$data['view'] = "mydeals";
 		$this->load->view('content', $data);
 	}
 

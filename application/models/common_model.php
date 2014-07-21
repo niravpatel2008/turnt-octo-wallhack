@@ -181,6 +181,46 @@ class common_model extends CI_Model{
 		return ($resTags);
 	}
 
+	public function getmyfav()
+	{
+		$session = $this->session->userdata('front_session');
+		$user_id = $session['id'];
+
+		$this->db->select("SQL_CALC_FOUND_ROWS dd_autoid", FALSE);
+		$this->db->select('deal_detail.*,(select dl_url from deal_links where dl_autoid = dd_mainphoto and dl_type="img") as `dd_photourl`');
+		$this->db->from(DEAL_DETAIL);
+		$this->db->join(DEAL_FAV, 'db_dealid = dd_autoid', 'left');
+
+		$this->db->where('dd_status',"published");
+		$this->db->where("dd_startdate <= now()");
+		$this->db->where("dd_expiredate >= now()");
+		$this->db->where(array("df_userid"=>$user_id));
+		
+		$query = $this->db->get();
+		$resDeals = $query->result_array();
+
+		$query = $this->db->query('SELECT FOUND_ROWS() AS `Count`');
+		$totalRecordsCount = $query->row()->Count;
+		
+		$deals = array();
+		foreach ($resDeals as $deal)
+		{
+			$rec = array();
+			$rec['id'] = $deal['dd_autoid'];
+			$rec['name'] = $deal['dd_name'];
+			$rec['description'] = $deal['dd_description'];
+			$rec['dd_discount'] = $deal['dd_discount'];
+			$rec['dd_originalprice'] = $deal['dd_originalprice'];
+			$rec['dd_listprice'] = $deal['dd_listprice'];
+			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
+			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
+			$rec['is_fav'] = 1;
+			$deals[] = $rec;
+		}
+		return (json_encode($deals));
+
+	}
+
 	public function searchDeals($tags,$catid="",$page = 1,$limit = 15,$or=false)
 	{
 		$tags = array_filter(explode(",",$tags));
@@ -236,9 +276,9 @@ class common_model extends CI_Model{
 			$rec['id'] = $deal['dd_autoid'];
 			$rec['name'] = $deal['dd_name'];
 			$rec['description'] = $deal['dd_description'];
-			$rec['discount'] = $deal['dd_discount'];
-			$rec['originalprice'] = $deal['dd_originalprice'];
-			$rec['listprice'] = $deal['dd_listprice'];
+			$rec['dd_discount'] = $deal['dd_discount'];
+			$rec['dd_originalprice'] = $deal['dd_originalprice'];
+			$rec['dd_listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
 			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
 			$rec['is_fav'] = in_array($deal['dd_autoid'],$favArray);

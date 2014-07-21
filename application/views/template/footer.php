@@ -18,50 +18,15 @@
       </div>
     </div>
 
-    <div class="stripe-dark pre-footer-wrap">
-      <div class="row">
-        <div class="large-4 columns">
-          <h3 class="alt">About</h3>
-          <p>
-            Ut sodales ultrices metus, at molestie tellus cursus
-quis. Cras placerat bibendum quam sed facilisis. Suspendisse dapibus
-eros eget tellus tempor lacinia. Cras ornare lorem sit amet arcu
-accumsan ut tristique est fringilla.
-          </p>
-        </div>
-        <div class="small-6 large-4 large-offset-1 columns">
-          <h3 class="alt">Recent Tweets</h3>
-          <div class="tweet">
-            <p>
-              Couponizer is a multi-purpose PSD template.
-Created by #bestwebsoft - hand-made websites from great guys
-http://t.co/HXvWw
-            </p>
-            <a class="posted" href="#">posted 5 minutes ago</a>
-          </div>
-        </div>
-        <nav class="small-6 large-2 large-offset-1 columns">
-          <h3 class="alt">Menu</h3>
-          <ul class="rr footer-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Terms &amp; Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Jobs</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
     <div class="stripe-darker footer-wrap">
       <div class="row">
         <div class="large-3 columns">
           <div class="logo">
-            <a href="#">Couponizer</a>
+            <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
           </div>
         </div>
         <div class="large-6 columns">
-          <div class="copyright">Copyright &copy; 2013, developed by <a href="http://teothemes.com/">TeoThemes</a>. All rights reserved.</div>
+          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved.</div>
         </div>
         <div class="large-3 columns">
           <ul class="rr social">
@@ -87,7 +52,7 @@ http://t.co/HXvWw
 <script src="<?=public_path()?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
-<?php if(in_array($this->router->fetch_class(),array('welcome','deals'))){?>
+<?php if(in_array($this->router->fetch_class(),array('welcome','deals')) || isset($responsivejs)) {?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
 <?php }?>
 <script src="<?=public_path()?>js/front/common.js"></script>

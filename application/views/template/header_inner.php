@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <link rel="stylesheet" href="<?=public_path()?>css/bootstrap.min.css">
+	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
-	<link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css" type="text/css">
+	<link href="<?=public_path()?>css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
@@ -46,38 +46,40 @@
             <div class="row">
                 <div class="large-3 columns">
                 <div class="logo">
-                    <a href="http://teothemes.com/html/Couponizer/index.html">Couponizer</a>
+                    <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
                 </div>
                 </div>
                 <nav class="large-6 columns">
                     <ul class="rr main-menu">
-                        <li class="current"><a href="http://teothemes.com/html/Couponizer/index.html">Home</a></li>
-                        <li><a href="http://teothemes.com/html/Couponizer/blog.html">Blog</a></li>
-                        <li>
-                          <a href="http://teothemes.com/html/Couponizer/search-results.html">Extra</a>
-                          <ul class="sub-menu">
-                            <li><a href="http://teothemes.com/html/Couponizer/company.html">Company</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/404.html">404 page</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/no-results.html">No results</a></li>
-                            <li><a href="http://teothemes.com/html/Couponizer/search-results.html">Search results</a></li>
-                          </ul>
+                        <li class="current"><a href="<?=base_url()?>">Home</a></li>
+                        <li><a href="<?=base_url()?>about_us">About us</a></li>
+                        <li><a href="<?=base_url()?>how_it_works">How it works</a>
                         </li>
-                        <li><a href="http://teothemes.com/html/Couponizer/coupons.html">Coupons</a></li>
-                        <li><a href="http://teothemes.com/html/Couponizer/post.html">Post</a></li>
-                    </ul><select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></select><span class="customSelect input button dark secondary select-main-menu" style="display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span></span><select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><option value="#" selected="selected">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></select><span class="customSelect input button dark secondary select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px; display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span></span><span class="customSelect input button dark secondary select-main-menu hasCustomSelect" style="display: inline-block; width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;"><span class="customSelectInner" style="width: 100px; display: inline-block;">Navigate to...</span><option value="#">Navigate to...</option><option value="http://teothemes.com/html/Couponizer/index.html">&nbsp;Home</option><option value="http://teothemes.com/html/Couponizer/blog.html">&nbsp;Blog</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&nbsp;Extra</option><option value="http://teothemes.com/html/Couponizer/company.html">&ndash;&nbsp;Company</option><option value="http://teothemes.com/html/Couponizer/404.html">&ndash;&nbsp;404 page</option><option value="http://teothemes.com/html/Couponizer/no-results.html">&ndash;&nbsp;No results</option><option value="http://teothemes.com/html/Couponizer/search-results.html">&ndash;&nbsp;Search results</option><option value="http://teothemes.com/html/Couponizer/coupons.html">&nbsp;Coupons</option><option value="http://teothemes.com/html/Couponizer/post.html">&nbsp;Post</option></span><span class="customSelect input button dark secondary select-main-menu" style="display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">&nbsp;</span></span>
+                    </ul>
+					<select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;">
+					<option value="#">Navigate to...</option><option value="<?=base_url()?>">&nbsp;Home</option><option value="<?=base_url()?>about_us">&nbsp;About us</option><option value="<?=base_url()?>how_it_works">&nbsp;How it works</option>
+					</select>
                 </nav>
                 <div class="large-3 columns">
                     <div class="account cf">
                         <?php
                         if ($this->front_session['id'] > 0) {
                       ?>
-                        <a class="" href="<?=base_url()?>profile"><?=$this->front_session['uname']?></a>&nbsp;&nbsp;
-                        <a class="input button tertiary" href="<?=base_url()?>profile/logout">Log out</a>
+					  <div class='btn-group'>
+						<button data-toggle="dropdown" class="input button tertiary"><?=$this->front_session['uname']?></button>
+						<ul class="dropdown-menu pull-right" style='text-align:left;' role="menu">
+							<li><a href="<?=base_url()?>profile/edit">Edit Profile</a></li>
+							<li><a href="<?=base_url()?>profile/change_password">Change password</a></li>
+							<li><a href="<?=base_url()?>profile/myfavorites">My Favorites</a></li>
+							<li><a href="<?=base_url()?>profile/mydeals">My Deals</a></li>
+							<li><a href="<?=base_url()?>profile/logout">Log out</a></li>
+						</ul>
+					  </div>
                       <?php
                         }else{
                       ?>
-                        <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Join us</a>
-                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Log in</a>
+                        <a class="input button blue tertiary icon plus" href="javascript:void(0)" onclick="openSignupForm();" >Sign up</a>
+                        <a class="input button transparent tertiary" href="javascript:void(0)" onclick="openLoginForm();" >Sign in</a>
                       <?php
                         }
                       ?>
@@ -85,6 +87,4 @@
                 </div>
             </div>
         </div>
-
-
       </header>

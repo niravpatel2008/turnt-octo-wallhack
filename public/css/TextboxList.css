@@ -4,7 +4,7 @@
 .textboxlist-bit { list-style-type: none; float: left; display: block; padding: 0; margin: 0 5px 3px 0; cursor: default; }
 .textboxlist-bit-editable-input { border: 0; padding: 2px 0; *padding-bottom: 0; height: 3.429em; font: 0.875em "Lucida Grande", Verdana; }
 .textboxlist-bit-editable-input:focus { outline: 0; }
-.textboxlist-bit-box {position: relative;line-height: 18px;padding: 11px 10px;-moz-border-radius: 8px;-webkit-border-radius: 8px;
+.textboxlist-bit-box {position: relative;line-height: 18px;padding: 7px 10px;-moz-border-radius: 8px;-webkit-border-radius: 8px;
     border-radius: 8px;border: 1px solid rgba(233, 47, 47, 0.19);background: rgba(233, 47, 47, 0.14);cursor: default;
     color:#8C7E7E;}
 .textboxlist-bit-box-isAction.textboxlist-bit-box-isAction {border: 1px solid rgba(19, 89, 165, 0.24);background: rgba(19, 89, 165, 0.19);}
@@ -16,7 +16,8 @@
 .textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton { background-position: bottom; }
 .form_tags { margin-bottom: 10px; }
 .textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
-li.textboxlist-bit {margin-top: 4px;    font-size: 0.875em;font-weight: 300;}
+li.textboxlist-bit {margin-top: 4px;font-size: 0.875em;font-weight: 300;}
+li.textboxlist-bit-editable {margin-top: 0px;}
 ul.textboxlist-bits {padding-top:0px; padding-bottom:0px;position:relative;}
 div.textboxlist {/*float:left;*/position:relative;}
 .textboxlist-bit-editable-input {width:200px;background:none;}

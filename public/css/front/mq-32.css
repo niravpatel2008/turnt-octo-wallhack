@@ -37,6 +37,9 @@
 
 .main-menu > li > a {
   padding-bottom: 12px;
+  color:#832311;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
 /* submenu */
@@ -50,7 +53,7 @@
   top: 101%;
   padding: 0;
   z-index: 1000;
-  background: #333;
+  background: #FFF;
   padding: 0.4em 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -71,6 +74,12 @@
 .main-menu ul li a {
     line-height: 23px;
     padding: 10px;
+	color:#832311;
+	font-weight:bold;
+}
+
+.main-menu ul li a:hover{
+	color:red;
 }
 
 .main-menu ul ul {
