@@ -93,9 +93,10 @@ $(document).ready(function(){
 		$.post(url,param,function(e){
 			if (e == "1")
 			{
-				$(span).effect("bounce",{ times: 3 }, "fast",function(){
+				$(span).addClass("unfavme").removeClass("favme");
+				/*$(span).effect("bounce",{ times: 3 }, "fast",function(){
 					$(span).addClass("unfavme").removeClass("favme");
-				})
+				})*/
 			}	
 		})
 	});
@@ -107,9 +108,10 @@ $(document).ready(function(){
 		$.post(url,param,function(e){
 			if (e == "1")
 			{
-				$(span).effect("bounce",{ times: 3 }, "fast",function(){
+				$(span).addClass("favme").removeClass("unfavme");
+				/*$(span).effect("bounce",{ times: 3 }, "fast",function(){
 					$(span).addClass("favme").removeClass("unfavme");
-				})
+				})*/
 			}
 		})
 	});

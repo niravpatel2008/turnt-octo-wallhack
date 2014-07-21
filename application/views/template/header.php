@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-67.css" media="screen and (min-width: 67.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/responsive.css">
+	<link href="<?=public_path()?>css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!--[if (lt IE 9)&(!IEMobile)]>
       <link rel="stylesheet" href="<?=public_path()?>css/front/foundation-ie8.css">
       <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css"/>
@@ -67,8 +68,14 @@
                       <?php
                         if ($this->front_session['id'] > 0) {
                       ?>
-                        <a class="" href="<?=base_url()?>profile"><?=$this->front_session['uname']?></a>&nbsp;&nbsp;
-                        <a class="input button tertiary" href="<?=base_url()?>profile/logout">Log out</a>
+                        <button data-toggle="dropdown" class="input button tertiary"><?=$this->front_session['uname']?></button>
+						<ul class="dropdown-menu pull-right" style='text-align:left;' role="menu">
+							<li><a href="<?=base_url()?>profile/edit">Edit Profile</a></li>
+							<li><a href="<?=base_url()?>profile/change_password">Change password</a></li>
+							<li><a href="<?=base_url()?>profile/myfavorites">My Favorites</a></li>
+							<li><a href="<?=base_url()?>profile/mydeals">My Deals</a></li>
+							<li><a href="<?=base_url()?>profile/logout">Log out</a></li>
+						</ul>
                       <?php
                         }else{
                       ?>
@@ -97,7 +104,7 @@
                           </figure-->
 						  <p class="caption">
                             Our team of serial hunters look at every nook and corner of the city for best of best deals.
-							<a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
+							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
                           </p>
                         </div>
                       </div>
@@ -109,7 +116,7 @@
                         <div class="content">
                           <p class="caption">
                             Our representative converse with the dealers for the best deals at the best price and come out with a fab offer.
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
+                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
                           </p>
                         </div>
                       </div>
@@ -122,7 +129,7 @@
                         <div class="content">
                           <p class="caption">
                             Only the Verified and finalised deals by Administrator are available on the site.
-							<a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
+							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
                           </p>
                           <!--figure>
                             <img alt="" src="http://blog.quicklinkt.com/wp-content/uploads/2014/05/verified-referrals-quicklinkt-app.png">
@@ -139,7 +146,7 @@
                           <p class="caption">
                             - Just fill the details and make yourself registered.</br>
                             - Once registered you can mark deals as a Favourite and will recieve latest deals as per the flavour of deals which you have marked.
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See more offers</a>
+                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See more offers</a>
                           </p>
                           <!--figure>
                             <img alt="" src="Couponizer_files/prod.png">
@@ -155,7 +162,7 @@
                         <div class="content">
                           <p class="caption">
                             We we will be sending you daily email alerts with the newly added deals as per your flavour.
-                            <a class="ir icon tag" href="http://teothemes.com/html/Couponizer/coupons.html">See Coupons</a>
+                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
                           </p>
                           <!--figure>
                             <img alt="" src="Couponizer_files/prod.png">

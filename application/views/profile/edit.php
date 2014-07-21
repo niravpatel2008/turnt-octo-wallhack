@@ -1,4 +1,10 @@
-<div style="width:800px; padding:15px; margin:0 auto;">
+<div class='stripe-regular items-carousel-wrap row'>
+	<div class="box box-site-header">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-credit-card"></i> Edit Profile</h3>
+		</div>
+	</div>
+
 	<div id="flash_msg">
 		<?php
 			if (@$flash_msg['flash_type'] == "success") {
@@ -11,30 +17,39 @@
 		?>
 	</div>
 
-	<form action="" method="post" enctype="multipart/form-data">
-		<h3>Edit Profile</h3>
-		<div>
-			Username: <input type="text" name="username" id="username" value="<?=$this->front_session['uname']?>">
+	<div class="box">
+		<form action="" method="post" enctype="multipart/form-data">
+		<div class="box-body">
+				<div class='form-group'>
+					<label for="username">Name: </label> 
+					<input class='form-control' type="text" name="username" id="username" value="<?=$this->front_session['uname']?>">
+				</div>
+				<div class='form-group'>
+					<label for="username">Email: </label> 
+					<input class='form-control' type="text" name="email" id="email" value="<?=$this->front_session['email']?>">
+				</div>
+				<div class='form-group'>
+					<label for="username">Contact: </label> 
+					<input class='form-control' type="text" name="contact" id="contact" value="<?=$this->front_session['contact']?>">
+				</div>
+				<div class='form-group'>
+					<label for="username">Profile Picture: </label> 
+					<input type="file" name="profile_image">
+				</div>
+				<div class='form-group'>
+					<?=@$error_msg['profile_image']?>
+					<?php
+						if (file_exists(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']) && $this->front_session['profile_picture'] != "") {
+					?>
+						<img src="<?=profile_img_path().$this->front_session['profile_picture']?>" style="height:150px; width:150px;">
+					<?php
+						}
+					?>	
+				</div>		
 		</div>
-		<div>
-			Email: <input type="text" name="email" id="email" value="<?=$this->front_session['email']?>">
-		</div>
-		<div>
-			Contact: <input type="text" name="contact" id="contact" value="<?=$this->front_session['contact']?>">
-		</div>
-		<div>
-			Profile Picture: <input type="file" name="profile_image">
-			<?=@$error_msg['profile_image']?>
-			<?php
-				if (file_exists(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']) && $this->front_session['profile_picture'] != "") {
-			?>
-				<img src="<?=profile_img_path().$this->front_session['profile_picture']?>" style="height:150px; width:150px;">
-			<?php
-				}
-			?>
-		</div>
-		<div>
+		<div class='box-footer'>
 			<input type="submit" name="submit" id="submit" value="Submit" class="input button primary" style="width:150px;" />
 		</div>
-	</form>
+		</form>
+	</div>
 </div>
