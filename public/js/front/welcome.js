@@ -99,10 +99,6 @@ function getDealList(action)
 				$("#noResultDiv").hide();
 
 				displayDealsData(result);
-				displayDealsData(result);
-				displayDealsData(result);
-				displayDealsData(result);
-				displayDealsData(result);
 			}
 			else if($.trim(result) == "") {
 				$("#noResultDiv").show();
