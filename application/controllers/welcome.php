@@ -113,6 +113,13 @@ class Welcome extends CI_Controller {
 								'create_date' => date('Y-m-d H:i:s')
 							);
 				$this->session->set_userdata('front_session',$data);
+
+				$login_details = array('username' => $post['username'],
+										'password' => trim($post['password'])
+									);
+				$emailTpl = $this->get_welcome_tpl($login_details);
+				$ret = sendEmail($post['email'], SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
+
 				echo "success";
 			}else{
 				#show error
@@ -174,6 +181,22 @@ class Welcome extends CI_Controller {
 	public function get_forgotpassword_tpl($details)
 	{
 		$html = '<p>Your login details are: </p>
+				<p>
+					Username: '.$details['username'].'<br/>
+					Password: '.$details['password'].'
+				</p>
+				<p>
+					Thank you
+				</p>
+				';
+
+		return $html;
+	}
+
+	public function get_welcome_tpl($details)
+	{
+		$html = '<p>Welcome to dhiskiyaon on deals </p>
+				<p>Your login details are: </p>
 				<p>
 					Username: '.$details['username'].'<br/>
 					Password: '.$details['password'].'
