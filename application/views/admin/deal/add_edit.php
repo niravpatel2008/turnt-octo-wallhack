@@ -18,7 +18,7 @@
                 <?php        
                     }
                 ?>
-                <form role="form" action="" method="post" enctype="multipart/form-data">
+                <form id='deal_form' role="form" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group <?=(@$error_msg['dd_dealerid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_dealerid'] != ''){
@@ -101,38 +101,39 @@
 
 					<div class='box'>
 						<div class='box-header'>
-							Add offers
+							<h3 class='box-title'>Add offers</h3>
 						</div>
 						<div class='box-body'>
-							<?php foreach(@$offers as $offer) {?>
+							<?php $i=0; do{ $offer = @$offers[$i];?>
 							<div class='offers_div'>
 								<div class="form-group">
 									<label for="do_offertitle">Offer Title:</label>
-									<input type="text" placeholder="Offer title here" id="do_offertitle" class="form-control" name="do_offertitle"><?=$offer->do_offertitle?></textarea>
+									<a href="#" class="pull-right removeoffer" do_autoid="<?=@$offer->do_autoid?>"><i class="fa fa-trash-o"></i></a>
+									<input type="text" placeholder="Offer title here" id="do_offertitle" class="form-control" value="<?=@$offer->do_offertitle?>">
+									<input type="hidden" id="offer_data" name="offer_data[]" value="">
+									<input type="hidden" id="do_autoid" value="<?=@$offer->do_autoid?>">
 								</div>
 								<div class="row">
 									<div class="col-xs-4 form-group">
 										<label>List Price:</label>
-										<input type="text" placeholder="Enter List Price" class="form-control" name="do_listprice" id="do_listprice" value="<?=$offer->do_listprice?>" >
+										<input type="text" placeholder="Enter List Price" class="form-control" id="do_listprice" value="<?=@$offer->do_listprice?>" >
 									</div>
 
 									<div class="col-xs-4 form-group">
 										<label>Original Price:</label>
-										<input type="text" placeholder="Enter ..." class="form-control" name="do_originalprice" id="do_originalprice"  value="<?=$offer->do_originalprice?>" >
+										<input type="text" placeholder="Enter ..." class="form-control" id="do_originalprice"  value="<?=@$offer->do_originalprice?>" >
 									</div>
 									
 									<div class="col-xs-4 form-group">
 										<label>Discount:</label>
-										<input type="text" placeholder="Enter ..." class="form-control" name="do_discount" id="do_discount" value="<?=$offer->do_discount?>" >
+										<input type="text" placeholder="Enter ..." class="form-control" id="do_discount" value="<?=@$offer->do_discount?>" >
 									</div>
 								</div>
-								<div class='row'>
-									<button class="btn btn-default pull-right" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-minus removeoffer"></i>Remove This Offer </button>
-								</div>
 							</div>
-							<?php }?>
+
+							<?php $i++; }while(count(@$offers)>$i)?>
 						</div>
-						<div class='box-footer'>
+						<div class='box-footer clearfix'>
 							<button class="btn btn-default pull-right addoffer"><i class="fa fa-plus"></i>Add Another Offer</button>
 						</div>
 					</div>

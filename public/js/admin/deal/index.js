@@ -51,10 +51,11 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.addoffer').on('click',function(){
+	$('.addoffer').on('click',function(e){
+		e.preventDefault();
 		$clone = $('.offers_div:eq(0)').clone();	
 		$clone.find("input").val("");
-		$clone.appendAfter(".offers_div:last");
+		$clone.insertAfter(".offers_div:last");
 	});
 	
 	/*
@@ -63,7 +64,13 @@ $(document).ready(function() {
 		});
 	*/
 
-	$('.removeoffer').on('click',function(){
+	$(document).delegate('.removeoffer','click',function(e){
+		e.preventDefault();
+		if($('.removeoffer').length <= 1)
+		{
+			//$(this).closest('.offers_div').find('input').val();
+			return;
+		}
 		var do_autoid = $(this).attr('do_autoid');
 		if (do_autoid != "")
 		{
@@ -73,6 +80,20 @@ $(document).ready(function() {
 		{
 			$(this).closest('.offers_div').remove();
 		}
+	});
+
+	$('#deal_form').on('submit',function(e){
+		//e.preventDefault();
+		$('.offers_div').each(function(k,v){
+			var offer_data = {};
+			offer_data['do_autoid'] = $(this).find("#do_autoid").val();
+			offer_data['do_offertitle'] = $(this).find("#do_offertitle").val();
+			offer_data['do_listprice'] = $(this).find("#do_listprice").val();
+			offer_data['do_originalprice'] = $(this).find("#do_originalprice").val();
+			offer_data['do_discount'] = $(this).find("#do_discount").val();
+			//console.log(JSON.stringify(offer_data));
+			$(this).find('#offer_data').val(JSON.stringify(offer_data));
+		});
 	});
 } );
 

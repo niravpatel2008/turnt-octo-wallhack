@@ -64,6 +64,8 @@ class Deal extends CI_Controller {
 		$post = $this->input->post();
 		if ($post) {
 			#pr($post,1);
+			echo "<pre>";
+			print_r($post);exit;
 			$error = array();
 			$e_flag=0;
 
@@ -126,6 +128,13 @@ class Deal extends CI_Controller {
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
 
 				if ($ret_deal > 0) {
+					/*ADd offer*/
+					$offer_data= $post['offer_data'];
+					foreach($offer_data as $offer)
+					{
+
+					}
+					/*ADd Tags*/
 					$post_tags = $post['dd_tags'];
 
 					foreach ($post_tags as $tag)
@@ -174,6 +183,7 @@ class Deal extends CI_Controller {
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_images'] = array();
+		$data['offers'] = array();
 
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
