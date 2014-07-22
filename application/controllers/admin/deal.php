@@ -87,6 +87,14 @@ class Deal extends CI_Controller {
 				$error['dd_status'] = 'Please select status.';
 				$e_flag=1;
 			}
+			if ($post['dd_includes'] == "") {
+				$error['dd_includes'] = 'Please enter what deals includes.';
+				$e_flag=1;
+			}
+			if ($post['dd_policy'] == "") {
+				$error['dd_policy'] = 'Please enter deal policy.';
+				$e_flag=1;
+			}
 
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
@@ -102,6 +110,8 @@ class Deal extends CI_Controller {
 					'dd_description'=> $post['dd_description'],
 					'dd_features'=> $post['dd_features'],
 					'dd_conditions'=> $post['dd_conditions'],
+					'dd_includes'=> $post['dd_includes'],
+					'dd_policy'=> $post['dd_policy'],
 					'dd_offer'=> $post['dd_offer'],
 					'dd_discount'=> $post['dd_discount'],
 					'dd_startdate'=> $dd_startdate,
@@ -207,6 +217,14 @@ class Deal extends CI_Controller {
 				$error['dd_status'] = 'Please select status.';
 				$e_flag=1;
 			}
+			if ($post['dd_includes'] == "") {
+				$error['dd_includes'] = 'Please enter what deals includes.';
+				$e_flag=1;
+			}
+			if ($post['dd_policy'] == "") {
+				$error['dd_policy'] = 'Please enter deal policy.';
+				$e_flag=1;
+			}
 
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
@@ -222,6 +240,8 @@ class Deal extends CI_Controller {
 							'dd_description'=> $post['dd_description'],
 							'dd_features'=> $post['dd_features'],
 							'dd_conditions'=> $post['dd_conditions'],
+							'dd_includes'=> $post['dd_includes'],
+							'dd_policy'=> $post['dd_policy'],
 							'dd_offer'=> $post['dd_offer'],
 							'dd_discount'=> $post['dd_discount'],
 							'dd_startdate'=> $dd_startdate,

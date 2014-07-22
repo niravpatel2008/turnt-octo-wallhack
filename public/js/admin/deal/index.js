@@ -50,6 +50,30 @@ $(document).ready(function() {
 			$('#dd_discount').val(discount);
 		}
 	});
+
+	$('.addoffer').on('click',function(){
+		$clone = $('.offers_div:eq(0)').clone();	
+		$clone.find("input").val("");
+		$clone.appendAfter(".offers_div:last");
+	});
+	
+	/*
+		$('.saveoffers').on('click',function(){
+			var dd_autoid = $(this).attr('dd_autoid');
+		});
+	*/
+
+	$('.removeoffer').on('click',function(){
+		var do_autoid = $(this).attr('do_autoid');
+		if (do_autoid != "")
+		{
+			$(this).closest('.offers_div').remove();// make ajax call to remove offers
+		}
+		else
+		{
+			$(this).closest('.offers_div').remove();
+		}
+	});
 } );
 
 
