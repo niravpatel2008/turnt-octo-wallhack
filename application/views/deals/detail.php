@@ -92,7 +92,7 @@ $tags = implode(",",$tags);
 					</div>
 				</div>
 				<div class="box-footer">
-					<center><button class='btn bg-orange margin' onclick="buy_deal(<?=$detail['dd_autoid']?>)">GET THIS DEAL</button></center>
+					<center><button class='btn bg-orange margin' data-target="#buyofferpopup" data-toggle="modal">GET THIS DEAL</button></center>
 				</div>
 			</div>
 		</section>
@@ -218,6 +218,23 @@ $tags = implode(",",$tags);
 </div>
 <input type='hidden' id='tags' value="<?=$tags?>">
 <input type='hidden' id='category' value="<?=$category->dc_catid?>">
+
+<div id='buyofferpopup' role="dialog" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">		
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+				<h4 class="modal-title"><i class="fa fa-envelope-o"></i>Compose New Message</h4>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class='modal-footer clearfix'>
+				<button data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-times"></i> Cancle</button>
+				<button class="btn btn-primary pull-left" type="submit"><i class="fa fa-envelope"></i> Send Message</button>
+			</div>
+		</div>
+	</div>
+</div>
 <!--
  [de_name] => Dx Hotel
  [de_address] => viashvambhar appartment

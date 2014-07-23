@@ -213,7 +213,7 @@ class common_model extends CI_Model{
 			$rec['dd_originalprice'] = $deal['dd_originalprice'];
 			$rec['dd_listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
-			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
+			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".replace_char($deal['dd_name']);
 			$rec['is_fav'] = 1;
 			$deals[] = $rec;
 		}
@@ -280,7 +280,7 @@ class common_model extends CI_Model{
 			$rec['dd_originalprice'] = $deal['dd_originalprice'];
 			$rec['dd_listprice'] = $deal['dd_listprice'];
 			$rec['photo'] = base_url()."uploads/".$deal['dd_photourl'];
-			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".$deal['dd_name'];
+			$rec['url'] = base_url()."deals/detail/".$deal['dd_autoid']."/".replace_char($deal['dd_name']);
 			$rec['is_fav'] = in_array($deal['dd_autoid'],$favArray);
 			$deals[] = $rec;
 		}
@@ -327,7 +327,7 @@ class common_model extends CI_Model{
 				$favdata['db_dealid'] = $id;
 				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
 			}
-			
+			$data['offers'] = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id));
 			$catdata =array();
 			$catdata["dc_catid"] = $data['detail'][0]['dd_catid'];
 			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
