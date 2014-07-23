@@ -74,7 +74,16 @@ $(document).ready(function() {
 		var do_autoid = $(this).attr('do_autoid');
 		if (do_autoid != "")
 		{
-			$(this).closest('.offers_div').remove();// make ajax call to remove offers
+			url = admin_path()+'deal/removeOffer',
+			data = {id:do_autoid};
+			$.post(url,data,function(e){
+				if (e == "success") {
+					$(this).closest('.offers_div').remove();
+					$("#flash_msg").html(success_msg_box ('Offer deleted successfully.'));
+				}else{
+					$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
+				}
+			});
 		}
 		else
 		{

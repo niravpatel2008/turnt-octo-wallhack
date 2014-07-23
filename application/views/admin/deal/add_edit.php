@@ -104,6 +104,11 @@
 							<h3 class='box-title'>Add offers</h3>
 						</div>
 						<div class='box-body'>
+							<?php if(@$error_msg['dd_offer'] != ''){ ?>
+								<div class="form-group has-error">
+									<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_offer']?></label>
+								</div>
+							<?php } ?>
 							<?php $i=0; do{ $offer = @$offers[$i];?>
 							<div class='offers_div'>
 								<div class="form-group">
