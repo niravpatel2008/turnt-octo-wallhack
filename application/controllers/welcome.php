@@ -220,6 +220,12 @@ class Welcome extends CI_Controller {
 		$data['view'] = "howitworks";
 		$this->load->view('content', $data);
 	}
+
+	public function privacypolicy()
+	{
+		$data['view'] = "privacypolicy";
+		$this->load->view('content', $data);
+	}
 }
 
 /* End of file welcome.php */

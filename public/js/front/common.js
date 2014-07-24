@@ -40,8 +40,8 @@ function displayDealsData(result)
 		commanAttr = " st_url='"+element.url+"' st_title='"+element.name+"' st_image='"+element.photo+"' st_summary='"+element.name+"' ";
 		if(index!='totalRecordsCount'){
 			pricehtml="<div class='row'>";
-				pricehtml+="<div class='col-lg-4'><div class='small-box bg-aqua'><a class='small-box-footer' href='#'>Now</a><div class='inner'><center><h3 class='box-title'>"+element.dd_listprice+"</h3></center></div></div></div>";
-				pricehtml+="<div class='col-lg-4'><div class='small-box bg-red'><a class='small-box-footer' href='#'>Was</a><div class='inner'><center><h3 class='box-title'>"+element.dd_originalprice+"</h3></center></div></div></div>";
+				pricehtml+="<div class='col-lg-4'><div class='small-box bg-red'><a class='small-box-footer' href='#'>Now</a><div class='inner'><center><h3 class='box-title'>"+element.dd_listprice+"</h3></center></div></div></div>";
+				pricehtml+="<div class='col-lg-4'><div class='small-box bg-aqua'><a class='small-box-footer' href='#'>Was</a><div class='inner'><center><h3 class='box-title'>"+element.dd_originalprice+"</h3></center></div></div></div>";
 				pricehtml+="<div class='col-lg-4'><div class='small-box bg-green'><a class='small-box-footer' href='#'>Save</a><div class='inner'><center><h3 class='box-title'>"+element.dd_discount+"</h3></center></div></div></div>";
 			pricehtml+="</div>";
 

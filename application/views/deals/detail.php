@@ -34,14 +34,16 @@ $tags = implode(",",$tags);
 					<table class='table table-striped'>
 						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
 			<?php foreach($offers as $offer){?>
-						<tr><td><?=$offer->do_offertitle?></td><td><?=$offer->do_listprice?></td><td><?=$offer->do_originalprice?></td><td><?=$offer->do_discount?></td><td><button class="btn btn-danger btn-sm" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td></tr>
+						<tr>
+							<td><?=$offer->do_offertitle?></td>
+							<td><small class="label label-danger"><?=$offer->do_listprice?></small></td>
+							<td><small class="label label-info"><?=$offer->do_originalprice?></small></td>
+							<td><small class="label label-success"><?=$offer->do_discount?></small></td>
+							<td><button class="btn btn-danger btn-sm" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
+						</tr>
 			<?php } ?>
 					</table>
 				</div>
-			</div>
-			<div class='modal-footer clearfix'>
-				<button data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-times"></i> Cancle</button>
-				<button class="btn btn-primary pull-left" type="submit"><i class="fa fa-shopping-cart"></i> Get Offer</button>
 			</div>
 		</div>
 	</div>
@@ -76,14 +78,14 @@ $tags = implode(",",$tags);
 							<li><b>Features :</b>
 								<ul style="list-style: none outside none;">
 									<?php foreach ($features as $feature){
-										echo "<i class='fa fa-fw fa-check green' style='float:left;'></i><li>$feature</li>";
+										echo "<li><i class='fa fa-fw fa-check green'></i> $feature</li>";
 									}?>
 								</ul>
 							</li>
 						</ul>
 						<div class='row'>
 							<div class='col-lg-4'>
-								<div class="small-box bg-aqua">
+								<div class="small-box bg-red">
 									<a class="small-box-footer" href="#">
 										Now
 									</a>
@@ -93,7 +95,7 @@ $tags = implode(",",$tags);
 								</div>
 							</div>
 							<div class='col-lg-4'>
-								<div class="small-box bg-red">
+								<div class="small-box bg-aqua">
 									<a class="small-box-footer" href="#">
 										Was
 									</a>
@@ -184,7 +186,13 @@ $tags = implode(",",$tags);
 					<h3 class="box-title"><i class="fa fa-clipboard"></i> Offer Detail</h3>
 				</div>
 				<div class="box-body">
-					<div id='description'><?=$detail['dd_offer'];?></div>
+					<div id='description'>
+					<ul class='list-unstyled'>
+					<?php foreach($offers as $offer){?>
+						<li><i class="fa fa-fw fa-bell-o"></i><?=$offer->do_offertitle?></li>
+					<?php } ?>
+					</ul>
+					</div>
 				</div>
 			</div>
 		</section>
