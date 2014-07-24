@@ -14,7 +14,7 @@ foreach ($dealsDetail['links'] as $key=>$val)
 $commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";
 $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfavme":"favme";
 $category = $dealsDetail['category'];
-
+$offers = $dealsDetail['offers'];
 $tags = array();
 foreach ($dealsDetail['tags'] as $key=>$val)
 {
@@ -22,8 +22,32 @@ foreach ($dealsDetail['tags'] as $key=>$val)
 }
 $tags = implode(",",$tags);
 ?>
-<div class='stripe-regular items-carousel-wrap row'>
+<div id='buyofferpopup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">		
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i> Select Offer :</h3>
+			</div>
+			<div class="modal-body" style='padding:0px;'>
+				<div class="table-responsive">
+					<table class='table table-striped'>
+						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
+			<?php foreach($offers as $offer){?>
+						<tr><td><?=$offer->do_offertitle?></td><td><?=$offer->do_listprice?></td><td><?=$offer->do_originalprice?></td><td><?=$offer->do_discount?></td><td><button class="btn btn-danger btn-sm" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td></tr>
+			<?php } ?>
+					</table>
+				</div>
+			</div>
+			<div class='modal-footer clearfix'>
+				<button data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-times"></i> Cancle</button>
+				<button class="btn btn-primary pull-left" type="submit"><i class="fa fa-shopping-cart"></i> Get Offer</button>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class='stripe-regular items-carousel-wrap row'>
 	<div class="box box-success">
 		<div class="box-header">
 			<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span>  &nbsp;<?=$detail['dd_name']?></h3>
@@ -218,31 +242,3 @@ $tags = implode(",",$tags);
 </div>
 <input type='hidden' id='tags' value="<?=$tags?>">
 <input type='hidden' id='category' value="<?=$category->dc_catid?>">
-
-<div id='buyofferpopup' role="dialog" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">		
-				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
-				<h4 class="modal-title"><i class="fa fa-envelope-o"></i>Compose New Message</h4>
-			</div>
-			<div class="modal-body">
-			</div>
-			<div class='modal-footer clearfix'>
-				<button data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-times"></i> Cancle</button>
-				<button class="btn btn-primary pull-left" type="submit"><i class="fa fa-envelope"></i> Send Message</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!--
- [de_name] => Dx Hotel
- [de_address] => viashvambhar appartment
- [de_city] => Ahmedabad
- [de_state] => Gujarat
- [de_zip] => 380024
- [de_contact] => 1231231230
- [de_email] => dxhotel@gmail.com
- [de_url] => http://dxhotel.com/ -
-
--->

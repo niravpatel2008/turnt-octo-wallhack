@@ -374,7 +374,7 @@ class Deal extends CI_Controller {
 		$this->load->view('admin/content', $data);
 	}
 
-	public function removeOffer($id)
+	public function removeOffer()
 	{
 		$post = $this->input->post();
 

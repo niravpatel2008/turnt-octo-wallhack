@@ -21,18 +21,21 @@ $(document).ready(function() {
 		//autocompleteURL: 'server/autocomplete.php',
 	});
 
-	setTimeout(function(){
-		var myDropzone = Dropzone.forElement("#my-awesome-dropzone");
-		myDropzone.on("success", function(file, res) { 
-			if (res.indexOf("Error:") === -1)
-			{
-				var file = JSON.parse(res);
-				var html = "<img src='"+file.path+"' class='newimg' imgid = '"+file.id+"'>";
-				$("#img-container").append(html);
-				$('#newimages').val($('#newimages').val() +"," +file.id);
-			}
-		});
-	},1000)
+	if ($("#my-awesome-dropzone").length > 0)
+	{
+		setTimeout(function(){
+				var myDropzone = Dropzone.forElement("#my-awesome-dropzone");
+				myDropzone.on("success", function(file, res) { 
+					if (res.indexOf("Error:") === -1)
+					{
+						var file = JSON.parse(res);
+						var html = "<img src='"+file.path+"' class='newimg' imgid = '"+file.id+"'>";
+						$("#img-container").append(html);
+						$('#newimages').val($('#newimages').val() +"," +file.id);
+					}
+				});
+		},1000)
+	}
 
 	$('#img-container').delegate("img",'click',function(){
 		$('#img-container img').removeClass('selected');
@@ -43,11 +46,14 @@ $(document).ready(function() {
 	var mainimgid = $('#dd_mainphoto').val();
 	$('#img-container img[imgid="'+mainimgid+'"]').addClass('selected');
 
-	$("#dd_listprice","#dd_originalprice").blur(function(){
-		if ($("#dd_originalprice").val() != "" && $("#dd_listprice").val())
+	$(document).delegate(".changeprice","blur",function(){
+		var do_originalprice = parseInt($(this).closest("div.row").find(".do_originalprice").val());
+		var do_listprice = parseInt($(this).closest("div.row").find(".do_listprice").val());
+		if (!isNaN(do_originalprice) && do_originalprice != "" && !isNaN(do_listprice) && do_listprice != "")
 		{
-			discount = $("#dd_originalprice").val() - $("#dd_listprice").val();
-			$('#dd_discount').val(discount);
+			discount = do_originalprice - do_listprice;
+			if (discount >= 0)
+				$(this).closest("div.row").find(".do_discount").val(discount);
 		}
 	});
 
@@ -74,11 +80,12 @@ $(document).ready(function() {
 		var do_autoid = $(this).attr('do_autoid');
 		if (do_autoid != "")
 		{
+			remove_div = $(this);
 			url = admin_path()+'deal/removeOffer',
 			data = {id:do_autoid};
 			$.post(url,data,function(e){
 				if (e == "success") {
-					$(this).closest('.offers_div').remove();
+					$(remove_div).closest('.offers_div').remove();
 					$("#flash_msg").html(success_msg_box ('Offer deleted successfully.'));
 				}else{
 					$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));

@@ -121,17 +121,17 @@
 								<div class="row">
 									<div class="col-xs-4 form-group">
 										<label>List Price:</label>
-										<input type="text" placeholder="Enter List Price" class="form-control" id="do_listprice" value="<?=@$offer->do_listprice?>" >
+										<input type="text" placeholder="Enter List Price" id="do_listprice" class="do_listprice changeprice form-control" value="<?=@$offer->do_listprice?>" >
 									</div>
 
 									<div class="col-xs-4 form-group">
 										<label>Original Price:</label>
-										<input type="text" placeholder="Enter ..." class="form-control" id="do_originalprice"  value="<?=@$offer->do_originalprice?>" >
+										<input type="text" placeholder="Enter ..." id="do_originalprice" class="do_originalprice changeprice form-control"  value="<?=@$offer->do_originalprice?>" >
 									</div>
 									
 									<div class="col-xs-4 form-group">
 										<label>Discount:</label>
-										<input type="text" placeholder="Enter ..." class="form-control" id="do_discount" value="<?=@$offer->do_discount?>" >
+										<input type="text" placeholder="Enter ..." id="do_discount" class="do_discount form-control" value="<?=@$offer->do_discount?>" readonly>
 									</div>
 								</div>
 							</div>
