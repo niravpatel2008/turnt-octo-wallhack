@@ -8,6 +8,9 @@ $(document).ready(function(){
 	$.post(url,{tags:tags,category:category,limit:"4",or:"1"},function(result){
 		displayDealsData(JSON.parse(result));
 	});
+	$('.btn-buy').on('click',function(){
+		buy_deal($(this).data('dealid'),$(this).data('offerid'));
+	});
 });
 
 
