@@ -49,14 +49,27 @@
                         </div>';
             return html;
         }
+
+        function IsEmail(email) {
+          var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          return regex.test(email);
+        }
+
+        function isNumberKey(e) {
+            var charCode = (e.which) ? e.which : e.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
     </script>
 
-    <?php if ($this->router->fetch_class() == "dashboard") { ?>
-        <script src="<?=public_path()?>js/admin/dashboard/deals.js" type="text/javascript"></script>
+
+    <?php if ($this->router->fetch_class() == "users" && $this->router->fetch_method() == "index") { ?>
+		<script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
     <?php } ?>
 
-    <?php if ($this->router->fetch_class() == "users") { ?>
-		<script src="<?=public_path()?>js/admin/users/index.js" type="text/javascript"></script>
+    <?php if ($this->router->fetch_class() == "users" && in_array($this->router->fetch_method(), array("add","edit")) ) { ?>
+        <script src="<?=public_path()?>js/admin/users/add_edit.js" type="text/javascript"></script>
     <?php } ?>
 
     <?php if ($this->router->fetch_class() == "category") { ?>
