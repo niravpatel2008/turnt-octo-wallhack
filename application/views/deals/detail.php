@@ -14,7 +14,7 @@ foreach ($dealsDetail['links'] as $key=>$val)
 $commanAttr = " st_url='".$url."' st_title='".$detail['dd_name']."' st_image='".$photo."' st_summary='".$detail['dd_description']."' ";
 $fav_class = ($dealsDetail['is_fav'] != "" && $dealsDetail['is_fav'] > 0)?"unfavme":"favme";
 $category = $dealsDetail['category'];
-
+$offers = $dealsDetail['offers'];
 $tags = array();
 foreach ($dealsDetail['tags'] as $key=>$val)
 {
@@ -22,8 +22,34 @@ foreach ($dealsDetail['tags'] as $key=>$val)
 }
 $tags = implode(",",$tags);
 ?>
-<div class='stripe-regular items-carousel-wrap row'>
+<div id='buyofferpopup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">		
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i> Select Offer :</h3>
+			</div>
+			<div class="modal-body" style='padding:0px;'>
+				<div class="table-responsive">
+					<table class='table table-striped'>
+						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
+			<?php foreach($offers as $offer){?>
+						<tr>
+							<td><?=$offer->do_offertitle?></td>
+							<td><small class="label label-danger"><?=$offer->do_listprice?></small></td>
+							<td><small class="label label-info"><?=$offer->do_originalprice?></small></td>
+							<td><small class="label label-success"><?=$offer->do_discount?></small></td>
+							<td><button class="btn btn-danger btn-sm" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
+						</tr>
+			<?php } ?>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class='stripe-regular items-carousel-wrap row'>
 	<div class="box box-success">
 		<div class="box-header">
 			<h3 class="box-title"><span class="<?=$fav_class?>" did='<?=$detail['dd_autoid']?>'></span>  &nbsp;<?=$detail['dd_name']?></h3>
@@ -52,14 +78,14 @@ $tags = implode(",",$tags);
 							<li><b>Features :</b>
 								<ul style="list-style: none outside none;">
 									<?php foreach ($features as $feature){
-										echo "<i class='fa fa-fw fa-check green' style='float:left;'></i><li>$feature</li>";
+										echo "<li><i class='fa fa-fw fa-check green'></i> $feature</li>";
 									}?>
 								</ul>
 							</li>
 						</ul>
 						<div class='row'>
 							<div class='col-lg-4'>
-								<div class="small-box bg-aqua">
+								<div class="small-box bg-red">
 									<a class="small-box-footer" href="#">
 										Now
 									</a>
@@ -69,7 +95,7 @@ $tags = implode(",",$tags);
 								</div>
 							</div>
 							<div class='col-lg-4'>
-								<div class="small-box bg-red">
+								<div class="small-box bg-aqua">
 									<a class="small-box-footer" href="#">
 										Was
 									</a>
@@ -92,7 +118,7 @@ $tags = implode(",",$tags);
 					</div>
 				</div>
 				<div class="box-footer">
-					<center><button class='btn bg-orange margin' onclick="buy_deal(<?=$detail['dd_autoid']?>)">GET THIS DEAL</button></center>
+					<center><button class='btn bg-orange margin' data-target="#buyofferpopup" data-toggle="modal">GET THIS DEAL</button></center>
 				</div>
 			</div>
 		</section>
@@ -160,7 +186,13 @@ $tags = implode(",",$tags);
 					<h3 class="box-title"><i class="fa fa-clipboard"></i> Offer Detail</h3>
 				</div>
 				<div class="box-body">
-					<div id='description'><?=$detail['dd_offer'];?></div>
+					<div id='description'>
+					<ul class='list-unstyled'>
+					<?php foreach($offers as $offer){?>
+						<li><i class="fa fa-fw fa-bell-o"></i><?=$offer->do_offertitle?></li>
+					<?php } ?>
+					</ul>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -218,14 +250,3 @@ $tags = implode(",",$tags);
 </div>
 <input type='hidden' id='tags' value="<?=$tags?>">
 <input type='hidden' id='category' value="<?=$category->dc_catid?>">
-<!--
- [de_name] => Dx Hotel
- [de_address] => viashvambhar appartment
- [de_city] => Ahmedabad
- [de_state] => Gujarat
- [de_zip] => 380024
- [de_contact] => 1231231230
- [de_email] => dxhotel@gmail.com
- [de_url] => http://dxhotel.com/ -
-
--->

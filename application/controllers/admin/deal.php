@@ -79,12 +79,27 @@ class Deal extends CI_Controller {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
-			if ($post['dd_originalprice'] == "") {
-				$error['dd_originalprice'] = 'Please enter price.';
+			$offer_data= $post['offer_data'];
+			if (!isset($offer_data[0]))
+			{
+				$error['dd_offer'] = 'Please enter atleast one offer.';
 				$e_flag=1;
 			}
+			else
+			{
+				$offerdata =  json_decode($offer_data[0],1);
+			}
+			
 			if ($post['dd_status'] == "") {
 				$error['dd_status'] = 'Please select status.';
+				$e_flag=1;
+			}
+			if ($post['dd_includes'] == "") {
+				$error['dd_includes'] = 'Please enter what deals includes.';
+				$e_flag=1;
+			}
+			if ($post['dd_policy'] == "") {
+				$error['dd_policy'] = 'Please enter deal policy.';
 				$e_flag=1;
 			}
 
@@ -102,12 +117,14 @@ class Deal extends CI_Controller {
 					'dd_description'=> $post['dd_description'],
 					'dd_features'=> $post['dd_features'],
 					'dd_conditions'=> $post['dd_conditions'],
-					'dd_offer'=> $post['dd_offer'],
-					'dd_discount'=> $post['dd_discount'],
+					'dd_includes'=> $post['dd_includes'],
+					'dd_policy'=> $post['dd_policy'],
+					//'dd_offer'=> $post['dd_offer'],
+					'dd_discount'=> $offerdata['do_discount'],
+					'dd_listprice'=> $offerdata['do_listprice'],
+					'dd_originalprice'=> $offerdata['do_originalprice'],
 					'dd_startdate'=> $dd_startdate,
 					'dd_expiredate'=> $dd_expiredate,
-					'dd_listprice'=> $post['dd_listprice'],
-					'dd_originalprice'=> $post['dd_originalprice'],
 					'dd_mainphoto'=> $post['dd_mainphoto'],
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 					'dd_status'=> $post['dd_status']
@@ -116,6 +133,16 @@ class Deal extends CI_Controller {
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
 
 				if ($ret_deal > 0) {
+					/*ADd offer*/
+					$offer_data= $post['offer_data'];
+					foreach($offer_data as $offer)
+					{
+						$offerArr = json_decode($offer,1);
+						unset($offerArr['do_autoid']);
+						$offerArr['do_ddid'] = $ret_deal;
+						$offerId = $this->common_model->insertData(DEAL_OFFER, $offerArr);
+					}
+					/*ADd Tags*/
 					$post_tags = $post['dd_tags'];
 
 					foreach ($post_tags as $tag)
@@ -164,6 +191,7 @@ class Deal extends CI_Controller {
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_images'] = array();
+		$data['offers'] = array();
 
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
@@ -183,7 +211,6 @@ class Deal extends CI_Controller {
 
 		$post = $this->input->post();
 		if ($post) {
-
 			$error = array();
 			$e_flag=0;
 
@@ -199,12 +226,27 @@ class Deal extends CI_Controller {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
-			if ($post['dd_originalprice'] == "") {
-				$error['dd_originalprice'] = 'Please enter price.';
+			$offer_data= $post['offer_data'];
+			if (!isset($offer_data[0]))
+			{
+				$error['dd_offer'] = 'Please enter atleast one offer.';
 				$e_flag=1;
 			}
+			else
+			{
+				$offerdata =  json_decode($offer_data[0],1);
+			}
+			
 			if ($post['dd_status'] == "") {
 				$error['dd_status'] = 'Please select status.';
+				$e_flag=1;
+			}
+			if ($post['dd_includes'] == "") {
+				$error['dd_includes'] = 'Please enter what deals includes.';
+				$e_flag=1;
+			}
+			if ($post['dd_policy'] == "") {
+				$error['dd_policy'] = 'Please enter deal policy.';
 				$e_flag=1;
 			}
 
@@ -222,13 +264,15 @@ class Deal extends CI_Controller {
 							'dd_description'=> $post['dd_description'],
 							'dd_features'=> $post['dd_features'],
 							'dd_conditions'=> $post['dd_conditions'],
-							'dd_offer'=> $post['dd_offer'],
-							'dd_discount'=> $post['dd_discount'],
+							'dd_includes'=> $post['dd_includes'],
+							'dd_policy'=> $post['dd_policy'],
+							//'dd_offer'=> $post['dd_offer'],
+							'dd_discount'=> $offerdata['do_discount'],
+							'dd_listprice'=> $offerdata['do_listprice'],
+							'dd_originalprice'=> $offerdata['do_originalprice'],
 							'dd_startdate'=> $dd_startdate,
 							'dd_expiredate'=> $dd_expiredate,
 							'dd_mainphoto' => $post['dd_mainphoto'],
-							'dd_listprice'=> $post['dd_listprice'],
-							'dd_originalprice'=> $post['dd_originalprice'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 							'dd_status'=> $post['dd_status']
 							);
@@ -236,7 +280,25 @@ class Deal extends CI_Controller {
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
 
 				if ($ret > 0) {
-
+					/*Add/Update offers */
+					$offer_data= $post['offer_data'];
+					foreach($offer_data as $offer)
+					{
+						$offerArr = json_decode($offer,1);
+						if (isset($offerArr['do_autoid']) && $offerArr['do_autoid'] !="")
+						{
+							$where = 'do_autoid = '.$offerArr['do_autoid'];
+							unset($offerArr['do_autoid']);
+							$offerId = $this->common_model->updateData(DEAL_OFFER, $offerArr, $where);
+						}
+						else
+						{
+							$offerArr['do_ddid'] = $id;
+							$offerId = $this->common_model->insertData(DEAL_OFFER, $offerArr);
+						}
+					}
+					
+					/*Add/Update tags */
 					$post_tags = $post['dd_tags'];
 					$old_tags = $this->common_model->getDealTags($id);
 
@@ -307,9 +369,23 @@ class Deal extends CI_Controller {
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_tags'] = $this->common_model->getDealTags($id);
 		$data['dd_images'] = $this->common_model->selectData(DEAL_LINKS, 'dl_autoid,dl_url',array("dl_ddid"=>$id));
-
+		$data['offers'] = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id));
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);
+	}
+
+	public function removeOffer()
+	{
+		$post = $this->input->post();
+
+		if ($post) {
+			$ret = $this->common_model->deleteData(DEAL_OFFER, array('do_autoid' => $post['id'] ));
+			if ($ret > 0) {
+				echo "success";
+			}else{
+				echo "error";
+			}
+		}
 	}
 
 	public function fileupload()

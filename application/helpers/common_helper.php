@@ -80,7 +80,9 @@
         $CI =& get_instance();
 
         $CI->load->library('email');
-
+	
+		$config['protocol'] = 'sendmail';
+		$config['mailpath'] = '/usr/sbin/sendmail';
         $config['charset'] = 'utf-8';
         $config['wordwrap'] = TRUE;
         $config['mailtype'] = 'html';
@@ -104,5 +106,10 @@
         $email_Sent = $CI->email->send();
         return $email_Sent;
     }
+
+	function replace_char($str)
+	{
+		return str_replace(array("/","(",")","&",),"-",$str);
+	}
 
 ?>

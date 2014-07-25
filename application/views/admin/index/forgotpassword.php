@@ -42,7 +42,7 @@
                         <?php
                             }
                         ?>
-                        <input type="text" name="email" class="form-control" placeholder="Email"/>
+                        <input type="text" name="email" class="form-control allow-enter" placeholder="Email"/>
                     </div>
 
                 </div>

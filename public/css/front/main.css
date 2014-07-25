@@ -1727,3 +1727,16 @@ footer .social .fb {
   background-color: rgb(127,127,127);
   color: #f9f9f9;
 }
+
+small.label{
+    border-radius: 0.25em;
+    color: #fff;
+    display: inline;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0.2em 0.6em 0.3em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}

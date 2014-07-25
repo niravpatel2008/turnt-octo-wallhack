@@ -51,6 +51,7 @@ define('DEAL_FAV',	'deal_fav');
 define('DEAL_LINKS',	'deal_links');
 define('DEAL_MAP_TAGS',	'deal_map_tags');
 define('DEAL_TAGS',	'deal_tags');
+define('DEAL_OFFER',	'deal_offer');
 
 
 define('FROM_EMAIL', 'noreply@deals.com');

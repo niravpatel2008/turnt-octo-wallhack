@@ -11,13 +11,11 @@ $(document).ready(function(){
 });
 
 
-function buy_deal (deal_id) {
-    $.ajax({
-        url: base_url()+'buy',
-        type: 'post',
-        data: 'deal_id='+deal_id,
-        success: function (data) {
-            if (data == "login") {
+function buy_deal (deal_id,offerid) {
+	url = base_url()+'buy';
+	data = {deal_id:deal_id,offerid:offerid}
+	$.post(url,data,function(data){
+			if (data == "login") {
                 alert("Please login to continue.");
                 return false;
             }
@@ -31,6 +29,5 @@ function buy_deal (deal_id) {
                 alert("Deal processed successfully.");
                 return false;
             }
-        }
-    });
+	});
 }

@@ -1,23 +1,4 @@
 <footer role="contentinfo">
-    <div class="newsletter-wrap stripe-white">
-      <div class="row">
-        <form action="#">
-          <div class="large-3 columns">
-            <h3>Newsletter Signup</h3>
-          </div>
-          <div class="small-4 large-3 columns">
-            <input type="text" placeholder="Enter Your Name" class="input field primary">
-          </div>
-          <div class="small-5 large-4 columns">
-            <input type="text" placeholder="Enter Your E-mail" class="input field primary">
-          </div>
-          <div class="small-3 large-2 columns">
-            <input type="submit" value="Subscribe" class="input button primary red">
-          </div>
-        </form>
-      </div>
-    </div>
-
     <div class="stripe-darker footer-wrap">
       <div class="row">
         <div class="large-3 columns">

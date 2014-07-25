@@ -42,6 +42,7 @@ $route['forgotpassword'] = "welcome/forgotpassword";
 $route['signup'] = "welcome/signup";
 $route['about_us'] = "welcome/about";
 $route['how_it_works'] = "welcome/howitworks";
+$route['privacy_policy'] = "welcome/privacypolicy";
 $route['admin/forgotpassword'] = "admin/index/forgotpassword";
 $route['admin'] = "admin/index";
 $route['default_controller'] = "welcome";

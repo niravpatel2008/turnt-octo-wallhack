@@ -46,7 +46,7 @@
                         <?php
                             }
                         ?>
-                        <input type="text" name="userid" class="form-control" placeholder="User ID"/>
+                        <input type="text" name="userid" class="form-control allow-enter" placeholder="User ID"/>
                     </div>
                     <div class="form-group <?=(@$error_msg['password'] != '')?'has-error':'' ?>">
                         <?php
@@ -56,7 +56,7 @@
                         <?php
                             }
                         ?>
-                        <input type="password" name="password" class="form-control" placeholder="Password"/>
+                        <input type="password" name="password" class="form-control allow-enter" placeholder="Password"/>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me

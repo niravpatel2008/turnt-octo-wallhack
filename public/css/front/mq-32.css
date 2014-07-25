@@ -22,7 +22,7 @@
 .main-menu > li {
   display: inline-block;
   margin-left: 35px;
-  font-size: 0.813em;
+  font-size: 0.7em;
   opacity: 1;
   filter: alpha(opacity=100);
 }

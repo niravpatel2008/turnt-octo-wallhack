@@ -75,9 +75,7 @@
     <?php if ($this->router->fetch_class() == "category") { ?>
 		<script src="<?=public_path()?>js/admin/category/index.js" type="text/javascript"></script>
     <?php } ?>
-    <?php if ($this->router->fetch_class() == "dashboard") { ?>
-		<script src="<?=public_path()?>js/admin/dashboard/deals.js" type="text/javascript"></script>
-    <?php } ?>
+
 	<?php if ($this->router->fetch_class() == "dealer") { ?>
 		<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
 		<script src="<?=public_path()?>js/plugins/location/locationpicker.jquery.js" type="text/javascript"></script>

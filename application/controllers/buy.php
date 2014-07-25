@@ -17,6 +17,7 @@ class Buy extends CI_Controller {
         $post = $this->input->post();
         if ($post) {
             $data = array('db_dealid' => $post['deal_id'],
+                        'db_offerid' => $post['offerid'],
                         'db_uid' => $this->front_session['id'],
                         'db_paymntopt' => 'COD',
                         'db_amntpaid' => 0,
@@ -27,7 +28,7 @@ class Buy extends CI_Controller {
                 $deal_data = $this->common_model->getDealDetail($post['deal_id']);
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],
-                                        'offer' => $deal_data['detail'][0]['dd_offer'],
+                                        'offer' => $deal_data['offer']->do_offertitle,
                                         'valid_till' => $deal_data['detail'][0]['dd_expiredate'],
                                         'price' => $deal_data['detail'][0]['dd_listprice']
                                     );
@@ -47,7 +48,7 @@ class Buy extends CI_Controller {
 
     public function get_user_deal_tpl($details)
     {
-        $html = '<p>Thank you for pusrchasing deal at dhiskyaon on deals. </p>
+        $html = '<p>Thank you for purchasing deal at django deals. </p>
                 <p>Below are the deal details: </p>
                 <p>
                     Name: '.$details['name'].'<br/>
