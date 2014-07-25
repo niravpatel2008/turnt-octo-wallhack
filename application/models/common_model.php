@@ -287,7 +287,7 @@ class common_model extends CI_Model{
 		return (json_encode($deals));
 	}
 
-	public function getDealDetail($id)
+	public function getDealDetail($id,$offerid="")
 	{
 		/*	deal_detail
 			deal_dealer
@@ -327,7 +327,14 @@ class common_model extends CI_Model{
 				$favdata['db_dealid'] = $id;
 				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
 			}
-			$data['offers'] = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id));
+			if ($offerid != "")
+			{	
+				$offer = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id,"do_autoid"=>$offerid));
+				$data['offers'] = $offer[0];
+			}
+			else
+				$data['offers'] = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id));
+
 			$catdata =array();
 			$catdata["dc_catid"] = $data['detail'][0]['dd_catid'];
 			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
