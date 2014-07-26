@@ -6,10 +6,10 @@
             <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
           </div>
         </div>
-        <div class="large-6 columns">
+        <div class="large-6 columns toppad">
           <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved.</div>
         </div>
-        <div class="large-3 columns">
+        <div class="large-3 columns toppad">
           <ul class="rr social">
             <li><a class="ir tw" href="#">Twitter</a></li>
             <li><a class="ir in" href="#">LinkedIn</a></li>

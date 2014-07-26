@@ -39,7 +39,7 @@ $tags = implode(",",$tags);
 							<td><small class="label label-danger"><?=$offer->do_listprice?></small></td>
 							<td><small class="label label-info"><?=$offer->do_originalprice?></small></td>
 							<td><small class="label label-success"><?=$offer->do_discount?></small></td>
-							<td><button class="btn btn-danger btn-sm" do_autoid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
+							<td><button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
 						</tr>
 			<?php } ?>
 					</table>
