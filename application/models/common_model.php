@@ -289,11 +289,6 @@ class common_model extends CI_Model{
 
 	public function getDealDetail($id,$offerid="")
 	{
-		/*	deal_detail
-			deal_dealer
-			deal_links
-			deal_map_tags
-			deal_tags		*/
 			$data = array();
 			$this->db->select("*");
 			$this->db->from(DEAL_DETAIL);
@@ -340,6 +335,23 @@ class common_model extends CI_Model{
 			$category = $this->selectData(DEAL_CATEGORY, '*',$catdata);
 			$data['category'] = $category[0];
 			return $data;
+	}
+
+	public function getmydeals()
+	{
+		$session = $this->session->userdata('front_session');
+		$user_id = $session['id'];
+
+		$this->db->select("*");
+		$this->db->from(DEAL_BUYOUT);
+		$this->db->join(DEAL_DETAIL, 'db_dealid = dd_autoid', 'left');
+		$this->db->join(DEAL_OFFER, 'do_autoid = db_offerid', 'left');
+		$this->db->join(DEAL_DEALER, 'de_autoid = dd_dealerid', 'left');
+		$this->db->where("db_uid",$user_id);
+		$query = $this->db->get();
+		
+		$myoffers = $query->result_array();
+		return $myoffers;
 	}
 }
 ?>

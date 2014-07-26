@@ -166,6 +166,7 @@ class Profile extends CI_Controller {
 
 	public function mydeals()
 	{
+		$data['deals'] = $this->common_model->getmydeals();
 		$data['view'] = "mydeals";
 		$this->load->view('content', $data);
 	}
