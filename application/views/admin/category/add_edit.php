@@ -15,7 +15,7 @@
                     if (@$flash_msg != "") {
                 ?>
                     <div id="flash_msg"><?=$flash_msg?></div>
-                <?php        
+                <?php
                     }
                 ?>
                 <form role="form" action="" method="post">
@@ -23,9 +23,9 @@
                         <?php
                             if(@$error_msg['dc_catname'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dc_catname']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dc_catname']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label>Category Name:</label>
                         <input type="text" placeholder="Enter ..." class="form-control" name="dc_catname" id="dc_catname" value="<?=@$category[0]->dc_catname?>" >
@@ -34,18 +34,18 @@
                         <?php
                             if(@$error_msg['dc_catdetails'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dc_catdetails']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['dc_catdetails']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label>Category Detail:</label>
                         <textarea type="text" placeholder="Category detail here" class="form-control" name="dc_catdetails" id="dc_catdetails"><?=@$category[0]->dc_catdetails?></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-flat" type="submit">Submit</button>
-                    </div>    
+                        <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
+                    </div>
                 </form>
             </div>
     	</div>
     </div>
-</section>    	
+</section>

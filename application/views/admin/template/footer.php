@@ -72,8 +72,12 @@
         <script src="<?=public_path()?>js/admin/users/add_edit.js" type="text/javascript"></script>
     <?php } ?>
 
-    <?php if ($this->router->fetch_class() == "category") { ?>
+    <?php if ($this->router->fetch_class() == "category" && $this->router->fetch_method() == "index") { ?>
 		<script src="<?=public_path()?>js/admin/category/index.js" type="text/javascript"></script>
+    <?php } ?>
+
+    <?php if ($this->router->fetch_class() == "category" && in_array($this->router->fetch_method(), array("add","edit")) ) { ?>
+        <script src="<?=public_path()?>js/admin/category/add_edit.js" type="text/javascript"></script>
     <?php } ?>
 
 	<?php if ($this->router->fetch_class() == "dealer") { ?>
@@ -81,6 +85,11 @@
 		<script src="<?=public_path()?>js/plugins/location/locationpicker.jquery.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/admin/dealer/index.js" type="text/javascript"></script>
     <?php } ?>
+
+    <?php if ($this->router->fetch_class() == "dealer" && in_array($this->router->fetch_method(), array("add","edit")) ) { ?>
+        <script src="<?=public_path()?>js/admin/dealer/add_edit.js" type="text/javascript"></script>
+    <?php } ?>
+
 	<?php if ($this->router->fetch_class() == "deal") { ?>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.tagedit.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
