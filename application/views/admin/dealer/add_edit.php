@@ -15,7 +15,7 @@
                     if (@$flash_msg != "") {
                 ?>
                     <div id="flash_msg"><?=$flash_msg?></div>
-                <?php        
+                <?php
                     }
                 ?>
                 <form role="form" action="" method="post">
@@ -23,9 +23,9 @@
                         <?php
                             if(@$error_msg['de_userid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_userid']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_userid']?></label><br/>
+                        <?php
+                            }
                         ?>
 						<label>Select User</label>
 						<select class="form-control" id="de_userid" name="de_userid">
@@ -39,9 +39,9 @@
                         <?php
                             if(@$error_msg['de_name'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_name']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_name']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="de_name">Dealer Name:</label>
                         <input placeholder="Enter Dealer Name" id="de_name" class="form-control" name="de_name" value="<?=@$dealer[0]->de_name?>" >
@@ -50,9 +50,9 @@
                         <?php
                             if(@$error_msg['de_email'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_email']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_email']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="de_email">Email address:</label>
                         <input type="email" placeholder="Enter email" id="de_email" class="form-control" name="de_email" value="<?=@$dealer[0]->de_email?>" >
@@ -61,9 +61,9 @@
 						<?php
                             if(@$error_msg['de_contact'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_contact']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_contact']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label>Contact:</label>
                         <input type="text" placeholder="Enter ..." class="form-control" name="de_contact" id="de_contact" value="<?=@$dealer[0]->de_contact?>" >
@@ -72,9 +72,9 @@
                         <?php
                             if(@$error_msg['de_address'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_address']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_address']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="de_address">Address:</label>
                         <input placeholder="Enter Address" id="de_address" class="form-control" name="de_address" value="<?=@$dealer[0]->de_address?>" >
@@ -84,9 +84,9 @@
 							<?php
 								if(@$error_msg['de_city'] != ''){
 							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_city']?></label><br/>    
-							<?php        
-								} 
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_city']?></label><br/>
+							<?php
+								}
 							?>
 							<label for="de_city">City:</label>
 							<input placeholder="Enter City" id="de_city" class="form-control" name="de_city" value='<?=@$dealer[0]->de_city?>'>
@@ -95,9 +95,9 @@
 							<?php
 								if(@$error_msg['de_state'] != ''){
 							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_state']?></label><br/>    
-							<?php        
-								} 
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_state']?></label><br/>
+							<?php
+								}
 							?>
 							<label for="de_state">State:</label>
 							<input placeholder="Enter State" id="de_state" class="form-control" name="de_state" value='<?=@$dealer[0]->de_state?>'>
@@ -106,9 +106,9 @@
 							<?php
 								if(@$error_msg['de_zip'] != ''){
 							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_zip']?></label><br/>    
-							<?php        
-								} 
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_zip']?></label><br/>
+							<?php
+								}
 							?>
 							<label for="de_zip">Zip:</label>
 							<input placeholder="Enter Zip" id="de_zip" class="form-control" name="de_zip" value="<?=@$dealer[0]->de_zip?>">
@@ -128,9 +128,9 @@
 							<?php
 								if(@$error_msg['de_lat'] != ''){
 							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_lat']?></label><br/>    
-							<?php        
-								} 
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_lat']?></label><br/>
+							<?php
+								}
 							?>
 							<label for="de_lat">Latitude:</label>
 							<input placeholder="Enter Latitude" id="de_lat" class="form-control" name="de_lat" readonly value="<?=@$dealer[0]->de_lat?>">
@@ -139,9 +139,9 @@
 							<?php
 								if(@$error_msg['de_long'] != ''){
 							?>
-								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_long']?></label><br/>    
-							<?php        
-								} 
+								<label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_long']?></label><br/>
+							<?php
+								}
 							?>
 							<label for="de_long">Longitude:</label>
 							<input placeholder="Enter Longitude" id="de_long" class="form-control" name="de_long" readonly value="<?=@$dealer[0]->de_long?>">
@@ -151,18 +151,18 @@
                         <?php
                             if(@$error_msg['de_url'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_url']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=$error_msg['de_url']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label>URL</label>
                         <input placeholder="Enter URL" id="de_url" class="form-control" name="de_url" value="<?=@$dealer[0]->de_url?>" >
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-flat" type="submit">Submit</button>
-                    </div>    
+                        <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
+                    </div>
                 </form>
             </div>
     	</div>
     </div>
-</section>    	
+</section>

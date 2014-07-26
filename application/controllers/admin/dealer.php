@@ -67,8 +67,8 @@ class Dealer extends CI_Controller {
 				$error['de_userid'] = 'Please select user.';
 				$e_flag=1;
 			}
-			if ($post['de_userid'] == "") {
-				$error['de_userid'] = 'Please select user.';
+			if ($post['de_name'] == "") {
+				$error['de_name'] = 'Please dealer name.';
 				$e_flag=1;
 			}
 			if ($post['de_url'] != "" && filter_var($post['de_url'], FILTER_VALIDATE_URL) === FALSE) {

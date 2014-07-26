@@ -15,7 +15,7 @@
                     if (@$flash_msg != "") {
                 ?>
                     <div id="flash_msg"><?=$flash_msg?></div>
-                <?php        
+                <?php
                     }
                 ?>
                 <form id='deal_form' role="form" action="" method="post" enctype="multipart/form-data">
@@ -23,9 +23,9 @@
                         <?php
                             if(@$error_msg['dd_dealerid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_dealerid']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_dealerid']?></label><br/>
+                        <?php
+                            }
                         ?>
 						<label>Select Dealer</label>
 						<select class="form-control" id="dd_dealerid" name="dd_dealerid">
@@ -35,14 +35,14 @@
 							<?php } ?>
 						</select>
                     </div>
-					
+
                     <div class="form-group <?=(@$error_msg['dd_catid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_catid'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_catid']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_catid']?></label><br/>
+                        <?php
+                            }
                         ?>
 						<label>Select Category</label>
 						<select class="form-control" id="dd_catid" name="dd_catid">
@@ -52,26 +52,26 @@
 							<?php } ?>
 						</select>
                     </div>
-                    
+
                     <div class="form-group <?=(@$error_msg['dd_name'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_name'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_name']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_name']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_name">Deal Name:</label>
                         <input placeholder="Enter Dealer Name" id="dd_name" class="form-control" name="dd_name" value="<?=@$deal[0]->dd_name?>" >
                     </div>
-					
+
                     <div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_description'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_description']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_description']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_description">Description:</label>
                         <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
@@ -80,9 +80,9 @@
                         <?php
                             if(@$error_msg['dd_features'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_features']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_features']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_features">Features:</label>
                         <textarea type="email" placeholder="Features here (,) separated" id="dd_features" class="form-control" name="dd_features"><?=@$deal[0]->dd_features?></textarea>
@@ -91,9 +91,9 @@
                         <?php
                             if(@$error_msg['dd_conditions'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_conditions']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_conditions']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_conditions">Validity:</label>
                         <textarea type="email" placeholder="Validity (,) separated" id="dd_conditions" class="form-control" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
@@ -128,7 +128,7 @@
 										<label>Original Price:</label>
 										<input type="text" placeholder="Enter ..." id="do_originalprice" class="do_originalprice changeprice form-control"  value="<?=@$offer->do_originalprice?>" >
 									</div>
-									
+
 									<div class="col-xs-4 form-group">
 										<label>Discount:</label>
 										<input type="text" placeholder="Enter ..." id="do_discount" class="do_discount form-control" value="<?=@$offer->do_discount?>" readonly>
@@ -147,9 +147,9 @@
                         <?php
                             if(@$error_msg['dd_includes'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_includes']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_includes']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_includes">Deal Includes:</label>
                         <textarea type="email" placeholder="Validity (,) separated" id="dd_includes" class="form-control" name="dd_includes"><?=@$deal[0]->dd_includes?></textarea>
@@ -159,9 +159,9 @@
                         <?php
                             if(@$error_msg['dd_policy'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_policy']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_policy']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_policy">Deals Policy:</label>
                         <textarea type="email" placeholder="Validity (,) separated" id="dd_policy" class="form-control" name="dd_policy"><?=@$deal[0]->dd_policy?></textarea>
@@ -171,9 +171,9 @@
                         <?php
                             if(@$error_msg['dd_timeperiod'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_timeperiod']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_timeperiod']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_timeperiod">Start & End Time:</label>
 						<div class="input-group">
@@ -185,9 +185,9 @@
                         <?php
                             if(@$error_msg['dd_tags'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_tags']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_tags']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_tags">Tags:</label>
 						<?php if(count(@$dd_tags) > 0) {
@@ -202,9 +202,9 @@
                         <?php
                             if(@$error_msg['dd_status'] != ''){
                         ?>
-                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_status']?></label><br/>    
-                        <?php        
-                            } 
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_status']?></label><br/>
+                        <?php
+                            }
                         ?>
                         <label for="dd_status">Status:</label>
                         <select class="form-control" id="dd_status" name="dd_status">
@@ -215,7 +215,7 @@
                                 <option value='published' <?=(@$deal[0]->dd_status == 'published')?'selected':''?> >Published</option>
                             <?php
                                 }
-                            ?>						
+                            ?>
 							<option value='draft' <?=(@$deal[0]->dd_status == 'draft')?'selected':''?> >Draft</option>
 						</select>
                     </div>
@@ -232,10 +232,10 @@
 								<img src='<?=(base_url()."uploads/".$img->dl_url)?>' class='newimg' imgid = '<?=($img->dl_autoid)?>'>
 							<?php }?>
 						</div>
-                    </div>				
+                    </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-flat" type="submit">Submit</button>
-                    </div>    
+                        <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
+                    </div>
                 </form>
             </div>
     	</div>
@@ -252,4 +252,4 @@
 			</div>
 		</div>
     </div>
-</section>    	
+</section>
