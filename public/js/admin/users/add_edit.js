@@ -24,7 +24,7 @@ $("#submit").on("click",function  () {
         return false;
     }
 
-    if ($("#password").val() == $("#re_password").val()) {
+    if ($("#password").val() != $("#re_password").val()) {
         alert("Password field does not match.");
         return false;
     }
