@@ -46,7 +46,7 @@ class Index extends CI_Controller {
 								);
 					if($data['role'] == 'd')
 					{
-						$where = array('dd_dealerid'=>$data['id']);
+						$where = array('de_userid'=>$data['id']);
 						$dealer_info = $this->common_model->selectData(DEAL_DEALER, '*', $where);
 						$data['dealer_info'] = $dealer_info[0];
 					}

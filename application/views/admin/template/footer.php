@@ -90,6 +90,10 @@
         <script src="<?=public_path()?>js/admin/dealer/add_edit.js" type="text/javascript"></script>
     <?php } ?>
 
+	<?php if ($this->router->fetch_class() == "dashboard") { ?>
+        <script src="<?=public_path()?>js/admin/dashboard/deals.js" type="text/javascript"></script>
+    <?php } ?>
+
 	<?php if ($this->router->fetch_class() == "deal") { ?>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.tagedit.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
