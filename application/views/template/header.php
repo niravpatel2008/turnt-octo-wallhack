@@ -52,7 +52,7 @@
                     <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
                 </div>
                 </div>
-                <nav class="large-6 columns">
+                <nav class="large-6 columns toppad">
                     <ul class="rr main-menu">
                         <li class="current"><a href="<?=base_url()?>">Home</a></li>
                         <li><a href="<?=base_url()?>about_us">About us</a></li>
@@ -64,7 +64,7 @@
 					<option value="<?=base_url()?>privacy_policy">&nbsp;Privacy Policy</option>
 					</select>
                 </nav>
-                <div class="large-3 columns">
+                <div class="large-3 columns toppad">
                     <div class="account cf">
                       <?php
                         if ($this->front_session['id'] > 0) {

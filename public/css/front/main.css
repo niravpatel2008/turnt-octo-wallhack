@@ -479,7 +479,7 @@ p.text.small {
 .stripe-darker {
   background: #FFF;
   border-top:2px solid #832311;
-  padding: 18px 0;
+  padding: 0;
 }
 .stripe-dark,
 .stripe-darker {
@@ -747,15 +747,14 @@ header[role="banner"] {
   background: rgb(255,255,255);
   color: #fff;
   text-transform: uppercase;
-  padding: 23px 0;
+  padding: 5px 0;
   max-height: 450px;
   position: relative;
   z-index: 500;
   border-bottom:2px solid #832311;
 }
+.logo img {height:70px;}
 .logo {
-  font-size: 1.313em;
-  font-weight: 700;
   text-align: center;
   text-transform: uppercase;
 }
