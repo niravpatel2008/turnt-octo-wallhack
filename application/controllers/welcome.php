@@ -11,6 +11,13 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		/*$this->load->helper('htmltopdf/WKPDF_MULTI');
+		$templateHtml = "<html><body><b>This is testing.</b></body></html>";
+		$pdf = new WKPDF();
+		$pdf->set_html($templateHtml);
+		$pdf->render();
+		$pdf->output('I','sample.pdf');
+		exit;*/
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid');
 		$data['view'] = "index";
 		$this->load->view('content', $data);
