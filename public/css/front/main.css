@@ -1743,3 +1743,4 @@ small.label{
 .box,.box .box-header,.box .box-footer{border-radius:0px;}
 .nav-tabs{border-top:2px solid #00a65a;}
 .nav-tabs-custom > .nav-tabs > li.active{border-top-color:#00a65a;}
+.carousel-inner > .item{width:100%;}
