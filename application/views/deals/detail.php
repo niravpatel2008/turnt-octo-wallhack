@@ -218,7 +218,7 @@ $tags = implode(",",$tags);
 		<div class="box-body clearfix">
 			<div class='col-lg-4'>
 				<input type='hidden' id='lat' value='<?=$detail['de_lat'];?>'>
-				<input type='hidden' id='long' value='<?=$detail['de_lat'];?>'>
+				<input type='hidden' id='long' value='<?=$detail['de_long'];?>'>
 				<h3><?=$detail['de_name'];?></h3>
 				<dl class="dl-horizontal">
 					<dt>Address:</dt>
@@ -232,10 +232,6 @@ $tags = implode(",",$tags);
 				</dl>
 			</div>
 			<div id='map' class='col-lg-8'>
-				<iframe
-				  frameborder="0" style="border:0"
-				  src="https://www.google.com/maps/embed?center=<?=$detail['de_lat'];?>,<?=$detail['de_lat'];?>&zoom=18&maptype=satellite">
-				</iframe>
 			</div>
 		</div>
 	</div>

@@ -36,6 +36,12 @@
 <?php if(in_array($this->router->fetch_class(),array('welcome','deals')) || isset($responsivejs)) {?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
 <?php }?>
+
+<?php if(in_array($this->router->fetch_class(),array('deals'))) {?>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<?php }?>
+
+
 <script src="<?=public_path()?>js/front/common.js"></script>
 <script src="<?=public_path()?>js/front/<?=$this->router->fetch_class()?>.js"></script>
 
