@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>
+                    <button type="submit" class="btn bg-olive btn-block sumitbtn">Sign me in</button>
 
                     <p><a href="<?=admin_path()?>forgotpassword">I forgot my password</a></p>
 

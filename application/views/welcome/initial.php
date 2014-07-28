@@ -14,20 +14,20 @@
         <form name="loginform" id="loginform" method="post">
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary" name='txtusername' id='txtusername' placeholder="Name">
+              <input type="text" class="input field primary allow-enter" name='txtusername' id='txtusername' placeholder="Name">
 
             </div>
           </div>
 
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="password" class="input field primary" name='txtpassword' id='txtpassword' placeholder="Password">
+              <input type="password" class="input field primary allow-enter" name='txtpassword' id='txtpassword' placeholder="Password">
 
             </div>
           </div>
 
             <div style="padding-top:10px;text-align:center;" class='row'>
-      			  <input type="button" name="signin" id="signin" value="Sign in" class="input button primary" style='width: 33.3333%;display:inline-block;' />
+      			  <input type="button" name="signin" id="signin" value="Sign in" class="sumitbtn input button primary" style='width: 33.3333%;display:inline-block;' />
       			  <input type="button" name="csbtnClear" id="csbtnClear" onclick="javascript:$('#divConsLogin').modal('toggle');" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
             </div>
 
@@ -50,32 +50,32 @@
         <form name="signupform" id="signupform" method="post">
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary" name='username' id='username' placeholder="Name">
+              <input type="text" class="input field primary allow-enter" name='username' id='username' placeholder="Name">
             </div>
           </div>
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="password" class="input field primary" name='password' id='password' placeholder="Password">
+              <input type="password" class="input field primary allow-enter" name='password' id='password' placeholder="Password">
             </div>
           </div>
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="password" class="input field primary" name='password2' id='password2' placeholder="Confirm password">
+              <input type="password" class="input field primary allow-enter" name='password2' id='password2' placeholder="Confirm password">
             </div>
           </div>
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary" name='email' id='email' placeholder="Email">
+              <input type="text" class="input field primary allow-enter" name='email' id='email' placeholder="Email">
             </div>
           </div>
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary" name='contact' id='contact' placeholder="Contact">
+              <input type="text" class="input field primary allow-enter" name='contact' id='contact' placeholder="Contact">
             </div>
           </div>
 
           <div style="padding-top:10px;text-align:center;" class='row'>
-            <input type="button" name="signup" id="signup" value="Submit" class="input button primary" style='width: 33.3333%;display:inline-block;' />
+            <input type="button" name="signup" id="signup" value="Submit" class="sumitbtn input button primary" style='width: 33.3333%;display:inline-block;' />
             <input type="button" name="csbtnClear" id="csbtnClear" onclick="javascript:$('#divCreateAccountForm').modal('toggle');" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
           </div>
           <div class="clearboth" style="height:10px"></div>
@@ -99,7 +99,7 @@
         </div>
 
         <div style="padding-top:10px;text-align:center;" class='row'>
-          <input type="button" name="forgotpassword" id="forgotpassword" value="Submit" class="input button primary" style='width: 33.3333%;display:inline-block;' />
+          <input type="button" name="forgotpassword" id="forgotpassword" value="Submit" class="sumitbtn input button primary" style='width: 33.3333%;display:inline-block;' />
           <input type="button" onclick="javascript:$('#divForgotPasswordForm').modal('toggle');" value="Cancel" class="input button primary" style='width: 33.3333%;display:inline-block;' />
         </div>
         <div class="clearboth" style="height:10px"></div>

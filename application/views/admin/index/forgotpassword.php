@@ -47,7 +47,7 @@
 
                 </div>
                 <div class="footer">
-                    <button type="submit" class="btn bg-olive btn-block">Submit</button>
+                    <button type="submit" class="btn bg-olive btn-block sumitbtn">Submit</button>
                 </div>
             </form>
         </div>
