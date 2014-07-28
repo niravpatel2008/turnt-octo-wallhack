@@ -4,6 +4,8 @@
 $detail = $dealsDetail['detail'][0];
 $features = array_map('trim',array_filter(explode(",",$detail['dd_features'])));
 $validities = array_map('trim',array_filter(explode(",",$detail['dd_conditions'])));
+$includes = array_map('trim',array_filter(explode(",",$detail['dd_includes'])));
+$policies = array_map('trim',array_filter(explode(",",$detail['dd_policy'])));
 $url = base_url()."deals/detail/".$detail['dd_autoid']."/".$detail['dd_name'];
 $photo = "";
 foreach ($dealsDetail['links'] as $key=>$val)
@@ -159,7 +161,77 @@ $tags = implode(",",$tags);
 		</section>
 	</div>
 
+	<div class='row'>
+		<section class='col-lg-6'>
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs pull-right">
+					<li class="active"><a data-toggle="tab" href="#tab_1-1">Detail</a></li>
+					<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li>
+					<li class="pull-left header">
+						<i class="fa fa-paperclip"></i>
+						Offer
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id='tab_1-1' class='tab-pane active'>
+						<div id='description'>
+							<ul class='list-unstyled'>
+							<?php foreach($offers as $offer){?>
+								<li><i class="fa fa-fw fa-bell-o"></i><?=$offer->do_offertitle?></li>
+							<?php } ?>
+							</ul>
+						</div>
+					</div>	
+					<div id='tab_1-2' class='tab-pane'>
+						<ul class='list-unstyled'>
+							<li>
+								<ul>
+									<?php foreach ($validities as $validity){
+										echo "<li>$validity</li>";
+									}?>
+								</ul>
+							</li>
+						</ul>
+					</div>	
+				</div>
+			<div>
+		</section>
 
+		<section class='col-lg-6'>
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs pull-right">
+					<li class="active"><a data-toggle="tab" href="#tab_2-1">Includes</a></li>
+					<li ><a data-toggle="tab" href="#tab_2-2">Description</a></li>
+					<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
+					<li class="pull-left header">
+						<i class="fa fa-th"></i>
+						Offer
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id='tab_2-1' class='tab-pane active'>
+						<ul class='list-unstyled'>
+							<?php foreach ($includes as $include){
+								echo "<li><i class='fa fa-fw fa-check green'></i> $include</li>";
+							}?>
+						</ul>
+					</div>	
+					<div id='tab_2-2' class='tab-pane'>
+						<div id='description'><?=$detail['dd_description'];?></div>
+					</div>
+					<div id='tab_2-3' class='tab-pane'>
+						<ul class='list-unstyled'>
+							<?php foreach ($policies as $policy){
+								echo "<li><i class='fa fa-fw fa-check green'></i> $policy</li>";
+							}?>
+						</ul>
+					</div>
+				</div>
+			<div>
+		</section>
+	</div>
+
+<?php /*?>
 	<div class='row'>
 		<section class='col-lg-4'>
 			<div class="box box-success">
@@ -208,7 +280,7 @@ $tags = implode(",",$tags);
 			</div>
 		</section>
 	</div>
-
+<?php */?>
 
 
 	<div class="box box-success">
