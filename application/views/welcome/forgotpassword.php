@@ -15,8 +15,8 @@
     </div>
 
     <label>Email address:</label>
-    <input type="text" name="email" class="" />
+    <input type="text" name="email" class="allow-enter" />
     <?=@$error_msg['email']?>
-    <button type="submit" class="input button primary">Submit</button>
+    <button type="submit" class="sumitbtn input button primary">Submit</button>
 </form>
 </div>

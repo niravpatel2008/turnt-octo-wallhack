@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" value="Submit" class="input button primary"></td>
+			<td><input type="submit" value="Submit" class="input button primary sumitbtn"></td>
 		</tr>
 	</table>
 </form>

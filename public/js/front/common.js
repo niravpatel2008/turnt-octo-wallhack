@@ -212,4 +212,11 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$('.allow-enter').keydown(function(e){
+		 if (e.which == 13) {
+			var $targ = $(e.target).closest("form");
+			$targ.find(".sumitbtn").focus();
+		}	
+	})
 });
