@@ -153,7 +153,7 @@ $tags = implode(",",$tags);
 				<div class="box-footer clearfix">
 				<?php foreach($dealsDetail['links'] as $key=>$val){?>
 					<a href='javascript:void(0);' class='left margin' onclick="$('#slider-wrapper').carousel(<?=$key?>);">
-						<img height="72" width="72" src="<?=base_url()."uploads/".$val['dl_url']?>">
+						<img height="50" width="72" style='height:50px;width:72px;' src="<?=base_url()."uploads/".$val['dl_url']?>">
 					</a>
 				<?php }?>
 				</div>
