@@ -91,34 +91,64 @@
         </div>
 
         <div class="main-slider-wrap">
-          <div >
-            <div class="column">
-              <div class="main-slider flexslider white">
-
-              <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
-				<ul class="flex-direction-nav">
-					<li><a href="#" class="flex-prev">Previous</a></li>
-					<li><a href="#" class="flex-next">Next</a></li>
-				</ul>
-				<div class="flex-viewport" style="overflow: hidden; position: relative;">
-				<ul class="slides">
-				 <li>
-					<div class="row"><p class="h1" style='font-weight:bold;color:red;'>Talk of the town deals</p></div>
-					<img src="<?=base_url()?>public/img/slider/1.jpg">
-				 </li>
-				 <li> 
-					<div class="row"><p class="h1" style='font-weight:bold;'>From restaurant to Banquet hall..</p></div>   
-					<img src="<?=base_url()?>public/img/slider/2.jpg">
-				 </li>
-				 <li>
-					<div class="row"><p class="h1" style='font-weight:bold;'>From Hotel to Hospitality ...</p></div>
-					<img src="<?=base_url()?>public/img/slider/3.jpg">
-				 </li>
-				 </ul>
+			<div class="column">
+				<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+				  <div class="slides" data-group="slides">
+					<ul>
+					  <li>
+						<div class="slide-body" data-group="slide">
+						  <img src="../img/slide-1.jpg">
+						  <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+							<h2>Responsive slider</h2>
+							<div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
+						  </div>
+						  <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
+							<img src="../img/html5.png">
+						  </div>
+						  <div class="caption img-css3" data-animate="slideAppearLeftToRight">
+							<img src="../img/css3.png">
+						  </div>
+						</div>
+					  </li>
+					  <li>
+						<div class="slide-body" data-group="slide">
+						  <img src="../img/slide-2.jpg">
+						  <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+							<h2>Twitter Boostrap</h2>
+							<div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
+						  </div>
+						  <div class="caption img-bootstrap" data-animate="slideAppearDownToUp" data-delay="200">
+							<img src="../img/bootstrap.png">
+						  </div>
+						  <div class="caption img-twitter" data-animate="slideAppearUpToDown">
+							<img src="../img/twitter.png">
+						  </div>
+						</div>
+					  </li>
+					  <li>
+						<div class="slide-body" data-group="slide">
+						  <img src="../img/slide-3.jpg">
+						  <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+							<h2>Custom animations</h2>
+							<div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
+						  </div>
+						  <div class="caption img-jquery" data-animate="slideAppearDownToUp" data-delay="200">
+							<img src="../img/jquery.png">
+						  </div>
+						</div>
+					  </li>
+					</ul>
+				  </div>
+				  <a class="slider-control left" href="#" data-jump="prev"><</a>
+				  <a class="slider-control right" href="#" data-jump="next">></a>
+				  <div class="pages">
+					<a class="page" href="#" data-jump-to="1">1</a>
+					<a class="page" href="#" data-jump-to="2">2</a>
+					<a class="page" href="#" data-jump-to="3">3</a>
+				  </div>
 				</div>
-				</div>
-            </div>
-          </div>
+			  
+			</div>
         </div>
 
         <div class="search-wrap stripe-white">
