@@ -91,98 +91,32 @@
         </div>
 
         <div class="main-slider-wrap">
-          <div class="row">
+          <div >
             <div class="column">
               <div class="main-slider flexslider white">
 
-              <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; transition-duration: 0s; transform: translate3d(-900px, 0px, 0px);"><li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">We constantly hunt for upcoming hot deals in the city</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <!--figure>
-                            <img alt="" src="http://www.clipartlord.com/wp-content/uploads/2013/10/target.png">
-                          </figure-->
-						  <p class="caption">
-                            Our team of serial hunters look at every nook and corner of the city for best of best deals.
-							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </li><li class="clone flex-active-slide" style="width: 900px; float: left; display: block;">
-                    <p class="h1">Our representative negotiate and finalise the best deal for U with the dealer</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            Our representative converse with the dealers for the best deals at the best price and come out with a fab offer.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Deals are listed on the site</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            Only the Verified and finalised deals by Administrator are available on the site.
-							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="http://blog.quicklinkt.com/wp-content/uploads/2014/05/verified-referrals-quicklinkt-app.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Create your login , Like the deals, grab a deal</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            - Just fill the details and make yourself registered.</br>
-                            - Once registered you can mark deals as a Favourite and will recieve latest deals as per the flavour of deals which you have marked.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See more offers</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Check your mailbox or check under My Deals tab</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            We we will be sending you daily email alerts with the newly added deals as per your flavour.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                <li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">Take a print out and enjoy your deal.</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption"></p>
-                          <!--figure></figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </ul></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
+              <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
+				<ul class="flex-direction-nav">
+					<li><a href="#" class="flex-prev">Previous</a></li>
+					<li><a href="#" class="flex-next">Next</a></li>
+				</ul>
+				<div class="flex-viewport" style="overflow: hidden; position: relative;">
+				<ul class="slides">
+				 <li>
+					<div class="row"><p class="h1" style='font-weight:bold;color:red;'>Talk of the town deals</p></div>
+					<img src="<?=base_url()?>public/img/slider/1.jpg">
+				 </li>
+				 <li> 
+					<div class="row"><p class="h1" style='font-weight:bold;'>From restaurant to Banquet hall..</p></div>   
+					<img src="<?=base_url()?>public/img/slider/2.jpg">
+				 </li>
+				 <li>
+					<div class="row"><p class="h1" style='font-weight:bold;'>From Hotel to Hospitality ...</p></div>
+					<img src="<?=base_url()?>public/img/slider/3.jpg">
+				 </li>
+				 </ul>
+				</div>
+				</div>
             </div>
           </div>
         </div>
