@@ -22,8 +22,7 @@
   </footer>
 </div>
 
-
-<script src="<?=public_path()?>js/front/jquery.min.js"></script>
+<script src="<?=public_path()?>js/front/jquery.js"></script>
 <script src="<?=public_path()?>js/front/plugins.js"></script>
 <script src="<?=public_path()?>js/front/jquery.cookie.js"></script>
 <!-- Auto Complete tag js -->
@@ -35,6 +34,11 @@
 <script type="text/javascript">stLight.options({publisher: "7c10ea91-7fbf-4e61-826c-a7210603986f", doNotHash: false, doNotCopy: false, hashAddressBar:false});</script>
 <?php if(in_array($this->router->fetch_class(),array('welcome','deals')) || isset($responsivejs)) {?>
 <script type="text/javascript" src="<?=public_path()?>js/front/responsive.js" charset="utf-8"></script>
+<?php }?>
+
+<?php if(in_array($this->router->fetch_class(),array('welcome'))) {?>
+<script type="text/javascript" src="<?=public_path()?>js/jquery.event.move.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=public_path()?>js/responsive-slider.js" charset="utf-8"></script>
 <?php }?>
 
 <?php if(in_array($this->router->fetch_class(),array('deals'))) {?>

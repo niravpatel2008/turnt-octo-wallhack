@@ -144,10 +144,6 @@ $(function() {
     className: 'select-popular-companies-list'
   });
 
-  $('.main-slider').flexslider({
-    animation: "slide"
-  });
-
   // main menu indicator
   var temp;
    $('.main-menu li').hover(function() {

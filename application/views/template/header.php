@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -20,7 +20,7 @@
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="<?=public_path()?>css/front/flexslider.css">
+    <link rel="stylesheet" href="<?=public_path()?>css/front/responsive-slider.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-48.css" media="screen and (min-width: 48em)">
@@ -91,100 +91,61 @@
         </div>
 
         <div class="main-slider-wrap">
-          <div class="row">
-            <div class="column">
-              <div class="main-slider flexslider white">
-
-              <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; transition-duration: 0s; transform: translate3d(-900px, 0px, 0px);"><li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">We constantly hunt for upcoming hot deals in the city</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <!--figure>
-                            <img alt="" src="http://www.clipartlord.com/wp-content/uploads/2013/10/target.png">
-                          </figure-->
-						  <p class="caption">
-                            Our team of serial hunters look at every nook and corner of the city for best of best deals.
-							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </li><li class="clone flex-active-slide" style="width: 900px; float: left; display: block;">
-                    <p class="h1">Our representative negotiate and finalise the best deal for U with the dealer</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            Our representative converse with the dealers for the best deals at the best price and come out with a fab offer.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Deals are listed on the site</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            Only the Verified and finalised deals by Administrator are available on the site.
-							<a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="http://blog.quicklinkt.com/wp-content/uploads/2014/05/verified-referrals-quicklinkt-app.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Create your login , Like the deals, grab a deal</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            - Just fill the details and make yourself registered.</br>
-                            - Once registered you can mark deals as a Favourite and will recieve latest deals as per the flavour of deals which you have marked.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See more offers</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li style="width: 900px; float: left; display: block;" class="">
-                    <p class="h1">Check your mailbox or check under My Deals tab</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption">
-                            We we will be sending you daily email alerts with the newly added deals as per your flavour.
-                            <a class="ir icon tag" href="<?=base_url()?>how_it_works">See Coupons</a>
-                          </p>
-                          <!--figure>
-                            <img alt="" src="Couponizer_files/prod.png">
-                          </figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                <li style="width: 900px; float: left; display: block;" class="clone">
-                    <p class="h1">Take a print out and enjoy your deal.</p>
-                    <div class="row">
-                      <div class="large-8 columns large-centered">
-                        <div class="content">
-                          <p class="caption"></p>
-                          <!--figure></figure-->
-                        </div>
-                      </div>
-                    </div>
-                  </ul></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev">Previous</a></li><li><a href="#" class="flex-next">Next</a></li></ul></div>
-            </div>
-          </div>
+			<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+        <div class="slides" data-group="slides">
+      		<ul>
+  	    		<li>
+              <div class="slide-body" data-group="slide">
+                <img src="<?=public_path()?>img/slider/3.jpg">
+                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                  <h2>Responsive slider</h2>
+                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
+                </div>
+                <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
+                  <img src="<?=public_path()?>img/slider/html5.png">
+                </div>
+                <div class="caption img-css3" data-animate="slideAppearLeftToRight">
+                  <img src="<?=public_path()?>img/slider/css3.png">
+                </div>
+              </div>
+  	    		</li>
+  	    		<li>
+              <div class="slide-body" data-group="slide">
+                <img src="<?=public_path()?>img/slider/2.jpg">
+                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                  <h2>Twitter Boostrap</h2>
+                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
+                </div>
+                <div class="caption img-bootstrap" data-animate="slideAppearDownToUp" data-delay="200">
+                  <img src="<?=public_path()?>img/slider/bootstrap.png">
+                </div>
+                <div class="caption img-twitter" data-animate="slideAppearUpToDown">
+                  <img src="<?=public_path()?>img/slider/twitter.png">
+                </div>
+              </div>
+  	    		</li>
+  	    		<li>
+              <div class="slide-body" data-group="slide">
+                <img src="<?=public_path()?>img/slider/1.jpg">
+                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                  <h2>Custom animations</h2>
+                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
+                </div>
+                <div class="caption img-jquery" data-animate="slideAppearDownToUp" data-delay="200">
+                  <img src="<?=public_path()?>img/slider/jquery.png">
+                </div>
+              </div>
+  	    		</li>
+  	    	</ul>
+        </div>
+        <a class="slider-control left" href="#" data-jump="prev">Prev</a>
+        <a class="slider-control right" href="#" data-jump="next">Next</a>
+        <div class="pages">
+          <a class="page" href="#" data-jump-to="1">1</a>
+          <a class="page" href="#" data-jump-to="2">2</a>
+          <a class="page" href="#" data-jump-to="3">3</a>
+        </div>
+    	</div>
         </div>
 
         <div class="search-wrap stripe-white">

@@ -120,14 +120,15 @@
 
 /* main slider */
 
-.main-slider {
-  height: 350px;
+.main-slider li{
+ max-height: 400px;
+ width:100%;
 }
 .main-slider img {
-  max-height: 100px;
   display: inline-block !important;
+  /*max-height: 100px;
   width: auto !important;
-  margin-top: 20px;
+  margin-top: 20px;*/
 }
 
 /* items landscape */
