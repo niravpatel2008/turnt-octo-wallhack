@@ -116,7 +116,7 @@ $(document).ready(function(){
 		})
 	});
 
-	$("#signin").live('click', function () {
+	$("#signin").on('click', function () {
 		if ($.trim($("#txtpassword").val()) == "") {
 			alert('Please enter username.');
 			return false;
@@ -144,7 +144,7 @@ $(document).ready(function(){
 
 	});
 
-	$("#signup").live('click', function () {
+	$("#signup").on('click', function () {
 
 		if ($.trim($("#username").val()) == "") {
 			alert('Please enter username.');
@@ -193,7 +193,7 @@ $(document).ready(function(){
 
 	});
 
-	$("#forgotpassword").live('click', function () {
+	$("#forgotpassword").on('click', function () {
 		if (!IsEmail($.trim($("#txtemail").val())) || $.trim($("#txtemail").val()) == "") {
 		  alert('Please enter valid email.');
 		  return false;
