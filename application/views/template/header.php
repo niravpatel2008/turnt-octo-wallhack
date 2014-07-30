@@ -96,17 +96,17 @@
       		<ul>
   	    		<li>
               <div class="slide-body" data-group="slide">
-                <img src="<?=public_path()?>img/slider/3.jpg">
+                <img src="<?=public_path()?>img/slider/2.jpg">
                 <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                  <h2 style='color:#FFFFFF;'>From restaurant to Banquet hall..</h2>
+                  <h2 style='color:#FFFFFF;'>From restaurant to Banquet hall</h2>
                 </div>
               </div>
   	    		</li>
   	    		<li>
               <div class="slide-body" data-group="slide">
-                <img src="<?=public_path()?>img/slider/2.jpg">
+                <img src="<?=public_path()?>img/slider/3.jpg">
                 <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                  <h2 style='color:#FFFFFF;'>From Hotel to Hospitality ...</h2>
+                  <h2 style='color:#FFFFFF;'>From Hotel to Hospitality</h2>
                 </div>
               </div>
   	    		</li>
