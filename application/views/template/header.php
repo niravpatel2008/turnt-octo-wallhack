@@ -98,14 +98,7 @@
               <div class="slide-body" data-group="slide">
                 <img src="<?=public_path()?>img/slider/3.jpg">
                 <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                  <h2>Responsive slider</h2>
-                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
-                </div>
-                <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
-                  <img src="<?=public_path()?>img/slider/html5.png">
-                </div>
-                <div class="caption img-css3" data-animate="slideAppearLeftToRight">
-                  <img src="<?=public_path()?>img/slider/css3.png">
+                  <h2 style='color:#FFFFFF;'>From restaurant to Banquet hall..</h2>
                 </div>
               </div>
   	    		</li>
@@ -113,14 +106,7 @@
               <div class="slide-body" data-group="slide">
                 <img src="<?=public_path()?>img/slider/2.jpg">
                 <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                  <h2>Twitter Boostrap</h2>
-                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
-                </div>
-                <div class="caption img-bootstrap" data-animate="slideAppearDownToUp" data-delay="200">
-                  <img src="<?=public_path()?>img/slider/bootstrap.png">
-                </div>
-                <div class="caption img-twitter" data-animate="slideAppearUpToDown">
-                  <img src="<?=public_path()?>img/slider/twitter.png">
+                  <h2 style='color:#FFFFFF;'>From Hotel to Hospitality ...</h2>
                 </div>
               </div>
   	    		</li>
@@ -128,11 +114,7 @@
               <div class="slide-body" data-group="slide">
                 <img src="<?=public_path()?>img/slider/1.jpg">
                 <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                  <h2>Custom animations</h2>
-                  <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
-                </div>
-                <div class="caption img-jquery" data-animate="slideAppearDownToUp" data-delay="200">
-                  <img src="<?=public_path()?>img/slider/jquery.png">
+                  <h2 style='color:#000000;'>Talk of the town deals</h2>
                 </div>
               </div>
   	    		</li>
