@@ -92,7 +92,7 @@ class Index extends CI_Controller {
 				$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 				if (count($user) > 0) {
 
-					$newpassword = random_string('alnum', 8);
+					echo $newpassword = random_string('alnum', 8);
 					$data = array('du_password' => sha1($newpassword));
 					$upid = $this->common_model->updateData(DEAL_USER,$data,$where);
 

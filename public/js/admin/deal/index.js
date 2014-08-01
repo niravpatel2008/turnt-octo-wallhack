@@ -14,7 +14,55 @@ $(document).ready(function() {
 		  }
 		]
 	} );
-	
+
+	$('#deal_form').on('submit',function(e){
+		if ($("#dd_dealerid").val() == "") {
+        alert("Please select dealer.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_catid").val() == "") {
+			alert("Please select category.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_name").val() == "") {
+			alert("Please enter deal name.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_status").val() == "") {
+			alert("Please select status.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_includes").val() == "") {
+			alert("Please enter what deals includes.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_policy").val() == "") {
+			alert("Please enter deal policy.");
+			e.preventDefault();
+		}
+
+		if ($("#dd_mainphoto").val() == "") {
+			alert("Please select main photo.");
+			e.preventDefault();
+		}
+
+		$('.offers_div').each(function(k,v){
+			var offer_data = {};
+			offer_data['do_autoid'] = $(this).find("#do_autoid").val();
+			offer_data['do_offertitle'] = $(this).find("#do_offertitle").val();
+			offer_data['do_listprice'] = $(this).find("#do_listprice").val();
+			offer_data['do_originalprice'] = $(this).find("#do_originalprice").val();
+			offer_data['do_discount'] = $(this).find("#do_discount").val();
+			//console.log(JSON.stringify(offer_data));
+			$(this).find('#offer_data').val(JSON.stringify(offer_data));
+		});
+	});
+
 	$('#dd_timeperiod').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
 
 	$( ".dd_tags").tagedit({
@@ -63,12 +111,6 @@ $(document).ready(function() {
 		$clone.find("input").val("");
 		$clone.insertAfter(".offers_div:last");
 	});
-	
-	/*
-		$('.saveoffers').on('click',function(){
-			var dd_autoid = $(this).attr('dd_autoid');
-		});
-	*/
 
 	$(document).delegate('.removeoffer','click',function(e){
 		e.preventDefault();
@@ -98,17 +140,23 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#deal_form').on('submit',function(e){
-		//e.preventDefault();
-		$('.offers_div').each(function(k,v){
-			var offer_data = {};
-			offer_data['do_autoid'] = $(this).find("#do_autoid").val();
-			offer_data['do_offertitle'] = $(this).find("#do_offertitle").val();
-			offer_data['do_listprice'] = $(this).find("#do_listprice").val();
-			offer_data['do_originalprice'] = $(this).find("#do_originalprice").val();
-			offer_data['do_discount'] = $(this).find("#do_discount").val();
-			//console.log(JSON.stringify(offer_data));
-			$(this).find('#offer_data').val(JSON.stringify(offer_data));
+	$('#img-container').delegate(".removeimage","click",function(e){
+		e.preventDefault();
+		atag = $(this);
+		dl_autoid = $(atag).attr('dl_autoid');
+		url = admin_path()+'deal/removeImage',
+		data = {id:dl_autoid};
+		$.post(url,data,function(e){
+			if (e == "success") {
+				if ($('#dd_mainphoto').val() == dl_autoid)
+				{
+					$('#dd_mainphoto').val("");
+				}
+				$(atag).closest('div.pull-left').remove();
+				$("#flash_msg").html(success_msg_box ('Image deleted successfully.'));
+			}else{
+				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
+			}
 		});
 	});
 } );
