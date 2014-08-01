@@ -174,6 +174,7 @@ $(function() {
 	$('#category').html(selected);
 	var catid = $(this).attr('catid');
 	$('#category').attr('catid',catid);
+	getDealList('new');
   });
   temp3.on('click', function(event) {
     event.stopPropagation();
@@ -238,15 +239,17 @@ $(function() {
 					$('.textboxlist-bit-editable-input').css("width","385px");
 			}*/
 			//setTextContainerMoreIcn();
+			getDealList('new');
 	};
 
 	var removeBoxEvt = function(removedBox) {
 			$.cookie("tags","");
-			if($("#search_tags").val() == "")
-				setAutoPlaceholder();
+			//if($("#search_tags").val() == "")
+				//setAutoPlaceholder();
 			//if (flag)
 			//	getPropList('new');
-		setTextContainerMoreIcn();
+			getDealList('new');
+		//setTextContainerMoreIcn();
 	};
 
 	var bitBoxFocusEvt = function(removedBox) {
