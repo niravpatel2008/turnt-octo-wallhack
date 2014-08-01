@@ -90,7 +90,7 @@
             </div>
         </div>
 
-        <div class="main-slider-wrap">
+        <div class="row main-slider-wrap" style='max-width:84.4em;'>
 			<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
         <div class="slides" data-group="slides">
       		<ul>

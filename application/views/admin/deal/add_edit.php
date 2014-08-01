@@ -220,7 +220,7 @@
 						</select>
                     </div>
 
-					<div class="form-group"> <!-- Uploaded images will be shown here -->
+					<div class="form-group clearfix"> <!-- Uploaded images will be shown here -->
 						<input type='hidden' name='newimages' id='newimages'>
 						<input type='hidden' name='dd_mainphoto' id='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>
 						<label for="dd_status">Select Main Image:</label>
@@ -229,7 +229,11 @@
 						}?>
                         <div id='img-container'>
 							<?php foreach(@$dd_images as $img) {?>
+								<div class='pull-left'>
 								<img src='<?=(base_url()."uploads/".$img->dl_url)?>' class='newimg' imgid = '<?=($img->dl_autoid)?>'>
+								<br>
+								<center><a class="removeimage" dl_autoid="<?=($img->dl_autoid)?>" href="#"><i class="fa fa-trash-o"></i></a></center>
+								</div>
 							<?php }?>
 						</div>
                     </div>

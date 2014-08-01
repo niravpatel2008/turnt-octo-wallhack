@@ -674,7 +674,7 @@ a.flex-next {
 }
 .item-thumb h2 {
   position: relative;
-  top: 10px;
+  margin: 15px 0;
 }
 .item-thumb .bottom {
   height: 40%;

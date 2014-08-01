@@ -388,6 +388,22 @@ class Deal extends CI_Controller {
 		}
 	}
 
+	public function removeImage()
+	{
+		$post = $this->input->post();
+
+		if ($post) {
+			$link = $this->common_model->selectData(DEAL_LINKS,"dl_url",array('dl_autoid' => $post['id'] )); 
+			unlink("./uploads/".$link[0]->dl_url);
+			$ret = $this->common_model->deleteData(DEAL_LINKS, array('dl_autoid' => $post['id'] ));
+			if ($ret > 0) {
+				echo "success";
+			}else{
+				echo "error";
+			}
+		}
+	}
+
 	public function fileupload()
 	{
 		$file_name = "";
