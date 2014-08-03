@@ -92,6 +92,15 @@ class Deals extends CI_Controller {
 
 		echo 1;
 	}
+
+	public function getprint($id)
+	{
+		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
+		$data = array();
+		if ($id == "")
+			redirect("welcome");
+		$html = $this->load->view('print', $data);
+	}
 }
 
 /* End of file search.php */
