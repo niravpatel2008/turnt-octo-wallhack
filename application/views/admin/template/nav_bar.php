@@ -1,7 +1,7 @@
 <body class="skin-blue">
     <!-- header logo: style can be found in header.less -->
    <header class="header">
-            <a class="logo" href="index.html">
+            <a class="logo" href="<?=admin_path()?>">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 Admin
             </a>

@@ -142,9 +142,9 @@ class Deal extends CI_Controller {
 						$offerArr['do_ddid'] = $ret_deal;
 						$offerId = $this->common_model->insertData(DEAL_OFFER, $offerArr);
 					}
+
 					/*ADd Tags*/
 					$post_tags = $post['dd_tags'];
-
 					foreach ($post_tags as $tag)
 					{
 						$tag = trim($tag);
@@ -173,6 +173,10 @@ class Deal extends CI_Controller {
 					if (count($newimages) > 0)
 						$this->common_model->assingImagesToDeal($ret_deal,$newimages);
 
+					
+					/*Deal Images sorting.*/
+					if($post['sortOrder'] != "")
+						$this->common_model->setImageOrder($post['sortOrder'],$ret_deal);
 
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal added successfully.'
@@ -344,6 +348,10 @@ class Deal extends CI_Controller {
 						$this->common_model->deleteTags($del_ids,$id);
 					}
 
+					/*Deal Images sorting.*/
+					if($post['sortOrder'] != "")
+						$this->common_model->setImageOrder($post['sortOrder'],$id);
+
 					$flash_arr = array('flash_type' => 'success',
 										'flash_msg' => 'Deal updated successfully.'
 									);
@@ -368,7 +376,7 @@ class Deal extends CI_Controller {
 		$data['dealers'] = $this->common_model->selectData(DEAL_DEALER, 'de_autoid,de_name,de_email');
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catid,dc_catname');
 		$data['dd_tags'] = $this->common_model->getDealTags($id);
-		$data['dd_images'] = $this->common_model->selectData(DEAL_LINKS, 'dl_autoid,dl_url',array("dl_ddid"=>$id));
+		$data['dd_images'] = $this->common_model->selectData(DEAL_LINKS, 'dl_autoid,dl_url',array("dl_ddid"=>$id),"dl_order","ASC");
 		$data['offers'] = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id));
 		$data['view'] = "add_edit";
 		$this->load->view('admin/content', $data);

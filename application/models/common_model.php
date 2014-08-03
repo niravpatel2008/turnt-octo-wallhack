@@ -303,6 +303,7 @@ class common_model extends CI_Model{
 			$this->db->select("*");
 			$this->db->from(DEAL_LINKS);
 			$this->db->where('dl_ddid',$id);
+			$this->db->order_by("dl_order","ASC");
 			$query = $this->db->get();
 			$data['links'] = $query->result_array();
 
@@ -352,6 +353,21 @@ class common_model extends CI_Model{
 		
 		$myoffers = $query->result_array();
 		return $myoffers;
+	}
+
+	function setImageOrder($imglist,$dealid)
+	{
+		$imglist = json_decode($imglist,1);
+		foreach($imglist as $imgdata)
+		{
+			$where = array();
+			$where['dl_autoid'] = $imgdata['dl_autoid'];
+			$where['dl_ddid'] = $dealid;
+
+			$data = array();
+			$data['dl_order'] = $imgdata['dl_order'];
+			$this->common_model->updateData(DEAL_LINKS, $data, $where);
+		}
 	}
 }
 ?>

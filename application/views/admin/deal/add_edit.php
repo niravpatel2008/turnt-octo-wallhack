@@ -178,7 +178,7 @@
                         <label for="dd_timeperiod">Start & End Time:</label>
 						<div class="input-group">
 							<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-	                        <input placeholder="Enter Address" id="dd_timeperiod" class="form-control" name="dd_timeperiod" value="<?=date('m/d/Y g:i A',strtotime(@$deal[0]->dd_startdate)). " - " .date('m/d/Y g:i A',strtotime(@$deal[0]->dd_expiredate))?>">
+	                        <input placeholder="Select Start & End Time" id="dd_timeperiod" class="form-control" name="dd_timeperiod" value="<?=(@$deal[0]->dd_startdate)?date('m/d/Y g:i A',strtotime(@$deal[0]->dd_startdate)). " - " .date('m/d/Y g:i A',strtotime(@$deal[0]->dd_expiredate)):""?>">
 						</div>
                     </div>
 					<div class="form-group <?=(@$error_msg['dd_tags'] != '')?'has-error':'' ?>">
@@ -222,20 +222,21 @@
 
 					<div class="form-group clearfix"> <!-- Uploaded images will be shown here -->
 						<input type='hidden' name='newimages' id='newimages'>
+						<input type='hidden' name='sortOrder' id='sortOrder'>
 						<input type='hidden' name='dd_mainphoto' id='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>
 						<label for="dd_status">Select Main Image:</label>
 						<?php if(count(@$dd_images) == 0) {
 							echo "<div class='form-group'>Please upload images for deal than you can select main image for deal.</div>";
 						}?>
-                        <div id='img-container'>
+                        <ul id='img-container' class='list-unstyled'>
 							<?php foreach(@$dd_images as $img) {?>
-								<div class='pull-left'>
+								<li class='pull-left'>
 								<img src='<?=(base_url()."uploads/".$img->dl_url)?>' class='newimg' imgid = '<?=($img->dl_autoid)?>'>
 								<br>
 								<center><a class="removeimage" dl_autoid="<?=($img->dl_autoid)?>" href="#"><i class="fa fa-trash-o"></i></a></center>
-								</div>
+								</li>
 							<?php }?>
-						</div>
+						</ul>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>

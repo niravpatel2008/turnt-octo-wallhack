@@ -57,7 +57,8 @@
 
         function isNumberKey(e) {
             var charCode = (e.which) ? e.which : e.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
+			console.log(charCode);
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 36 || charCode > 41))
                 return false;
             return true;
         }
