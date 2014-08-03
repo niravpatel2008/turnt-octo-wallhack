@@ -15,7 +15,7 @@
 									<td><?=$deal['do_offertitle']?></td>
 									<td><?=$deal['dd_name']?></td>
 									<td><?=$deal['db_dealstatus']?></td>
-									<td><?php if($deal['db_dealstatus'] == 'pending'){?><button class="btn btn-success btn-sm btn-buy" data-offerid="<?=$deal['db_dealstatus']?>"><i class="fa fa-print"></i></button><?php }?></td>
+									<td><?php if($deal['db_dealstatus'] == 'pending'){?><button class="btn btn-success btn-sm print-offer" data-offerid="<?=$deal['do_autoid']?>"><i class="fa fa-print"></i></button><?php }?></td>
 								</tr>
 					<?php } ?>
 				</table>
