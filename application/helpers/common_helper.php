@@ -10,6 +10,11 @@
 		}
 	}
 
+    function format_date($date,$format='d/M/Y')
+    {
+        return date($format, strtotime($date));
+    }
+
 	function public_path($type="www")
 	{
 		return base_url()."public/";
@@ -80,7 +85,7 @@
         $CI =& get_instance();
 
         $CI->load->library('email');
-	
+
 		$config['protocol'] = 'sendmail';
 		$config['mailpath'] = '/usr/sbin/sendmail';
         $config['charset'] = 'utf-8';

@@ -3,7 +3,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <META http-equiv="X-UA-Compatible" content="IE=8">
-<TITLE>Created by BCL easyConverter SDK 3 (HTML Version)</TITLE>
+<TITLE>Deals</TITLE>
 <META name="generator" content="BCL easyConverter SDK 3.0.60">
 <STYLE type="text/css">
 
@@ -66,46 +66,56 @@ body {margin-top: 0px;margin-left: 0px;}
 </HEAD>
 
 <BODY>
+<?php
+#pr($deal_detail);
+?>
 <DIV id="page_1">
 <DIV id="dimg1">
-<IMG src="1_images/11x1.jpg" id="img1">
+<?php
+    if ($deal_detail[0]->dl_type == "img") {
+?>
+    <IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
+<?php
+    }
+?>
+
 </DIV>
 
 
 <DIV class="dclr"></DIV>
-<P class="p0 ft0">Voucher</P>
-<P class="p1 ft1">Citrus Cafe, Lemon Tree Hotel, Navrangpura</P>
-<P class="p2 ft2">Offer 3 for 2 Persons: Buffet Dinner + UNLIMITED</P>
+<P class="p0 ft0">Deal</P>
+<P class="p1 ft1"><?=$deal_detail[0]->dd_name?></P>
+<P class="p2 ft2"><?=$deal_detail[0]->do_offertitle?></P>
 <P class="p3 ft2">Mocktails</P>
-<P class="p4 ft3">MRP: Rs.1,400.00</P>
+<P class="p4 ft3">MRP: Rs.<?=$deal_detail[0]->do_listprice?></P>
 <TABLE cellpadding=0 cellspacing=0 class="t0">
 <TR>
 	<TD class="tr0 td0"><P class="p5 ft4">Groupon code: 00100698K5</P></TD>
 	<TD class="tr0 td1"><P class="p5 ft5">Security Code: F09726A9AD</P></TD>
 </TR>
 <TR>
-	<TD class="tr1 td0"><P class="p5 ft2">Valid until 16.06.2014</P></TD>
+	<TD class="tr1 td0"><P class="p5 ft2">Valid until <?=format_date($deal_detail[0]->dd_expiredate)?></P></TD>
 	<TD class="tr1 td1"><P class="p5 ft2">REF: 537290</P></TD>
 </TR>
 </TABLE>
-<P class="p6 ft5">The merchant: Citrus Cafe, Lemon Tree Hotel, Navrangpura</P>
-<P class="p7 ft6">http://www.lemontreehotels.com Tel. +917944232323</P>
+<P class="p6 ft5"><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
+<P class="p7 ft6"><?=$deal_detail[0]->de_url?> Tel. <?=$deal_detail[0]->de_contact?></P>
 <P class="p8 ft7">Fine Print</P>
-<P class="p9 ft8">What You Get Offer 1 for 1 Person: Buffet Breakfast Offer 2 for 1 Person: Buffet Dinner + UNLIMITED Mocktails Offer 3 for 2 Persons: Buffet Dinner + UNLIMITED Mocktails Offer 4 for 4 Persons: Buffet Dinner + UNLIMITED Mocktails Buffet spread displayed below Validity Valid until: 16.06.2014 Valid 7 days a week – Breakfast – 7:00AM to 11:00AM Dinner – 7:00PM to 11:00PM Valid at Citrus Café General Fine Print Child Policy: Child below 5yrs – FREE Child above 5yrs – separate voucher Maximum 20 persons per sitting <NOBR>Anti-wastage</NOBR> policy: Customers will be served 1 mocktail at a time; replacements will be served after completion of previous serving Mocktails served will be mocktail of the day (chef’s choice) Prior reservation mandatory (Upon purchase, you will receive a voucher with the reservation number). Rescheduling may result in additional charges For weekend reservations, we recommend calling <NOBR>2-3</NOBR> days in advance Voucher printout is mandatorySee the rules that apply to all deals.</P>
+<P class="p9 ft8"><?=$deal_detail[0]->dd_description?></P>
 <P class="p10 ft9">This is how it works</P>
 <TABLE cellpadding=0 cellspacing=0 class="t1">
 <TR>
-	<TD class="tr2 td2"><P class="p5 ft10">Print voucher</P></TD>
+	<TD class="tr2 td2"><P class="p5 ft10">Print deal</P></TD>
 	<TD class="tr2 td3"><P class="p5 ft10">Arrange an appointment with the merchant</P></TD>
 </TR>
 <TR>
-	<TD class="tr3 td2"><P class="p5 ft10">Bring along your voucher</P></TD>
+	<TD class="tr3 td2"><P class="p5 ft10">Bring along your deal</P></TD>
 	<TD class="tr3 td3"><P class="p5 ft10">Redeem and enjoy</P></TD>
 </TR>
 </TABLE>
 <P class="p11 ft12">Any questions?: Customer Support: <SPAN class="ft11">1800 108 3000, </SPAN><NOBR>E-Mail</NOBR> to Groupon: <SPAN class="ft11">support@groupon.co.in, </SPAN><NOBR><SPAN class="ft11">User-ID:</SPAN></NOBR><SPAN class="ft11"> 630142</SPAN></P>
 <P class="p12 ft13">Cancellation Policy</P>
-<P class="p13 ft13">Once we send you the voucher, you may cancel the transaction at any time within seven working days from the day after the day that you receive the voucher (where a working day is any day that is not a Saturday, Sunday or Indian public holiday). If you do want to cancel, you must do so by sending us an email to: support@groupon.co.in (provided of course that you have not yet redeemed the voucher)</P>
+<P class="p13 ft13">Once we send you the deal, you may cancel the transaction at any time within seven working days from the day after the day that you receive the voucher (where a working day is any day that is not a Saturday, Sunday or Indian public holiday). If you do want to cancel, you must do so by sending us an email to: support@groupon.co.in (provided of course that you have not yet redeemed the voucher)</P>
 </DIV>
 </BODY>
 </HTML>
