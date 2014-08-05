@@ -30,7 +30,7 @@
                             }
                         ?>
                         <label>User Name:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="user_name" id="user_name" value="<?=@$user[0]->du_uname?>" >
+                        <input type="text" placeholder="Enter ..." class="form-control validate[required]" name="user_name" id="user_name" value="<?=@$user[0]->du_uname?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['email'] != '')?'has-error':'' ?>">
                         <?php
@@ -41,11 +41,11 @@
                             }
                         ?>
                         <label for="email">Email address:</label>
-                        <input type="email" placeholder="Enter email" id="email" class="form-control" name="email" value="<?=@$user[0]->du_email?>" >
+                        <input type="email" placeholder="Enter email" id="email" class="form-control validate[required,custom[email]]" name="email" value="<?=@$user[0]->du_email?>" >
                     </div>
                     <div class="form-group">
                         <label>Contact:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="contact" id="contact" value="<?=@$user[0]->du_contact?>" onkeypress="return isNumberKey(event)">
+                        <input type="text" placeholder="Enter ..." class="form-control validate[required,custom[phone]" name="contact" id="contact" value="<?=@$user[0]->du_contact?>">
                     </div>
                     <div class="form-group <?=(@$error_msg['role'] != '')?'has-error':'' ?>">
                         <?php
@@ -66,11 +66,11 @@
                     </div>
 					<div class="form-group">
                         <label>Password:</label>
-                        <input type="password" placeholder="Password" class="form-control" name="password" id="password">
+                        <input type="password" placeholder="Password" class="form-control validate[required,minSize[5],maxSize[15]]" name="password" id="password">
                     </div>
 					<div class="form-group">
                         <label>Repeat Password:</label>
-                        <input type="password" placeholder="Repeat Password" class="form-control" name="re_password" id="re_password">
+                        <input type="password" placeholder="Repeat Password" class="form-control validate[required,equals[password]]" name="re_password" id="re_password">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>

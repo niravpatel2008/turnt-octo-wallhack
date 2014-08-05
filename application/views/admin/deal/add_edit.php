@@ -28,7 +28,7 @@
                             }
                         ?>
 						<label>Select Dealer</label>
-						<select class="form-control" id="dd_dealerid" name="dd_dealerid">
+						<select class="form-control validate[required]" id="dd_dealerid" name="dd_dealerid">
                             <option value="">Select</option>
 							<?php foreach ($dealers as $dealer) { ?>
 								<option value='<?=$dealer->de_autoid; ?>' <?=(@$deal[0]->dd_dealerid == $dealer->de_autoid)?'selected':''?>  ><?=$dealer->de_name." (".$dealer->de_email.")"; ?></option>
@@ -45,7 +45,7 @@
                             }
                         ?>
 						<label>Select Category</label>
-						<select class="form-control" id="dd_catid" name="dd_catid">
+						<select class="form-control validate[required]" id="dd_catid" name="dd_catid">
                             <option value="">Select</option>
 							<?php foreach ($categories as $category) { ?>
 								<option value='<?=$category->dc_catid; ?>'  <?=(@$deal[0]->dd_catid == $category->dc_catid)?'selected':''?>  ><?=$category->dc_catname; ?></option>
@@ -62,7 +62,7 @@
                             }
                         ?>
                         <label for="dd_name">Deal Name:</label>
-                        <input placeholder="Enter Dealer Name" id="dd_name" class="form-control" name="dd_name" value="<?=@$deal[0]->dd_name?>" >
+                        <input placeholder="Enter Dealer Name" id="dd_name" class="form-control validate[required]" name="dd_name" value="<?=@$deal[0]->dd_name?>" >
                     </div>
 
                     <div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
@@ -74,7 +74,7 @@
                             }
                         ?>
                         <label for="dd_description">Description:</label>
-                        <textarea type="email" placeholder="Description here" id="dd_description" class="form-control" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
+                        <textarea placeholder="Description here" id="dd_description" class="form-control validate[required]" name="dd_description"><?=@$deal[0]->dd_description?></textarea>
                     </div>
                     <div class="form-group <?=(@$error_msg['dd_features'] != '')?'has-error':'' ?>">
                         <?php
@@ -85,7 +85,7 @@
                             }
                         ?>
                         <label for="dd_features">Features:</label>
-                        <textarea type="email" placeholder="Features here (,) separated" id="dd_features" class="form-control" name="dd_features"><?=@$deal[0]->dd_features?></textarea>
+                        <textarea placeholder="Features here (,) separated" id="dd_features" class="form-control validate[required]" name="dd_features"><?=@$deal[0]->dd_features?></textarea>
                     </div>
                     <div class="form-group <?=(@$error_msg['dd_conditions'] != '')?'has-error':'' ?>">
                         <?php
@@ -96,7 +96,7 @@
                             }
                         ?>
                         <label for="dd_conditions">Validity:</label>
-                        <textarea type="email" placeholder="Validity (,) separated" id="dd_conditions" class="form-control" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
+                        <textarea placeholder="Validity (,) separated" id="dd_conditions" class="form-control validate[required]" name="dd_conditions"><?=@$deal[0]->dd_conditions?></textarea>
                     </div>
 
 					<div class='box'>
@@ -152,7 +152,7 @@
                             }
                         ?>
                         <label for="dd_includes">Deal Includes:</label>
-                        <textarea type="email" placeholder="Validity (,) separated" id="dd_includes" class="form-control" name="dd_includes"><?=@$deal[0]->dd_includes?></textarea>
+                        <textarea placeholder="Validity (,) separated" id="dd_includes" class="form-control validate[required]" name="dd_includes"><?=@$deal[0]->dd_includes?></textarea>
                     </div>
 
 					<div class="form-group <?=(@$error_msg['dd_policy'] != '')?'has-error':'' ?>">
@@ -164,7 +164,7 @@
                             }
                         ?>
                         <label for="dd_policy">Deals Policy:</label>
-                        <textarea type="email" placeholder="Validity (,) separated" id="dd_policy" class="form-control" name="dd_policy"><?=@$deal[0]->dd_policy?></textarea>
+                        <textarea placeholder="Validity (,) separated" id="dd_policy" class="form-control validate[required]" name="dd_policy"><?=@$deal[0]->dd_policy?></textarea>
                     </div>
 
 					<div class="form-group <?=(@$error_msg['dd_timeperiod'] != '')?'has-error':'' ?>">
@@ -178,7 +178,7 @@
                         <label for="dd_timeperiod">Start & End Time:</label>
 						<div class="input-group">
 							<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-	                        <input placeholder="Select Start & End Time" id="dd_timeperiod" class="form-control" name="dd_timeperiod" value="<?=(@$deal[0]->dd_startdate)?date('m/d/Y g:i A',strtotime(@$deal[0]->dd_startdate)). " - " .date('m/d/Y g:i A',strtotime(@$deal[0]->dd_expiredate)):""?>">
+	                        <input placeholder="Select Start & End Time" id="dd_timeperiod" class="form-control validate[required]" name="dd_timeperiod" value="<?=(@$deal[0]->dd_startdate)?date('m/d/Y g:i A',strtotime(@$deal[0]->dd_startdate)). " - " .date('m/d/Y g:i A',strtotime(@$deal[0]->dd_expiredate)):""?>">
 						</div>
                     </div>
 					<div class="form-group <?=(@$error_msg['dd_tags'] != '')?'has-error':'' ?>">
@@ -195,7 +195,7 @@
 									echo "<input placeholder=\"Enter Tags\" class=\"form-control dd_tags\" value=\"".$tag['dt_tag']."\" name=\"dd_tags[".$tag['dt_autoid']."-a]\">";
 								}
 						}else{?>
-									<input placeholder="Enter Tags" class="form-control dd_tags" value="" name="dd_tags[]">
+									<input placeholder="Enter Tags" class="form-control dd_tags validate[required]" value="" name="dd_tags[]">
 						<?php }?>
                     </div>
                     <div class="form-group <?=(@$error_msg['dd_status'] != '')?'has-error':'' ?>">
@@ -207,7 +207,7 @@
                             }
                         ?>
                         <label for="dd_status">Status:</label>
-                        <select class="form-control" id="dd_status" name="dd_status">
+                        <select class="form-control validate[required]" id="dd_status" name="dd_status">
                             <option value="">Select</option>
                             <?php
                                 if ($this->user_session['role'] == 'a') {
@@ -220,7 +220,7 @@
 						</select>
                     </div>
 
-					<div class="form-group clearfix"> <!-- Uploaded images will be shown here -->
+					<div class="form-group clearfix dealuploaddiv"> <!-- Uploaded images will be shown here -->
 						<input type='hidden' name='newimages' id='newimages'>
 						<input type='hidden' name='sortOrder' id='sortOrder'>
 						<input type='hidden' name='dd_mainphoto' id='dd_mainphoto' value='<?=(@$deal[0]->dd_mainphoto)?>'>

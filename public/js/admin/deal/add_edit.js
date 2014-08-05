@@ -12,41 +12,13 @@ function doOrderImage(){
 
 $(document).ready(function(){
 	$("#deal_form").validationEngine();
-
 	$('#deal_form').on('submit',function(e){
-		if ($("#dd_dealerid").val() == "") {
-        alert("Please select dealer.");
+		var flag = $("#deal_form").validationEngine("validate");
+		if (!flag)
 			e.preventDefault();
-		}
-
-		if ($("#dd_catid").val() == "") {
-			alert("Please select category.");
-			e.preventDefault();
-		}
-
-		if ($("#dd_name").val() == "") {
-			alert("Please enter deal name.");
-			e.preventDefault();
-		}
-
-		if ($("#dd_status").val() == "") {
-			alert("Please select status.");
-			e.preventDefault();
-		}
-
-		if ($("#dd_includes").val() == "") {
-			alert("Please enter what deals includes.");
-			e.preventDefault();
-		}
-
-		if ($("#dd_policy").val() == "") {
-			alert("Please enter deal policy.");
-			e.preventDefault();
-		}
-
 		if ($("#dd_mainphoto").val() == "") {
-			alert("Please select main photo.");
-			e.preventDefault();
+			$('.dealuploaddiv').validationEngine('showPrompt', 'Please select main photo.', 'error', true);
+			return false;
 		}
 
 		$('.offers_div').each(function(k,v){

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$("#dealer_form").validationEngine();
+
 	var tmp_address = $('#de_address').val();
 	if ($('#de_city').val().trim() != "")
 		tmp_address += ", "+$('#de_city').val()
@@ -19,24 +21,6 @@ $(document).ready(function(){
 				$('#de_lat').val(currentLocation.latitude),
 				$('#de_long').val(currentLocation.longitude)
 			//alert("Location changed. New location (" +  + ", " +  + ")");
-		}
-	});
-
-	$("#dealer_form").validationEngine();
-	$("#dealer_form").on("submit",function  () {
-		if ($("#de_userid").val() == "") {
-			alert("Please select user.");
-			return false;
-		}
-
-		if ($("#de_name").val() == "") {
-			alert("Please dealer name.");
-			return false;
-		}
-
-		if (!IsEmail($("#de_email").val())) {
-			alert('Please enter valid email.');
-			return false;
 		}
 	});
 });
