@@ -72,9 +72,9 @@ body {margin-top: 0px;margin-left: 0px;}
 <DIV id="page_1">
 <DIV id="dimg1">
 <?php
-    if ($deal_detail['links'][0]['dl_type'] == "img") {
+    if ($deal_detail[0]->dl_type == "img") {
 ?>
-    <IMG src="<?=base_url().'/uploads/'.$deal_detail['links'][0]['dl_url']?>" id="img1" style="max-height:200px; max-width:200px;">
+    <IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
 <?php
     }
 ?>
@@ -84,24 +84,24 @@ body {margin-top: 0px;margin-left: 0px;}
 
 <DIV class="dclr"></DIV>
 <P class="p0 ft0">Deal</P>
-<P class="p1 ft1"><?=$deal_detail['detail'][0]['dd_name']?></P>
-<P class="p2 ft2"><?=$deal_detail['offers']->do_offertitle?></P>
+<P class="p1 ft1"><?=$deal_detail[0]->dd_name?></P>
+<P class="p2 ft2"><?=$deal_detail[0]->do_offertitle?></P>
 <P class="p3 ft2">Mocktails</P>
-<P class="p4 ft3">MRP: Rs.<?=$deal_detail['offers']->do_listprice?></P>
+<P class="p4 ft3">MRP: Rs.<?=$deal_detail[0]->do_listprice?></P>
 <TABLE cellpadding=0 cellspacing=0 class="t0">
 <TR>
 	<TD class="tr0 td0"><P class="p5 ft4">Groupon code: 00100698K5</P></TD>
 	<TD class="tr0 td1"><P class="p5 ft5">Security Code: F09726A9AD</P></TD>
 </TR>
 <TR>
-	<TD class="tr1 td0"><P class="p5 ft2">Valid until <?=format_date($deal_detail['detail'][0]['dd_expiredate'])?></P></TD>
+	<TD class="tr1 td0"><P class="p5 ft2">Valid until <?=format_date($deal_detail[0]->dd_expiredate)?></P></TD>
 	<TD class="tr1 td1"><P class="p5 ft2">REF: 537290</P></TD>
 </TR>
 </TABLE>
-<P class="p6 ft5">The merchant: Citrus Cafe, Lemon Tree Hotel, Navrangpura</P>
-<P class="p7 ft6">http://www.lemontreehotels.com Tel. +917944232323</P>
+<P class="p6 ft5"><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
+<P class="p7 ft6"><?=$deal_detail[0]->de_url?> Tel. <?=$deal_detail[0]->de_contact?></P>
 <P class="p8 ft7">Fine Print</P>
-<P class="p9 ft8"><?=$deal_detail['detail'][0]['dd_description']?></P>
+<P class="p9 ft8"><?=$deal_detail[0]->dd_description?></P>
 <P class="p10 ft9">This is how it works</P>
 <TABLE cellpadding=0 cellspacing=0 class="t1">
 <TR>

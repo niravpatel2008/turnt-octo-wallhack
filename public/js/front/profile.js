@@ -13,8 +13,7 @@ $(document).ready(function(){
 		loadFavDeals();
 
 	$('.print-offer').on('click',function(){
-		var dealid = $(this).data('dealid');
-		var offerid = $(this).data('offerid');
-		location.href = base_url()+'deals/getprint/'+dealid+'/'+offerid;
+		var dealbuyoutid = $(this).data('dealbuyoutid');
+		location.href = base_url()+'deals/getprint/'+dealbuyoutid;
 	})
 });

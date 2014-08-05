@@ -195,13 +195,13 @@ class common_model extends CI_Model{
 		$this->db->where("dd_startdate <= now()");
 		$this->db->where("dd_expiredate >= now()");
 		$this->db->where(array("df_userid"=>$user_id));
-		
+
 		$query = $this->db->get();
 		$resDeals = $query->result_array();
 
 		$query = $this->db->query('SELECT FOUND_ROWS() AS `Count`');
 		$totalRecordsCount = $query->row()->Count;
-		
+
 		$deals = array();
 		foreach ($resDeals as $deal)
 		{
@@ -235,7 +235,7 @@ class common_model extends CI_Model{
 			$this->db->join(DEAL_TAGS, 'dm_dtid = dt_autoid', 'left');
 			$this->db->where_in('dt_tag',$tags);
 			$this->db->group_by('dd_autoid');
-			
+
 			if(!$or)
 				$this->db->having("COUNT(DISTINCT dm_dtid) = ".count($tags));
 		}
@@ -258,7 +258,7 @@ class common_model extends CI_Model{
 
 		$deals = array();
 		$deals['totalRecordsCount'] = $totalRecordsCount;
-		
+
 		$session = $this->session->userdata('front_session');
 		$favdata = array();
 		$favdata['df_userid'] = $session['id'];
@@ -313,7 +313,7 @@ class common_model extends CI_Model{
 			$this->db->where('dm_ddid',$id);
 			$query = $this->db->get();
 			$data['tags'] = $query->result_array();
-			
+
 			$session = $this->session->userdata('front_session');
 			$data['is_fav'] = 0;
 			if (isset($session['id']) && $session['id'] !="")
@@ -324,7 +324,7 @@ class common_model extends CI_Model{
 				$data['is_fav'] = $this->selectData(DEAL_FAV,"*", $favdata,"","","","","","rowcount");
 			}
 			if ($offerid != "")
-			{	
+			{
 				$offer = $this->common_model->selectData(DEAL_OFFER, '*',array("do_ddid"=>$id,"do_autoid"=>$offerid));
 				$data['offers'] = $offer[0];
 			}
@@ -350,7 +350,7 @@ class common_model extends CI_Model{
 		$this->db->join(DEAL_DEALER, 'de_autoid = dd_dealerid', 'left');
 		$this->db->where("db_uid",$user_id);
 		$query = $this->db->get();
-		
+
 		$myoffers = $query->result_array();
 		return $myoffers;
 	}
@@ -369,5 +369,26 @@ class common_model extends CI_Model{
 			$this->common_model->updateData(DEAL_LINKS, $data, $where);
 		}
 	}
+
+
+
+	public function getDealDetailPrint($dealbuyout_id)
+	{
+		$this->db->select("*");
+		$this->db->from(DEAL_BUYOUT);
+		$this->db->join(DEAL_DETAIL, 'db_dealid = dd_autoid', 'left');
+		$this->db->join(DEAL_OFFER, 'db_offerid = do_autoid', 'left');
+		$this->db->join(DEAL_DEALER, 'dd_dealerid = de_autoid', 'left');
+		$this->db->join(DEAL_LINKS, 'db_dealid = dl_ddid', 'left');
+		$this->db->where('db_autoid',$dealbuyout_id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+
+		$data = $query->result();
+		$query->free_result();
+
+		return $data;
+	}
+
 }
 ?>
