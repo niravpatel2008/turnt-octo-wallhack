@@ -3580,3 +3580,5 @@ fieldset[disabled] .btn-vk.active {
 #img-container .selected{
 	border:red 2px solid;
 }
+
+.formErrorContent{color:#f56954;}

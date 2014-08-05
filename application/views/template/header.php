@@ -18,8 +18,10 @@
     <link rel="stylesheet" href="<?=public_path()?>css/front/normalize.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/foundation.css">
     <link href="<?=public_path()?>css/front/css.css" rel="stylesheet" type="text/css">
+	<?php if (in_array($this->router->fetch_class(),array('welcome'))){?>
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?=public_path()?>css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+	<?php } ?>
     <link rel="stylesheet" href="<?=public_path()?>css/front/responsive-slider.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/main.css">
     <link rel="stylesheet" href="<?=public_path()?>css/front/mq-32.css" media="screen and (min-width: 32.5em)">
@@ -54,7 +56,7 @@
                 </div>
                 <nav class="large-6 columns toppad">
                     <ul class="rr main-menu">
-                        <li class="current"><a href="<?=base_url()?>">Home</a></li>
+                        <li><a href="<?=base_url()?>">Home</a></li>
                         <li><a href="<?=base_url()?>about_us">About us</a></li>
                         <li><a href="<?=base_url()?>how_it_works">How it works</a></li>
 						<li><a href="<?=base_url()?>privacy_policy">Privacy Policy</a>

@@ -54,15 +54,20 @@ class Users extends CI_Controller {
 			$error = array();
 			$e_flag=0;
 
-			$is_unique_username = $this->common_model->isUnique(DEAL_USER, 'du_uname', trim($post['user_name']));
-			$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
+			if(!valid_email(trim($post['email'])) && trim($post['email']) == ""){
+				$error['email'] = 'Please enter valid email.';
+				$e_flag=1;
+			}
+			else{
+				$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
+				if (!$is_unique_email) {
+					$error['email'] = 'Email already exists.';
+					$e_flag=1;
+				}
+			}
 
 			if(trim($post['user_name']) == ''){
 				$error['user_name'] = 'Please enter user name.';
-				$e_flag=1;
-			}
-			if (!$is_unique_username) {
-				$error['user_name'] = 'User name already exists.';
 				$e_flag=1;
 			}
 			if(trim($post['role']) == ''){
@@ -73,14 +78,7 @@ class Users extends CI_Controller {
 				$error['contact'] = 'Please enter contact number.';
 				$e_flag=1;
 			}
-			if(!valid_email(trim($post['email'])) && trim($post['email']) == ""){
-				$error['email'] = 'Please enter valid email.';
-				$e_flag=1;
-			}
-			if (!$is_unique_email) {
-				$error['email'] = 'Email already exists.';
-				$e_flag=1;
-			}
+			
 			
 			if (trim($post['password']) != "") {
 				if($post['password'] == $post['re_password'])
@@ -144,6 +142,18 @@ class Users extends CI_Controller {
 			$error = array();
 			$e_flag=0;
 
+			if(!valid_email(trim($post['email'])) && trim($post['email']) == ""){
+				$error['email'] = 'Please enter valid email.';
+				$e_flag=1;
+			}
+			else{
+				$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
+				if (!$is_unique_email) {
+					$error['email'] = 'Email already exists.';
+					$e_flag=1;
+				}
+			}
+
 			if(trim($post['user_name']) == ''){
 				$error['user_name'] = 'Please enter user name.';
 				$e_flag=1;
@@ -154,10 +164,6 @@ class Users extends CI_Controller {
 			}
 			if(trim($post['contact']) == ''){
 				$error['contact'] = 'Please enter contact number.';
-				$e_flag=1;
-			}
-			if(!valid_email(trim($post['email'])) && trim($post['email']) == ""){
-				$error['email'] = 'Please enter valid email.';
 				$e_flag=1;
 			}
 			$psFlas = false;

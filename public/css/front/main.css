@@ -503,6 +503,11 @@ p.text.small {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+.wrapper-3:hover {
+	-webkit-box-shadow:  2px 2px 5px 0 rgba(0, 0, 0, 0.7);
+          box-shadow:  2px 2px 5px 0 rgba(0, 0, 0, 0.7);
+
+}
 .wrapper-3.primary {
   padding: 30px;
 }
@@ -1749,3 +1754,7 @@ small.label{
 
 .slides .row{position:relative;}
 .slides .row p {position:absolute;text-align:center;width:inherit;}
+
+.wrapper-3 .small-box-footer{
+	cursor:default;
+}

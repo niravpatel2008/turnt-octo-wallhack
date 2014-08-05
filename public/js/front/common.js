@@ -51,7 +51,7 @@ function displayDealsData(result)
 				article += "<figure><div class='cornerlike'><span class='"+favClass+"' did='"+element.id+"'></span></div>";
 				  article += "<img alt='' src='"+element.photo+"'>";
 				article += "</figure>";
-				article += "<h2 class='alt'><a href='#'>"+element.name+"</a></h2>";
+				article += "<h2 class='alt'><a href='"+element.url+"'>"+element.name+"</a></h2>";
 			  article += "</div>";
 			  article += "<div class='bottom'>";
 				article += pricehtml;
@@ -117,8 +117,8 @@ $(document).ready(function(){
 	});
 
 	$("#signin").on('click', function () {
-		if ($.trim($("#txtpassword").val()) == "") {
-			alert('Please enter username.');
+		if ($.trim($("#txtuseremail").val()) == "") {
+			alert('Please enter email address.');
 			return false;
 		}
 
@@ -205,6 +205,7 @@ $(document).ready(function(){
 			success: function  (data) {
 				if(data == 'success'){
 					alert("Email has been sent to your email.");
+					$('#divForgotPasswordForm').modal('toggle');
 				}else{
 					alert(data);
 					return false;
@@ -219,4 +220,66 @@ $(document).ready(function(){
 			$targ.find(".sumitbtn").focus();
 		}	
 	})
+
+	
+  // main menu responsive
+  $('.main-menu').mobileMenu({
+    defaultText: 'Navigate to...',
+    className: 'select-main-menu'
+  });
+
+  $('.select-main-menu').customSelect({
+    customClass: 'input button dark secondary'
+  });
+
+  $('.popular-companies-list').mobileMenu({
+    defaultText: 'Select company...',
+    className: 'select-popular-companies-list'
+  });
+
+  // main menu indicator
+  var temp;
+  uripath = location.pathname.match(/([^\/]*)\/*$/)[1];
+  temp = $('.main-menu a[href*="'+uripath+'"]:eq(0)').parent("li");
+  temp.addClass("current");
+   $('.main-menu li').hover(function() {
+     //temp = $('.main-menu a[href*="'+uripath+'"]').parent("li");
+     temp.removeClass('current');
+     $(this).addClass('current');
+   }, function() {
+     $(this).removeClass('current');
+     temp.addClass('current');
+   });
+
+
+  // menu-browse open/close
+  var temp2 = $('.menu-browse .input');
+  var temp3 = $('.main-menu .submenu-wrap');
+  $('html').on('click', function() {
+    temp2.children('.sub').hide();
+    temp3.children('.submenu').hide();
+    temp3.removeClass('opaque');
+  });
+  temp2.on('click', function(event) {
+    event.stopPropagation();
+    $(this).children('.sub').toggle();
+  });
+  $('.menu-browse a').on('click',function(event){
+	event.preventDefault();
+	var selected = $(this).html().trim();
+	$('#category').html(selected);
+	var catid = $(this).attr('catid');
+	$('#category').attr('catid',catid);
+	getDealList('new');
+  });
+  temp3.on('click', function(event) {
+    event.stopPropagation();
+    $(this).children('.submenu').toggle();
+    if (temp3.children('.submenu').is(':visible')) {
+      temp3.addClass('opaque');
+    } else {
+      temp3.removeClass('opaque');
+    }
+  });
+
 });
