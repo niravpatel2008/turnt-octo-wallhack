@@ -95,6 +95,7 @@ class Deals extends CI_Controller {
 
 	public function getprint($id)
 	{
+		$id = base64_decode($id);
 		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
 		$data = array();
 		if ($id == "")
