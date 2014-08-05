@@ -51,7 +51,7 @@
                 </div>
                 <nav class="large-6 columns toppad">
                     <ul class="rr main-menu">
-                        <li class="current"><a href="<?=base_url()?>">Home</a></li>
+                        <li><a href="<?=base_url()?>">Home</a></li>
                         <li><a href="<?=base_url()?>about_us">About us</a></li>
                         <li><a href="<?=base_url()?>how_it_works">How it works</a>
                         <li><a href="<?=base_url()?>privacy_policy">Privacy Policy</a>

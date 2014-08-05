@@ -14,7 +14,7 @@
         <form name="loginform" id="loginform" method="post">
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary allow-enter" name='txtusername' id='txtusername' placeholder="Name">
+              <input type="text" class="input field primary allow-enter" name='txtuseremail' id='txtuseremail' placeholder="Email address">
 
             </div>
           </div>
@@ -53,6 +53,11 @@
               <input type="text" class="input field primary allow-enter" name='username' id='username' placeholder="Name">
             </div>
           </div>
+		  <div class="row">
+            <div class="" style='padding:15px;'>
+              <input type="text" class="input field primary allow-enter" name='email' id='email' placeholder="Email">
+            </div>
+          </div>
           <div class="row">
             <div class="" style='padding:15px;'>
               <input type="password" class="input field primary allow-enter" name='password' id='password' placeholder="Password">
@@ -61,11 +66,6 @@
           <div class="row">
             <div class="" style='padding:15px;'>
               <input type="password" class="input field primary allow-enter" name='password2' id='password2' placeholder="Confirm password">
-            </div>
-          </div>
-          <div class="row">
-            <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary allow-enter" name='email' id='email' placeholder="Email">
             </div>
           </div>
           <div class="row">

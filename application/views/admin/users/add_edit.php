@@ -66,11 +66,11 @@
                     </div>
 					<div class="form-group">
                         <label>Password:</label>
-                        <input type="password" placeholder="Password" class="form-control validate[required,minSize[5],maxSize[15]]" name="password" id="password">
+                        <input type="password" placeholder="Password" class="form-control validate[minSize[5],maxSize[15]]" name="password" id="password">
                     </div>
 					<div class="form-group">
                         <label>Repeat Password:</label>
-                        <input type="password" placeholder="Repeat Password" class="form-control validate[required,equals[password]]" name="re_password" id="re_password">
+                        <input type="password" placeholder="Repeat Password" class="form-control validate[equals[password]]" name="re_password" id="re_password">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
