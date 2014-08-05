@@ -18,7 +18,7 @@
                 <?php
                     }
                 ?>
-                <form role="form" action="" method="post">
+                <form role="form" action="" method="post" id='dealer_form' name='dealer_form'>
                     <div class="form-group <?=(@$error_msg['de_userid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['de_userid'] != ''){

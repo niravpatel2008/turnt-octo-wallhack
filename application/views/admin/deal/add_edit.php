@@ -18,7 +18,7 @@
                 <?php
                     }
                 ?>
-                <form id='deal_form' role="form" action="" method="post" enctype="multipart/form-data">
+                <form name='deal_form' id='deal_form' role="form" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group <?=(@$error_msg['dd_dealerid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_dealerid'] != ''){

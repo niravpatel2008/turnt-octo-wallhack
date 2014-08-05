@@ -27,6 +27,10 @@
 			<link href="<?=public_path()?>css/tagedit/jquery.tagedit.css" rel="stylesheet" type="text/css" />
 		<?php } ?>
 
+		<?php if (in_array($this->router->fetch_method(), array("add","edit"))) { ?>
+			<link href="<?=public_path()?>css/validation/validationEngine.css" rel="stylesheet" type="text/css" />
+		<?php }?>
+
         <!-- Theme style -->
         <link href="<?=public_path()?>css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
