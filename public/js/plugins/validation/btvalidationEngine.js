@@ -1237,6 +1237,7 @@
 			prompt.addClass("validation");
 			prompt.addClass("errorMsg");
 			field.addClass("errorMsgTxtBx");
+			$(field).parent("div.form-group").addClass("has-error");
 
 			switch (type) {
 				case "pass":
@@ -1389,6 +1390,7 @@
 					 prompt.parent('.formErrorOuter').remove();
 					 prompt.remove();
 				 });
+			$(field).closest("div.has-error").removeClass("has-error");
 		 },
 		 closePrompt: function(field) {
 			 return methods._closePrompt(field);
