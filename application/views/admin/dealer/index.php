@@ -40,10 +40,6 @@
 									<th>City</th>
 									<th>State</th>
 									<th>Zip</th>
-									<th>Lat</th>
-									<th>Long</th>
-									<th>Url</th>
-									<th>Date</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -57,10 +53,6 @@
 									<th>City</th>
 									<th>State</th>
 									<th>Zip</th>
-									<th>Lat</th>
-									<th>Long</th>
-									<th>Url</th>
-									<th>Date</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>

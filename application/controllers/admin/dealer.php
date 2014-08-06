@@ -33,18 +33,8 @@ class Dealer extends CI_Controller {
 			array( 'db' => 'de_city',  'dt' => 5 ),
 			array( 'db' => 'de_state',  'dt' => 6 ),
 			array( 'db' => 'de_zip',  'dt' => 7 ),
-			array( 'db' => 'de_lat',  'dt' => 8 ),
-			array( 'db' => 'de_long',  'dt' => 9 ),
-			array( 'db' => 'de_url',  'dt' => 10 ),
-			array(
-				'db'        => 'de_createdate',
-				'dt'        => 11,
-				'formatter' => function( $d, $row ) {
-					return date( 'jS M y', strtotime($d));
-				}
-			),
 			array( 'db' => 'de_autoid',
-					'dt' => 12,
+					'dt' => 8,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/dealer/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_dealer('.$d.')" class="fa fa-trash-o"></a>';
 					}

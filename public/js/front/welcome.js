@@ -128,64 +128,6 @@ function setStartUp(){
 }
 
 $(function() {
-
-  // main menu responsive
-  $('.main-menu').mobileMenu({
-    defaultText: 'Navigate to...',
-    className: 'select-main-menu'
-  });
-
-  $('.select-main-menu').customSelect({
-    customClass: 'input button dark secondary'
-  });
-
-  $('.popular-companies-list').mobileMenu({
-    defaultText: 'Select company...',
-    className: 'select-popular-companies-list'
-  });
-
-  // main menu indicator
-  var temp;
-   $('.main-menu li').hover(function() {
-     temp = $(this).parent().children('.current')
-     temp.removeClass('current');
-     $(this).addClass('current');
-   }, function() {
-     $(this).removeClass('current');
-     temp.addClass('current');
-   });
-
-
-  // menu-browse open/close
-  var temp2 = $('.menu-browse .input');
-  var temp3 = $('.main-menu .submenu-wrap');
-  $('html').on('click', function() {
-    temp2.children('.sub').hide();
-    temp3.children('.submenu').hide();
-    temp3.removeClass('opaque');
-  });
-  temp2.on('click', function(event) {
-    event.stopPropagation();
-    $(this).children('.sub').toggle();
-  });
-  $('.menu-browse a').on('click',function(event){
-	event.preventDefault();
-	var selected = $(this).html().trim();
-	$('#category').html(selected);
-	var catid = $(this).attr('catid');
-	$('#category').attr('catid',catid);
-	getDealList('new');
-  });
-  temp3.on('click', function(event) {
-    event.stopPropagation();
-    $(this).children('.submenu').toggle();
-    if (temp3.children('.submenu').is(':visible')) {
-      temp3.addClass('opaque');
-    } else {
-      temp3.removeClass('opaque');
-    }
-  });
-
 	setStartUp();
 
 

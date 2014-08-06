@@ -27,8 +27,8 @@ class Welcome extends CI_Controller {
 	{
 		$post = $this->input->post();
 		if ($post) {
-			if(trim($post['txtusername']) == ''){
-				echo 'Please enter user name.';
+			if(trim($post['txtuseremail']) == ''){
+				echo 'Please enter email address.';
 				exit;
 			}
 			if(trim($post['txtpassword']) == ''){
@@ -36,7 +36,7 @@ class Welcome extends CI_Controller {
 				exit;
 			}
 
-			$where = array('du_uname' => $post['txtusername'],
+			$where = array('du_email' => $post['txtuseremail'],
 							'du_password' => sha1(trim($post['txtpassword'])),
 							'du_role' => 'u'
 						 );
@@ -65,15 +65,11 @@ class Welcome extends CI_Controller {
 		$post = $this->input->post();
 		if ($post) {
 
-			$is_unique_username = $this->common_model->isUnique(DEAL_USER, 'du_uname', trim($post['username']));
+			//$is_unique_username = $this->common_model->isUnique(DEAL_USER, 'du_uname', trim($post['username']));
 			$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
 
 			if(trim($post['username']) == ''){
-				echo 'Please enter user name.';
-				exit;
-			}
-			if (!$is_unique_username) {
-				echo 'User name already exists.';
+				echo 'Please enter your name.';
 				exit;
 			}
 			if(trim($post['password']) == ''){
@@ -177,7 +173,7 @@ class Welcome extends CI_Controller {
 				}
 
 			}else{
-				echo "Invalid email address.";
+				echo "User does not exist.";
 				exit;
 			}
 

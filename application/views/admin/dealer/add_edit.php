@@ -18,7 +18,7 @@
                 <?php
                     }
                 ?>
-                <form role="form" action="" method="post">
+                <form role="form" action="" method="post" id='dealer_form' name='dealer_form'>
                     <div class="form-group <?=(@$error_msg['de_userid'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['de_userid'] != ''){
@@ -28,7 +28,7 @@
                             }
                         ?>
 						<label>Select User</label>
-						<select class="form-control" id="de_userid" name="de_userid">
+						<select class="form-control validate[required]" id="de_userid" name="de_userid">
                             <option value="">Select</option>
 							<?php foreach ($users as $user) { ?>
 								<option value='<?=$user->du_autoid; ?>' <?=(@$dealer[0]->de_userid == $user->du_autoid)?'selected':''?> ><?=$user->du_uname." (".$user->du_email.")"; ?></option>
@@ -44,7 +44,7 @@
                             }
                         ?>
                         <label for="de_name">Dealer Name:</label>
-                        <input placeholder="Enter Dealer Name" id="de_name" class="form-control" name="de_name" value="<?=@$dealer[0]->de_name?>" >
+                        <input placeholder="Enter Dealer Name" id="de_name" class="form-control validate[required]" name="de_name" value="<?=@$dealer[0]->de_name?>" >
                     </div>
 					<div class="form-group <?=(@$error_msg['de_email'] != '')?'has-error':'' ?>">
                         <?php
@@ -55,7 +55,7 @@
                             }
                         ?>
                         <label for="de_email">Email address:</label>
-                        <input type="email" placeholder="Enter email" id="de_email" class="form-control" name="de_email" value="<?=@$dealer[0]->de_email?>" >
+                        <input type="email" placeholder="Enter email" id="de_email" class="form-control validate[required,custom[email]]" name="de_email" value="<?=@$dealer[0]->de_email?>" >
                     </div>
 					<div class="form-group <?=(@$error_msg['de_contact'] != '')?'has-error':'' ?>">
 						<?php
@@ -66,7 +66,7 @@
                             }
                         ?>
                         <label>Contact:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control" name="de_contact" id="de_contact" value="<?=@$dealer[0]->de_contact?>" >
+                        <input type="text" placeholder="Enter ..." class="form-control validate[required,custom[phone]]" name="de_contact" id="de_contact" value="<?=@$dealer[0]->de_contact?>" >
                     </div>
 					<div class="form-group <?=(@$error_msg['de_address'] != '')?'has-error':'' ?>">
                         <?php
@@ -77,7 +77,7 @@
                             }
                         ?>
                         <label for="de_address">Address:</label>
-                        <input placeholder="Enter Address" id="de_address" class="form-control" name="de_address" value="<?=@$dealer[0]->de_address?>" >
+                        <input placeholder="Enter Address" id="de_address" class="form-control validate[required]" name="de_address" value="<?=@$dealer[0]->de_address?>" >
                     </div>
 					<div class="row">
 						<div class="col-xs-4 form-group <?=(@$error_msg['de_city'] != '')?'has-error':'' ?>">
@@ -89,7 +89,7 @@
 								}
 							?>
 							<label for="de_city">City:</label>
-							<input placeholder="Enter City" id="de_city" class="form-control" name="de_city" value='<?=@$dealer[0]->de_city?>'>
+							<input placeholder="Enter City" id="de_city" class="form-control validate[required]" name="de_city" value='<?=@$dealer[0]->de_city?>'>
 						</div>
 						<div class="col-xs-4 form-group <?=(@$error_msg['de_state'] != '')?'has-error':'' ?>">
 							<?php
@@ -100,7 +100,7 @@
 								}
 							?>
 							<label for="de_state">State:</label>
-							<input placeholder="Enter State" id="de_state" class="form-control" name="de_state" value='<?=@$dealer[0]->de_state?>'>
+							<input placeholder="Enter State" id="de_state" class="form-control validate[required]" name="de_state" value='<?=@$dealer[0]->de_state?>'>
 						</div>
 						<div class="col-xs-4 form-group <?=(@$error_msg['de_zip'] != '')?'has-error':'' ?>">
 							<?php
@@ -111,7 +111,7 @@
 								}
 							?>
 							<label for="de_zip">Zip:</label>
-							<input placeholder="Enter Zip" id="de_zip" class="form-control" name="de_zip" value="<?=@$dealer[0]->de_zip?>">
+							<input placeholder="Enter Zip" id="de_zip" class="form-control validate[required]" name="de_zip" value="<?=@$dealer[0]->de_zip?>">
 						</div>
 					</div >
 					<div class="form-group">
@@ -156,7 +156,7 @@
                             }
                         ?>
                         <label>URL</label>
-                        <input placeholder="Enter URL" id="de_url" class="form-control" name="de_url" value="<?=@$dealer[0]->de_url?>" >
+                        <input placeholder="Enter URL" id="de_url" class="form-control validate[required,custom[url]]" name="de_url" value="<?=@$dealer[0]->de_url?>" >
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
