@@ -55,6 +55,8 @@ if (in_array($this->router->fetch_method(), array("index"))){?>
 
 
 <script src="<?=public_path()?>js/front/common.js"></script>
-
+<script>
+var isLogin = <?=($this->front_session['id']>0)?1:0; ?>;
+</script>
 </body>
 </html>

@@ -38,6 +38,7 @@ $(document).ready(function(){
 
 
 function buy_deal (deal_id,offerid) {
+	if(!isLogin) { openLoginForm(); return; }
 	url = base_url()+'buy';
 	data = {deal_id:deal_id,offerid:offerid}
 	$.post(url,data,function(data){

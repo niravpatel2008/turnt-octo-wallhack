@@ -87,6 +87,7 @@ function displayDealsData(result)
 
 $(document).ready(function(){
 	$('body').delegate('.favme','click',function(){
+		if(!isLogin) { openLoginForm(); return; }
 		var url = base_url()+'deals/like/';
 		var param = {id:$(this).attr("did")};
 		var span =$(this);
@@ -102,6 +103,7 @@ $(document).ready(function(){
 	});
 
 	$('body').delegate('.unfavme','click',function(){
+		if(!isLogin) { openLoginForm(); return; }
 		var url = base_url()+'deals/dislike/';
 		var param = {id:$(this).attr("did")};
 		var span =$(this);
