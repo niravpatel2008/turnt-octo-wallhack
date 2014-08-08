@@ -38,9 +38,9 @@ $tags = implode(",",$tags);
 			<?php foreach($offers as $offer){?>
 						<tr>
 							<td><?=$offer->do_offertitle?></td>
-							<td><small class="label label-danger"><?=$offer->do_listprice?></small></td>
-							<td><small class="label label-info"><?=$offer->do_originalprice?></small></td>
-							<td><small class="label label-success"><?=$offer->do_discount?></small></td>
+							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
+							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
+							<td><small class="label label-success"><i class="fa fa-rupee"></i><?=$offer->do_discount?></small></td>
 							<td><button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
 						</tr>
 			<?php } ?>
@@ -108,7 +108,7 @@ $tags = implode(",",$tags);
 										Now
 									</a>
 									<div class="inner">
-										<center><h3 class='box-title'><?=$detail['dd_listprice'];?></h3></center>
+										<center><h3 class='box-title'><i class="fa fa-rupee"></i><?=$detail['dd_listprice'];?></h3></center>
 									</div>
 								</div>
 							</div>
@@ -118,7 +118,7 @@ $tags = implode(",",$tags);
 										Was
 									</a>
 									<div class="inner">
-										<center><h3 class='box-title'><?=$detail['dd_originalprice'];?></h3></center>
+										<center><h3 class='box-title'><i class="fa fa-rupee"></i><?=$detail['dd_originalprice'];?></h3></center>
 									</div>
 								</div>
 							</div>
@@ -128,7 +128,7 @@ $tags = implode(",",$tags);
 										Save
 									</a>
 									<div class="inner">
-										<center><h3 class='box-title'><?=$detail['dd_discount'];?></h3></center>
+										<center><h3 class='box-title'><i class="fa fa-rupee"></i><?=$detail['dd_discount'];?></h3></center>
 									</div>
 								</div>
 							</div>
@@ -136,7 +136,7 @@ $tags = implode(",",$tags);
 					</div>
 				</div>
 				<div class="box-footer">
-					<center><button class='btn bg-orange margin' data-target="#buyofferpopup" data-toggle="modal">GET THIS DEAL</button></center>
+					<center><button class='btn btn-social bg-orange margin' style='position:relative;' data-target="#buyofferpopup" data-toggle="modal"><i class=' fa fa-shopping-cart'></i>GET THIS DEAL<span style='margin-left:10px;padding-left:10px;border-left:1px solid rgba(0, 0, 0, 0.2)'><?=$dealsDetail['buycount']?></span></button></center>
 				</div>
 			</div>
 		</section>
