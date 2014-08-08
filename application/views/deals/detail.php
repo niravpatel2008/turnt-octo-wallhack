@@ -51,6 +51,22 @@ $tags = implode(",",$tags);
 	</div>
 </div>
 
+<div id='buyoffermessage' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">		
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i>Deal processed successfully.</h3>
+			</div>
+			<div class="modal-body">
+				<div>
+					Thank you for purchasing offer.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class='stripe-regular items-carousel-wrap row'>
 	<div class="box box-success">
 		<div class="box-header">
