@@ -21,7 +21,7 @@ class Buy extends CI_Controller {
                         'db_uid' => $this->front_session['id'],
                         'db_paymntopt' => 'COD',
                         'db_amntpaid' => 0,
-                        'db_dealstatus' => 'pending'
+                        'db_dealstatus' => 'active'
                     );
             $ret = $this->common_model->insertData(DEAL_BUYOUT, $data);
             if ($ret > 0) {

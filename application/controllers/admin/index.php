@@ -30,7 +30,7 @@ class Index extends CI_Controller {
 			}
 
 			if ($e_flag == 0) {
-				$where = array('du_uname' => $post['userid'],
+				$where = array('du_email' => $post['userid'],
 								'du_password' => sha1($post['password']),
 								//'du_role' => 'a'
 							 );
