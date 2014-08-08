@@ -3582,3 +3582,6 @@ fieldset[disabled] .btn-vk.active {
 }
 
 .formErrorContent{color:#f56954;}
+
+#dealsTable .active {color:green;}
+#dealsTable .inactive {color:red;}

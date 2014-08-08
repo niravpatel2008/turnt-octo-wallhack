@@ -470,5 +470,17 @@ class Deal extends CI_Controller {
 			}
 		}
 	}
+	
+	public function dealstatusupdate()
+	{	
+		$post = $this->input->post();
+		
+		$where = array();
+		$where['db_autoid'] = $post['id'];
 
+		$data = array();
+		$data['db_dealstatus'] = ($post['flag']=="1")?"active":"inactive";
+		$ret = $this->common_model->updateData(DEAL_BUYOUT, $data, $where);
+		echo $ret;exit;
+	}
 }

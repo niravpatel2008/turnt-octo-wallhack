@@ -95,6 +95,8 @@ $(document).ready(function(){
 			if (e == "1")
 			{
 				$(span).addClass("unfavme").removeClass("favme");
+				if($('.fav_result').length > 0)
+					loadFavDeals();
 				/*$(span).effect("bounce",{ times: 3 }, "fast",function(){
 					$(span).addClass("unfavme").removeClass("favme");
 				})*/
@@ -111,6 +113,8 @@ $(document).ready(function(){
 			if (e == "1")
 			{
 				$(span).addClass("favme").removeClass("unfavme");
+				if($('.fav_result').length > 0)
+					loadFavDeals();
 				/*$(span).effect("bounce",{ times: 3 }, "fast",function(){
 					$(span).addClass("favme").removeClass("unfavme");
 				})*/
