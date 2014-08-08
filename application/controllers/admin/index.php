@@ -32,7 +32,7 @@ class Index extends CI_Controller {
 			if ($e_flag == 0) {
 				$where = array('du_email' => $post['userid'],
 								'du_password' => sha1($post['password']),
-								//'du_role' => 'a'
+								'du_role !=' => 'u'
 							 );
 				$user = $this->common_model->selectData(DEAL_USER, '*', $where);
 				if (count($user) > 0) {
