@@ -102,6 +102,11 @@ class Deals extends CI_Controller {
 			redirect("welcome");
 
 		$data['deal_detail'] = $this->common_model->getDealDetailPrint($id);
+
+		if ($this->front_session['id'] != $data['deal_detail'][0]->db_uid) {
+			redirect("welcome");
+		}
+
 		$html = $this->load->view('print', $data);
 	}
 }
