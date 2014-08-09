@@ -309,6 +309,13 @@ class common_model extends CI_Model{
 			$query = $this->db->get();
 			$data['links'] = $query->result_array();
 
+			$this->db->select("COUNT(*) as `count`");
+			$this->db->from(DEAL_BUYOUT);
+			$this->db->where('db_dealid',$id);
+			$query = $this->db->get();
+			$res = $query->result_array();
+			$data['buycount'] = $res[0]['count'];
+
 			$this->db->select("*");
 			$this->db->from(DEAL_TAGS);
 			$this->db->join(DEAL_MAP_TAGS, 'dm_dtid = dt_autoid', 'left');

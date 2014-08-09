@@ -1758,3 +1758,10 @@ small.label{
 .wrapper-3 .small-box-footer{
 	cursor:default;
 }
+.btn > .badge{
+ position: absolute;
+  top: -3px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 400;
+}
