@@ -72,7 +72,7 @@ class Deals extends CI_Controller {
 		exit;
 	}
 
-	public function dislike($id)
+	public function dislike()
 	{
 		$post = $this->input->post();
 		$id = (isset($post) && isset($post['id']))?$post['id']:"";

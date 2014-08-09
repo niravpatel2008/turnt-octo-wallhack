@@ -37,10 +37,11 @@ class Dashboard extends CI_Controller {
 						return date( 'jS M y', strtotime($d));
 					}
 			),
-			array( 'db' => 'db_autoid',
+			array( 'db' => 'CONCAT(db_autoid,"|",db_dealstatus)',
 					'dt' => 9,
 					'formatter' => function( $d, $row ) {
-						return '<a href="javascript:void(0);" onclick="#" class="fa fa-trash-o"></a>';
+						list($id,$status) = explode("|",$d);
+						return '<a href="javascript:void(0);" data-db_autoid="'.$id.'" class="fa fa-eye deal-buy-status '.$status.'"></a>';
 					}
 			),
 		);
@@ -56,5 +57,4 @@ class Dashboard extends CI_Controller {
 		echo json_encode( SSP::simple( $post, DEAL_BUYOUT, "db_autoid", $columns ,array($join1, $join2, $join3),$custom_where) );exit;
 
 	}
-
 }

@@ -14,4 +14,20 @@ $(document).ready(function() {
           }
         ]
     } );
+
+	$("body").delegate(".deal-buy-status","click",function(){
+		flag = ($(this).hasClass("active"))?0:1;
+		var url = admin_path()+'deal/dealstatusupdate/';
+		var param = {id:$(this).data("db_autoid"),flag:flag};
+		var span =$(this);
+		$.post(url,param,function(e){
+			if (e == "1")
+			{
+				if(flag)
+					$(span).addClass("active").removeClass("inactive");
+				else
+					$(span).addClass("inactive").removeClass("active");
+			}
+		})
+	});
 } );

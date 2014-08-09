@@ -126,8 +126,6 @@ class Users extends CI_Controller {
 		$this->load->view('admin/content', $data);
 	}
 
-
-
 	public function edit($id)
 	{
 		if ($id == "" || $id <= 0) {
@@ -147,7 +145,7 @@ class Users extends CI_Controller {
 				$e_flag=1;
 			}
 			else{
-				$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']));
+				$is_unique_email = $this->common_model->isUnique(DEAL_USER, 'du_email', trim($post['email']),"du_autoid <> ". $id);
 				if (!$is_unique_email) {
 					$error['email'] = 'Email already exists.';
 					$e_flag=1;

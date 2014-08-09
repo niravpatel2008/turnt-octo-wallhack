@@ -43,7 +43,7 @@ function buy_deal (deal_id,offerid) {
 	data = {deal_id:deal_id,offerid:offerid}
 	$.post(url,data,function(data){
 			if (data == "login") {
-                alert("Please login to continue.");
+                openLoginForm();
                 return false;
             }
 
@@ -53,7 +53,8 @@ function buy_deal (deal_id,offerid) {
             }
 
             if (data == "success") {
-                alert("Deal processed successfully.");
+				$("#buyofferpopup").modal('hide');
+				$('#buyoffermessage').modal();
                 return false;
             }
 	});
