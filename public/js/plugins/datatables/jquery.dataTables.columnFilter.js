@@ -789,9 +789,9 @@
 
             if (oTable.fnSettings().oFeatures.bServerSide) {
 
-                var fnServerDataOriginal = oTable.fnSettings().fnServerData;
+                var fnServerDataOriginal = oTable._fnBuildAjax;
 
-                oTable.fnSettings().fnServerData = function (sSource, aoData, fnCallback) {
+                oTable._fnBuildAjax = function (sSource, aoData, fnCallback) {
 
                     for (j = 0; j < aiCustomSearch_Indexes.length; j++) {
                         var index = aiCustomSearch_Indexes[j];
