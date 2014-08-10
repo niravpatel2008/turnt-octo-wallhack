@@ -97,7 +97,14 @@ class Index extends CI_Controller {
 					$upid = $this->common_model->updateData(DEAL_USER,$data,$where);
 
 					$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
-					$emailTpl = $this->get_forgotpassword_tpl($login_details);
+					#$emailTpl = $this->get_forgotpassword_tpl($login_details);
+
+					$emailTpl = $this->load->view('email_templates/admin_forgot_password', '', true);
+
+					$search = array('{username}', '{password}');
+					$replace = array($login_details['username'], $login_details['password']);
+					$emailTpl = str_replace($search, $replace, $emailTpl);
+
 					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 					if ($ret) {
 						$flash_arr = array('flash_type' => 'success',
@@ -118,19 +125,4 @@ class Index extends CI_Controller {
 		$this->load->view('admin/index/forgotpassword', $data);
 	}
 
-
-	public function get_forgotpassword_tpl($details)
-	{
-		$html = '<p>Your login details are: </p>
-				<p>
-					Username: '.$details['username'].'<br/>
-					Password: '.$details['password'].'
-				</p>
-				<p>
-					Thank you
-				</p>
-				';
-
-		return $html;
-	}
 }
