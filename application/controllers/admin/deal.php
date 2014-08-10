@@ -49,8 +49,9 @@ class Deal extends CI_Controller {
 				}
 			),
 			array( 'db' => 'dd_status',  'dt' => 7 ),
+			array( 'db' => '(select count(*) from deal_buyout where db_dealid=dd_autoid) as db_buycount',  'dt' => 8 ,'coloumn_name'=>'db_buycount'),
 			array( 'db' => 'dd_autoid',
-					'dt' => 8,
+					'dt' => 9,
 					'formatter' => function( $d, $row ) {
 						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_deal('.$d.')" class="fa fa-trash-o"></a>';
 					}

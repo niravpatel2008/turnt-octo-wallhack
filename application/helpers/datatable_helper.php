@@ -15,7 +15,10 @@ class SSP {
 					$row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['db'] ], $data[$i] );
 				}
 				else {
-					$row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
+					if(isset( $column['coloumn_name'] ))
+						$row[ $column['dt'] ] = $data[$i][ $columns[$j]['coloumn_name'] ];
+					else
+						$row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
 				}
 			}
 	
@@ -76,8 +79,11 @@ class SSP {
 					$dir = $request['order'][$i]['dir'] === 'asc' ?
 						'ASC' :
 						'DESC';
-
-					$orderBy[] = $column['db'].'||'.$dir;
+					
+					if(isset($column['coloumn_name']))
+						$orderBy[] = $column['coloumn_name'].'||'.$dir;
+					else
+						$orderBy[] = $column['db'].'||'.$dir;
 				}
 			}
 
@@ -174,7 +180,6 @@ class SSP {
 		$model = SSP::get_model();
 
 		$fields = SSP::pluck($columns, 'db');
-
 		$model->db->select($fields);
 		$model->db->from($table);
 

@@ -37,9 +37,10 @@
 									<th>O. Price</th>
 									<th>Discount</th>
 									<th>L. Price</th>
-									<th>Date</th>
-									<th>Exp. Date</th>
+									<th>S. Date</th>
+									<th>E. Date</th>
 									<th>Status</th>
+									<th>Bought</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -50,9 +51,10 @@
 									<th>O. Price</th>
 									<th>Discount</th>
 									<th>L. Price</th>
-									<th>Date</th>
-									<th>Exp. Date</th>
+									<th>S. Date</th>
+									<th>E. Date</th>
 									<th>Status</th>
+									<th>Bought</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>
