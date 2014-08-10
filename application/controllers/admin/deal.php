@@ -80,6 +80,11 @@ class Deal extends CI_Controller {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
+			if ($post['dd_validtilldate'] == "") {
+				$error['dd_validtilldate'] = 'Please enter deal validity.';
+				$e_flag=1;
+			}
+
 			$offer_data= $post['offer_data'];
 			if (!isset($offer_data[0]))
 			{
@@ -90,7 +95,7 @@ class Deal extends CI_Controller {
 			{
 				$offerdata =  json_decode($offer_data[0],1);
 			}
-			
+
 			if ($post['dd_status'] == "") {
 				$error['dd_status'] = 'Please select status.';
 				$e_flag=1;
@@ -128,7 +133,8 @@ class Deal extends CI_Controller {
 					'dd_expiredate'=> $dd_expiredate,
 					'dd_mainphoto'=> $post['dd_mainphoto'],
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
-					'dd_status'=> $post['dd_status']
+					'dd_status'=> $post['dd_status'],
+					'dd_validtilldate' => $post['dd_validtilldate']
 					);
 
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
@@ -174,7 +180,7 @@ class Deal extends CI_Controller {
 					if (count($newimages) > 0)
 						$this->common_model->assingImagesToDeal($ret_deal,$newimages);
 
-					
+
 					/*Deal Images sorting.*/
 					if($post['sortOrder'] != "")
 						$this->common_model->setImageOrder($post['sortOrder'],$ret_deal);
@@ -231,6 +237,10 @@ class Deal extends CI_Controller {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
+			if ($post['dd_validtilldate'] == "") {
+				$error['dd_validtilldate'] = 'Please enter deal validity.';
+				$e_flag=1;
+			}
 			$offer_data= $post['offer_data'];
 			if (!isset($offer_data[0]))
 			{
@@ -241,7 +251,7 @@ class Deal extends CI_Controller {
 			{
 				$offerdata =  json_decode($offer_data[0],1);
 			}
-			
+
 			if ($post['dd_status'] == "") {
 				$error['dd_status'] = 'Please select status.';
 				$e_flag=1;
@@ -279,7 +289,8 @@ class Deal extends CI_Controller {
 							'dd_expiredate'=> $dd_expiredate,
 							'dd_mainphoto' => $post['dd_mainphoto'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
-							'dd_status'=> $post['dd_status']
+							'dd_status'=> $post['dd_status'],
+							'dd_validtilldate' => $post['dd_validtilldate']
 							);
 
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
@@ -302,7 +313,7 @@ class Deal extends CI_Controller {
 							$offerId = $this->common_model->insertData(DEAL_OFFER, $offerArr);
 						}
 					}
-					
+
 					/*Add/Update tags */
 					$post_tags = $post['dd_tags'];
 					$old_tags = $this->common_model->getDealTags($id);
@@ -402,7 +413,7 @@ class Deal extends CI_Controller {
 		$post = $this->input->post();
 
 		if ($post) {
-			$link = $this->common_model->selectData(DEAL_LINKS,"dl_url",array('dl_autoid' => $post['id'] )); 
+			$link = $this->common_model->selectData(DEAL_LINKS,"dl_url",array('dl_autoid' => $post['id'] ));
 			unlink("./uploads/".$link[0]->dl_url);
 			$ret = $this->common_model->deleteData(DEAL_LINKS, array('dl_autoid' => $post['id'] ));
 			if ($ret > 0) {
@@ -471,11 +482,11 @@ class Deal extends CI_Controller {
 			}
 		}
 	}
-	
+
 	public function dealstatusupdate()
-	{	
+	{
 		$post = $this->input->post();
-		
+
 		$where = array();
 		$where['db_autoid'] = $post['id'];
 

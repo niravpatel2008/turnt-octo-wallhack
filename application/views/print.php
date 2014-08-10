@@ -86,36 +86,21 @@ body {margin-top: 0px;margin-left: 0px;}
 <P class="p0 ft0">Deal</P>
 <P class="p1 ft1"><?=$deal_detail[0]->dd_name?></P>
 <P class="p2 ft2"><?=$deal_detail[0]->do_offertitle?></P>
-<P class="p3 ft2">Mocktails</P>
 <P class="p4 ft3">MRP: Rs.<?=$deal_detail[0]->do_listprice?></P>
 <TABLE cellpadding=0 cellspacing=0 class="t0">
 <TR>
-	<TD class="tr0 td0"><P class="p5 ft4">Groupon code: 00100698K5</P></TD>
-	<TD class="tr0 td1"><P class="p5 ft5">Security Code: F09726A9AD</P></TD>
-</TR>
-<TR>
-	<TD class="tr1 td0"><P class="p5 ft2">Valid until <?=format_date($deal_detail[0]->dd_expiredate)?></P></TD>
-	<TD class="tr1 td1"><P class="p5 ft2">REF: 537290</P></TD>
+	<TD class="tr1 td0"><P class="p5 ft2">Valid until <?=format_date($deal_detail[0]->dd_validtilldate)?></P></TD>
 </TR>
 </TABLE>
 <P class="p6 ft5"><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
 <P class="p7 ft6"><?=$deal_detail[0]->de_url?> Tel. <?=$deal_detail[0]->de_contact?></P>
-<P class="p8 ft7">Fine Print</P>
+<P class="p8 ft7">Deal detail</P>
 <P class="p9 ft8"><?=$deal_detail[0]->dd_description?></P>
-<P class="p10 ft9">This is how it works</P>
-<TABLE cellpadding=0 cellspacing=0 class="t1">
-<TR>
-	<TD class="tr2 td2"><P class="p5 ft10">Print deal</P></TD>
-	<TD class="tr2 td3"><P class="p5 ft10">Arrange an appointment with the merchant</P></TD>
-</TR>
-<TR>
-	<TD class="tr3 td2"><P class="p5 ft10">Bring along your deal</P></TD>
-	<TD class="tr3 td3"><P class="p5 ft10">Redeem and enjoy</P></TD>
-</TR>
-</TABLE>
-<P class="p11 ft12">Any questions?: Customer Support: <SPAN class="ft11">1800 108 3000, </SPAN><NOBR>E-Mail</NOBR> to Groupon: <SPAN class="ft11">support@groupon.co.in, </SPAN><NOBR><SPAN class="ft11">User-ID:</SPAN></NOBR><SPAN class="ft11"> 630142</SPAN></P>
-<P class="p12 ft13">Cancellation Policy</P>
-<P class="p13 ft13">Once we send you the deal, you may cancel the transaction at any time within seven working days from the day after the day that you receive the voucher (where a working day is any day that is not a Saturday, Sunday or Indian public holiday). If you do want to cancel, you must do so by sending us an email to: support@groupon.co.in (provided of course that you have not yet redeemed the voucher)</P>
+<P class="p9 ft8"><?=$deal_detail[0]->dd_includes?></P>
+<P class="p9 ft8"><?=$deal_detail[0]->dd_features?></P>
+
+<P class="p9 ft8"><?=$deal_detail[0]->dd_conditions?></P>
+<P class="p9 ft8"><?=$deal_detail[0]->dd_policy?></P>
 </DIV>
 </BODY>
 </HTML>
