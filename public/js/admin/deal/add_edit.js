@@ -34,6 +34,8 @@ $(document).ready(function(){
 	});
 
 	$('#dd_timeperiod').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+	$('#dd_validtilldate').daterangepicker({singleDatePicker:true,format: 'MM/DD/YYYY'});
+
 
 	$( "#img-container" ).sortable({stop: function( event, ui ) {doOrderImage();}});
 
