@@ -10,10 +10,11 @@ $(document).ready(function() {
         aoColumnDefs: [
           {
              bSortable: false,
+			 bSearchable: false,
              aTargets: [ -1 ]
           }
         ]
-    } );
+    } ).columnFilter({sPlaceHolder:"head:after",aoColumns: [{ type: "text" },null,null,null,null,null,null,null,null]});
 
 	$("body").delegate(".deal-buy-status","click",function(){
 		flag = ($(this).hasClass("active"))?0:1;
