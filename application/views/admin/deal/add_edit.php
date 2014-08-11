@@ -64,7 +64,17 @@
                         <label for="dd_name">Deal Name:</label>
                         <input placeholder="Enter Dealer Name" id="dd_name" class="form-control validate[required]" name="dd_name" value="<?=@$deal[0]->dd_name?>" >
                     </div>
-
+                    <div class="form-group <?=(@$error_msg['dd_validtilldate'] != '')?'has-error':'' ?>">
+                        <?php
+                            if(@$error_msg['dd_validtilldate'] != ''){
+                        ?>
+                            <label for="inputError" class="control-label"><i class="fa fa-times-circle-o"></i><?=@$error_msg['dd_validtilldate']?></label><br/>
+                        <?php
+                            }
+                        ?>
+                        <label for="dd_description">Valid until:</label>
+                        <input placeholder="Enter deal validity time" id="dd_validtilldate" class="form-control validate[required]" name="dd_validtilldate" value="<?=@$deal[0]->dd_validtilldate?>" >
+                    </div>
                     <div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
                         <?php
                             if(@$error_msg['dd_description'] != ''){
