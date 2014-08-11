@@ -120,7 +120,14 @@ class Welcome extends CI_Controller {
 				$login_details = array('username' => $post['username'],
 										'password' => trim($post['password'])
 									);
-				$emailTpl = $this->get_welcome_tpl($login_details);
+				#$emailTpl = $this->get_welcome_tpl($login_details);
+
+				$emailTpl = $this->load->view('email_templates/signup', '', true);
+
+				$search = array('{username}', '{password}');
+				$replace = array($login_details['username'], $login_details['password']);
+				$emailTpl = str_replace($search, $replace, $emailTpl);
+
 				$ret = sendEmail($post['email'], SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 
 				echo "success";
@@ -163,7 +170,13 @@ class Welcome extends CI_Controller {
 				$upid = $this->common_model->updateData(DEAL_USER,$data,$where);
 
 				$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
-				$emailTpl = $this->get_forgotpassword_tpl($login_details);
+				#$emailTpl = $this->get_forgotpassword_tpl($login_details);
+				$emailTpl = $this->load->view('email_templates/forgot_password', '', true);
+
+				$search = array('{username}', '{password}');
+				$replace = array($login_details['username'], $login_details['password']);
+				$emailTpl = str_replace($search, $replace, $emailTpl);
+
 				$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 				if ($ret) {
 					echo "success";
@@ -180,37 +193,6 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-
-	public function get_forgotpassword_tpl($details)
-	{
-		$html = '<p>Your login details are: </p>
-				<p>
-					Username: '.$details['username'].'<br/>
-					Password: '.$details['password'].'
-				</p>
-				<p>
-					Thank you
-				</p>
-				';
-
-		return $html;
-	}
-
-	public function get_welcome_tpl($details)
-	{
-		$html = '<p>Welcome to dhiskiyaon on deals </p>
-				<p>Your login details are: </p>
-				<p>
-					Username: '.$details['username'].'<br/>
-					Password: '.$details['password'].'
-				</p>
-				<p>
-					Thank you
-				</p>
-				';
-
-		return $html;
-	}
 
 	public function about()
 	{
