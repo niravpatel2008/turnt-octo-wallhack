@@ -11,8 +11,8 @@
         </div>
         <div class="large-3 columns toppad">
           <ul class="rr social">
-            <li><a class="ir tw" href="#">Twitter</a></li>
-            <li><a class="ir in" href="#">LinkedIn</a></li>
+            <!-- li><a class="ir tw" href="#">Twitter</a></li>
+            <li><a class="ir in" href="#">LinkedIn</a></li !-->
             <li><a class="ir fb" target="_blank" href="https://www.facebook.com/people/Django-Deals/100005717055261">Facebook</a></li>
             <li><a class="ir ab" target="_blank" href="http://about.me/djangodeals">About.me</a></li>
           </ul>
