@@ -95,7 +95,7 @@
                                                                 </br>
                                                                 <p>
                                                                     <div style='color:#DC2828;'>
-                                                                        <img src="./images/logo1.png">
+                                                                        <img src="<?=public_path()?>/img/email/logo1.png">
                                                                     </div>
                                                                 </p>
                                                             </div>
@@ -111,7 +111,7 @@
                                                     <td valign='top' align='center'>
                                                         <div class="contentEditableContainer contentImageEditable">
                                                             <div class="contentEditable">
-                                                                <img src="images/line.png" width='251' height='43' alt='' data-default="placeholder" data-max-width="560">
+                                                                <img src="<?=public_path()?>/img/email/line.png" width='251' height='43' alt='' data-default="placeholder" data-max-width="560">
                                                             </div>
                                                         </div>
                                                     </td>
@@ -153,10 +153,10 @@
                                                                     <span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:25px;color:#222222;">Your Login Credentials</span>
                                                                     <br>
                                                                     <br>
-                                                                    <img src="./images/login.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  kunalkparikh@gmail.com</span>
+                                                                    <img src="<?=public_path()?>/img/email/login.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  kunalkparikh@gmail.com</span>
                                                                     <br>
                                                                     <br>
-                                                                    <img src="./images/key.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  123456</span>
+                                                                    <img src="<?=public_path()?>/img/email/key.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  123456</span>
 
                                                                     <br>
                                                                     <br>Have questions? Get in touch with us via Facebook or email our support team.
