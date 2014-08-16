@@ -130,8 +130,6 @@ class common_model extends CI_Model{
 	}
 
 
-
-
 	public function deleteTags($de_autoid,$tag_ids)
 	{
 		$this->db->where_in('dm_dtid', $de_autoid);

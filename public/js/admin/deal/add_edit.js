@@ -33,6 +33,10 @@ $(document).ready(function(){
 		});
 	});
 
+	/*$('#dd_validtilldate').datepicker({
+		format: 'MM/DD/YYYY'
+	});*/
+
 	$('#dd_timeperiod').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
 	$('#dd_validtilldate').daterangepicker({singleDatePicker:true,format: 'MM/DD/YYYY'});
 
@@ -47,7 +51,7 @@ $(document).ready(function(){
 	{
 		setTimeout(function(){
 				var myDropzone = Dropzone.forElement("#my-awesome-dropzone");
-				myDropzone.on("success", function(file, res) { 
+				myDropzone.on("success", function(file, res) {
 					if (res.indexOf("Error:") === -1)
 					{
 						var file = JSON.parse(res);
@@ -62,7 +66,7 @@ $(document).ready(function(){
 				});
 		},1000)
 	}
-	
+
 	$('#img-container').delegate("img",'click',function(){
 		$('#img-container img').removeClass('selected');
 		$(this).addClass('selected');
@@ -85,7 +89,7 @@ $(document).ready(function(){
 
 	$('.addoffer').on('click',function(e){
 		e.preventDefault();
-		$clone = $('.offers_div:eq(0)').clone();	
+		$clone = $('.offers_div:eq(0)').clone();
 		$clone.find("input").val("");
 		$clone.insertAfter(".offers_div:last");
 	});
@@ -138,5 +142,5 @@ $(document).ready(function(){
 		});
 	});
 
-	doOrderImage();	
+	doOrderImage();
 });
