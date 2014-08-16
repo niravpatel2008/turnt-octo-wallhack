@@ -73,10 +73,10 @@
   transition: background-color 0.2s;
 }
 .menu-browse .input .label {
-  padding-left: 20%;
+  padding-left: 10%;
 }
 .menu-browse .input:after {
-  right: 20%;
+  right: 10%;
 }
 
 

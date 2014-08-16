@@ -57,7 +57,13 @@ class Deal extends CI_Controller {
 					}
 			),
 		);
-		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ) );exit;
+	
+		$custom_where = array();
+		if($this->user_session['role'] == 'd') {
+			$custom_where = array('dd_dealerid'=>$this->user_session['dealer_info']->de_autoid);
+		}	
+		
+		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ),array(),$custom_where );exit;
 	}
 
 	public function add()

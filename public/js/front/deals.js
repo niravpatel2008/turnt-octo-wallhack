@@ -38,11 +38,12 @@ $(document).ready(function(){
 
 
 function buy_deal (deal_id,offerid) {
-	if(!isLogin) { openLoginForm(); return; }
+	if(!isLogin) {$("#buyofferpopup").modal('hide'); openLoginForm(); return; }
 	url = base_url()+'buy';
 	data = {deal_id:deal_id,offerid:offerid}
 	$.post(url,data,function(data){
 			if (data == "login") {
+				$("#buyofferpopup").modal('hide');
                 openLoginForm();
                 return false;
             }
