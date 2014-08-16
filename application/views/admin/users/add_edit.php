@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label>Contact:</label>
-                        <input type="text" placeholder="Enter ..." class="form-control validate[required,custom[phone]" name="contact" id="contact" value="<?=@$user[0]->du_contact?>">
+                        <input type="text" placeholder="Enter ..." class="form-control validate[required,custom[phone]]" name="contact" id="contact" value="<?=@$user[0]->du_contact?>">
                     </div>
                     <div class="form-group <?=(@$error_msg['role'] != '')?'has-error':'' ?>">
                         <?php
