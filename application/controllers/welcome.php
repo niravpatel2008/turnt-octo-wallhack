@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		//$emailTpl = $this->load->view('email_templates/template', array('email'=>'signup'), true);
+		//$emailTpl = $this->load->view('email_templates/template', array('email'=>'signup','username'=>'Nirav Patel','password'=>'password'), true);
 		//$ret = sendEmail("nirav.ce.2008@gmail.com", "TEST EMAIL", $emailTpl, "nirav.ce.2008@gmail.com", "Nirav Patel");
 
 		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid');
@@ -117,15 +117,9 @@ class Welcome extends CI_Controller {
 				$login_details = array('username' => $post['username'],
 										'password' => trim($post['password'])
 									);
-				#$emailTpl = $this->get_welcome_tpl($login_details);
 
-				#$emailTpl = $this->load->view('email_templates/signup', '', true);
-				$emailTpl = $this->load->view('email_templates/template', array('email'=>'signup'), true);
-
-				$search = array('{username}', '{password}');
-				$replace = array($login_details['username'], $login_details['password']);
-				$emailTpl = str_replace($search, $replace, $emailTpl);
-
+				$emailTpl = $this->load->view('email_templates/template', array('email'=>'signup','username'=>$login_details['username'],'password'=>$login_details['password']), true);
+				
 				$ret = sendEmail($post['email'], SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 
 				echo "success";
@@ -168,12 +162,9 @@ class Welcome extends CI_Controller {
 				$upid = $this->common_model->updateData(DEAL_USER,$data,$where);
 
 				$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
-				#$emailTpl = $this->get_forgotpassword_tpl($login_details);
-				$emailTpl = $this->load->view('email_templates/template', array('email'=>'forgot_password'), true);
 
-				$search = array('{username}', '{password}');
-				$replace = array($login_details['username'], $login_details['password']);
-				$emailTpl = str_replace($search, $replace, $emailTpl);
+				$emailTpl = $this->load->view('email_templates/template', array('email'=>'forgot_password','username'=>$login_details['username'],'password'=>$login_details['password']), true);
+				
 
 				$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 				if ($ret) {
