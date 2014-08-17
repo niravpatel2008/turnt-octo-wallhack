@@ -30,9 +30,10 @@ class Buy extends CI_Controller {
                                         'dealer' => $deal_data['detail'][0]['de_name'],
                                         'offer' => $deal_data['offers']->do_offertitle,
                                         'valid_till' => $deal_data['detail'][0]['dd_expiredate'],
-                                        'price' => $deal_data['detail'][0]['dd_listprice']
+                                        'price' => $deal_data['detail'][0]['dd_listprice'],
+                                        'email' => "buydeal"
                                     );
-                $emailTpl = $this->get_user_deal_tpl($deal_details);
+                $emailTpl = $this->load->view('email_templates/template', $deal_details, true);
                 $admin_email = $this->common_model->selectData(DEAL_USER, 'du_email', array("du_role"=>'a'));
                 $bcc = $admin_email[0]->du_email.", ".$deal_data['detail'][0]['de_email'];
                 $ret = sendEmail($this->front_session['email'], SUBJECT_DEAL_INFO, $emailTpl, FROM_EMAIL, FROM_NAME, '', $bcc);
@@ -44,28 +45,6 @@ class Buy extends CI_Controller {
         }
 
     }
-
-
-    public function get_user_deal_tpl($details)
-    {
-        $html = '<p>Thank you for purchasing deal at django deals. </p>
-                <p>Below are the deal details: </p>
-                <p>
-                    Name: '.$details['name'].'<br/>
-                    Dealer: '.$details['dealer'].'<br/>
-                    Offer: '.$details['offer'].'<br/>
-                    Valid till: '.$details['valid_till'].'<br/>
-                    Price: '.$details['price'].'
-                </p>
-                <p>
-                    Thank you
-                </p>
-                ';
-
-        return $html;
-    }
-
-
 
 }
 

@@ -75,12 +75,6 @@
                         <td width='520'>
                             <table width="520" border="0" cellspacing="0" cellpadding="0" align="center">
 
-                                <!-- =============================== Header ====================================== -->
-                                <tr>
-                                    <td height='75'></td>
-                                </tr>
-                                <!-- =============================== Body ====================================== -->
-
                                 <tr>
                                     <td class='movableContentContainer' valign='top'>
 
@@ -91,8 +85,7 @@
                                                         <div class="contentEditableContainer contentTextEditable">
                                                             <div class="contentEditable">
                                                                 <p style='text-align:center;margin:0;font-family:Georgia,Time,sans-serif;font-size:50px;color:#222222;'>Welcome To</p>
-                                                                </br>
-                                                                </br>
+                                                                <p style='height:35px;'></p>
                                                                 <p>
                                                                     <div style='color:#DC2828;'>
                                                                         <img src="<?=public_path()?>/img/email/logo1.png">
@@ -127,49 +120,32 @@
                                                 <tr>
                                                     <td height='20'></td>
                                                 </tr>
-                                                <tr>
-                                                    <td align='left'>
-                                                        <div class="contentEditableContainer contentTextEditable">
-                                                            <div class="contentEditable" align='center'>
-                                                                <h2>Thank you !! for Being our Customer...</h2>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td height='15'></td>
-                                                </tr>
 
                                                 <tr>
                                                     <td align='left'>
                                                         <div class="contentEditableContainer contentTextEditable">
                                                             <div class="contentEditable" align='center'>
-                                                                <p style='text-align:left;color:#999999;font-size:14px;font-weight:normal;line-height:19px;'>
-                                                                    Thanks for giving us opportunity to serve you! You're all set up. You can check <a class='link1' class='color:#382F2E;' href='http://deals.stampstockist.com/how_it_works'>How it works </a> section to know more about working of the site.
-                                                                    <br>
-                                                                    <br>
-
-                                                                    <span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:25px;color:#222222;">Your Login Credentials</span>
-                                                                    <br>
-                                                                    <br>
-                                                                    <img src="<?=public_path()?>/img/email/login.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  kunalkparikh@gmail.com</span>
-                                                                    <br>
-                                                                    <br>
-                                                                    <img src="<?=public_path()?>/img/email/key.png" /><span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:15px;color:#222222;">  123456</span>
-
-                                                                    <br>
-                                                                    <br>Have questions? Get in touch with us via Facebook or email our support team.
-                                                                    <br>
-                                                                    <br>Cheers,
-                                                                    <br>
-                                                                    <span style='color:#222222;'>Team Django</span>
-                                                                </p>
+																<?$this->load->view('template/email_templates/'.$email);?>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
-
+												<tr>
+                                                    <td align='left'>
+                                                        <div class="contentEditableContainer contentTextEditable">
+                                                            <div class="contentEditable" align='center'>
+															<p>
+												<br>
+												<br>Have questions? Get in touch with us via Facebook or email our support team.
+												<br>
+												<br>Cheers,
+												<br>
+												<span style='color:#222222;'>Team Django</span>
+															</p>
+															</div>
+														</div>
+													</td>
+												</tr>
                                             </table>
                                         </div>
 
@@ -207,7 +183,7 @@
                                                                     <div class="contentEditableContainer contentFacebookEditable">
                                                                         <div class="contentEditable">
                                                                             <a href="https://www.facebook.com/pages/Django-Deals/1512919925610237">
-                                                                                <img src="images/facebook.png" width='52' height='53' alt='facebook icon' data-default="placeholder" data-max-width="52">
+                                                                                <img src="<?=public_path()?>/img/email/facebook.png" width='52' height='53' alt='facebook icon' data-default="placeholder" data-max-width="52">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -219,7 +195,7 @@
                                                                     <div class="contentEditableContainer contentTwitterEditable">
                                                                         <div class="contentEditable">
                                                                             <a href="http://about.me/djangodeals">
-                                                                                <img src="images/aboutme.png" width='52' height='53' alt='twitter icon' data-default="placeholder" data-max-width="52">
+                                                                                <img src="<?=public_path()?>/img/email/aboutme.png" width='52' height='53' alt='twitter icon' data-default="placeholder" data-max-width="52">
                                                                             </a>
                                                                         </div>
                                                                     </div>

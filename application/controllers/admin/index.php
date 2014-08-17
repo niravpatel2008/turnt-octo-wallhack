@@ -96,14 +96,7 @@ class Index extends CI_Controller {
 					$data = array('du_password' => sha1($newpassword));
 					$upid = $this->common_model->updateData(DEAL_USER,$data,$where);
 
-					$login_details = array('username' => $user[0]->du_uname,'password' => $newpassword);
-					#$emailTpl = $this->get_forgotpassword_tpl($login_details);
-
-					$emailTpl = $this->load->view('email_templates/admin_forgot_password', '', true);
-
-					$search = array('{username}', '{password}');
-					$replace = array($login_details['username'], $login_details['password']);
-					$emailTpl = str_replace($search, $replace, $emailTpl);
+					$emailTpl = $this->load->view('email_templates/template', array('email'=>'admin_forgot_password','username'=>$user[0]->du_uname,'password'=>$newpassword), true);
 
 					$ret = sendEmail($user[0]->du_email, SUBJECT_LOGIN_INFO, $emailTpl, FROM_EMAIL, FROM_NAME);
 					if ($ret) {
