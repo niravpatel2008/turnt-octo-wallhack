@@ -125,7 +125,7 @@
                                                     <td align='left'>
                                                         <div class="contentEditableContainer contentTextEditable">
                                                             <div class="contentEditable" align='center'>
-																<?$this->load->view('template/email_templates/'.$email);?>
+																<?$this->load->view('email_templates/'.$email);?>
                                                             </div>
                                                         </div>
                                                     </td>
