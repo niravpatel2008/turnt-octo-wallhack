@@ -18,7 +18,6 @@
 									<td><?=$deal['dd_name']?></td>
 									<td><?=$deal['db_dealstatus']?></td>
 									<td>
-									<button class="btn btn-success btn-sm print-offer" data-dealbuyoutid="<?=base64_encode($deal['db_autoid']) ?>"  ><i class="fa fa-print"></i></button>
 									<?php if($deal['db_dealstatus'] == 'active'){?><button class="btn btn-success btn-sm print-offer" data-dealbuyoutid="<?=base64_encode($deal['db_autoid']) ?>"  ><i class="fa fa-print"></i></button><?php }?></td>
 								</tr>
 					<?php } ?>
