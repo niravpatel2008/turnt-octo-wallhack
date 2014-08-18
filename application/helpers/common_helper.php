@@ -114,7 +114,7 @@
 
 	function replace_char($str)
 	{
-		return str_replace(array(",","/","(",")","&",),"-",$str);
+		return str_replace(array(",","/","(",")","&"," "),"-",trim($str));
 	}
 
 ?>

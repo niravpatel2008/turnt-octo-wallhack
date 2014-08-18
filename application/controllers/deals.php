@@ -115,6 +115,29 @@ class Deals extends CI_Controller {
 		$pdf->render();
 		$pdf->output('I','sample.pdf');
 	}
+
+	public function dealcatpage($category)
+	{
+		$category = urldecode(trim($category,"-"));
+
+		if ($category != "")
+		{
+			$catid = $this->common_model->selectData(DEAL_CATEGORY,"dc_catid",array("dc_catname"=>$category));
+			if(count($catid) == 0) redirect("welcome");
+			$catid = $catid[0]->dc_catid;
+		}
+		else
+		{
+			$category = "All deals";
+			$catid = "";
+		}
+		
+		$data['view'] = "category";
+		$data['responsivejs'] = "1";
+		$data['category'] = $catid;
+		$data['categoryName'] = $category;
+		$this->load->view('content', $data);
+	}
 }
 
 /* End of file search.php */

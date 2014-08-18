@@ -5,7 +5,8 @@ $(document).ready(function(){
 	var url = base_url()+'deals/search/';
 	var tags = $('#tags').val();
 	var category = $('#category').val();
-	$.post(url,{tags:tags,category:category,limit:"4",or:"1"},function(result){
+	var limit  = ($('#limit').length > 0)?$('#limit').val():4;
+	$.post(url,{tags:tags,category:category,limit:limit,or:"1"},function(result){
 		displayDealsData(JSON.parse(result));
 	});
 	$('.btn-buy').on('click',function(){
