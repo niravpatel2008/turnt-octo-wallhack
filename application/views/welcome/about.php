@@ -10,7 +10,7 @@
 	<div class="box-body">
 		<p>It all started by watching and playing with deals! deals! and lot of deals which does not have any deal inside.</p>
 		<p>
-		dishkiyaoondeals is a small company comprising of few good employess,It's one stop destination to buy and sell talk of the town deals in Ahmedabad. We buy and sell on those deals which have some deal inside. 
+		django deals is a small company comprising of few good employess,It's one stop destination to buy and sell talk of the town deals in Ahmedabad. We buy and sell on those deals which have some deal inside. 
 		</p>
 		<p>
 		We are regularly working on the rich features and best deals for end user.

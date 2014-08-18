@@ -47,6 +47,7 @@ $route['admin/forgotpassword'] = "admin/index/forgotpassword";
 $route['admin'] = "admin/index";
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
+$route['ahmedabad-(.*)[-]*deals'] = "deals/dealcatpage/$1";
 
 
 /* End of file routes.php */
