@@ -74,7 +74,7 @@ class Category extends CI_Controller {
 				$img_arr = explode('.',$_FILES['category_picture']['name']);
 				$img_arr = array_reverse($img_arr);
 
-				$post['dc_catimg'] = "img.".$img_arr[0];
+				$config['file_name'] = $post['dc_catimg'] = time()."_img.".$img_arr[0];
 
 				$this->load->library('upload', $config);
 
@@ -147,7 +147,7 @@ class Category extends CI_Controller {
 				$img_arr = explode('.',$_FILES['category_picture']['name']);
 				$img_arr = array_reverse($img_arr);
 
-				$post['dc_catimg'] = "img.".$img_arr[0];
+				$config['file_name'] = $post['dc_catimg'] = time()."_img.".$img_arr[0];
 
 				$this->load->library('upload', $config);
 
@@ -168,7 +168,7 @@ class Category extends CI_Controller {
 								'dc_catdetails' => $post['dc_catdetails'],
 							);
 				if (isset($post['dc_catimg']))
-					'dc_catimg' => $post['dc_catimg']
+					$data['dc_catimg'] = $post['dc_catimg'];
 				$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
 
 				if ($ret > 0) {

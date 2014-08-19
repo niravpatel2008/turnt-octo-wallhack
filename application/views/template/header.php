@@ -157,6 +157,7 @@
             </form>
           </div>
 		  <div class="row category_select">
+			<img data-catid='' src='<?=public_path()?>/img/all_cat.png' alt='All' title='All Deal'/>
 			<?php foreach($categories as $category){
 					echo "<img data-catid='".$category->dc_catid."' src='".category_img_path().$category->dc_catimg."' alt='".$category->dc_catname."' title='".$category->dc_catname."' />";
 			}?>

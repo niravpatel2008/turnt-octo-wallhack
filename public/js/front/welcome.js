@@ -118,6 +118,7 @@ function setStartUp(){
 		category = (category == null)?"":category;
 		$('#category').html($('.menu-browse a[catid="'+category+'"]').html());
 		$('#category').attr('catid',category);
+		$('.category_select img[data-catid='+category+']').addClass('active');
 	}
 }
 
@@ -131,7 +132,7 @@ $(function() {
 		var catid = $(this).attr('catid');
 		$('#category').attr('catid',catid);
 		$('.category_select img').removeClass('active');
-		$('.category_select img["data-catid"="'+catid+'"]').addClass('active');
+		$('.category_select img[data-catid='+catid+']').addClass('active');
 		getDealList('new');
 	});
 
