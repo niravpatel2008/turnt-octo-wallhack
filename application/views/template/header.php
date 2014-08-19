@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <div class="row main-slider-wrap" style='max-width:84.4em;'>
+        <!--div class="row main-slider-wrap" style='max-width:84.4em;'>
 			<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
         <div class="slides" data-group="slides">
       		<ul>
@@ -130,7 +130,7 @@
           <a class="page" href="#" data-jump-to="3">3</a>
         </div>
     	</div>
-        </div>
+        </div -->
 
         <div class="search-wrap stripe-white">
           <div class="row">
@@ -156,6 +156,11 @@
               </nav>
             </form>
           </div>
+		  <div class="row category_select">
+			<?php foreach($categories as $category){
+					echo "<img data-catid='".$category->dc_catid."' src='".category_img_path().$category->dc_catimg."' alt='".$category->dc_catname."' title='".$category->dc_catname."' />";
+			}?>
+		  </div>
         </div>
 
       </header>

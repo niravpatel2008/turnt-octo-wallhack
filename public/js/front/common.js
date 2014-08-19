@@ -274,14 +274,6 @@ $(document).ready(function(){
     event.stopPropagation();
     $(this).children('.sub').toggle();
   });
-  $('.menu-browse a').on('click',function(event){
-	event.preventDefault();
-	var selected = $(this).html().trim();
-	$('#category').html(selected);
-	var catid = $(this).attr('catid');
-	$('#category').attr('catid',catid);
-	getDealList('new');
-  });
   temp3.on('click', function(event) {
     event.stopPropagation();
     $(this).children('.submenu').toggle();
