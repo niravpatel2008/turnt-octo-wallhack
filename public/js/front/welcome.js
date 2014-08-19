@@ -78,8 +78,7 @@ function getDealList(action)
 	$.each(qryStrHash, function(key, value) {
 		data[key] = value;
 	});
-	console.log(qryStrHash);
-	console.log(data);
+
 	data['page']=$('#page').val();
 
 	$.ajax({
@@ -92,19 +91,15 @@ function getDealList(action)
 		{
 			$("#loaderLogin").hide();
 			var page = $('#page').val();
-
 			resultSet[page] = result;
 			if($.trim(result) != "") {
-				hideHeader = true;
 				$("#noResultDiv").hide();
-
 				displayDealsData(result);
 			}
 			else if($.trim(result) == "") {
 				$("#noResultDiv").show();
 				$('#totalRecordsCount').val("");
 			}
-			$("#noRecTbl").hide();
 		},
 		error: function(xhr, textStatus, errorThrown){
 			//console.log("Server error");

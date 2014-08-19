@@ -6,5 +6,5 @@
   <input type="hidden" value='1' id='page'>
   <input type="hidden" value='' id='totalRecordsCount'>
   <div id='loaderLogin'><img src="<?=public_path()?>images/loading1.gif"></div>
-  <div id='noResultDiv'></div>
+  <div id='noResultDiv' class='stripe-white'>No deals found.</div>
 </div>

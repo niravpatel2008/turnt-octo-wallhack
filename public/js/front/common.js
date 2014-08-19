@@ -29,10 +29,14 @@ function displayDealsData(result)
 {
 	var article = "";
 	var htmlStr = "";
-	if(result.length>0 && result != ""){
-		$("#noRecTbl").hide();
-	}
 	$('#totalRecordsCount').val(result.totalRecordsCount);
+
+	if (result.totalRecordsCount == 0)
+	{
+		$("#noResultDiv").show();
+		$('#totalRecordsCount').val("");
+	}
+	
 	var flag = false;
 	$.each(result, function(index,element)
 	{

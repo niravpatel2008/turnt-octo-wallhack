@@ -241,6 +241,7 @@ class common_model extends CI_Model{
 		}
 
 		$this->db->where('dd_status',"published");
+		$this->db->where('dd_originalprice != 0');
 		$this->db->where("dd_startdate <= now()");
 		$this->db->where("dd_expiredate >= now()");
 

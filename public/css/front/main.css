@@ -1769,6 +1769,6 @@ small.label{
   font-weight: 400;
 }
 
-#loaderLogin{
-text-align:center;
+#loaderLogin,#noResultDiv{
+	text-align:center;
 }
