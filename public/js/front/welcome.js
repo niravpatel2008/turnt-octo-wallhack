@@ -115,16 +115,26 @@ function setStartUp(){
 	var category = $.cookie("category");
 	if (typeof(category) != 'undefined')
 	{
-
 		category = (category == null)?"":category;
 		$('#category').html($('.menu-browse a[catid="'+category+'"]').html());
 		$('#category').attr('catid',category);
+		$('.category_select img[data-catid='+category+']').addClass('active');
 	}
 }
 
 $(function() {
 	setStartUp();
-
+	
+	$('.menu-browse a').on('click',function(event){
+		event.preventDefault();
+		var selected = $(this).html().trim();
+		$('#category').html(selected);
+		var catid = $(this).attr('catid');
+		$('#category').attr('catid',catid);
+		$('.category_select img').removeClass('active');
+		$('.category_select img[data-catid='+catid+']').addClass('active');
+		getDealList('new');
+	});
 
 	var extparam = {};
 	// CODE FOR MULTIPLE TAG SEARCH START HERE
@@ -197,6 +207,15 @@ $(function() {
 	searchBox.addEvent("bitBoxFocus", bitBoxFocusEvt);
 	searchBox.addEvent("focus", function(){
 			$('.textboxlist-autocomplete-results').show().scrollTop(0).hide();
+	});
+
+	$('.category_select img').on('click',function(){
+		$('.category_select img').removeClass('active');
+		$(this).addClass('active');
+		catid = $(this).data("catid");
+		$('#category').html($('.menu-browse a[catid="'+catid+'"]').html());
+		$('#category').attr('catid',catid);
+		getDealList('new');
 	});
 
 	getDealList('new');

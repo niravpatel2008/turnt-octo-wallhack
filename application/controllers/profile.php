@@ -49,7 +49,7 @@ class Profile extends CI_Controller {
 				}
 				$config['overwrite'] = TRUE;
 				$config['upload_path'] = DOC_ROOT_PROFILE_IMG;
-				$config['allowed_types'] = '*';
+				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
 
 				$img_arr = explode('.',$_FILES['profile_image']['name']);
 				$img_arr = array_reverse($img_arr);

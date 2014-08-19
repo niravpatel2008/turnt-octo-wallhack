@@ -61,9 +61,34 @@ class Category extends CI_Controller {
 				$e_flag=1;
 			}
 
+			if ($_FILES['category_picture']['error'] > 0) {
+				$error['category_picture'] = 'Error in image upload.';
+				$e_flag=1;
+			}
+
+			if ($_FILES['category_picture']['error'] == 0) {
+				$config['overwrite'] = TRUE;
+				$config['upload_path'] = DOC_ROOT_CATEGORY_IMG;
+				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
+
+				$img_arr = explode('.',$_FILES['category_picture']['name']);
+				$img_arr = array_reverse($img_arr);
+
+				$config['file_name'] = $post['dc_catimg'] = time()."_img.".$img_arr[0];
+
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload("category_picture"))
+				{
+					$error['category_picture'] = $this->upload->display_errors();
+					$e_flag=1;
+				}
+			}
+
 			if ($e_flag == 0) {
 				$data = array('dc_catname' => $post['dc_catname'],
-								'dc_catdetails' => $post['dc_catdetails']
+								'dc_catdetails' => $post['dc_catdetails'],
+								'dc_catimg' => $post['dc_catimg']
 							);
 				$ret = $this->common_model->insertData(DEAL_CATEGORY, $data);
 
@@ -109,11 +134,41 @@ class Category extends CI_Controller {
 				$error['dc_catdetails'] = 'Please enter category detail.';
 				$e_flag=1;
 			}
+			if ($_FILES['category_picture']['error'] > 0) {
+				$error['category_picture'] = 'Error in image upload.';
+				$e_flag=1;
+			}
+
+			if ($_FILES['category_picture']['error'] == 0) {
+				$config['overwrite'] = TRUE;
+				$config['upload_path'] = DOC_ROOT_CATEGORY_IMG;
+				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
+
+				$img_arr = explode('.',$_FILES['category_picture']['name']);
+				$img_arr = array_reverse($img_arr);
+
+				$config['file_name'] = $post['dc_catimg'] = time()."_img.".$img_arr[0];
+
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload("category_picture"))
+				{
+					$error['category_picture'] = $this->upload->display_errors();
+					$e_flag=1;
+				}
+				else
+				{
+					$category = $category = $this->common_model->selectData(DEAL_CATEGORY, '*', $where);
+					unlink(DOC_ROOT_CATEGORY_IMG.$category[0]->dc_catimg);
+				}
+			}
 
 			if ($e_flag == 0) {
 				$data = array('dc_catname' => $post['dc_catname'],
-								'dc_catdetails' => $post['dc_catdetails']
+								'dc_catdetails' => $post['dc_catdetails'],
 							);
+				if (isset($post['dc_catimg']))
+					$data['dc_catimg'] = $post['dc_catimg'];
 				$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
 
 				if ($ret > 0) {

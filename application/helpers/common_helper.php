@@ -30,6 +30,11 @@
         return base_url()."uploads/profile_images/";
     }
 
+    function category_img_path($type="www")
+    {
+        return base_url()."uploads/category_images/";
+    }
+
 	function is_login()
 	{
 
