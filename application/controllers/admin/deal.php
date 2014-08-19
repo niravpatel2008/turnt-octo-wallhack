@@ -63,7 +63,7 @@ class Deal extends CI_Controller {
 			$custom_where = array('dd_dealerid'=>$this->user_session['dealer_info']->de_autoid);
 		}	
 		
-		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ),array(),$custom_where );exit;
+		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ,array(),$custom_where ));exit;
 	}
 
 	public function add()
