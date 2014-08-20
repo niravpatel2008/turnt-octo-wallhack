@@ -114,6 +114,10 @@ class Deal extends CI_Controller {
 				$error['dd_policy'] = 'Please enter deal policy.';
 				$e_flag=1;
 			}
+			if ($post['dd_tags'] == "") {
+				$error['dd_tags'] = 'Please enter deal tags.';
+				$e_flag=1;
+			}
 
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
@@ -268,6 +272,10 @@ class Deal extends CI_Controller {
 			}
 			if ($post['dd_policy'] == "") {
 				$error['dd_policy'] = 'Please enter deal policy.';
+				$e_flag=1;
+			}
+			if ($post['dd_tags'] == "") {
+				$error['dd_tags'] = 'Please enter deal tags.';
 				$e_flag=1;
 			}
 
