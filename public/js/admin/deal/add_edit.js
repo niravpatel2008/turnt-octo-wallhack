@@ -11,6 +11,7 @@ function doOrderImage(){
 }
 
 $(document).ready(function(){
+	$(".textarea").wysihtml5();
 	$("#deal_form").validationEngine();
 	$('#deal_form').on('submit',function(e){
 		var flag = $("#deal_form").validationEngine("validate");

@@ -55,8 +55,8 @@ define('DEAL_TAGS',	'deal_tags');
 define('DEAL_OFFER',	'deal_offer');
 
 
-define('FROM_EMAIL', 'noreply@deals.com');
-define('FROM_NAME', 'deals.com');
+define('FROM_EMAIL', 'nirav.ce.2008@gmail.com');
+define('FROM_NAME', 'djangodeals.com');
 define('SUBJECT_LOGIN_INFO', 'Login info');
 define('SUBJECT_DEAL_INFO', 'Deal info');
 define('SUBJECT_CONTACT_ADMIN', 'Contact us (djangodeals.com)');
