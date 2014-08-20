@@ -314,9 +314,9 @@ $tags = implode(",",$tags);
 					<dt>Contact:</dt>
 					<dd><?=$detail['de_contact'];?></dd>
 					<dt>Email:</dt>
-					<dd><?=$detail['de_email'];?></dd>
+					<dd><a href="mailto:<?=$detail['de_email'];?>"><?=$detail['de_email'];?></a></dd>
 					<dt>Site:</dt>
-					<dd><?=$detail['de_url'];?></dd>
+					<dd><a href="<?=$detail['de_url'];?>" target="_blank"><?=$detail['de_url'];?></a></dd>
 				</dl>
 			</div>
 			<div id='map' class='col-lg-8'>
