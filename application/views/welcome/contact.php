@@ -17,7 +17,7 @@
 </div>
 <div class="box">
 	<form action="#" method="post">
-	<div class="box-body clearfix">
+	<div class="box-body clearfix" style='margin-top:18px;'>
 		<div class='col-sm-4'>
 			<address>
 				<strong>Dx Group.</strong>
@@ -67,7 +67,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="box-footer clearfix">
+	<div class="box-footer clearfix" style='border-top:none;'>
 		<button type='submit' class="input button blue tertiary pull-right" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
 	</div>
 	</form>

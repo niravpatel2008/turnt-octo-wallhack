@@ -4,7 +4,8 @@
 $detail = $dealsDetail['detail'][0];
 $features = array_map('trim',array_filter(explode(",",$detail['dd_features'])));
 $validities = array_map('trim',array_filter(explode(",",$detail['dd_conditions'])));
-$includes = array_map('trim',array_filter(explode(",",$detail['dd_includes'])));
+//$includes = array_map('trim',array_filter(explode(",",$detail['dd_includes'])));
+$includes = $detail['dd_includes'];
 $policies = array_map('trim',array_filter(explode(",",$detail['dd_policy'])));
 $url = base_url()."deals/detail/".$detail['dd_autoid']."/".$detail['dd_name'];
 $photo = "";
@@ -226,11 +227,7 @@ $tags = implode(",",$tags);
 				</ul>
 				<div class="tab-content">
 					<div id='tab_2-1' class='tab-pane active'>
-						<ul class='list-unstyled'>
-							<?php foreach ($includes as $include){
-								echo "<li><i class='fa fa-fw fa-check green'></i> $include</li>";
-							}?>
-						</ul>
+						<?=$includes?>
 					</div>	
 					<div id='tab_2-2' class='tab-pane'>
 						<div id='description'><?=$detail['dd_description'];?></div>

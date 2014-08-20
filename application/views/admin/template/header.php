@@ -20,11 +20,11 @@
         <link href="<?=public_path()?>css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- Daterange picker -->
         <link href="<?=public_path()?>css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-        <!-- bootstrap wysihtml5 - text editor -->
-        <link href="<?=public_path()?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
 		<?php if ($this->router->fetch_class() == "deal") { ?>
 			<link href="<?=public_path()?>css/tagedit/jquery.tagedit.css" rel="stylesheet" type="text/css" />
+			<!-- bootstrap wysihtml5 - text editor -->
+	        <link href="<?=public_path()?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 		<?php } ?>
 
 		<?php if (in_array($this->router->fetch_method(), array("add","edit"))) { ?>
