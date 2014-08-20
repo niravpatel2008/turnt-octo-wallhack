@@ -22,14 +22,12 @@
                                 <i class="glyphicon glyphicon-user"></i>
                                 <span><?=$this->user_session['uname']?> <i class="caret"></i></span>
                             </a>
-                            <ul class="dropdown-menu" style="min-width: 104px;">
+                            <ul class="dropdown-menu" style="min-width: 200px;">
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-right">
+                                    <div class="pull-left">
                                         <a class="btn btn-default btn-flat" href="<?=admin_path()."profile/edit"?>">Edit Profile</a>
                                     </div>
-                                </li>
-                                <li class="user-footer">
                                     <div class="pull-right">
                                         <a class="btn btn-default btn-flat" href="<?=admin_path()."index/logout"?>">Sign out</a>
                                     </div>
