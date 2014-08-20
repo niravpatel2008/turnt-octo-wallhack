@@ -144,7 +144,7 @@ class Deal extends CI_Controller {
 					'dd_mainphoto'=> $post['dd_mainphoto'],
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 					'dd_status'=> $post['dd_status'],
-					'dd_validtilldate' => $post['dd_validtilldate']
+					'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate']))
 					);
 
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
@@ -304,7 +304,7 @@ class Deal extends CI_Controller {
 							'dd_mainphoto' => $post['dd_mainphoto'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 							'dd_status'=> $post['dd_status'],
-							'dd_validtilldate' => $post['dd_validtilldate']
+							'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate']))
 							);
 
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);
@@ -506,6 +506,9 @@ class Deal extends CI_Controller {
 
 		$data = array();
 		$data['db_dealstatus'] = ($post['flag']=="1")?"active":"inactive";
+
+		if ($this->user_session['role'] != 'a' && $data['db_dealstatus']=="active")
+			exit;
 		$ret = $this->common_model->updateData(DEAL_BUYOUT, $data, $where);
 		echo $ret;exit;
 	}

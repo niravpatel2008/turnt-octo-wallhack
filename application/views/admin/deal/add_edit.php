@@ -162,7 +162,7 @@
                             }
                         ?>
                         <label for="dd_includes">Deal Includes:</label>
-                        <textarea placeholder="Validity (,) separated" id="dd_includes" class="form-control validate[required] textarea" name="dd_includes"><?=@$deal[0]->dd_includes?></textarea>
+                        <textarea style='height:250px;' placeholder="Validity (,) separated" id="dd_includes" class="form-control validate[required] textarea" name="dd_includes"><?=@$deal[0]->dd_includes?></textarea>
                     </div>
 
 					<div class="form-group <?=(@$error_msg['dd_policy'] != '')?'has-error':'' ?>">

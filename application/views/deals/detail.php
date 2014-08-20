@@ -36,9 +36,9 @@ $tags = implode(",",$tags);
 				<div class="table-responsive">
 					<table class='table table-striped'>
 						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
-			<?php foreach($offers as $offer){?>
+			<?php foreach($offers as $k=>$offer){?>
 						<tr>
-							<td><?=$offer->do_offertitle?></td>
+							<td><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></td>
 							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
 							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
 							<td><small class="label label-success"><i class="fa fa-rupee"></i><?=$offer->do_discount?></small></td>
@@ -193,8 +193,8 @@ $tags = implode(",",$tags);
 					<div id='tab_1-1' class='tab-pane active'>
 						<div id='description'>
 							<ul class='list-unstyled'>
-							<?php foreach($offers as $offer){?>
-								<li><i class="fa fa-fw fa-bell-o"></i><?=$offer->do_offertitle?></li>
+							<?php foreach($offers as $k=>$offer){?>
+								<li><i class="fa fa-fw fa-bell-o"></i><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></li>
 							<?php } ?>
 							</ul>
 						</div>
