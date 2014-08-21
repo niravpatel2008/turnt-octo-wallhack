@@ -11,7 +11,14 @@ function doOrderImage(){
 }
 
 $(document).ready(function(){
-	$(".textarea").wysihtml5();
+	$(".textarea").wysihtml5({"font-styles": false, 
+	"emphasis": true, 
+	"lists": true, 
+	"html": true, 
+	"link": true, 
+	"image": false, 
+	"color": false   
+	});
 	$("#deal_form").validationEngine();
 	$('#deal_form').on('submit',function(e){
 		var flag = $("#deal_form").validationEngine("validate");
