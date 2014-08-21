@@ -124,7 +124,10 @@ class SSP {
 				$column = $columns[ $columnIdx ];
 
 				if ( $requestColumn['searchable'] == 'true' ) {
-					$globalSearch[] = "`".$column['db']."` LIKE ".'"%'.$str.'%"';
+					if(isset($column['coloumn_name']))
+						$globalSearch[] = "`".$column['coloumn_name']."` LIKE ".'"%'.$str.'%"';
+					else
+						$globalSearch[] = "`".$column['db']."` LIKE ".'"%'.$str.'%"';
 				}
 			}
 		}
@@ -139,7 +142,10 @@ class SSP {
 
 			if ( $requestColumn['searchable'] == 'true' &&
 			 $str != '' ) {
-				$columnSearch[] = "`".$column['db']."` LIKE ".'"%'.$str.'%"';
+				if(isset($column['coloumn_name']))
+					$columnSearch[] = "`".$column['coloumn_name']."` LIKE ".'"%'.$str.'%"';
+				else
+					$columnSearch[] = "`".$column['db']."` LIKE ".'"%'.$str.'%"';
 			}
 		}
 
