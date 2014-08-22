@@ -7,7 +7,7 @@
           </div>
         </div>
         <div class="large-6 columns toppad">
-          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved.</div>
+          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved. <a href="<?=base_url()?>privacy_policy">Privacy Policy</a></div>
         </div>
         <div class="large-3 columns toppad">
           <ul class="rr social">

@@ -53,6 +53,9 @@ class Deal extends CI_Controller {
 			array( 'db' => 'dd_autoid',
 					'dt' => 9,
 					'formatter' => function( $d, $row ) {
+						if ($this->user_session['role'] == 'd')
+						return '<i class="fa fa-edit"></i> / <i class="fa fa-trash-o"></i>';
+						else
 						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_deal('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			),

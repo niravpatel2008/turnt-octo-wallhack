@@ -9,13 +9,13 @@
     color:#8C7E7E;}
 .textboxlist-bit-box-isAction.textboxlist-bit-box-isAction {border: 1px solid rgba(19, 89, 165, 0.24);background: rgba(19, 89, 165, 0.19);}
 .textboxlist-bit-box-deletable { padding-right: 15px; }
-.textboxlist-bit-box-deletebutton { position: absolute !important; right: 4px; top: 6px; display: block; width: 7px; height: 7px !important; font-size: 1px; background: url('/images/close.gif'); }
+.textboxlist-bit-box-deletebutton { position: absolute !important; right: 4px; top: 6px; display: block; width: 7px; height: 7px !important; font-size: 1px; background: url('../images/close.gif'); }
 .textboxlist-bit-box-deletebutton:hover { border: none; background-position: 7px; text-decoration: none; }
 .textboxlist-bit-box-hover { background: rgba(233, 47, 47, 0.14);  border: 1px solid rgba(233, 47, 47, 1.0); }
 .textboxlist-bit-box-focus { border-color: rgba(255, 0, 0, 0.62); background: rgba(255, 0, 0, 0.62); color: #000000; }
 .textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton { background-position: bottom; }
 .form_tags { margin-bottom: 10px; }
-.textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
+.textboxlist-loading { background: url('../images/spinner.gif') no-repeat 380px center; }
 li.textboxlist-bit {margin-top: 4px;font-size: 0.875em;font-weight: 300;}
 li.textboxlist-bit-editable {margin-top: 0px;}
 ul.textboxlist-bits {padding-top:0px; padding-bottom:0px;position:relative;}

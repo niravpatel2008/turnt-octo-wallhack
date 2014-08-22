@@ -2,10 +2,7 @@
     <h1>
         Deals
          <small>Add Deal</small>
-    </h1>
-    <?php
-		$this->load->view(ADMIN."/template/bread_crumb");
-	?>
+    </h1>    
 </section>
 <section class="content">
 	<div class="row">

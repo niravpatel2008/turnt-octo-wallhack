@@ -11,13 +11,6 @@ function setCookies()
 	//$.cookie("searchFor",qryStrHash["searchFor"]);
 }
 
-function clearCookies()
-{
-	$.cookie("tags","");
-	$.cookie("category","");
-}
-
-
 function getParamValue()
 {
 	qryString	= "";
@@ -50,7 +43,6 @@ function getParamValue()
 	else
 		qryStrHash["searchFor"] = "";*/
 }
-
 
 function getDealList(action)
 {
@@ -155,7 +147,7 @@ $(function() {
 				minLength: 1,
 				onlyFromValues:false,
 				queryRemote: true,
-				placeholder: false,
+				placeholder: "Type Keyword and select for search",
 				maxResults:1000,
 				remote:
 				{

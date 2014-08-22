@@ -15,25 +15,53 @@ $(document).ready(function(){
 
 	var lat = $("#lat").val();
 	var lng = $("#long").val();
-	var latlng = new google.maps.LatLng(lat,lng);
-	var myOptions = {
-		zoom: 20,		
-		center: latlng,
-		panControl: true,
-		zoomControl: true,
-		mapTypeControl: true,
-		mapTypeControlOptions: {
-			style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-		},
-		streetViewControl: true,
-		overviewMapControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-	var map = new google.maps.Map(document.getElementById('map'), myOptions);	
-	var marker = new google.maps.Marker({
-		position: latlng,
-		map: map,
-		icon: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.7|0|FF0000|13|b|',
+	if (lat != "" && lng != "")
+	{	
+		var latlng = new google.maps.LatLng(lat,lng);
+		var myOptions = {
+			zoom: 20,		
+			center: latlng,
+			panControl: true,
+			zoomControl: true,
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+			},
+			streetViewControl: true,
+			overviewMapControl: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById('map'), myOptions);	
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+			icon: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.7|0|FF0000|13|b|',
+		});
+	}
+
+	/*Pagination*/
+	$('.offer-page').hide();
+	$('.page-1').show();
+	$('.offer-pager .previous').on("click",function(){
+		var currentpage = $('.offer-pager').data('currentpage');
+		if (currentpage > 1)
+		{
+			currentpage=currentpage-1;
+			$('.offer-page').hide();
+			$('.page-'+currentpage).show();
+			$('.offer-pager').data('currentpage',currentpage);
+		}
+	});
+	$('.offer-pager .next').on("click",function(){
+		var totalpage = $('.offer-pager').data('totalpage');
+		var currentpage = $('.offer-pager').data('currentpage');
+		if (currentpage < totalpage)
+		{
+			currentpage=currentpage+1;
+			$('.offer-page').hide();
+			$('.page-'+currentpage).show();
+			$('.offer-pager').data('currentpage',currentpage);
+		}
 	});
 });
 
