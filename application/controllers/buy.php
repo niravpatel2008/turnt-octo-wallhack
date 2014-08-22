@@ -32,8 +32,8 @@ class Buy extends CI_Controller {
                                         'offer' => $deal_data['offers']->do_offertitle,
                                         'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
                                         'price' => $deal_data['detail'][0]['dd_listprice'],
-                                        'uid' => $deal_data['detail'][0]['db_uid'],
-                                        'uniqueId' => $deal_data['detail'][0]['db_uniqueid'],
+                                        'uid' => $data['db_uid'],
+                                        'uniqueId' => $data['db_uniqueid'],
                                         'email' => "buydeal"
                                     );
                 $emailTpl = $this->load->view('email_templates/template', $deal_details, true);
