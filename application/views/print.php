@@ -9,10 +9,10 @@
 
 body {margin-top: 0px;margin-left: 0px;}
 
-#page_1 {position:relative; overflow: hidden;margin: 74px 0px 208px 57px;padding: 0px;border: none;width: 759px;}
+#page_1 {margin: 10px auto;width: 759px;}
 
 #page_1 #dimg1 {position:absolute;top:0px;left:0px;z-index:-1;}
-#page_1 #dimg1 #img1 {height:70px;}
+#page_1 #img1 {height:70px;}
 
 
 
@@ -35,12 +35,12 @@ body {margin-top: 0px;margin-left: 0px;}
 .ft13{font: bold 20px 'Arial';line-height: 24px;}
 
 .p0{text-align: left;padding-left: 456px;padding-right: 67px;margin-top: 37px;margin-bottom: 0px;text-indent: -172px;}
-.p1{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
-.p2{text-align: left;padding-left: 4px;margin-top: 94px;margin-bottom: 0px;}
+.p1{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.p2{text-align: left;padding-left: 4px;margin-top: 45px;margin-bottom: 0px;}
 .p3{text-align: left;padding-left: 4px;margin-top: 18px;margin-bottom: 0px;}
 .p4{text-align: right;padding-right: 2px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
 .p5{text-align: left;padding-left: 2px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
-.p6{text-align: left;margin-top: 21px;margin-bottom: 0px;}
+.p6{text-align: left;margin-top: 0px;margin-bottom: 0px;}
 .p7{text-align: left;margin-top: 2px;margin-bottom: 0px;}
 
 .td0{padding: 0px;margin: 0px;width: 352px;vertical-align: bottom;}
@@ -68,7 +68,7 @@ body {margin-top: 0px;margin-left: 0px;}
 <BODY>
 
 <DIV id="page_1">
-<table>
+<table style='border:1px solid black;padding:3px;'>
 <tr>
 	<td><IMG src="<?=base_url()?>public/img/logo.png" id="img1"></td>
 	<td><p class='ft0'>Voucher</p></td>
@@ -76,53 +76,70 @@ body {margin-top: 0px;margin-left: 0px;}
 		<p>
 			<SPAN class="ft3">Code :</SPAN> <SPAN class='ft10'><?=$deal_detail[0]->db_uniqueid?></span>
 			<br>
-			<SPAN class="ft3">Date :</SPAN> <SPAN class='ft10'><?=$deal_detail[0]->db_date?></span>
+			<SPAN class="ft3">Date :</SPAN> <SPAN class='ft10'><?=format_date($deal_detail[0]->db_date)?></span>
 		</P>
+	</td>
+</tr>
+<tr>
+	<td colspan=3><hr>
 	</td>
 </tr>
 <tr>
 	<td colspan=3>
 		<div style='width:50%;float:left;'>
-			<IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
+			<IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" style="width:95%;">
 		</div>
-		<div style='width:50%'>
+		<div style='width:50%;float:left;'>
 			<P class="p1 ft5"><SPAN class="ft8">Offer Purchased: </SPAN><?=$deal_detail[0]->do_offertitle?></P>
-			<P class="p1 ft6">&nbsp;</P>
+			<br>
 			<P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><?=$deal_detail[0]->de_name?></P>
-			<P class="p1 ft6">&nbsp;</P>
+			<br>
 			<P class="p1 ft7"><SPAN class="ft11">Price </SPAN><?=$deal_detail[0]->do_listprice?></P>
-			<P class="p1 ft6">&nbsp;</P>
+			<br>
 			<P class="p1 ft7"><SPAN class="ft8">Valid till: </SPAN><?=format_date($deal_detail[0]->dd_validtilldate)?></P>
 		</div>
 	</td>
 </tr>
 <tr>
+	<td colspan=3><hr>
+	</td>
+</tr>
+<tr>
 	<td colspan=3>
-		<P class="p2 ft1"><SPAN class="ft2">Dealer Contact Details: </SPAN><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
+		<P class="p3 ft1"><SPAN class="ft2">Dealer Contact Details: </SPAN><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
 		<P class="p3 ft1"><SPAN class="ft2">Dealer link: </SPAN><?=$deal_detail[0]->de_url?></P>
 		<P class="p3 ft1"><SPAN class="ft2">Validity: </SPAN> <?=$deal_detail[0]->dd_conditions?></P>
 		<P class="p3 ft1"><SPAN class="ft2">Policy: </SPAN> <?=$deal_detail[0]->dd_policy?></P>
 	</td>
 </tr>
 <TR>
-	<TD colspan=3 class="tr4 td2"><P class="p1 ft2">How it Works<SPAN class="ft1">:</SPAN></P></TD>
+	<TD colspan=3 class="tr4 td2"><P class="p2 ft2">How it Works<SPAN class="ft1">:</SPAN></P></TD>
 </TR>
 <TR>
 	<td colspan=3>
 		<div style='width:50%;float:left;'><P class="p5 ft1">1) Print Voucher.</P></div>
-		<div style='width:50%'><P class="p1 ft7">2) Arrange appointment with dealer.</P></div>
+		<div style='width:50%;float:left;'><P class="p1 ft7">2) Arrange appointment with dealer.</P></div>
 	</TD>
 </TR>
 <TR>
 	<td colspan=3>
 		<div style='width:50%;float:left;'><P class="p5 ft1">3) Bring your voucher.</P></div>
-		<div style='width:50%'><P class="p1 ft7">4) Redeem and enjoy.</P></div>
+		<div style='width:50%;float:left;'><P class="p1 ft7">4) Redeem and enjoy.</P></div>
 	</TD>
 </TR>
-<tr></tr>
+<tr>
+	<td colspan=3><hr>
+	</td>
+</tr>
+<tr>
+	<td colspan=3><P class="p6 ft1"><SPAN class="ft2">Any Questions? </SPAN>Email us to connect2django@gmail.com</P>
+	</td>
+</tr>
+<tr>
+	<td colspan=3><hr>
+	</td>
+</tr>
 </table>
-<P class="p6 ft1"><SPAN class="ft2">Any Questions? </SPAN>Email us to connect2django@gmail.com</P>
-<P class="p7 ft8">___________________________________________________________________________________________</P>
 </DIV>
 </BODY>
 </HTML>

@@ -34,7 +34,7 @@
 					<div class='form-group'>
 						<?=@$error_msg['category_picture']?>
 						<?php
-							if (file_exists(DOC_ROOT_CATEGORY_IMG.$category[0]->dc_catimg) && @$category[0]->dc_catimg != "") {
+							if (file_exists(DOC_ROOT_CATEGORY_IMG.@$category[0]->dc_catimg) && @$category[0]->dc_catimg != "") {
 						?>
 							<img src="<?=category_img_path().$category[0]->dc_catimg?>" style="height:50px; width:50px;">
 						<?php

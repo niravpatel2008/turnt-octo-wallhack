@@ -1793,7 +1793,7 @@ small.label{
 	background-color:#FFFFFF;
 }
 
-#buyofferpopup .modal-dialog {max-width:400px;}
+#buyofferpopup .modal-dialog {max-width:500px;}
 #slider-wrapper .carousel-indicators li {background-color:#FF851B; border:1px solid gray;}
 #slider-wrapper .carousel-indicators .active {background-color:#FFFFFF;}
 

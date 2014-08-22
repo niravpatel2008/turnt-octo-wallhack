@@ -25,12 +25,18 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
+			<?php
+
+                if (@in_array("dashboard",@array_keys(config_item('user_role')[$this->user_session['role']] ) ) || $this->user_session['role'] == 'a') {
+            ?>
             <li class="<?=get_active_tab("dashboard")?>">
                 <a href="<?=admin_path()."dashboard"?>">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-
+			<?php
+                }
+            ?>
 
             <?php
 

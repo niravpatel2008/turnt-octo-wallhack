@@ -15,27 +15,29 @@ $(document).ready(function(){
 
 	var lat = $("#lat").val();
 	var lng = $("#long").val();
-	var latlng = new google.maps.LatLng(lat,lng);
-	var myOptions = {
-		zoom: 20,		
-		center: latlng,
-		panControl: true,
-		zoomControl: true,
-		mapTypeControl: true,
-		mapTypeControlOptions: {
-			style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-		},
-		streetViewControl: true,
-		overviewMapControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-	var map = new google.maps.Map(document.getElementById('map'), myOptions);	
-	var marker = new google.maps.Marker({
-		position: latlng,
-		map: map,
-		icon: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.7|0|FF0000|13|b|',
-	});
-	
+	if (lat != "" && lng != "")
+	{	
+		var latlng = new google.maps.LatLng(lat,lng);
+		var myOptions = {
+			zoom: 20,		
+			center: latlng,
+			panControl: true,
+			zoomControl: true,
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+			},
+			streetViewControl: true,
+			overviewMapControl: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById('map'), myOptions);	
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+			icon: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.7|0|FF0000|13|b|',
+		});
+	}
 
 	/*Pagination*/
 	$('.offer-page').hide();

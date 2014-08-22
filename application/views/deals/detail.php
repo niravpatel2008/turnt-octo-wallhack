@@ -53,15 +53,15 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 						</tr>
 			<?php } ?>
 					</table>
-					<?php if($page > 1) { ?>
-					<div> 
+				</div>
+				<?php if($page > 1) { ?>
+					<div  class="modal-footer" style='padding-bottom: 0;padding-top: 0;'> 
 						<ul class="offer-pager pager" data-totalpage="<?=$page?>" data-currentpage="1">
 						  <li class="previous"><a href="#">&larr; Older</a></li>
 						  <li class="next"><a href="#">Newer &rarr;</a></li>
 						</ul>
 					</div>
 					<?php } ?>
-				</div>
 			</div>
 		</div>
 	</div>
