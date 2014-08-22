@@ -14,8 +14,10 @@
 	<br>
 	<span>Offer: <?=$offer?></span>
 	<br>
-	<span>Valid till: <?=$valid_till?></span>
+	<?php if ($valid_till != ""){?>
+	<span>Validity till: <?=format_date($valid_till)?></span>
 	<br>
+	<?php }?>
 	<span>Price: <?=$price?></span>
 	<br>
 	<br>

@@ -24,6 +24,11 @@ foreach ($dealsDetail['tags'] as $key=>$val)
 	$tags[]=$val['dt_tag'];
 }
 $tags = implode(",",$tags);
+
+$validitydate = "";
+if ($detail['dd_validtilldate'] != "")
+$validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."</li>";
+
 ?>
 <div id='buyofferpopup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
@@ -203,6 +208,7 @@ $tags = implode(",",$tags);
 						<ul class='list-unstyled'>
 							<li>
 								<ul>
+									<?=$validitydate?>
 									<?php foreach ($validities as $validity){
 										echo "<li>$validity</li>";
 									}?>

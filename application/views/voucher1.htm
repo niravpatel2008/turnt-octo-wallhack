@@ -11,8 +11,8 @@ body {margin-top: 0px;margin-left: 0px;}
 
 #page_1 {position:relative; overflow: hidden;margin: 74px 0px 208px 57px;padding: 0px;border: none;width: 759px;}
 
-#page_1 #dimg1 {position:absolute;top:0px;left:0px;z-index:-1;}
-#page_1 #dimg1 #img1 {height:70px;}
+#page_1 #dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:731px;height:739px;}
+#page_1 #dimg1 #img1 {width:731px;height:739px;}
 
 
 
@@ -44,7 +44,7 @@ body {margin-top: 0px;margin-left: 0px;}
 .p7{text-align: left;margin-top: 2px;margin-bottom: 0px;}
 
 .td0{padding: 0px;margin: 0px;width: 352px;vertical-align: bottom;}
-.td1{padding: 0px;margin: 0px;width: 343px;vertical-align: top;}
+.td1{padding: 0px;margin: 0px;width: 343px;vertical-align: bottom;}
 .td2{padding: 0px;margin: 0px;width: 369px;vertical-align: bottom;}
 .td3{padding: 0px;margin: 0px;width: 232px;vertical-align: bottom;}
 .td4{padding: 0px;margin: 0px;width: 19px;vertical-align: bottom;}
@@ -68,26 +68,40 @@ body {margin-top: 0px;margin-left: 0px;}
 <BODY>
 <DIV id="page_1">
 <DIV id="dimg1">
-<IMG src="<?=base_url()?>public/img/logo.png" id="img1">
+<IMG src="voucher1_images/voucher11x1.jpg" id="img1">
 </DIV>
 
 
 <DIV class="dclr"></DIV>
-<P class="p0 ft1"><SPAN class="ft0">Voucher </SPAN>Unique Code – purchase date of deal +UniqueID</P>
+<P class="p0 ft1"><SPAN class="ft0">Voucher </SPAN>Unique Code â€“ purchase date of deal +UniqueID</P>
 <TABLE cellpadding=0 cellspacing=0 class="t0">
 <TR>
-	<TD class="tr0 td0">
-		<IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
-	</TD>
-	<TD class="tr0 td1">
-		<P class="p1 ft5"><SPAN class="ft3">Offer Purchased: </SPAN><SPAN class="ft4"> </SPAN><?=$deal_detail[0]->do_offertitle?></P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><SPAN class="ft9">[</SPAN>font size normal<SPAN class="ft9">] </SPAN>borrow from field in</P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft7"><SPAN class="ft11">Price [</SPAN>font size large as compared to other <SPAN class="ft11">]</SPAN></P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft7"><SPAN class="ft12">Valid till: </SPAN><SPAN class="ft13">[</SPAN>font size small <SPAN class="ft13">]</SPAN></P>
-	</TD>
+	<TD class="tr0 td0"><P class="p1 ft2">Primary Image of the deal</P></TD>
+	<TD class="tr0 td1"><P class="p1 ft5"><SPAN class="ft3">Offer Purchased: </SPAN><SPAN class="ft4">[</SPAN>font size normal<SPAN class="ft4">] </SPAN>borrow from offer</P></TD>
+</TR>
+<TR>
+	<TD class="tr1 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr1 td1"><P class="p1 ft7">field in <NOBR>back-end</NOBR></P></TD>
+</TR>
+<TR>
+	<TD class="tr2 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr2 td1"><P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><SPAN class="ft9">[</SPAN>font size normal<SPAN class="ft9">] </SPAN>borrow from field in</P></TD>
+</TR>
+<TR>
+	<TD class="tr3 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr3 td1"><P class="p1 ft7"><NOBR>back-end</NOBR></P></TD>
+</TR>
+<TR>
+	<TD class="tr2 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr2 td1"><P class="p1 ft7"><SPAN class="ft11">Price [</SPAN>font size large as compared to other <SPAN class="ft11">]</SPAN></P></TD>
+</TR>
+<TR>
+	<TD class="tr4 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr4 td1"><P class="p1 ft11">(Pick from Original Price only)</P></TD>
+</TR>
+<TR>
+	<TD class="tr5 td0"><P class="p1 ft6">&nbsp;</P></TD>
+	<TD class="tr5 td1"><P class="p1 ft7"><SPAN class="ft12">Valid till: </SPAN><SPAN class="ft13">[</SPAN>font size small <SPAN class="ft13">]</SPAN></P></TD>
 </TR>
 </TABLE>
 <P class="p2 ft1"><SPAN class="ft2">Dealer Contact Details</SPAN>: Citrus Cafe, Lemon Tree Hotel, Navrangpura, Tel. +917944232323</P>

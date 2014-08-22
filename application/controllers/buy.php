@@ -29,7 +29,7 @@ class Buy extends CI_Controller {
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],
                                         'offer' => $deal_data['offers']->do_offertitle,
-                                        'valid_till' => $deal_data['detail'][0]['dd_expiredate'],
+                                        'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
                                         'price' => $deal_data['detail'][0]['dd_listprice'],
                                         'email' => "buydeal"
                                     );
