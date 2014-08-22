@@ -93,20 +93,28 @@ class Deals extends CI_Controller {
 		echo 1;
 	}
 
-	public function getprint($id)
+	public function getprint($uid,$unique_id)
 	{
-		$id = base64_decode($id);
-		$id = (isset($id) && (preg_match('/^[0-9]*$/', $id)))?$id:"";
-		$data = array();
-		if ($id == "")
-			redirect("welcome");
 
-		$data['deal_detail'] = $this->common_model->getDealDetailPrint($id);
+		$uid = (isset($uid) && (preg_match('/^[0-9]*$/', $uid)))?$uid:"";
+		$data = array();
+		if ($uid == ""){
+			redirect("welcome");
+		}
+
+		$where = array('db_uid' => $uid,
+						'db_uniqueid' => $unique_id
+					);
+
+		$deal_buy = $this->common_model->selectData(DEAL_BUYOUT, 'db_autoid', $where);
+
+		$data['deal_detail'] = $this->common_model->getDealDetailPrint($deal_buy[0]->db_autoid);
 
 		if ($this->front_session['id'] != $data['deal_detail'][0]->db_uid) {
 			redirect("welcome");
 		}
 
+		#$this->load->view('print',$data);
 		$html = $this->load->view('print', $data,true);
 
 		$this->load->helper('htmltopdf/WKPDF_MULTI');
@@ -131,7 +139,7 @@ class Deals extends CI_Controller {
 			$category = "All deals";
 			$catid = "";
 		}
-		
+
 		$data['view'] = "category";
 		$data['responsivejs'] = "1";
 		$data['category'] = $catid;
