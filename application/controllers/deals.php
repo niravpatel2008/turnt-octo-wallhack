@@ -110,7 +110,7 @@ class Deals extends CI_Controller {
 
 		$data['deal_detail'] = $this->common_model->getDealDetailPrint($deal_buy[0]->db_autoid);
 
-		if ($this->front_session['id'] != $data['deal_detail'][0]->db_uid) {
+		if ($data['deal_detail'][0]->db_uid) {
 			redirect("welcome");
 		}
 
