@@ -8,7 +8,9 @@ class Dashboard extends CI_Controller {
 		is_login();
 
 		$this->user_session = $this->session->userdata('user_session');
-
+		if (!@in_array("dashboard", @array_keys(config_item('user_role')[$this->user_session['role']])) && $this->user_session['role'] != 'a') {
+			redirect("admin/deal");
+		}
 	}
 
 	public function index()
@@ -23,22 +25,20 @@ class Dashboard extends CI_Controller {
 		$post = $this->input->post();
 
 		$columns = array(
-			array( 'db' => 'do_offertitle',  'dt' => 0 ),
-			array( 'db' => 'de_name',  'dt' => 1 ),
-			array( 'db' => 'du_uname',  'dt' => 2 ),
-			array( 'db' => 'du_contact',  'dt' => 3 ),
-			array( 'db' => 'du_email', 'dt' => 4 ),
-			array( 'db' => 'db_paymntopt',  'dt' => 5 ),
-			array( 'db' => 'db_amntpaid',  'dt' => 6 ),
-			array( 'db' => 'db_dealstatus',  'dt' => 7 ),
+			array( 'db' => 'db_uniqueid',  'dt' => 0 ),
+			array( 'db' => 'do_offertitle',  'dt' => 1 ),
+			array( 'db' => 'de_name',  'dt' => 2 ),
+			array( 'db' => 'du_uname',  'dt' => 3 ),
+			array( 'db' => 'du_contact',  'dt' => 4 ),
+			array( 'db' => 'db_amntpaid',  'dt' => 5 ),
 			array('db'        => 'db_date',
-					'dt'        => 8,
+					'dt'        => 6,
 					'formatter' => function( $d, $row ) {
 						return date( 'jS M y', strtotime($d));
 					}
 			),
 			array( 'db' => 'CONCAT(db_autoid,"|",db_dealstatus)',
-					'dt' => 9,
+					'dt' => 7,
 					'formatter' => function( $d, $row ) {
 						list($id,$status) = explode("|",$d);
 						return '<a href="javascript:void(0);" data-db_autoid="'.$id.'" class="fa fa-eye deal-buy-status '.$status.'"></a>';

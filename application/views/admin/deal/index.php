@@ -1,11 +1,7 @@
 <section class="content-header">
     <h1>
         Deals
-        <!-- <small>Control panel</small> -->
     </h1>
-    <?php
-		$this->load->view(ADMIN."/template/bread_crumb");
-	?>
 </section>
 <section class="content">
 	<div class="row">
@@ -21,12 +17,20 @@
 					}
 				?>
 			</div>
-    		<a class="btn btn-default pull-right" href="<?=admin_path()."deal/add"?>">
-            <i class="fa fa-plus"></i>&nbsp;Add Deal</a>
-            <div id="list">
+			<?php
+				if (@in_array("edit", @config_item('user_role')[$this->user_session['role']]['deal']) || $this->user_session['role'] == 'a') {
+			?>
+				<a class="btn btn-default pull-right" href="<?=admin_path()."deal/add"?>">
+            	<i class="fa fa-plus"></i>&nbsp;Add Deal</a>
+
+			<?php
+				}
+			?>
+
+    		<div id="list">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">Deal list</h3>                                    
+						<h3 class="box-title">Deal list</h3>
 					</div><!-- /.box-header -->
 					<div class="box-body table-responsive">
 						<table id="dealTable" class="table table-bordered table-striped">

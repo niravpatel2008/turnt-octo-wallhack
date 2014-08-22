@@ -41,8 +41,10 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 				<div class="table-responsive">
 					<table class='table table-striped'>
 						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
-			<?php foreach($offers as $k=>$offer){?>
-						<tr>
+			<?php 
+				$page = 0;
+				foreach($offers as $k=>$offer){ if ($k%5 == 0) { $page++; }?>
+						<tr class='offer-page page-<?=$page?>'>
 							<td><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></td>
 							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
 							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
@@ -51,6 +53,14 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 						</tr>
 			<?php } ?>
 					</table>
+					<?php if($page > 1) { ?>
+					<div> 
+						<ul class="offer-pager pager" data-totalpage="<?=$page?>" data-currentpage="1">
+						  <li class="previous"><a href="#">&larr; Older</a></li>
+						  <li class="next"><a href="#">Newer &rarr;</a></li>
+						</ul>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -151,10 +161,10 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 		<section class='col-lg-6'>
 			<div class="box box-success">
 				<div class="box-body">
-					<div id="slider-wrapper" class="carousel slide" data-ride="carousel">
+					<div id="slider-wrapper" class="carousel slide" data-ride="carousel" data-interval="false">
 						<ol class="carousel-indicators">
 						<?php foreach($dealsDetail['links'] as $key=>$val){?>
-							<li data-target="#carousel-example-generic" data-slide-to="<?=$key?>" class="<?=($key == 0)?"active":""?>"></li>
+							<li data-target="#slider-wrapper" data-slide-to="<?=$key?>" class="<?=($key == 0)?"active":""?>"></li>
 						<?php }?>
 						</ol>
 						<div class="carousel-inner">

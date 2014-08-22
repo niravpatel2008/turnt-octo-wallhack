@@ -53,21 +53,27 @@ class Deal extends CI_Controller {
 			array( 'db' => 'dd_autoid',
 					'dt' => 9,
 					'formatter' => function( $d, $row ) {
+						if ($this->user_session['role'] == 'd')
+						return '<i class="fa fa-edit"></i> / <i class="fa fa-trash-o"></i>';
+						else
 						return '<a href="'.site_url('/admin/deal/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_deal('.$d.')" class="fa fa-trash-o"></a>';
 					}
 			),
 		);
-	
+
 		$custom_where = array();
 		if($this->user_session['role'] == 'd') {
 			$custom_where = array('dd_dealerid'=>$this->user_session['dealer_info']->de_autoid);
-		}	
-		
+		}
+
 		echo json_encode( SSP::simple( $post, DEAL_DETAIL, "dd_autoid", $columns ,array(),$custom_where ));exit;
 	}
 
 	public function add()
 	{
+		if (!@in_array("add", @array_values(config_item('user_role')[$this->user_session['role']]['deal'])) && $this->user_session['role'] != 'a') {
+			redirect("admin/dashboard");
+		}
 		$post = $this->input->post();
 		if ($post) {
 			#pr($post,1);

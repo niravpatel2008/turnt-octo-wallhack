@@ -5,6 +5,12 @@ function IsEmail(email) {
   return regex.test(email);
 }
 
+function clearCookies()
+{
+	$.cookie("tags","");
+	$.cookie("category","");
+}
+
 function openLoginForm()
 {
 	$("#divCreateAccountForm").modal('hide');
@@ -284,4 +290,7 @@ $(document).ready(function(){
     }
   });
 
+  $('.clearSearch').on('click',function(){
+		clearCookies();
+  });
 });

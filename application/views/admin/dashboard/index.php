@@ -1,11 +1,7 @@
 <section class="content-header">
     <h1>
         Dashboard
-        <!-- <small>Control panel</small> -->
     </h1>
-    <?php
-        $this->load->view(ADMIN."/template/bread_crumb");
-    ?>
 </section>
 <section class="content">
     <div class="row">
@@ -30,29 +26,25 @@
                         <table id="dealsTable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Deal</th>
                                     <th>Dealer</th>
                                     <th>User</th>
                                     <th>Contact</th>
-                                    <th>Email</th>
-                                    <th>Payment Option</th>
                                     <th>Amount Paid</th>
-                                    <th>Deal Status</th>
-                                    <th>Created At</th>
+                                    <th>Buy At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Deal</th>
                                     <th>Dealer</th>
                                     <th>User</th>
                                     <th>Contact</th>
-                                    <th>Email</th>
-                                    <th>Payment Option</th>
                                     <th>Amount Paid</th>
-                                    <th>Deal Status</th>
-                                    <th>Created At</th>
+                                    <th>Buy At</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

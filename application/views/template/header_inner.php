@@ -51,15 +51,17 @@
                 </div>
                 <nav class="large-6 columns toppad">
                     <ul class="rr main-menu">
-                        <li><a href="<?=base_url()?>">Home</a></li>
+                        <li><a href="<?=base_url()?>" class='clearSearch'>Home</a></li>
                         <li><a href="<?=base_url()?>about_us">About us</a></li>
                         <li><a href="<?=base_url()?>how_it_works">How it works</a>
-                        <li><a href="<?=base_url()?>privacy_policy">Privacy Policy</a>
-                        </li>
+                        <li><a href="<?=base_url()?>contact_us">Contact us</a></li>
                     </ul>
 					<select class="select-main-menu hasCustomSelect" style="width: 100px; position: absolute; opacity: 0; height: 38px; font-size: 14px;">
-					<option value="#">Navigate to...</option><option value="<?=base_url()?>">&nbsp;Home</option><option value="<?=base_url()?>about_us">&nbsp;About us</option><option value="<?=base_url()?>how_it_works">&nbsp;How it works</option>
-					<option value="<?=base_url()?>privacy_policy">&nbsp;Privacy Policy</option>
+						<option value="#">Navigate to...</option>
+						<option value="<?=base_url()?>" class='clearSearch'>&nbsp;Home</option>
+						<option value="<?=base_url()?>about_us">&nbsp;About us</option>
+						<option value="<?=base_url()?>how_it_works">&nbsp;How it works</option>
+						<option value="<?=base_url()?>contact_us">&nbsp;Contact us</option>
 					</select>
                 </nav>
                 <div class="large-3 columns toppad">

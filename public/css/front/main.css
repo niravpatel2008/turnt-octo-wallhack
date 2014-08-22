@@ -1792,3 +1792,12 @@ small.label{
 	border: 2px solid rgba(0,0,0,.7);
 	background-color:#FFFFFF;
 }
+
+#buyofferpopup .modal-dialog {max-width:400px;}
+#slider-wrapper .carousel-indicators li {background-color:#FF851B; border:1px solid gray;}
+#slider-wrapper .carousel-indicators .active {background-color:#FFFFFF;}
+
+#slider-wrapper .carousel-control { opacity:1;}
+#slider-wrapper .carousel-control.left { background-image:none;}
+#slider-wrapper .carousel-control.right { background-image:none;}
+#slider-wrapper .carousel-control.left span{ background-color: rgba(255,255,255,0.5);border-radius:50%;color:#FFFFFF;padding:5px 8px;}

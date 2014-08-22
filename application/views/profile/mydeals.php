@@ -18,7 +18,10 @@
 									<td><?=$deal['dd_name']?></td>
 									<td><?=$deal['db_dealstatus']?></td>
 									<td>
-									<?php if($deal['db_dealstatus'] == 'active'){?><button class="btn btn-success btn-sm print-offer" data-dealbuyoutid="<?=base64_encode($deal['db_autoid']) ?>"  ><i class="fa fa-print"></i></button><?php }?></td>
+									<?php if($deal['db_dealstatus'] == 'active'){?>
+									<button class="btn btn-success btn-sm print-offer" data-uid="<?=$deal['db_uid']?>" data-dealuniqueid="<?=$deal['db_uniqueid']?>"  ><i class="fa fa-print"></i></button>
+									<?php }?>
+									</td>
 								</tr>
 					<?php } ?>
 				</table>

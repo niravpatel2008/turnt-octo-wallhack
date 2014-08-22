@@ -37,13 +37,13 @@ class Profile extends CI_Controller {
 				$e_flag=1;
 			}
 
-			if ($_FILES['profile_image']['error'] > 0) {
+			/*if (@$_FILES['profile_image']['error'] > 0) {
 				$error['profile_image'] = 'Error in image upload.';
 				$e_flag=1;
 			}
 
 			$config['file_name'] = $this->front_session['profile_picture'];
-			if ($_FILES['profile_image']['error'] == 0) {
+			if (@$_FILES['profile_image']['error'] == 0) {
 				if ($this->front_session['profile_picture'] != "") {
 					unlink(DOC_ROOT_PROFILE_IMG.$this->front_session['profile_picture']);
 				}
@@ -51,7 +51,7 @@ class Profile extends CI_Controller {
 				$config['upload_path'] = DOC_ROOT_PROFILE_IMG;
 				$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
 
-				$img_arr = explode('.',$_FILES['profile_image']['name']);
+				$img_arr = explode('.',@$_FILES['profile_image']['name']);
 				$img_arr = array_reverse($img_arr);
 
 				$config['file_name'] = $this->front_session['id']."_img.".$img_arr[0];
@@ -63,14 +63,14 @@ class Profile extends CI_Controller {
 					$error['profile_image'] = $this->upload->display_errors();
 					$e_flag=1;
 				}
-			}
+			}*/
 
 			if ($e_flag == 0) {
 
 				$data = array('du_uname' => $post['username'],
 								'du_contact' => $post['contact'],
 								'du_email' => $post['email'],
-								'du_profile_picture' => $config['file_name']
+								#'du_profile_picture' => $config['file_name']
 							);
 				$ret = $this->common_model->updateData(DEAL_USER, $data, 'du_autoid = '.$this->front_session['id']);
 				if ($ret > 0) {
@@ -79,7 +79,7 @@ class Profile extends CI_Controller {
 									'uname' => $post['username'],
 									'contact' => $post['contact'],
 									'email' => $post['email'],
-									'profile_picture' => $config['file_name'],
+									#'profile_picture' => $config['file_name'],
 									'create_date' => $this->front_session['create_date']
 								);
 					$this->session->set_userdata('front_session',$session_data);

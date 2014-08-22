@@ -66,52 +66,65 @@ body {margin-top: 0px;margin-left: 0px;}
 </HEAD>
 
 <BODY>
+
 <DIV id="page_1">
-<DIV id="dimg1">
-<IMG src="<?=base_url()?>public/img/logo.png" id="img1">
-</DIV>
-
-
-<DIV class="dclr"></DIV>
-<P class="p0 ft1"><SPAN class="ft0">Voucher </SPAN>Unique Code – purchase date of deal +UniqueID</P>
-<TABLE cellpadding=0 cellspacing=0 class="t0">
+<table>
+<tr>
+	<td><IMG src="<?=base_url()?>public/img/logo.png" id="img1"></td>
+	<td><p class='ft0'>Voucher</p></td>
+	<td>
+		<p>
+			<SPAN class="ft3">Code :</SPAN> <SPAN class='ft10'><?=$deal_detail[0]->db_uniqueid?></span>
+			<br>
+			<SPAN class="ft3">Date :</SPAN> <SPAN class='ft10'><?=$deal_detail[0]->db_date?></span>
+		</P>
+	</td>
+</tr>
+<tr>
+	<td colspan=3>
+		<div style='width:50%;float:left;'>
+			<IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
+		</div>
+		<div style='width:50%'>
+			<P class="p1 ft5"><SPAN class="ft8">Offer Purchased: </SPAN><?=$deal_detail[0]->do_offertitle?></P>
+			<P class="p1 ft6">&nbsp;</P>
+			<P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><?=$deal_detail[0]->de_name?></P>
+			<P class="p1 ft6">&nbsp;</P>
+			<P class="p1 ft7"><SPAN class="ft11">Price </SPAN><?=$deal_detail[0]->do_listprice?></P>
+			<P class="p1 ft6">&nbsp;</P>
+			<P class="p1 ft7"><SPAN class="ft8">Valid till: </SPAN><?=format_date($deal_detail[0]->dd_validtilldate)?></P>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td colspan=3>
+		<P class="p2 ft1"><SPAN class="ft2">Dealer Contact Details: </SPAN><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
+		<P class="p3 ft1"><SPAN class="ft2">Dealer link: </SPAN><?=$deal_detail[0]->de_url?></P>
+		<P class="p3 ft1"><SPAN class="ft2">Validity: </SPAN> <?=$deal_detail[0]->dd_conditions?></P>
+		<P class="p3 ft1"><SPAN class="ft2">Policy: </SPAN> <?=$deal_detail[0]->dd_policy?></P>
+	</td>
+</tr>
 <TR>
-	<TD class="tr0 td0">
-		<IMG src="<?=base_url().'/uploads/'.$deal_detail[0]->dl_url?>" id="img1" style="max-height:200px; max-width:200px;">
+	<TD colspan=3 class="tr4 td2"><P class="p1 ft2">How it Works<SPAN class="ft1">:</SPAN></P></TD>
+</TR>
+<TR>
+	<td colspan=3>
+		<div style='width:50%;float:left;'><P class="p5 ft1">1) Print Voucher.</P></div>
+		<div style='width:50%'><P class="p1 ft7">2) Arrange appointment with dealer.</P></div>
 	</TD>
-	<TD class="tr0 td1">
-		<P class="p1 ft5"><SPAN class="ft3">Offer Purchased: </SPAN><SPAN class="ft4"> </SPAN><?=$deal_detail[0]->do_offertitle?></P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><SPAN class="ft9">[</SPAN>font size normal<SPAN class="ft9">] </SPAN>borrow from field in</P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft7"><SPAN class="ft11">Price [</SPAN>font size large as compared to other <SPAN class="ft11">]</SPAN></P>
-		<P class="p1 ft6">&nbsp;</P>
-		<P class="p1 ft7"><SPAN class="ft12">Valid till: </SPAN><SPAN class="ft13">[</SPAN>font size small <SPAN class="ft13">]</SPAN></P>
+</TR>
+<TR>
+	<td colspan=3>
+		<div style='width:50%;float:left;'><P class="p5 ft1">3) Bring your voucher.</P></div>
+		<div style='width:50%'><P class="p1 ft7">4) Redeem and enjoy.</P></div>
 	</TD>
 </TR>
-</TABLE>
-<P class="p2 ft1"><SPAN class="ft2">Dealer Contact Details</SPAN>: Citrus Cafe, Lemon Tree Hotel, Navrangpura, Tel. +917944232323</P>
-<P class="p3 ft1"><SPAN class="ft2">Dealer link</SPAN>: http://www.lemontreehotels.com</P>
-<P class="p3 ft1"><SPAN class="ft2">Validity</SPAN>: For this borrow the data from back end field <SPAN class="ft2">Validity</SPAN></P>
-<P class="p3 ft1"><SPAN class="ft2">Policy: </SPAN>For this borrow the field from back end field <SPAN class="ft2">Deals Policy</SPAN></P>
-<TABLE cellpadding=0 cellspacing=0 class="t1">
-<TR>
-	<TD colspan=2 class="tr4 td2"><P class="p1 ft2">How it Works<SPAN class="ft1">:</SPAN></P></TD>
-	<TD class="tr4 td3"><P class="p1 ft6">&nbsp;</P></TD>
-</TR>
-<TR>
-	<TD class="tr6 td4"><P class="p4 ft1">1)</P></TD>
-	<TD class="tr6 td5"><P class="p5 ft1">Print Voucher.</P></TD>
-	<TD class="tr6 td3"><P class="p1 ft7">2) Arrange appointment with dealer.</P></TD>
-</TR>
-<TR>
-	<TD class="tr7 td4"><P class="p4 ft1">3)</P></TD>
-	<TD class="tr7 td5"><P class="p5 ft1">Bring your voucher.</P></TD>
-	<TD class="tr7 td3"><P class="p1 ft1">4) Redeem and enjoy.</P></TD>
-</TR>
-</TABLE>
+<tr></tr>
+</table>
 <P class="p6 ft1"><SPAN class="ft2">Any Questions? </SPAN>Email us to connect2django@gmail.com</P>
 <P class="p7 ft8">___________________________________________________________________________________________</P>
 </DIV>
 </BODY>
 </HTML>
+
+
