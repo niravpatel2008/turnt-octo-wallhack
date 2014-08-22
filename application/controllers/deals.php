@@ -116,13 +116,13 @@ class Deals extends CI_Controller {
 
 		#$this->load->view('print',$data);
 		$html = $this->load->view('print', $data,true);
-		echo $html;exit;
-		/*
+		//echo $html;exit;
+		
 		$this->load->helper('htmltopdf/WKPDF_MULTI');
 		$pdf = new WKPDF();
 		$pdf->set_html($html);
 		$pdf->render();
-		$pdf->output('I','sample.pdf');*/
+		$pdf->output('I','sample.pdf');
 	}
 
 	public function dealcatpage($category)
