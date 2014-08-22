@@ -24,6 +24,11 @@ foreach ($dealsDetail['tags'] as $key=>$val)
 	$tags[]=$val['dt_tag'];
 }
 $tags = implode(",",$tags);
+
+$validitydate = "";
+if ($detail['dd_validtilldate'] != "")
+$validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."</li>";
+
 ?>
 <div id='buyofferpopup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
@@ -36,8 +41,10 @@ $tags = implode(",",$tags);
 				<div class="table-responsive">
 					<table class='table table-striped'>
 						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
-			<?php foreach($offers as $k=>$offer){?>
-						<tr>
+			<?php 
+				$page = 0;
+				foreach($offers as $k=>$offer){ if ($k%5 == 0) { $page++; }?>
+						<tr class='offer-page page-<?=$page?>'>
 							<td><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></td>
 							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
 							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
@@ -46,6 +53,14 @@ $tags = implode(",",$tags);
 						</tr>
 			<?php } ?>
 					</table>
+					<?php if($page > 1) { ?>
+					<div> 
+						<ul class="offer-pager pager" data-totalpage="<?=$page?>" data-currentpage="1">
+						  <li class="previous"><a href="#">&larr; Older</a></li>
+						  <li class="next"><a href="#">Newer &rarr;</a></li>
+						</ul>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -146,10 +161,10 @@ $tags = implode(",",$tags);
 		<section class='col-lg-6'>
 			<div class="box box-success">
 				<div class="box-body">
-					<div id="slider-wrapper" class="carousel slide" data-ride="carousel">
+					<div id="slider-wrapper" class="carousel slide" data-ride="carousel" data-interval="false">
 						<ol class="carousel-indicators">
 						<?php foreach($dealsDetail['links'] as $key=>$val){?>
-							<li data-target="#carousel-example-generic" data-slide-to="<?=$key?>" class="<?=($key == 0)?"active":""?>"></li>
+							<li data-target="#slider-wrapper" data-slide-to="<?=$key?>" class="<?=($key == 0)?"active":""?>"></li>
 						<?php }?>
 						</ol>
 						<div class="carousel-inner">
@@ -203,6 +218,7 @@ $tags = implode(",",$tags);
 						<ul class='list-unstyled'>
 							<li>
 								<ul>
+									<?=$validitydate?>
 									<?php foreach ($validities as $validity){
 										echo "<li>$validity</li>";
 									}?>

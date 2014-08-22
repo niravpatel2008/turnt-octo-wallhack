@@ -358,9 +358,10 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
-$config['user_role'] = array('m' => array('deal' => array('add', 'view')
+$config['user_role'] = array('m' => array('deal' => array('add', 'view'),'dashboard' => array('view')
 										),
-							'd' => array('deal' => array('view')
+								  'd' => array('dealer' => array('add', 'view'),
+										'deal' => array('view')
 										)
 						);
 

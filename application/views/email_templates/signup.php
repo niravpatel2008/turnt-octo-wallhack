@@ -1,7 +1,7 @@
 <h2>Thank you !! for Being our Customer...</h2>
 <p style='height:15px;'></p>
 <p style='text-align:left;color:#999999;font-size:14px;font-weight:normal;line-height:19px;'>
-	Thanks for giving us opportunity to serve you! You're all set up. You can check <a class='link1' class='color:#382F2E;' href='http://deals.stampstockist.com/how_it_works'>How it works </a> section to know more about working of the site.
+	Thanks for giving us an opportunity to serve you! You're all set up. You can check <a class='link1' class='color:#382F2E;' href='<?=base_url()?>/how_it_works'>How it works</a> section to know more about working of the site.
 	<br>
 	<br>
 

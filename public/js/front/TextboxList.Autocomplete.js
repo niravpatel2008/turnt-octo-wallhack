@@ -57,10 +57,10 @@ $.TextboxList.Autocomplete = function(textboxlist, _options){
             url: '',
             param: 'search',
             extraParams: {},
-            loadPlaceholder: 'Please wait...'
+            loadPlaceholder: 'Type Keyword and select for search'
     },
         method: 'standard',
-        placeholder: 'Type to receive suggestions'
+        placeholder: 'Type Keyword and select for search'
     }, _options);
 
     var init = function(){

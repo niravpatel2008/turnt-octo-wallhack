@@ -158,7 +158,7 @@ class Category extends CI_Controller {
 				}
 				else
 				{
-					$category = $category = $this->common_model->selectData(DEAL_CATEGORY, '*', $where);
+					$category = $this->common_model->selectData(DEAL_CATEGORY, '*', $where);
 					if ($category[0]->dc_catimg != "")
 						unlink(DOC_ROOT_CATEGORY_IMG.$category[0]->dc_catimg);
 				}

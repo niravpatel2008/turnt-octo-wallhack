@@ -3,9 +3,6 @@
         Category
         <small> <?=($this->router->fetch_method() == 'add')?'Add Category':'Edit Category'?></small>
     </h1>
-    <?php
-		$this->load->view(ADMIN."/template/bread_crumb");
-	?>
 </section>
 <section class="content">
 	<div class="row">
