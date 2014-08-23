@@ -9,13 +9,13 @@
 		<div class="box-body">
 			<div class="table-responsive">
 				<table class='table table-striped'>
-					<tr><th>Offer Title</th><th>Deal</th><th>Status</th><th>Print</th></tr>
+					<tr><th>Offer Title</th><th>Buy</th><th>Status</th><th>Print</th></tr>
 					<?php foreach($deals as $deal){
 						#pr($deal);
 						?>
 								<tr>
 									<td><?=$deal['do_offertitle']?></td>
-									<td><?=$deal['dd_name']?></td>
+									<td><?=format_date($deal_detail[0]->db_date)?></td>
 									<td><?=$deal['db_dealstatus']?></td>
 									<td>
 									<?php if($deal['db_dealstatus'] == 'active'){?>
