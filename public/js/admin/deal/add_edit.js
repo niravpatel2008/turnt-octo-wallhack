@@ -114,6 +114,10 @@ $(document).ready(function(){
 		var do_autoid = $(this).attr('do_autoid');
 		if (do_autoid != "")
 		{
+			var r = confirm("Are you sure you want to delete?");
+			if (!r) {
+				return false;
+			}
 			remove_div = $(this);
 			url = admin_path()+'deal/removeOffer',
 			data = {id:do_autoid};
@@ -152,7 +156,12 @@ $(document).ready(function(){
 		});
 	});
 
-	$("body").delegate(".deal-offer-status","click",function(){
+	$("body").delegate(".deal-offer-status","click",function(e){
+		e.preventDefault();
+		var r = confirm("Are you sure you want to change status?");
+		if (!r) {
+			return false;
+		}
 		flag = ($(this).hasClass("active"))?0:1;
 		var url = admin_path()+'deal/offerstatusupdate/';
 		var param = {id:$(this).data("do_autoid"),flag:flag};

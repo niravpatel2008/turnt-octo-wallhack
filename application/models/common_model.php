@@ -357,6 +357,7 @@ class common_model extends CI_Model{
 		$this->db->join(DEAL_OFFER, 'do_autoid = db_offerid', 'left');
 		$this->db->join(DEAL_DEALER, 'de_autoid = dd_dealerid', 'left');
 		$this->db->where("db_uid",$user_id);
+		$this->db->order_by("db_date","desc");
 		$query = $this->db->get();
 
 		$myoffers = $query->result_array();

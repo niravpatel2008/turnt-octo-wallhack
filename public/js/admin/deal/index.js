@@ -21,6 +21,11 @@ $(document).ready(function() {
 } );
 
 function delete_deal (del_id) {
+	var r = confirm("Are you sure you want to delete?");
+	if (!r) {
+		return false;
+	}
+
 	$.ajax({
 		type: 'post',
 		url: admin_path()+'deal/delete',
