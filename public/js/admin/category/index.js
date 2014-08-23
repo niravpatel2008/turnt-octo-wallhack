@@ -15,7 +15,12 @@ $(document).ready(function() {
 		]
 	} );
 
-	$("body").delegate(".deal-category-status","click",function(){
+	$("body").delegate(".deal-category-status","click",function(e){
+		e.preventDefault();
+		var r = confirm("Are you sure you want to change status?");
+		if (!r) {
+			return false;
+		}
 		flag = ($(this).hasClass("active"))?0:1;
 		var url = admin_path()+'category/categorystatusupdate/';
 		var param = {id:$(this).data("dc_catid"),flag:flag};
@@ -40,6 +45,10 @@ $(document).ready(function() {
 
 
 function delete_category (del_id) {
+	var r = confirm("Are you sure you want to delete?");
+	if (!r) {
+		return false;
+	}
 	$.ajax({
 		type: 'post',
 		url: admin_path()+'category/delete',

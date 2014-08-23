@@ -15,7 +15,13 @@ $(document).ready(function() {
         ]
     } ).columnFilter({sPlaceHolder:"head:after",aoColumns: [{ type: "text" },null,null,null,null,null,null,null,null]});
 
-	$("body").delegate(".deal-buy-status","click",function(){
+	$("body").delegate(".deal-buy-status","click",function(e){
+		e.preventDefault();
+		var r = confirm("Are you sure you want to change status?");
+		if (!r) {
+			return false;
+		}
+
 		flag = ($(this).hasClass("active"))?0:1;
 		var url = admin_path()+'deal/dealstatusupdate/';
 		var param = {id:$(this).data("db_autoid"),flag:flag};
