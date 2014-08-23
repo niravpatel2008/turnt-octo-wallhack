@@ -9,7 +9,6 @@ $(document).ready(function() {
         },
         aoColumnDefs: [
           {
-             bSortable: false,
 			 bSearchable: false,
              aTargets: [ -1 ]
           }

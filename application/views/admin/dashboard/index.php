@@ -30,7 +30,7 @@
                                     <th>Deal</th>
                                     <th>Dealer</th>
                                     <th>User</th>
-                                    <th>Contact</th>
+                                    <th>Valid till</th>
                                     <th>Amount Paid</th>
                                     <th>Buy At</th>
                                     <th>Action</th>
@@ -42,7 +42,7 @@
                                     <th>Deal</th>
                                     <th>Dealer</th>
                                     <th>User</th>
-                                    <th>Contact</th>
+                                    <th>Valid till</th>
                                     <th>Amount Paid</th>
                                     <th>Buy At</th>
                                     <th>Action</th>
