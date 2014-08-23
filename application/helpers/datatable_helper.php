@@ -80,7 +80,9 @@ class SSP {
 						'ASC' :
 						'DESC';
 					
-					if(isset($column['coloumn_name']))
+					if(isset($column['sort']))
+						$orderBy[] = $column['sort'].'||'.$dir;
+					else if(isset($column['coloumn_name']))
 						$orderBy[] = $column['coloumn_name'].'||'.$dir;
 					else
 						$orderBy[] = $column['db'].'||'.$dir;

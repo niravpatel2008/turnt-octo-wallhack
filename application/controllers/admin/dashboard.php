@@ -47,7 +47,8 @@ class Dashboard extends CI_Controller {
 					'formatter' => function( $d, $row ) {
 						list($id,$status) = explode("|",$d);
 						return '<a href="javascript:void(0);" data-db_autoid="'.$id.'" class="fa fa-eye deal-buy-status '.$status.'"  title="'.$status.'" alt="'.$status.'"></a>';
-					}
+					},
+					"sort" => "db_dealstatus"
 			),
 		);
 		$join1 = array(DEAL_USER,'du_autoid = db_uid');
