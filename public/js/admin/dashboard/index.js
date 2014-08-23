@@ -7,6 +7,7 @@ $(document).ready(function() {
             "url": admin_path ()+'dashboard/deal_list/',
             "type": "POST"
         },
+		"order": [[ 4, "desc" ]],
         aoColumnDefs: [
           {
 			 bSearchable: false,
