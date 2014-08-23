@@ -52,6 +52,13 @@
                         <label>Category Detail:</label>
                         <textarea type="text" placeholder="Category detail here" class="form-control validate[required]" name="dc_catdetails" id="dc_catdetails"><?=@$category[0]->dc_catdetails?></textarea>
                     </div>
+					<div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="dc_status" id="dc_status">
+                            <option value="1" <?=(@$category[0]->dc_status == '1')?'selected="selected"':''?> >Active</option>
+                            <option value="0" <?=(@$category[0]->dc_status == '0')?'selected="selected"':''?> >Inactive</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>
                     </div>

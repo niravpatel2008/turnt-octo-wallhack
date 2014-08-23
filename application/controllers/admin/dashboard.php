@@ -41,7 +41,7 @@ class Dashboard extends CI_Controller {
 					'dt' => 7,
 					'formatter' => function( $d, $row ) {
 						list($id,$status) = explode("|",$d);
-						return '<a href="javascript:void(0);" data-db_autoid="'.$id.'" class="fa fa-eye deal-buy-status '.$status.'"></a>';
+						return '<a href="javascript:void(0);" data-db_autoid="'.$id.'" class="fa fa-eye deal-buy-status '.$status.'"  title="'.$status.'" alt="'.$status.'"></a>';
 					}
 			),
 		);

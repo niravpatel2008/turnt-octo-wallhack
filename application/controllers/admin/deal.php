@@ -518,4 +518,18 @@ class Deal extends CI_Controller {
 		$ret = $this->common_model->updateData(DEAL_BUYOUT, $data, $where);
 		echo $ret;exit;
 	}
+
+	public function offerstatusupdate()
+	{
+		$post = $this->input->post();
+
+		$where = array();
+		$where['do_autoid'] = $post['id'];
+
+		$data = array();
+		$data['do_status'] = ($post['flag']=="1")?"active":"inactive";
+
+		$ret = $this->common_model->updateData(DEAL_OFFER, $data, $where);
+		echo $ret;exit;
+	}
 }

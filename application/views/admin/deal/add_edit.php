@@ -120,7 +120,9 @@
 							<div class='offers_div'>
 								<div class="form-group">
 									<label for="do_offertitle">Offer Title:</label>
-									<a href="#" class="pull-right removeoffer" do_autoid="<?=@$offer->do_autoid?>"><i class="fa fa-trash-o"></i></a>
+								 	<span class='pull-right'>
+										<a href="#" data-do_autoid="<?=@$offer->do_autoid?>" class="fa fa-eye deal-offer-status <?=@$offer->do_status?>" title="<?=@$offer->do_status?>" alt="<?=@$offer->do_status?>">&nbsp;/&nbsp;</a><a href="#" class="fa fa-trash-o removeoffer" do_autoid="<?=@$offer->do_autoid?>"></a>
+									</span>
 									<input type="text" placeholder="Offer title here" id="do_offertitle" class="form-control" value="<?=@$offer->do_offertitle?>">
 									<input type="hidden" id="offer_data" name="offer_data[]" value="">
 									<input type="hidden" id="do_autoid" value="<?=@$offer->do_autoid?>">

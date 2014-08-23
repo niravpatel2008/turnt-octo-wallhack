@@ -34,10 +34,12 @@ class Category extends CI_Controller {
 					return date( 'jS M y', strtotime($d));
 				}
 			),
-			array( 'db' => 'dc_catid',
+			array( 'db' => 'CONCAT(dc_catid,"|",dc_status)',
 					'dt' => 3,
 					'formatter' => function( $d, $row ) {
-						return '<a href="'.site_url('/admin/category/edit/'.$d).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_category('.$d.')" class="fa fa-trash-o"></a>';
+						list($id,$status) = explode("|",$d);
+						$status = ($status == "1")?"active":"inactive";
+						return '<a href="'.site_url('/admin/category/edit/'.$id).'" class="fa fa-edit"></a> / <a href="javascript:void(0);" onclick="delete_category('.$id.')" class="fa fa-trash-o"></a> / <a href="javascript:void(0);" data-dc_catid="'.$id.'" class="fa fa-eye deal-category-status '.$status.'" title="'.$status.'" alt="'.$status.'"></a>';
 					}
 			),
 		);
@@ -88,7 +90,8 @@ class Category extends CI_Controller {
 			if ($e_flag == 0) {
 				$data = array('dc_catname' => $post['dc_catname'],
 								'dc_catdetails' => $post['dc_catdetails'],
-								'dc_catimg' => $post['dc_catimg']
+								'dc_catimg' => $post['dc_catimg'],
+								'dc_status' => $post['dc_status']
 							);
 				$ret = $this->common_model->insertData(DEAL_CATEGORY, $data);
 
@@ -125,7 +128,6 @@ class Category extends CI_Controller {
 
 			$error = array();
 			$e_flag=0;
-
 			if(trim($post['dc_catname']) == ''){
 				$error['dc_catname'] = 'Please enter category name.';
 				$e_flag=1;
@@ -134,10 +136,10 @@ class Category extends CI_Controller {
 				$error['dc_catdetails'] = 'Please enter category detail.';
 				$e_flag=1;
 			}
-			if ($_FILES['category_picture']['error'] > 0) {
+			/*if ($_FILES['category_picture']['error'] > 0) {
 				$error['category_picture'] = 'Error in image upload.';
 				$e_flag=1;
-			}
+			}*/
 
 			if ($_FILES['category_picture']['error'] == 0) {
 				$config['overwrite'] = TRUE;
@@ -167,6 +169,7 @@ class Category extends CI_Controller {
 			if ($e_flag == 0) {
 				$data = array('dc_catname' => $post['dc_catname'],
 								'dc_catdetails' => $post['dc_catdetails'],
+								'dc_status' => $post['dc_status']
 							);
 				if (isset($post['dc_catimg']))
 					$data['dc_catimg'] = $post['dc_catimg'];
@@ -216,5 +219,17 @@ class Category extends CI_Controller {
 		}
 	}
 
+	public function categorystatusupdate()
+	{
+		$post = $this->input->post();
 
+		$where = array();
+		$where['dc_catid'] = $post['id'];
+
+		$data = array();
+		$data['dc_status'] = ($post['flag']=="1")?"1":"0";
+
+		$ret = $this->common_model->updateData(DEAL_CATEGORY, $data, $where);
+		echo $ret;exit;
+	}
 }

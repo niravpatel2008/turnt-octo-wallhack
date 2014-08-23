@@ -49,7 +49,11 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
 							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
 							<td><small class="label label-success"><i class="fa fa-rupee"></i><?=$offer->do_discount?></small></td>
-							<td><button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button></td>
+							<td>
+							<?php if($offer->do_status == "active"){?>
+							<button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button>
+							<?php }?>
+							</td>
 						</tr>
 			<?php } ?>
 					</table>
