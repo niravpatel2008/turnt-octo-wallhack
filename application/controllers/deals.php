@@ -98,7 +98,7 @@ class Deals extends CI_Controller {
 
 		$uid = (isset($uid) && (preg_match('/^[0-9]*$/', $uid)))?$uid:"";
 		$data = array();
-		if ($uid == ""){
+		if ($uid == "" || $unique_id == ""){
 			redirect("welcome");
 		}
 
