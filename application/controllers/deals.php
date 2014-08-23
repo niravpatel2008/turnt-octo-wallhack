@@ -101,7 +101,6 @@ class Deals extends CI_Controller {
 		if ($uid == "" || $unique_id == ""){
 			redirect("welcome");
 		}
-
 		$where = array('db_uid' => $uid,
 						'db_uniqueid' => $unique_id
 					);
@@ -110,7 +109,7 @@ class Deals extends CI_Controller {
 
 		$data['deal_detail'] = $this->common_model->getDealDetailPrint($deal_buy[0]->db_autoid);
 
-		if ($data['deal_detail'][0]->db_uid) {
+		if (count($data['deal_detail']) == 0) {
 			redirect("welcome");
 		}
 
