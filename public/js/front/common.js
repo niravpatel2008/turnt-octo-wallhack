@@ -5,6 +5,14 @@ function IsEmail(email) {
   return regex.test(email);
 }
 
+function isNumberKey(e) {
+	var charCode = (e.which) ? e.which : e.keyCode
+	console.log(charCode);
+	if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 36 || charCode > 41))
+		return false;
+	return true;
+}
+
 function clearCookies()
 {
 	$.cookie("tags","");
@@ -163,8 +171,18 @@ $(document).ready(function(){
 	$("#signup").on('click', function () {
 
 		if ($.trim($("#username").val()) == "") {
-			alert('Please enter username.');
+			alert('Please enter name.');
 			return false;
+		}
+
+		if ($.trim($("#email").val()) == "")
+		{
+				alert('Please enter email.');
+				return false;
+		}
+		else if (!IsEmail($.trim($("#email").val()))) {
+				alert('Please enter valid email.');
+				return false;
 		}
 
 		if ($.trim($("#password").val()) == "") {
@@ -180,11 +198,6 @@ $(document).ready(function(){
 		if ($.trim($("#password").val()) != $.trim($("#password2").val())) {
 			alert('Password and confirm password should be same.');
 			return false;
-		}
-
-		if (!IsEmail($.trim($("#email").val())) || $.trim($("#email").val()) == "") {
-		  alert('Please enter valid email.');
-		  return false;
 		}
 
 		if ($.trim($("#contact").val()) == "") {

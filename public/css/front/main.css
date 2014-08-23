@@ -1800,4 +1800,6 @@ small.label{
 #slider-wrapper .carousel-control { opacity:1;}
 #slider-wrapper .carousel-control.left { background-image:none;}
 #slider-wrapper .carousel-control.right { background-image:none;}
-#slider-wrapper .carousel-control.left span{ background-color: rgba(255,255,255,0.5);border-radius:50%;color:#FFFFFF;padding:5px 8px;}
+#slider-wrapper .carousel-control.left span{ background-color: rgba(255,255,255,0.5);border-radius:50%;color:#FFFFFF;padding:5px;width: 30px;}
+#slider-wrapper .carousel-control.right span{ background-color: rgba(255,255,255,0.5);border-radius:50%;color:#FFFFFF;padding:5px;width: 30px;}
+    

@@ -31,7 +31,7 @@
 		<tr>
 			<td>Contact:</td>
 			<td>
-				<input type="text" name="contact" value="<?=@$_POST['contact']?>" >
+				<input type="text" name="contact" value="<?=@$_POST['contact']?>">
 				<?=@$error_msg['contact']?>
 			</td>
 		</tr>

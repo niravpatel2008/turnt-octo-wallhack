@@ -70,7 +70,7 @@
           </div>
           <div class="row">
             <div class="" style='padding:15px;'>
-              <input type="text" class="input field primary allow-enter" name='contact' id='contact' placeholder="Contact">
+              <input type="text" class="input field primary allow-enter" name='contact' id='contact' placeholder="Contact" onkeydown="return isNumberKey(event);">
             </div>
           </div>
 

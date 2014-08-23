@@ -99,6 +99,8 @@ $(document).ready(function(){
 		e.preventDefault();
 		$clone = $('.offers_div:eq(0)').clone();
 		$clone.find("input").val("");
+		$clone.find(".removeoffer").attr("do_autoid","");
+		$clone.find(".deal-offer-status").remove();
 		$clone.insertAfter(".offers_div:last");
 	});
 
@@ -148,6 +150,28 @@ $(document).ready(function(){
 				$("#flash_msg").html(error_msg_box ('An error occurred while processing.'));
 			}
 		});
+	});
+
+	$("body").delegate(".deal-offer-status","click",function(){
+		flag = ($(this).hasClass("active"))?0:1;
+		var url = admin_path()+'deal/offerstatusupdate/';
+		var param = {id:$(this).data("do_autoid"),flag:flag};
+		var span =$(this);
+		$.post(url,param,function(e){
+			if (e == "1")
+			{
+				if(flag)
+				{	
+					$(span).addClass("active").removeClass("inactive");
+					$(span).attr('title',"active").attr("atl","active")
+				}
+				else
+				{
+					$(span).addClass("inactive").removeClass("active");
+					$(span).attr('title',"inactive").attr("atl","inactive")
+				}
+			}
+		})
 	});
 
 	doOrderImage();

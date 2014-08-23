@@ -14,7 +14,7 @@ class Welcome extends CI_Controller {
 		//$emailTpl = $this->load->view('email_templates/template', array('email'=>'signup','username'=>'Nirav Patel','password'=>'password'), true);
 		//$ret = sendEmail("nirav.ce.2008@gmail.com", "TEST EMAIL", $emailTpl, "nirav.ce.2008@gmail.com", "Nirav Patel");
 
-		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid,dc_catimg');
+		$data['categories'] = $this->common_model->selectData(DEAL_CATEGORY, 'dc_catname,dc_catid,dc_catimg',array("dc_status"=>1));
 		$data['view'] = "index";
 		$this->load->view('content', $data);
 
