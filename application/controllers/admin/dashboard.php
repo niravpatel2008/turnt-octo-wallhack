@@ -29,7 +29,12 @@ class Dashboard extends CI_Controller {
 			array( 'db' => 'do_offertitle',  'dt' => 1 ),
 			array( 'db' => 'de_name',  'dt' => 2 ),
 			array( 'db' => 'du_uname',  'dt' => 3 ),
-			array( 'db' => 'du_contact',  'dt' => 4 ),
+			array( 'db' => 'dd_validtilldate',  
+					'dt' => 4 ,
+					'formatter' => function( $d, $row ) {
+						return date( 'jS M y', strtotime($d));
+					}
+			),
 			array( 'db' => 'db_amntpaid',  'dt' => 5 ),
 			array('db'        => 'db_date',
 					'dt'        => 6,
