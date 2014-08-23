@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="large-3 columns">
                 <div class="logo">
-                    <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
+                    <a href="<?=base_url()?>" class='clearSearch'><img src='<?=base_url()?>public/img/logo.png'></a>
                 </div>
                 </div>
                 <nav class="large-6 columns toppad">

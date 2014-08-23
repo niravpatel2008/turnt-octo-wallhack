@@ -304,6 +304,7 @@ $(document).ready(function(){
   });
 
   $('.clearSearch').on('click',function(){
-		clearCookies();
+	$.cookie("tags","");
+	$.cookie("category","");
   });
 });
