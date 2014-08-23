@@ -9,7 +9,7 @@
 		<div class="box-body">
 			<div class="table-responsive">
 				<table class='table table-striped'>
-					<tr><th>Offer Title</th><th>Buy</th><th>Status</th><th>Print</th></tr>
+					<tr><th>Offer Title</th><th>Purchased on</th><th>Status</th><th>Print</th></tr>
 					<?php foreach($deals as $deal){
 						#pr($deal);
 						?>

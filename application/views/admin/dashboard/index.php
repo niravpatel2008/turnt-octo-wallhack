@@ -32,7 +32,7 @@
                                     <th>User</th>
                                     <th>Valid till</th>
                                     <th>Amount Paid</th>
-                                    <th>Buy At</th>
+                                    <th>Purchased on</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -44,7 +44,7 @@
                                     <th>User</th>
                                     <th>Valid till</th>
                                     <th>Amount Paid</th>
-                                    <th>Buy At</th>
+                                    <th>Purchased on</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
