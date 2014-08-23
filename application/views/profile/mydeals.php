@@ -15,7 +15,7 @@
 						?>
 								<tr>
 									<td><?=$deal['do_offertitle']?></td>
-									<td><?=format_date($deal_detail[0]->db_date)?></td>
+									<td><?=format_date($deal['db_date'])?></td>
 									<td><?=$deal['db_dealstatus']?></td>
 									<td>
 									<?php if($deal['db_dealstatus'] == 'active'){?>
