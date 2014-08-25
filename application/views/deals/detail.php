@@ -263,59 +263,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 			<div>
 		</section>
 	</div>
-
-<?php /*?>
-	<div class='row'>
-		<section class='col-lg-4'>
-			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-paperclip"></i> Offer Validity</h3>
-				</div>
-				<div class="box-body">
-					<ul class='list-unstyled'>
-						<li>
-							<ul>
-								<?php foreach ($validities as $validity){
-									echo "<li>$validity</li>";
-								}?>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section class='col-lg-4'>
-			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-clipboard"></i> Offer Detail</h3>
-				</div>
-				<div class="box-body">
-					<div id='description'>
-					<ul class='list-unstyled'>
-					<?php foreach($offers as $offer){?>
-						<li><i class="fa fa-fw fa-bell-o"></i><?=$offer->do_offertitle?></li>
-					<?php } ?>
-					</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class='col-lg-4'>
-			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title"><i class="fa fa-pencil"></i> Description</h3>
-				</div>
-				<div class="box-body">
-					<div id='description'><?=$detail['dd_description'];?></div>
-				</div>
-			</div>
-		</section>
-	</div>
-<?php */?>
-
-
+	<?php if ($detail['de_disp_address'] == "1" || $detail['de_disp_address'] == "") {?>
 	<div class="box box-success">
 		<div class="box-header">
 			<h3 class="box-title"><i class="fa fa-location-arrow"></i> Location</h3>
@@ -340,7 +288,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 			</div>
 		</div>
 	</div>
-
+	<?php } ?>
 	<div class="box box-success">
 		<div class="box-header">
 			<h3 class="box-title">You also may like this</h3>

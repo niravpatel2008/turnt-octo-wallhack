@@ -112,6 +112,12 @@
 						</div>
 					</div >
 					<div class="form-group">
+                        <input type='checkbox' id="de_disp_address" class="form-control" name="de_disp_address" 
+							<?= (@$dealer[0]->de_disp_address == "1" || @$dealer[0]->de_disp_address == "")?"checked":""?>
+						>
+						<label for="de_disp_address"> Display Contact Section</label>
+                    </div>
+					<div class="form-group">
 						<div id="locationHolder" style="width: 100%; height: 400px;"></div>
 					</div>
 					<div class="form-group">

@@ -76,6 +76,7 @@ class Dealer extends CI_Controller {
 					'de_userid'=> $post['de_userid'],
 					'de_name'=> $post['de_name'],
 					'de_address'=> $post['de_address'],
+					'de_disp_address'=> isset($post['de_disp_address'])?1:0,
 					'de_city'=> $post['de_city'],
 					'de_state'=> $post['de_state'],
 					'de_zip'=> $post['de_zip'],
@@ -117,7 +118,6 @@ class Dealer extends CI_Controller {
 
 		$post = $this->input->post();
 		if ($post) {
-
 			$error = array();
 			$e_flag=0;
 
@@ -146,6 +146,7 @@ class Dealer extends CI_Controller {
 								'de_city'=> $post['de_city'],
 								'de_state'=> $post['de_state'],
 								'de_zip'=> $post['de_zip'],
+								'de_disp_address'=> isset($post['de_disp_address'])?1:0,
 								'de_lat'=> $post['de_lat'],
 								'de_long'=> $post['de_long'],
 								'de_contact'=> $post['de_contact'],
