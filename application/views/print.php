@@ -106,8 +106,10 @@ body {margin-top: 0px;margin-left: 0px;}
 </tr>
 <tr>
 	<td colspan=3>
+		<?php if ($deal_detail[0]->de_disp_address == "1" || $deal_detail[0]->de_disp_address == "") {?>
 		<P class="p3 ft1"><SPAN class="ft2">Dealer Contact Details: </SPAN><?=$deal_detail[0]->de_name." ".$deal_detail[0]->de_address." ".$deal_detail[0]->de_city." ".$deal_detail[0]->de_state." ".$deal_detail[0]->de_zip?></P>
 		<P class="p3 ft1"><SPAN class="ft2">Dealer link: </SPAN><?=$deal_detail[0]->de_url?></P>
+		<?php } ?>
 		<P class="p3 ft1"><SPAN class="ft2">Validity: </SPAN> <?=$deal_detail[0]->dd_conditions?></P>
 		<P class="p3 ft1"><SPAN class="ft2">Policy: </SPAN> <?=$deal_detail[0]->dd_policy?></P>
 	</td>
