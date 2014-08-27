@@ -119,7 +119,7 @@
 
 	function replace_char($str)
 	{
-		return str_replace(array(",","/","(",")","&","%"," "),"-",trim($str));
+		return str_replace(array(",","/","(",")","&","%"," ","@"),"-",trim($str));
 	}
 
 ?>
