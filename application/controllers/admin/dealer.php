@@ -61,9 +61,11 @@ class Dealer extends CI_Controller {
 				$error['de_name'] = 'Please dealer name.';
 				$e_flag=1;
 			}
-			if ($post['de_url'] != "" && filter_var($post['de_url'], FILTER_VALIDATE_URL) === FALSE) {
-			    $error['de_url'] = 'Please enter valid URL.';
-				$e_flag=1;
+			if ($post['de_url'] != "") {
+				if (filter_var($post['de_url'], FILTER_VALIDATE_URL) === FALSE) {
+					$error['de_url'] = 'Please enter valid URL.';
+					$e_flag=1;
+				}
 			}
 			if(!valid_email(trim($post['de_email'])) && trim($post['de_email']) == ""){
 				$error['de_email'] = 'Please enter valid email.';
