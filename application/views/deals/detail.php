@@ -47,12 +47,24 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 						<tr class='offer-page page-<?=$page?>'>
 							<td><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></td>
 							<td><small class="label label-danger"><i class="fa fa-rupee"></i><?=$offer->do_listprice?></small></td>
-							<td><small class="label label-info"><i class="fa fa-rupee"></i><?=$offer->do_originalprice?></small></td>
-							<td><small class="label label-success"><i class="fa fa-rupee"></i><?=$offer->do_discount?></small></td>
+							<td><?php if($offer->do_originalprice != "0") {?>
+								<small class="label label-info">
+								<i class="fa fa-rupee"></i><?=$offer->do_originalprice?>
+								</small>
+								<?php }?>
+								</td>
+							<td><?php if($offer->do_originalprice != "0") {?>
+								<small class="label label-success">	
+									<i class="fa fa-rupee"></i><?=($offer->do_originalprice != "0")?$offer->do_discount:"-" ?>
+								</small>
+								<?php }?>
+								</td>
 							<td>
 							<?php if($offer->do_status == "active"){?>
 							<button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button>
-							<?php }?>
+							<?php } else {?>
+								<small class="label label-danger">SOLD OUT</small>
+							<?php } ?>
 							</td>
 						</tr>
 			<?php } ?>
@@ -61,8 +73,8 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 				<?php if($page > 1) { ?>
 					<div  class="modal-footer" style='padding-bottom: 0;padding-top: 0;'> 
 						<ul class="offer-pager pager" data-totalpage="<?=$page?>" data-currentpage="1">
-						  <li class="previous"><a href="#">&larr; Older</a></li>
-						  <li class="next"><a href="#">Newer &rarr;</a></li>
+						  <li class="previous"><a href="#">&larr; Previous</a></li>
+						  <li class="next"><a href="#">Next &rarr;</a></li>
 						</ul>
 					</div>
 					<?php } ?>
@@ -133,6 +145,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 								</div>
 							</div>
 							<div class='col-lg-4'>
+								<?php if ($detail['dd_originalprice'] != "0"){ ?>
 								<div class="small-box bg-aqua">
 									<a class="small-box-footer" href="#">
 										Was
@@ -141,8 +154,10 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 										<center><h3 class='box-title'><i class="fa fa-rupee"></i><?=$detail['dd_originalprice'];?></h3></center>
 									</div>
 								</div>
+								<?php }?>
 							</div>
 							<div class='col-lg-4'>
+								<?php if ($detail['dd_originalprice'] != "0"){ ?>
 								<div class="small-box bg-green">
 									<a class="small-box-footer" href="#">
 										Save
@@ -151,6 +166,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 										<center><h3 class='box-title'><i class="fa fa-rupee"></i><?=$detail['dd_discount'];?></h3></center>
 									</div>
 								</div>
+								<?php }?>
 							</div>
 						</div>
 					</div>

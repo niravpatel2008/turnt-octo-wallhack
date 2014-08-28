@@ -94,7 +94,7 @@ body {margin-top: 0px;margin-left: 0px;}
 			<br>
 			<P class="p1 ft10"><SPAN class="ft8">Dealer Name: </SPAN><?=$deal_detail[0]->de_name?></P>
 			<br>
-			<P class="p1 ft7"><SPAN class="ft11">Price </SPAN><?=$deal_detail[0]->do_listprice?></P>
+			<P class="p1 ft7"><SPAN class="ft11">Price </SPAN><?=$deal_detail[0]->do_originalprice?></P>
 			<br>
 			<P class="p1 ft7"><SPAN class="ft8">Valid till: </SPAN><?=format_date($deal_detail[0]->dd_validtilldate)?></P>
 		</div>

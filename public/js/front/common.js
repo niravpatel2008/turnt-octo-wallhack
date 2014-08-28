@@ -59,8 +59,14 @@ function displayDealsData(result)
 		if(index!='totalRecordsCount'){
 			pricehtml="<div class='row'>";
 				pricehtml+="<div class='col-lg-4'><div class='small-box bg-red'><a class='small-box-footer' href='#'>Now</a><div class='inner'><center><h3 class='box-title'><i class='fa fa-rupee'></i>"+element.dd_listprice+"</h3></center></div></div></div>";
-				pricehtml+="<div class='col-lg-4'><div class='small-box bg-aqua'><a class='small-box-footer' href='#'>Was</a><div class='inner'><center><h3 class='box-title'><i class='fa fa-rupee'></i>"+element.dd_originalprice+"</h3></center></div></div></div>";
-				pricehtml+="<div class='col-lg-4'><div class='small-box bg-green'><a class='small-box-footer' href='#'>Save</a><div class='inner'><center><h3 class='box-title'><i class='fa fa-rupee'></i>"+element.dd_discount+"</h3></center></div></div></div>";
+				pricehtml+="<div class='col-lg-4'>";
+				if (element.dd_originalprice != "0")
+					pricehtml+="<div class='small-box bg-aqua'><a class='small-box-footer' href='#'>Was</a><div class='inner'><center><h3 class='box-title'><i class='fa fa-rupee'></i>"+element.dd_originalprice+"</h3></center></div></div>";
+				pricehtml+="</div>";
+				pricehtml+="<div class='col-lg-4'>";
+				if (element.dd_originalprice != "0")
+					pricehtml+="<div class='small-box bg-green'><a class='small-box-footer' href='#'>Save</a><div class='inner'><center><h3 class='box-title'><i class='fa fa-rupee'></i>"+element.dd_discount+"</h3></center></div></div>";
+				pricehtml+="</div>";
 			pricehtml+="</div>";
 
 
