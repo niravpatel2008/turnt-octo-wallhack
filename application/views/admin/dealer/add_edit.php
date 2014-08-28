@@ -159,7 +159,7 @@
                             }
                         ?>
                         <label>URL</label>
-                        <input placeholder="Enter URL" id="de_url" class="form-control validate[required,custom[url]]" name="de_url" value="<?=@$dealer[0]->de_url?>" >
+                        <input placeholder="Enter URL" id="de_url" class="form-control validate[custom[url]]" name="de_url" value="<?=@$dealer[0]->de_url?>" >
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-flat" type="submit" id="submit">Submit</button>

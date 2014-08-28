@@ -56,9 +56,12 @@ class Dashboard extends CI_Controller {
 		$join3 = array(DEAL_DEALER,'de_autoid = dd_dealerid');
 		$join4 = array(DEAL_OFFER,'do_autoid = db_offerid');
 		$custom_where = array();
-
+		
 		if($this->user_session['role'] == 'd') {
-			$custom_where = array('dd_dealerid'=>$this->user_session['dealer_info']->de_autoid);
+			if(!$this->user_session['dealer_info'])
+				$custom_where = array('dd_dealerid'=>0);
+			else
+				$custom_where = array('dd_dealerid'=>$this->user_session['dealer_info']->de_autoid);
 		}	
 		
 		echo json_encode( SSP::simple( $post, DEAL_BUYOUT, "db_autoid", $columns ,array($join1, $join2, $join3,$join4),$custom_where) );exit;
