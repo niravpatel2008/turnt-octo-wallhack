@@ -218,7 +218,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 			<div class="nav-tabs-custom">
 				<ul class="nav nav-tabs pull-right">
 					<li class="active"><a data-toggle="tab" href="#tab_1-1">Detail</a></li>
-					<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li>
+					<li ><a data-toggle="tab" href="#tab_2-1">Includes</a></li>
 					<li class="pull-left header">
 						<i class="fa fa-paperclip"></i>
 						Offer
@@ -233,7 +233,39 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 							<?php } ?>
 							</ul>
 						</div>
+					</div>
+					<div id='tab_2-1' class='tab-pane'>
+						<?=$includes?>
 					</div>	
+				</div>
+			<div>
+		</section>
+
+		<section class='col-lg-6'>
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs pull-right">
+					<li class="active"><a data-toggle="tab" href="#tab_2-2">Description</a></li>
+					<?php if (count($validities) > 0) { ?>
+						<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li> 
+					<?php } ?>
+					<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
+					<li class="pull-left header">
+						<i class="fa fa-th"></i>
+						Offer
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id='tab_2-2' class='tab-pane active'>
+						<div id='description'><?=$detail['dd_description'];?></div>
+					</div>
+					<div id='tab_2-3' class='tab-pane'>
+						<ul class='list-unstyled'>
+							<?php foreach ($policies as $policy){
+								echo "<li><i class='fa fa-fw fa-check green'></i> $policy</li>";
+							}?>
+						</ul>
+					</div>
+					<?php if (count($validities) > 0) { ?>
 					<div id='tab_1-2' class='tab-pane'>
 						<ul class='list-unstyled'>
 							<li>
@@ -245,36 +277,8 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 								</ul>
 							</li>
 						</ul>
-					</div>	
-				</div>
-			<div>
-		</section>
-
-		<section class='col-lg-6'>
-			<div class="nav-tabs-custom">
-				<ul class="nav nav-tabs pull-right">
-					<li class="active"><a data-toggle="tab" href="#tab_2-1">Includes</a></li>
-					<li ><a data-toggle="tab" href="#tab_2-2">Description</a></li>
-					<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
-					<li class="pull-left header">
-						<i class="fa fa-th"></i>
-						Offer
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div id='tab_2-1' class='tab-pane active'>
-						<?=$includes?>
-					</div>	
-					<div id='tab_2-2' class='tab-pane'>
-						<div id='description'><?=$detail['dd_description'];?></div>
 					</div>
-					<div id='tab_2-3' class='tab-pane'>
-						<ul class='list-unstyled'>
-							<?php foreach ($policies as $policy){
-								echo "<li><i class='fa fa-fw fa-check green'></i> $policy</li>";
-							}?>
-						</ul>
-					</div>
+					<?php } ?>
 				</div>
 			<div>
 		</section>

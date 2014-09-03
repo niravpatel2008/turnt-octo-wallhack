@@ -1,15 +1,10 @@
 <footer role="contentinfo">
     <div class="stripe-darker footer-wrap">
       <div class="row">
-        <div class="large-3 columns">
-          <div class="logo">
-            <a href="<?=base_url()?>"><img src='<?=base_url()?>public/img/logo.png'></a>
-          </div>
+        <div class="large-6 columns toppad" style='padding-bottom: 20px;'>
+          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved. <a href="<?=base_url()?>privacy_policy" target="_blank" style='color: #3c8dbc;text-decoration: underline;'>Privacy Policy</a></div>
         </div>
-        <div class="large-6 columns toppad">
-          <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved. <a href="<?=base_url()?>privacy_policy" style='color: #3c8dbc;text-decoration: underline;'>Privacy Policy</a></div>
-        </div>
-        <div class="large-3 columns toppad">
+        <div class="large-3 columns toppad" style='padding-bottom: 20px;'>
           <ul class="rr social">
             <!-- li><a class="ir tw" href="#">Twitter</a></li>
             <li><a class="ir in" href="#">LinkedIn</a></li !-->

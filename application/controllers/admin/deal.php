@@ -95,10 +95,6 @@ class Deal extends CI_Controller {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
-			if ($post['dd_validtilldate'] == "") {
-				$error['dd_validtilldate'] = 'Please enter deal validity.';
-				$e_flag=1;
-			}
 
 			$offer_data= $post['offer_data'];
 			if (!isset($offer_data[0]))
@@ -254,10 +250,6 @@ class Deal extends CI_Controller {
 			}
 			if ($post['dd_name'] == "") {
 				$error['dd_name'] = 'Please enter deal name.';
-				$e_flag=1;
-			}
-			if ($post['dd_validtilldate'] == "") {
-				$error['dd_validtilldate'] = 'Please enter deal validity.';
 				$e_flag=1;
 			}
 			$offer_data= $post['offer_data'];
