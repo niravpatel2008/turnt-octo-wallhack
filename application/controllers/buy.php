@@ -27,11 +27,12 @@ class Buy extends CI_Controller {
             $ret = $this->common_model->insertData(DEAL_BUYOUT, $data);
             if ($ret > 0) {
                 $deal_data = $this->common_model->getDealDetail($post['deal_id'],$post['offerid']);
+				
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],
                                         'offer' => $deal_data['offers']->do_offertitle,
                                         'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
-                                        'price' => $deal_data['offers']['do_originalprice'],
+                                        'price' => $deal_data['offers']->do_originalprice,
                                         'uid' => $data['db_uid'],
                                         'uniqueId' => $data['db_uniqueid'],
                                         'email' => "buydeal"
