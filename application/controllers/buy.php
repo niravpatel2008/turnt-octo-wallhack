@@ -31,7 +31,7 @@ class Buy extends CI_Controller {
                                         'dealer' => $deal_data['detail'][0]['de_name'],
                                         'offer' => $deal_data['offers']->do_offertitle,
                                         'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
-                                        'price' => $deal_data['detail'][0]['do_originalprice'],
+                                        'price' => $deal_data['offers']['do_originalprice'],
                                         'uid' => $data['db_uid'],
                                         'uniqueId' => $data['db_uniqueid'],
                                         'email' => "buydeal"
