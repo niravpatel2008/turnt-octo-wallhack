@@ -16,10 +16,10 @@ $(document).ready(function(){
 	var lat = $("#lat").val();
 	var lng = $("#long").val();
 	if (lat != "" && lng != "")
-	{	
+	{
 		var latlng = new google.maps.LatLng(lat,lng);
 		var myOptions = {
-			zoom: 20,		
+			zoom: 20,
 			center: latlng,
 			panControl: true,
 			zoomControl: true,
@@ -31,7 +31,7 @@ $(document).ready(function(){
 			overviewMapControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var map = new google.maps.Map(document.getElementById('map'), myOptions);	
+		var map = new google.maps.Map(document.getElementById('map'), myOptions);
 		var marker = new google.maps.Marker({
 			position: latlng,
 			map: map,
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 function buy_deal (deal_id,offerid) {
 	if(!isLogin) {$("#buyofferpopup").modal('hide'); openLoginForm(); return; }
-	url = base_url()+'buy';
+	url = base_url()+'buy/check_login';
 	data = {deal_id:deal_id,offerid:offerid}
 	$.post(url,data,function(data){
 			if (data == "login") {
@@ -84,8 +84,18 @@ function buy_deal (deal_id,offerid) {
 
             if (data == "success") {
 				$("#buyofferpopup").modal('hide');
-				$('#buyoffermessage').modal();
+				$('#buyofferaddress').modal();
                 return false;
             }
 	});
 }
+
+
+$('#buy_step2').on('click',function(){
+
+	$.post(base_url()+'buy/', $("#buystep2frm").serialize(), function (data) {
+		alert(data);
+	});
+
+
+});
