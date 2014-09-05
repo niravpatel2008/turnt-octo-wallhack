@@ -53,6 +53,7 @@ define('DEAL_LINKS',	'deal_links');
 define('DEAL_MAP_TAGS',	'deal_map_tags');
 define('DEAL_TAGS',	'deal_tags');
 define('DEAL_OFFER',	'deal_offer');
+define('DEAL_USER_ADDRESS',    'deal_user_address');
 
 
 define('FROM_EMAIL', 'nirav.ce.2008@gmail.com');

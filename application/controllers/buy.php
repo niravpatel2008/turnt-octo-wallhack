@@ -8,6 +8,18 @@ class Buy extends CI_Controller {
         $this->front_session = $this->session->userdata('front_session');
     }
 
+
+    public function check_login()
+    {
+        if (!isset($this->front_session['id'])) {
+            echo "login";
+            exit;
+        }else{
+            echo "success";
+        }
+    }
+
+
     public function index()
     {
         if (!isset($this->front_session['id'])) {
@@ -16,6 +28,20 @@ class Buy extends CI_Controller {
         }
         $post = $this->input->post();
         if ($post) {
+
+            #save address details
+            $data_address = array('da_userid' => $this->front_session['id'],
+                        'da_firstname' => $post['firstname'],
+                        'da_lastname' => $post['lastname'],
+                        'da_address' => $post['address'],
+                        'da_city' => $post['city'],
+                        'da_state' => $post['state'],
+                        'da_pincode' => $post['pincode'],
+                        'da_phone' => $post['phone']
+                    );
+            $ret_addrs = $this->common_model->insertData(DEAL_USER_ADDRESS, $data_address);
+
+            pr($post,1);
             $data = array('db_dealid' => $post['deal_id'],
                         'db_offerid' => $post['offerid'],
                         'db_uid' => $this->front_session['id'],
@@ -27,7 +53,7 @@ class Buy extends CI_Controller {
             $ret = $this->common_model->insertData(DEAL_BUYOUT, $data);
             if ($ret > 0) {
                 $deal_data = $this->common_model->getDealDetail($post['deal_id'],$post['offerid']);
-				
+
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],
                                         'offer' => $deal_data['offers']->do_offertitle,

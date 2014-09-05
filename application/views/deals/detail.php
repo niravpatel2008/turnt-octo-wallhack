@@ -33,7 +33,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 <div id='buyofferpopup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">		
+			<div class="modal-header">
 				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
 				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i> Select Offer :</h3>
 			</div>
@@ -41,7 +41,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 				<div class="table-responsive">
 					<table class='table table-striped'>
 						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
-			<?php 
+			<?php
 				$page = 0;
 				foreach($offers as $k=>$offer){ if ($k%5 == 0) { $page++; }?>
 						<tr class='offer-page page-<?=$page?>'>
@@ -54,7 +54,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 								<?php }?>
 								</td>
 							<td><?php if($offer->do_originalprice != "0") {?>
-								<small class="label label-success">	
+								<small class="label label-success">
 									<i class="fa fa-rupee"></i><?=($offer->do_originalprice != "0")?$offer->do_discount:"-" ?>
 								</small>
 								<?php }?>
@@ -71,7 +71,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 					</table>
 				</div>
 				<?php if($page > 1) { ?>
-					<div  class="modal-footer" style='padding-bottom: 0;padding-top: 0;'> 
+					<div  class="modal-footer" style='padding-bottom: 0;padding-top: 0;'>
 						<ul class="offer-pager pager" data-totalpage="<?=$page?>" data-currentpage="1">
 						  <li class="previous"><a href="#">&larr; Previous</a></li>
 						  <li class="next"><a href="#">Next &rarr;</a></li>
@@ -83,10 +83,50 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 	</div>
 </div>
 
+<div id='buyofferaddress' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i>Delivery address for product.</h3>
+			</div>
+			<div class="modal-body">
+				<form id="buystep2frm">
+					<div class="row">
+						<label>Firstname: </label> <input class="input field primary allow-enter" type="text" name="firstname">
+					</div>
+					<div class="row">
+						<label>Lastname: </label> <input class="input field primary allow-enter" type="text" name="lastname">
+					</div>
+					<div class="row">
+						<label>Address: </label> <textarea class="input field primary allow-enter" style="height: 100px;" name="address"></textarea>
+					</div>
+					<div class="row">
+						<label>City: </label> <input class="input field primary allow-enter" type="text" name="city">
+					</div>
+					<div class="row">
+						<label>State: </label> <input class="input field primary allow-enter" type="text" name="state">
+					</div>
+					<div class="row">
+						<label>Pin code: </label> <input class="input field primary allow-enter" type="text" name="pincode">
+					</div>
+					<div class="row">
+						<label>Phone: </label> <input class="input field primary allow-enter" type="text" name="phone">
+					</div>
+					<br/>
+					<div class="row">
+						<input type="button" name="buy_step2" id="buy_step2" value="Submit" class="sumitbtn input button primary" >
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div id='buyoffermessage' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">		
+			<div class="modal-header">
 				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
 				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i>Deal processed successfully.</h3>
 			</div>
@@ -236,7 +276,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 					</div>
 					<div id='tab_2-1' class='tab-pane'>
 						<?=$includes?>
-					</div>	
+					</div>
 				</div>
 			<div>
 		</section>
@@ -246,7 +286,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 				<ul class="nav nav-tabs pull-right">
 					<li class="active"><a data-toggle="tab" href="#tab_2-2">Description</a></li>
 					<?php if (count($validities) > 0) { ?>
-						<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li> 
+						<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li>
 					<?php } ?>
 					<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
 					<li class="pull-left header">
