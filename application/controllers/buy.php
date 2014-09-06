@@ -41,17 +41,31 @@ class Buy extends CI_Controller {
         $post = $this->input->post();
         if ($post) {
 
-            #save address details
-            $data_address = array('da_userid' => $this->front_session['id'],
-                        'da_firstname' => $post['firstname'],
-                        'da_lastname' => $post['lastname'],
-                        'da_address' => $post['address'],
-                        'da_city' => $post['city'],
-                        'da_state' => $post['state'],
-                        'da_pincode' => $post['pincode'],
-                        'da_phone' => $post['phone']
-                    );
-            $ret_addrs = $this->common_model->insertData(DEAL_USER_ADDRESS, $data_address);
+        #save address details
+		$data_address = "";
+		if(isset($post['address']) && $post['address'] != "")
+		{
+			$query = null; 
+			$query = $this->common_model->get_where(DEAL_USER_ADDRESS, array('da_userid' => $this->front_session['id']));
+			$count = $query->num_rows(); //counting result from query
+			$data_address = array('da_userid' => $this->front_session['id'],
+							'da_firstname' => $post['firstname'],
+							'da_lastname' => $post['lastname'],
+							'da_address' => $post['address'],
+							'da_city' => $post['city'],
+							'da_state' => $post['state'],
+							'da_pincode' => $post['pincode'],
+							'da_phone' => $post['phone']
+						);
+
+			if ($count === 0) {
+				$ret_addrs = $this->common_model->insertData(DEAL_USER_ADDRESS, $data_address);
+			}
+			else
+			{
+				$ret_addrs = $this->common_model->updateData(DEAL_USER_ADDRESS, $data_address, array('da_userid' => $this->front_session['id']));
+			}
+		}
 
 			$cart = $this->session->userdata('cart');
 
