@@ -228,6 +228,10 @@
 							<option value='draft' <?=(@$deal[0]->dd_status == 'draft')?'selected':''?> >Draft</option>
 						</select>
                     </div>
+					<div class="form-group">
+						<input type='checkbox' name='dd_address_flag' id='dd_address_flag' <?=(isset($deal[0]->dd_address_flag) && $deal[0]->dd_address_flag==true)?"checked":""?>>
+                        <label for="dd_address_flag">User address required</label>
+                    </div>
 
 					<div class="form-group clearfix dealuploaddiv"> <!-- Uploaded images will be shown here -->
 						<input type='hidden' name='newimages' id='newimages'>

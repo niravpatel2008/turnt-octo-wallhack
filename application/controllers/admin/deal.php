@@ -149,7 +149,8 @@ class Deal extends CI_Controller {
 					'dd_mainphoto'=> $post['dd_mainphoto'],
 					'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 					'dd_status'=> $post['dd_status'],
-					'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate']))
+					'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate'])),
+					'dd_address_flag' => isset($post['dd_address_flag'])?1:0
 					);
 
 				$ret_deal = $this->common_model->insertData(DEAL_DETAIL, $data);
@@ -305,7 +306,8 @@ class Deal extends CI_Controller {
 							'dd_mainphoto' => $post['dd_mainphoto'],
 							'dd_modiftimestamp'=> date('Y-m-d H:i:s'),
 							'dd_status'=> $post['dd_status'],
-							'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate']))
+							'dd_validtilldate' => date('Y-m-d',strtotime($post['dd_validtilldate'])),
+							'dd_address_flag' => isset($post['dd_address_flag'])?1:0
 							);
 
 				$ret = $this->common_model->updateData(DEAL_DETAIL, $data, $where);

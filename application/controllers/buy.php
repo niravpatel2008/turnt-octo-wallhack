@@ -13,10 +13,22 @@ class Buy extends CI_Controller {
     {
         if (!isset($this->front_session['id'])) {
             echo "login";
-            exit;
         }else{
-            echo "success";
+			$post = $this->input->post();
+			$this->session->set_userdata('cart',$post);            
+			$deal_detail = $this->common_model->selectData(DEAL_DETAIL, 'dd_address_flag', array('dd_autoid' => $post['deal_id']+412));
+			if(count($deal_detail) > 0)
+			{
+				if ($deal_detail[0]->dd_address_flag == "1")
+					echo "address";
+				else
+					echo "success";
+			}
+			else
+				echo "Error: Deal not available.";
+			
         }
+		exit;
     }
 
 
@@ -41,18 +53,29 @@ class Buy extends CI_Controller {
                     );
             $ret_addrs = $this->common_model->insertData(DEAL_USER_ADDRESS, $data_address);
 
-            pr($post,1);
-            $data = array('db_dealid' => $post['deal_id'],
-                        'db_offerid' => $post['offerid'],
+			$cart = $this->session->userdata('cart');
+
+			if (!isset($cart) || $cart['deal_id'] == "" || $cart['offerid'] == "")
+			{	echo "Error: Cart is empty."; exit; }
+			
+			$db_uniqueid = array();
+			$buy_id = array();
+			for ($i = 0 ; $i  < $cart['qty'];$i++)
+			{
+				 $data = array('db_dealid' => $cart['deal_id'],
+                        'db_offerid' => $cart['offerid'],
                         'db_uid' => $this->front_session['id'],
                         'db_paymntopt' => 'COD',
                         'db_amntpaid' => 0,
                         'db_dealstatus' => 'active',
                         'db_uniqueid' => uniqid()
-                    );
-            $ret = $this->common_model->insertData(DEAL_BUYOUT, $data);
-            if ($ret > 0) {
-                $deal_data = $this->common_model->getDealDetail($post['deal_id'],$post['offerid']);
+                );
+				$db_uniqueid[] = $data['db_uniqueid'];
+				$buy_id[] = $this->common_model->insertData(DEAL_BUYOUT, $data);
+			}
+
+            if (count($buy_id) > 0) {
+                $deal_data = $this->common_model->getDealDetail($cart['deal_id'],$cart['offerid']);
 
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],
@@ -60,14 +83,17 @@ class Buy extends CI_Controller {
                                         'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
                                         'price' => $deal_data['offers']->do_originalprice,
                                         'uid' => $data['db_uid'],
-                                        'uniqueId' => $data['db_uniqueid'],
-                                        'email' => "buydeal"
+                                        'qty' => $cart['qty'],
+                                        'uniqueId' => $db_uniqueid,
+                                        'email' => "buydeal",
+                                        'address' => $data_address
                                     );
                 $emailTpl = $this->load->view('email_templates/template', $deal_details, true);
                 $admin_email = $this->common_model->selectData(DEAL_USER, 'du_email', array("du_role"=>'a'));
                 $bcc = $admin_email[0]->du_email.", ".$deal_data['detail'][0]['de_email'];
                 $ret = sendEmail($this->front_session['email'], SUBJECT_DEAL_INFO, $emailTpl, FROM_EMAIL, FROM_NAME, '', $bcc);
 
+				$this->session->unset_userdata('cart');
                 echo "success";
             }else{
                 echo "error";
