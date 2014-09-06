@@ -15,14 +15,21 @@ class Buy extends CI_Controller {
             echo "login";
         }else{
 			$post = $this->input->post();
-			$this->session->set_userdata('cart',$post);            
-			$deal_detail = $this->common_model->selectData(DEAL_DETAIL, 'dd_address_flag', array('dd_autoid' => $post['deal_id']+412));
+			$deal_detail = $this->common_model->selectData(DEAL_DETAIL, 'dd_address_flag', array('dd_autoid' => $post['deal_id']));
 			if(count($deal_detail) > 0)
 			{
 				if ($deal_detail[0]->dd_address_flag == "1")
+				{
+					$post['address'] = 1;
+					$this->session->set_userdata('cart',$post);
 					echo "address";
+				}
 				else
+				{
+					$post['address'] = 0;
+					$this->session->set_userdata('cart',$post);
 					echo "success";
+				}
 			}
 			else
 				echo "Error: Deal not available.";
@@ -41,10 +48,21 @@ class Buy extends CI_Controller {
         $post = $this->input->post();
         if ($post) {
 
+		$cart = $this->session->userdata('cart');
+
+		if (!isset($cart) || $cart['deal_id'] == "" || $cart['offerid'] == "")
+		{	echo "Error: Cart is empty."; exit; }
+
         #save address details
 		$data_address = "";
-		if(isset($post['address']) && $post['address'] != "")
+		if($cart['address'] == "1")
 		{
+			if ($post['lastname'] == "" || $post['address'] == "" || $post['city'] == "" ||$post['state'] == "" || $post['pincode'] == "" || $post['phone'] == "")
+			{
+				echo "Error: Shipping details are required.";
+				exit;
+			}
+
 			$query = null; 
 			$query = $this->common_model->get_where(DEAL_USER_ADDRESS, array('da_userid' => $this->front_session['id']));
 			$count = $query->num_rows(); //counting result from query
@@ -66,11 +84,6 @@ class Buy extends CI_Controller {
 				$ret_addrs = $this->common_model->updateData(DEAL_USER_ADDRESS, $data_address, array('da_userid' => $this->front_session['id']));
 			}
 		}
-
-			$cart = $this->session->userdata('cart');
-
-			if (!isset($cart) || $cart['deal_id'] == "" || $cart['offerid'] == "")
-			{	echo "Error: Cart is empty."; exit; }
 			
 			$db_uniqueid = array();
 			$buy_id = array();
