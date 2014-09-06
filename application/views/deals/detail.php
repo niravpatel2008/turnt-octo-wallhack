@@ -40,9 +40,10 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 			<div class="modal-body" style='padding:0px;'>
 				<div class="table-responsive">
 					<table class='table table-striped'>
-						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Get</th></tr>
+						<tr><th>Offer Title</th><th>NOW</th><th>WAS</th><th>SAVE</th><th>Qty</th><th>Get</th></tr>
 			<?php
 				$page = 0;
+				$qtyHtml = "<select class='qtyItem'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>";
 				foreach($offers as $k=>$offer){ if ($k%5 == 0) { $page++; }?>
 						<tr class='offer-page page-<?=$page?>'>
 							<td><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></td>
@@ -59,6 +60,9 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 								</small>
 								<?php }?>
 								</td>
+							<td>
+								<?=$qtyHtml?>
+							</td>
 							<td>
 							<?php if($offer->do_status == "active"){?>
 							<button class="btn btn-danger btn-sm btn-buy" data-dealid="<?=$offer->do_ddid?>" data-offerid="<?=$offer->do_autoid?>"><i class="fa fa-shopping-cart"></i></button>
@@ -88,7 +92,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 		<div class="modal-content">
 			<div class="modal-header">
 				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
-				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i>Delivery address for product.</h3>
+				<h3 class="modal-title"><i class="fa fa-shopping-cart"></i> Delivery address for product.</h3>
 			</div>
 			<div class="modal-body">
 				<form id="buystep2frm">

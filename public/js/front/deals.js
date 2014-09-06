@@ -10,7 +10,8 @@ $(document).ready(function(){
 		displayDealsData(JSON.parse(result));
 	});
 	$('.btn-buy').on('click',function(){
-		buy_deal($(this).data('dealid'),$(this).data('offerid'));
+		var qty = $(this).closest("tr").find(".qtyItem").val();
+		buy_deal($(this).data('dealid'),$(this).data('offerid'),qty);
 	});
 
 	var lat = $("#lat").val();
@@ -66,36 +67,48 @@ $(document).ready(function(){
 });
 
 
-function buy_deal (deal_id,offerid) {
+function buy_deal (deal_id,offerid,qty) {
 	if(!isLogin) {$("#buyofferpopup").modal('hide'); openLoginForm(); return; }
 	url = base_url()+'buy/check_login';
-	data = {deal_id:deal_id,offerid:offerid}
+	data = {deal_id:deal_id,offerid:offerid,qty:qty}
 	$.post(url,data,function(data){
+			if (data.indexOf("error") != -1) {
+                alert("An error occured while processing, please try again later.");
+                return false;
+            }
+
 			if (data == "login") {
 				$("#buyofferpopup").modal('hide');
                 openLoginForm();
                 return false;
             }
 
-            if (data == "error") {
-                alert("An error occured while processing, please try again later.");
-                return false;
-            }
-
-            if (data == "success") {
+			if (data == "address")
+			{
 				$("#buyofferpopup").modal('hide');
 				$('#buyofferaddress').modal();
-                return false;
+				return false;
+			}
+
+            if (data == "success") {
+				$.post(base_url()+'buy/', {}, function (data) {
+					if (data == "success") {
+						$("#buyofferpopup").modal('hide');
+						$('#buyoffermessage').modal();
+						return false;
+					}
+				});
             }
 	});
 }
 
 
 $('#buy_step2').on('click',function(){
-
 	$.post(base_url()+'buy/', $("#buystep2frm").serialize(), function (data) {
-		alert(data);
+		if (data == "success") {
+			$("#buyofferaddress").modal('hide');
+			$('#buyoffermessage').modal();
+			return false;
+		}
 	});
-
-
 });

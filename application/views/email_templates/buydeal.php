@@ -17,8 +17,32 @@
 	<?php }?>
 	<span>MRP:(Original Price) <?=$price?></span>
 	<br>
+	<span>Qty: <?=$qty?></span>
 	<br>
-	<a href="<?=base_url()?>deals/getprint/<?=$uid?>/<?=$uniqueId?>" target="_blank">Get Print</a>
+	<br>
+	<?php foreach ($uniqueId as $key=>$val) {?>
+	<a href="<?=base_url()?>deals/getprint/<?=$uid?>/<?=$val?>" target="_blank">Get Print</a>
+	<br>
+	<?php } ?>
 	<br>
 	<br>
+	<?php if(is_array($address)) {?>
+	<span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:25px;color:#222222;">Below are the details shipping address</span>
+	<br>
+	<br>
+	<span>First Name: <?=$address['da_firstname']?></span>
+	<br>
+	<span>Last Name: <?=$address['da_lastname']?></span>
+	<br>
+	<span>Address: <?=$address['da_address']?></span>
+	<br>
+	<span>CIty: <?=$address['da_city']?></span>
+	<br>
+	<span>State: <?=$address['da_state']?></span>
+	<br>
+	<span>Zip: <?=$address['da_pincode']?></span>
+	<br>
+	<span>Phone: <?=$address['da_phone']?></span>
+
+	<?php }?>
 </p>
