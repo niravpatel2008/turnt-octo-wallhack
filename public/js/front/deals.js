@@ -92,6 +92,9 @@ function buy_deal (deal_id,offerid,qty) {
 
             if (data == "success") {
 				$.post(base_url()+'buy/', {}, function (data) {
+					if (data.indexOf("http") >= 0){
+						location.href = data;
+					}
 					if (data == "success") {
 						$("#buyofferpopup").modal('hide');
 						$('#buyoffermessage').modal();
