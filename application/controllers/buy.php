@@ -67,9 +67,9 @@ class Buy extends CI_Controller {
 				exit;
 			}
 
-			$query = null;
-			$query = $this->common_model->get_where(DEAL_USER_ADDRESS, array('da_userid' => $this->front_session['id']));
-			$count = $query->num_rows(); //counting result from query
+			$count = $this->common_model->selectData(DEAL_USER_ADDRESS, '*', array('da_userid' => $this->front_session['id']), "", "", "", "", "", 'rowcount');
+			#$query = $this->common_model->get_where(DEAL_USER_ADDRESS, array('da_userid' => $this->front_session['id']));
+            #$count = $query->num_rows(); //counting result from query
 			$data_address = array('da_userid' => $this->front_session['id'],
 							'da_firstname' => $post['firstname'],
 							'da_lastname' => $post['lastname'],
@@ -149,6 +149,17 @@ class Buy extends CI_Controller {
 
             if (count($buy_id) > 0) {
                 $deal_data = $this->common_model->getDealDetail($cart['deal_id'],$cart['offerid']);
+
+                $user_address = $this->common_model->selectData(DEAL_USER_ADDRESS, '*', array("da_userid"=>$this->front_session['id']));
+                $data_address = array('da_userid' => $this->front_session['id'],
+                            'da_firstname' => $user_address[0]->da_firstname,
+                            'da_lastname' => $user_address[0]->da_lastname,
+                            'da_address' => $user_address[0]->da_address,
+                            'da_city' => $user_address[0]->da_city,
+                            'da_state' => $user_address[0]->da_state,
+                            'da_pincode' => $user_address[0]->da_pincode,
+                            'da_phone' => $user_address[0]->da_phone
+                        );
 
                 $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
                                         'dealer' => $deal_data['detail'][0]['de_name'],

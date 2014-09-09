@@ -103,7 +103,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 						<label>Lastname: </label> <input class="input field primary allow-enter" type="text" name="lastname">
 					</div>
 					<div class="row">
-						<label>Address: </label> <textarea class="input field primary allow-enter" style="height: 100px;" name="address"></textarea>
+						<label>Address: </label> <textarea class="input field primary" style="height: 100px;" name="address"></textarea>
 					</div>
 					<div class="row">
 						<label>City: </label> <input class="input field primary allow-enter" type="text" name="city">

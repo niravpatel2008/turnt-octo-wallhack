@@ -15,6 +15,6 @@ $(document).ready(function(){
 	$('.print-offer').on('click',function(){
 		var uid = $(this).data('uid');
 		var dealuniqueid = $(this).data('dealuniqueid');
-		location.href = base_url()+'deals/getprint/'+uid+'/'+dealuniqueid;
+		window.open(base_url()+'deals/getprint/'+uid+'/'+dealuniqueid,'_blank');
 	})
 });

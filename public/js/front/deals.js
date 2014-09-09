@@ -94,10 +94,8 @@ function buy_deal (deal_id,offerid,qty) {
 				$.post(base_url()+'buy/', {}, function (data) {
 					if (data.indexOf("http") >= 0){
 						location.href = data;
-					}
-					if (data == "success") {
-						$("#buyofferpopup").modal('hide');
-						$('#buyoffermessage').modal();
+					}else{
+						alert(data);
 						return false;
 					}
 				});
@@ -108,9 +106,11 @@ function buy_deal (deal_id,offerid,qty) {
 
 $('#buy_step2').on('click',function(){
 	$.post(base_url()+'buy/', $("#buystep2frm").serialize(), function (data) {
-		if (data == "success") {
-			$("#buyofferaddress").modal('hide');
-			$('#buyoffermessage').modal();
+
+		if (data.indexOf("http") >= 0){
+			location.href = data;
+		}else{
+			alert(data);
 			return false;
 		}
 	});
