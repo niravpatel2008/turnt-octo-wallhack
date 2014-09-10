@@ -24,6 +24,10 @@ class Deals extends CI_Controller {
 			redirect("welcome");
 
 		$dealsDetail = $this->common_model->getDealDetail($id);
+
+		if (count($dealsDetail['detail']) <= 0) {
+			redirect("welcome");
+		}
 		$data['dealsDetail'] = $dealsDetail;
 
 		$data['view'] = "detail";
@@ -116,7 +120,7 @@ class Deals extends CI_Controller {
 		#$this->load->view('print',$data);
 		$html = $this->load->view('print', $data,true);
 		//echo $html;exit;
-		
+
 		$this->load->helper('htmltopdf/WKPDF_MULTI');
 		$pdf = new WKPDF();
 		$pdf->set_html($html);
