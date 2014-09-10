@@ -1,6 +1,8 @@
 <footer role="contentinfo">
     <div class="stripe-darker footer-wrap">
       <div class="row">
+		<div class="large-3 columns" style='padding-bottom: 20px;'>
+		</div>
         <div class="large-6 columns toppad" style='padding-bottom: 20px;'>
           <div class="copyright">Copyright &copy; <?=date("Y")?>, developed by Dx Group. All rights reserved. <a href="<?=base_url()?>privacy_policy" target="_blank" style='color: #3c8dbc;text-decoration: underline;'>Privacy Policy</a></div>
         </div>
