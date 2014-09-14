@@ -193,6 +193,26 @@ class Buy extends CI_Controller {
         $post = $this->input->post();
         if ($post) {
             $data['error_msg'] = $post['error_Message'];
+
+            $deal_data = $this->common_model->getDealDetail($cart['deal_id'],$cart['offerid']);
+            $deal_details = array('name' => $deal_data['detail'][0]['dd_name'],
+                                        'dealer' => $deal_data['detail'][0]['de_name'],
+                                        'offer' => $deal_data['offers']->do_offertitle,
+                                        'valid_till' => $deal_data['detail'][0]['dd_validtilldate'],
+                                        'price' => $deal_data['offers']->do_originalprice,
+                                        'uid' => $data['db_uid'],
+                                        'qty' => $cart['qty'],
+                                        'email' => "payment_failed"
+                                    );
+            $admin_email = $this->common_model->selectData(DEAL_USER, 'du_email', array("du_role"=>'a'));
+            $bcc = $admin_email[0]->du_email.", ".$deal_data['detail'][0]['de_email'];
+
+
+
+            $emailTpl = $this->load->view('email_templates/template', $deal_details, true);
+            $ret = sendEmail($this->front_session['email'], SUBJECT_PAYMENT_FAILED, $emailTpl, FROM_EMAIL, FROM_NAME, '', $bcc);
+
+            $this->session->unset_userdata('cart');
         }
 
         $data['view'] = "failure";

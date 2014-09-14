@@ -26,7 +26,7 @@
 	<?php } ?>
 	<br>
 	<br>
-	<?php if(is_array($address)) {?>
+	<?php /*if(is_array($address)) {?>
 	<span style="margin:0;font-family:Georgia,Time,sans-serif;font-size:25px;color:#222222;">Below are the details shipping address</span>
 	<br>
 	<br>
@@ -44,5 +44,5 @@
 	<br>
 	<span>Phone: <?=$address['da_phone']?></span>
 
-	<?php }?>
+	<?php }*/?>
 </p>
