@@ -11,23 +11,23 @@ function doOrderImage(){
 }
 
 $(document).ready(function(){
-	$(".textarea").wysihtml5({"font-styles": false, 
-	"emphasis": true, 
-	"lists": true, 
-	"html": true, 
-	"link": true, 
-	"image": false, 
-	"color": false   
+	$(".textarea").wysihtml5({"font-styles": false,
+	"emphasis": true,
+	"lists": true,
+	"html": true,
+	"link": true,
+	"image": false,
+	"color": false
 	});
 	$("#deal_form").validationEngine();
 	$('#deal_form').on('submit',function(e){
 		var flag = $("#deal_form").validationEngine("validate");
 		if (!flag)
 			e.preventDefault();
-		if ($("#dd_mainphoto").val() == "") {
+		/*if ($("#dd_mainphoto").val() == "") {
 			$('.dealuploaddiv').validationEngine('showPrompt', 'Please select main photo.', 'error', true);
 			return false;
-		}
+		}*/
 
 		$('.offers_div').each(function(k,v){
 			var offer_data = {};
@@ -170,7 +170,7 @@ $(document).ready(function(){
 			if (e == "1")
 			{
 				if(flag)
-				{	
+				{
 					$(span).addClass("active").removeClass("inactive");
 					$(span).attr('title',"active").attr("atl","active")
 				}
