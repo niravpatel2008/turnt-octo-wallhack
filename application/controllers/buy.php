@@ -191,6 +191,7 @@ class Buy extends CI_Controller {
     public function failure()
     {
         $post = $this->input->post();
+        $cart = $this->session->userdata('cart');
         if ($post) {
             $data['error_msg'] = $post['error_Message'];
 

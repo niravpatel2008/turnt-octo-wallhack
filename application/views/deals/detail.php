@@ -354,7 +354,7 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 						}
 						if (count($validities) > 0) {
 					?>
-					<div id='tab_1-2' class='tab-pane active'>
+					<div id='tab_1-2' class='tab-pane'>
 						<ul class='list-unstyled'>
 							<li>
 								<ul>
