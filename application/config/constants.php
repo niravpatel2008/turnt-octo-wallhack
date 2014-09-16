@@ -61,6 +61,8 @@ define('FROM_NAME', 'djangodeals.com');
 define('SUBJECT_LOGIN_INFO', 'Login info');
 define('SUBJECT_DEAL_INFO', 'Deal info');
 define('SUBJECT_CONTACT_ADMIN', 'Contact us (djangodeals.com)');
+define('SUBJECT_PAYMENT_FAILED', 'Payment failed');
+
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

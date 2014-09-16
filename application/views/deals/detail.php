@@ -261,26 +261,50 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 		<section class='col-lg-6'>
 			<div class="nav-tabs-custom">
 				<ul class="nav nav-tabs pull-right">
-					<li class="active"><a data-toggle="tab" href="#tab_1-1">Detail</a></li>
-					<li ><a data-toggle="tab" href="#tab_2-1">Includes</a></li>
+					<?php
+						if ($includes != '') {
+					?>
+						<li class="active"><a data-toggle="tab" href="#tab_1-1">Includes</a></li>
+					<?php
+						}
+
+						if (count($offers) > 0) {
+					?>
+						<li ><a data-toggle="tab" href="#tab_2-1">Detail</a></li>
+					<?php
+						}
+					?>
+
 					<li class="pull-left header">
 						<i class="fa fa-paperclip"></i>
 						Offer
 					</li>
 				</ul>
 				<div class="tab-content">
+					<?php
+						if ($includes != '') {
+					?>
 					<div id='tab_1-1' class='tab-pane active'>
-						<div id='description'>
-							<ul class='list-unstyled'>
-							<?php foreach($offers as $k=>$offer){?>
-								<li><i class="fa fa-fw fa-bell-o"></i><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></li>
-							<?php } ?>
-							</ul>
-						</div>
-					</div>
-					<div id='tab_2-1' class='tab-pane'>
 						<?=$includes?>
 					</div>
+					<?php
+						}
+
+						if (count($offers) > 0) {
+					?>
+						<div id='tab_2-1' class='tab-pane'>
+							<div id='description'>
+								<ul class='list-unstyled'>
+								<?php foreach($offers as $k=>$offer){?>
+									<li><i class="fa fa-fw fa-bell-o"></i><b>Offer <?=$k+1?>: </b><?=$offer->do_offertitle?></li>
+								<?php } ?>
+								</ul>
+							</div>
+						</div>
+					<?php
+						}
+					?>
+
 				</div>
 			<div>
 		</section>
@@ -288,29 +312,49 @@ $validitydate = "<li>Valid until: ". format_date($detail['dd_validtilldate'])."<
 		<section class='col-lg-6'>
 			<div class="nav-tabs-custom">
 				<ul class="nav nav-tabs pull-right">
-					<li class="active"><a data-toggle="tab" href="#tab_2-2">Description</a></li>
-					<?php if (count($validities) > 0) { ?>
-						<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li>
-					<?php } ?>
-					<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
+					<?php
+						if ($detail['dd_description'] != '') { ?>
+							<li class="active"><a data-toggle="tab" href="#tab_2-2">Description</a></li>
+					<?php
+						}
+						if (count($validities) > 0) { ?>
+							<li ><a data-toggle="tab" href="#tab_1-2">Validity</a></li>
+					<?php
+						}
+						if (count($policies) > 0) { ?>
+							<li ><a data-toggle="tab" href="#tab_2-3">Policy</a></li>
+					<?php
+						}
+					?>
 					<li class="pull-left header">
 						<i class="fa fa-th"></i>
 						Offer
 					</li>
 				</ul>
 				<div class="tab-content">
-					<div id='tab_2-2' class='tab-pane active'>
-						<div id='description'><?=$detail['dd_description'];?></div>
-					</div>
-					<div id='tab_2-3' class='tab-pane'>
-						<ul class='list-unstyled'>
-							<?php foreach ($policies as $policy){
-								echo "<li><i class='fa fa-fw fa-check green'></i> $policy</li>";
-							}?>
-						</ul>
-					</div>
-					<?php if (count($validities) > 0) { ?>
-					<div id='tab_1-2' class='tab-pane'>
+					<?php
+						if ($detail['dd_description'] != '') {
+					?>
+						<div id='tab_2-2' class='tab-pane active'>
+							<div id='description'><?=$detail['dd_description'];?></div>
+						</div>
+					<?php
+						}
+
+						if (count($policies) > 0) {
+					?>
+						<div id='tab_2-3' class='tab-pane'>
+							<ul class='list-unstyled'>
+								<?php foreach ($policies as $policy){
+									echo "<li><i class='fa fa-fw fa-check green'></i> $policy</li>";
+								}?>
+							</ul>
+						</div>
+					<?php
+						}
+						if (count($validities) > 0) {
+					?>
+					<div id='tab_1-2' class='tab-pane active'>
 						<ul class='list-unstyled'>
 							<li>
 								<ul>

@@ -87,17 +87,17 @@ class Deal extends CI_Controller {
 				$error['dd_dealerid'] = 'Please select dealer.';
 				$e_flag=1;
 			}
-			if ($post['dd_catid'] == "") {
+			/*if ($post['dd_catid'] == "") {
 				$error['dd_catid'] = 'Please select category.';
 				$e_flag=1;
-			}
+			}*/
 			if ($post['dd_name'] == "") {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
 
 			$offer_data= $post['offer_data'];
-			if (!isset($offer_data[0]))
+			/*if (!isset($offer_data[0]))
 			{
 				$error['dd_offer'] = 'Please enter atleast one offer.';
 				$e_flag=1;
@@ -122,7 +122,7 @@ class Deal extends CI_Controller {
 			if ($post['dd_tags'] == "") {
 				$error['dd_tags'] = 'Please enter deal tags.';
 				$e_flag=1;
-			}
+			}*/
 
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);
@@ -245,16 +245,16 @@ class Deal extends CI_Controller {
 				$error['dd_dealerid'] = 'Please select dealer.';
 				$e_flag=1;
 			}
-			if ($post['dd_catid'] == "") {
+			/*if ($post['dd_catid'] == "") {
 				$error['dd_catid'] = 'Please select category.';
 				$e_flag=1;
-			}
+			}*/
 			if ($post['dd_name'] == "") {
 				$error['dd_name'] = 'Please enter deal name.';
 				$e_flag=1;
 			}
 			$offer_data= $post['offer_data'];
-			if (!isset($offer_data[0]))
+			/*if (!isset($offer_data[0]))
 			{
 				$error['dd_offer'] = 'Please enter atleast one offer.';
 				$e_flag=1;
@@ -279,7 +279,7 @@ class Deal extends CI_Controller {
 			if ($post['dd_tags'] == "") {
 				$error['dd_tags'] = 'Please enter deal tags.';
 				$e_flag=1;
-			}
+			}*/
 
 			if ($e_flag == 0) {
 				$timeperiod = explode("-",$post['dd_timeperiod']);

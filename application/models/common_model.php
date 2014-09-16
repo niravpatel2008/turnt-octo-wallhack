@@ -301,6 +301,10 @@ class common_model extends CI_Model{
 			$query = $this->db->get();
 			$data['detail'] = $query->result_array();
 
+			if (count($data['detail']) <= 0) {
+				redirect("welcome");
+			}
+
 			$this->db->select("*");
 			$this->db->from(DEAL_LINKS);
 			$this->db->where('dl_ddid',$id);
