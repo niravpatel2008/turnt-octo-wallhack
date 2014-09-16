@@ -103,9 +103,9 @@ class Deal extends CI_Controller {
 				$e_flag=1;
 			}
 			else
-			{
+			{*/
 				$offerdata =  json_decode($offer_data[0],1);
-			}
+			/*}
 
 			if ($post['dd_status'] == "") {
 				$error['dd_status'] = 'Please select status.';
