@@ -25,6 +25,7 @@
 			<link href="<?=public_path()?>css/tagedit/jquery.tagedit.css" rel="stylesheet" type="text/css" />
 			<!-- bootstrap wysihtml5 - text editor -->
 	        <link href="<?=public_path()?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+			<link href="<?=public_path()?>css/daterangepicker/datepicker.css" rel="stylesheet" type="text/css" />
 		<?php } ?>
 
 		<?php if (in_array($this->router->fetch_method(), array("add","edit"))) { ?>

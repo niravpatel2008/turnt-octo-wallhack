@@ -65,6 +65,7 @@
 		<script src="<?=public_path()?>js/plugins/tagedit/jquery.autoGrowInput.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/dropzone/dropzone.js" type="text/javascript"></script>
 		<script src="<?=public_path()?>js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+		<script src="<?=public_path()?>js/plugins/daterangepicker/datepicker.js" type="text/javascript"></script>
     <?php } ?>
 
     <script src="<?=public_path()?>js/AdminLTE/app.js" type="text/javascript"></script>
