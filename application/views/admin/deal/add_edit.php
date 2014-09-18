@@ -70,7 +70,7 @@
                             }
                         ?>
                         <label for="dd_description">Valid until:</label>
-                        <input placeholder="Enter deal validity time" id="dd_validtilldate" class="form-control" name="dd_validtilldate" value="<?=@$deal[0]->dd_validtilldate?>" >
+                        <input placeholder="Enter deal validity time" id="dd_validtilldate" class="form-control" name="dd_validtilldate" value="<?=(@$deal[0]->dd_validtilldate != "")?date("m/d/Y",strtotime(@$deal[0]->dd_validtilldate)):""?>" >
                     </div>
                     <div class="form-group <?=(@$error_msg['dd_description'] != '')?'has-error':'' ?>">
                         <?php

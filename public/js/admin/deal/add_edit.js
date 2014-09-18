@@ -41,12 +41,12 @@ $(document).ready(function(){
 		});
 	});
 
-	/*$('#dd_validtilldate').datepicker({
-		format: 'MM/DD/YYYY'
-	});*/
+	$('#dd_validtilldate').datepicker({
+		format: 'mm/dd/yyyy'
+	});
 
 	$('#dd_timeperiod').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-	$('#dd_validtilldate').daterangepicker({singleDatePicker:true,format: 'MM/DD/YYYY'});
+	//$('#dd_validtilldate').daterangepicker({singleDatePicker:true,format: 'MM/DD/YYYY',startDate:"-0m",endDate:"-0m"});
 
 
 	$( "#img-container" ).sortable({stop: function( event, ui ) {doOrderImage();}});

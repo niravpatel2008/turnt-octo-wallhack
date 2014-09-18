@@ -7,7 +7,7 @@ $validities = array_map('trim',array_filter(explode(",",$detail['dd_conditions']
 //$includes = array_map('trim',array_filter(explode(",",$detail['dd_includes'])));
 $includes = $detail['dd_includes'];
 $policies = array_map('trim',array_filter(explode(",",$detail['dd_policy'])));
-$url = base_url()."deals/detail/".$detail['dd_autoid']."/".$detail['dd_name'];
+$url = base_url()."deals/detail/".$detail['dd_autoid']."/".replace_char($detail['dd_name']);
 $photo = "";
 foreach ($dealsDetail['links'] as $key=>$val)
 {
